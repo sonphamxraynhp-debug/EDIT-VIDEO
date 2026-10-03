@@ -98,3 +98,13 @@ def test_end_to_end_render(tmp_path):
     info = media.probe(out)
     assert (info["width"], info["height"]) == (540, 960)
     assert info["duration"] == pytest.approx(plan["duration"], abs=0.1)
+
+
+def test_load_srt(tmp_path):
+    from vedit.asr import load_transcript
+    srt = tmp_path / "a.srt"
+    srt.write_text("1\n00:00:00,500 --> 00:00:02,000\nmẹ bầu nghén\n\n2\n00:00:02,100 --> 00:00:03,900\nphải làm sao\n",
+                   encoding="utf-8")
+    words = load_transcript(str(srt))
+    assert [w["w"] for w in words] == ["mẹ", "bầu", "nghén", "phải", "làm", "sao"]
+    assert words[0]["s"] == pytest.approx(0.5) and words[3]["seg"] == 1

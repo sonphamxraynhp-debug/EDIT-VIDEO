@@ -5,3 +5,4 @@ output/
 *_final.mp4
 *_work/
 .pytest_cache/
+dist/

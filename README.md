@@ -37,6 +37,15 @@ ngữ cảnh/thuật ngữ sản khoa → chọn tiêu đề mở đầu → d�
 
 Có thể gửi kèm ảnh minh hoạ, nhạc nền, chữ tiêu đề mong muốn, hoặc dặn "không cần duyệt, làm tự động".
 
+## Lưu vào tài khoản Claude (skill "EDIT VIDEO AI")
+
+```bash
+bash packaging/build_skill.sh        # -> dist/edit-video-ai.skill
+```
+Tải file `edit-video-ai.skill` lên claude.ai (bấm **Save skill** trên thẻ file, hoặc *Settings → Capabilities → Skills → Upload*).
+Sau đó ở bất kỳ cuộc trò chuyện nào: tải video thô lên và nói "edit video này". Nếu môi trường không tải được mô hình
+Whisper, gửi kèm file phụ đề `.srt` (vd. xuất từ CapCut) – skill sẽ dùng nó làm lời thoại.
+
 ## Dùng bằng dòng lệnh
 
 ```bash
@@ -58,7 +67,7 @@ Tuỳ chọn hay dùng của `prepare` / `auto`:
 | `--remove 12.5-15.2` | Bỏ hẳn một đoạn (giây theo video gốc), vd. câu nói hỏng – dùng nhiều lần được |
 | `--threshold-db -40` | Ngưỡng lặng cố định (cao hơn = cắt mạnh hơn) khi phòng quay ồn |
 | `--model medium` | Mô hình Whisper nhẹ hơn cho máy yếu |
-| `--transcript t.json` | Dùng transcript có sẵn thay cho nhận dạng |
+| `--transcript t.json` / `t.srt` | Dùng transcript/phụ đề có sẵn thay cho nhận dạng |
 | `--no-asr` | Chỉ cắt lặng, không phụ đề |
 
 Thêm ảnh minh hoạ / nhạc nền trong `edit_plan.json`:
@@ -77,6 +86,7 @@ editor/edit_video.py               CLI: prepare | render | auto | qa
 editor/style.json                  Thông số phong cách đã học
 editor/vedit/                      cut (cắt lặng) · asr (Whisper) · captions · graphics · plan · render · qa
 editor/assets/fonts/               Font OFL hỗ trợ tiếng Việt
+packaging/                         SKILL.md + build_skill.sh → dist/edit-video-ai.skill
 tests/                             python3 -m pytest -q tests/
 ```
 

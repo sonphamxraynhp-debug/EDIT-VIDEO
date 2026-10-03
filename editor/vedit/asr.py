@@ -47,11 +47,14 @@ def transcribe(wav16k_path, cfg, model_name=None, device="auto"):
 def load_transcript(path):
     """Đọc transcript tự cung cấp.
 
-    Hỗ trợ: {"words": [{"w","s","e"}]} | [{"w","s","e"}] | {"segments": [{"text","start","end"}]}.
+    Hỗ trợ: {"words": [{"w","s","e"}]} | [{"w","s","e"}] | {"segments": [{"text","start","end"}]} | file .srt.
     Với dạng segments (không có mốc từng từ), thời gian được chia đều theo số ký tự.
     """
-    with open(path, encoding="utf-8") as f:
-        data = json.load(f)
+    if str(path).lower().endswith(".srt"):
+        data = {"segments": parse_srt(path)}
+    else:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
     if isinstance(data, list):
         return data
     if "words" in data:
@@ -69,3 +72,25 @@ def load_transcript(path):
             words.append({"w": tok, "s": round(t, 3), "e": round(t + d * 0.92, 3), "seg": i})
             t += d
     return words
+
+
+def parse_srt(path):
+    """Đọc phụ đề .srt (vd. xuất từ CapCut) -> [{"text","start","end"}]."""
+    def ts(x):
+        h, m, rest = x.strip().replace(".", ",").split(":")
+        sec, ms = rest.split(",")
+        return int(h) * 3600 + int(m) * 60 + int(sec) + int(ms) / 1000
+
+    with open(path, encoding="utf-8-sig") as f:
+        blocks = f.read().replace("\r\n", "\n").strip().split("\n\n")
+    segs = []
+    for block in blocks:
+        lines = [l for l in block.strip().split("\n") if l.strip()]
+        idx = next((i for i, l in enumerate(lines) if "-->" in l), None)
+        if idx is None:
+            continue
+        a, b = lines[idx].split("-->")
+        text = " ".join(lines[idx + 1:]).strip()
+        if text:
+            segs.append({"text": text, "start": ts(a), "end": ts(b.split()[0])})
+    return segs
