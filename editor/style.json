@@ -1,0 +1,126 @@
+{
+  "_comment": "Thông số phong cách học từ video mẫu của Phòng khám Bác sĩ Phạm Sơn (khung chuẩn 1080x1920). Mọi kích thước px được tự co giãn theo chiều rộng video thật.",
+  "reference_width": 1080,
+  "reference_height": 1920,
+
+  "silence": {
+    "_comment": "Cắt khoảng lặng. Ngưỡng tự động = nền nhiễu + threshold_ratio*(mức giọng - nền nhiễu), tối thiểu nền nhiễu + min_margin_db.",
+    "window_ms": 10,
+    "threshold_ratio": 0.4,
+    "min_margin_db": 10,
+    "min_silence": 0.3,
+    "min_speech": 0.08,
+    "pad_before": 0.1,
+    "pad_after": 0.14,
+    "audio_fade_ms": 12
+  },
+
+  "asr": {
+    "model": "large-v3",
+    "language": "vi",
+    "beam_size": 5,
+    "initial_prompt": "Phòng khám Bác sĩ Phạm Sơn, siêu âm thai, mẹ bầu, thai nhi, nghén, thai kỳ, tam cá nguyệt, dị tật thai, sàng lọc, ối, nhau thai, tăng cân, dinh dưỡng."
+  },
+
+  "captions": {
+    "_comment": "Phụ đề chạy: hộp trắng bo góc, chữ serif đậm màu đen, chữ thường, không dấu câu, tối đa 2 dòng.",
+    "font": "Merriweather_800ExtraBold.ttf",
+    "font_size": 58,
+    "line_spacing": 1.18,
+    "text_color": [17, 17, 17, 255],
+    "box_color": [255, 255, 255, 246],
+    "box_radius": 34,
+    "box_pad_x": 34,
+    "box_pad_y": 20,
+    "center_y_ratio": 0.775,
+    "max_line_chars": 28,
+    "max_line_width": 820,
+    "max_lines": 2,
+    "max_words": 11,
+    "max_duration": 2.8,
+    "min_duration": 0.6,
+    "break_gap": 0.25,
+    "lead_in": 0.04,
+    "hold_after": 0.3,
+    "bridge_gap": 0.6,
+    "lowercase": true,
+    "strip_punctuation": true,
+    "no_end": ["của", "và", "là", "làm", "cho", "với", "mà", "thì", "những", "các", "một", "để", "vì", "nhưng", "hay", "hoặc", "rất", "đã", "đang", "sẽ", "được", "bị", "khi", "nếu", "như", "này", "lại", "cũng", "không", "có"],
+    "break_before": ["nhưng", "mà", "thì", "nên", "vì", "để", "hoặc", "còn", "nếu", "khi", "vì vậy", "cho nên", "tuy nhiên"]
+  },
+
+  "hook": {
+    "_comment": "Tiêu đề mở đầu trong khung bong bóng thoại: nền kem, viền tím vẽ tay, lớp tím nhạt lệch phía sau, đuôi chỉ xuống góc trái.",
+    "min_duration": 1.8,
+    "max_duration": 4.0,
+    "default_style": "clean",
+    "default_position": "top",
+    "positions": {"top": 0.145, "middle": 0.5, "bottom": 0.74},
+    "bubble_width_ratio": 0.84,
+    "bubble_fill": [251, 243, 222, 255],
+    "bubble_border": [142, 92, 214, 255],
+    "bubble_back": [186, 150, 240, 255],
+    "bubble_border_width": 8,
+    "bubble_back_offset": [26, -24],
+    "bubble_radius": 46,
+    "bubble_wobble": 6,
+    "tail_x_ratio": 0.2,
+    "tail_height": 90,
+    "pad_x": 46,
+    "pad_y": 34,
+    "max_line_width": 840,
+    "styles": {
+      "clean":   {"font": "BeVietnamPro_800ExtraBold.ttf", "size": 92, "fill": [10, 10, 10, 255], "stroke": [255, 255, 255, 255], "stroke_width": 6, "glow": null, "uppercase": false},
+      "neon":    {"font": "Montserrat_800ExtraBold.ttf", "size": 100, "fill": [255, 255, 255, 255], "stroke": [12, 12, 12, 255], "stroke_width": 6, "glow": [255, 40, 150, 255], "uppercase": true},
+      "elegant": {"font": "PlayfairDisplay_900Black_Italic.ttf", "size": 96, "fill": [12, 12, 12, 255], "stroke": [255, 255, 255, 255], "stroke_width": 6, "glow": [255, 70, 140, 255], "uppercase": false}
+    },
+    "anim": {"bubble_fade": 0.12, "blur_out": 0.3, "sharp_in_start": 0.1, "sharp_in": 0.25, "fade_out": 0.18}
+  },
+
+  "zoom": {
+    "_comment": "Đổi khung (punch-in) tại các điểm cắt để giấu jump-cut, giữ mỗi khung 1.5-6.5 giây, zoom về phía khuôn mặt.",
+    "levels": [1.0, 1.28, 1.12],
+    "pattern": [0, 1, 2, 1],
+    "min_hold": 1.6,
+    "max_hold": 6.5,
+    "hook_level": 0,
+    "default_face": [0.5, 0.42]
+  },
+
+  "broll": {
+    "_comment": "Ảnh minh hoạ phủ dải trên cùng ~27% chiều cao, mờ dần ở mép dưới, hơi trong suốt để logo phía sau lộ nhẹ.",
+    "band_height_ratio": 0.272,
+    "opacity": 0.93,
+    "bottom_fade_ratio": 0.22,
+    "fade": 0.2
+  },
+
+  "audio": {
+    "loudnorm": true,
+    "target_lufs": -14,
+    "true_peak": -1.5,
+    "highpass_hz": 70,
+    "music_db": -24
+  },
+
+  "encode": {
+    "codec": "libx264",
+    "crf": 16,
+    "preset": "slow",
+    "audio_bitrate": "192k"
+  },
+
+  "glossary": {
+    "_comment": "Sửa chữ hoa / lỗi nhận dạng thường gặp sau khi đã chuyển chữ thường. key = cụm từ chữ thường, value = cách viết đúng.",
+    "phạm sơn": "Phạm Sơn",
+    "bác sĩ sơn": "bác sĩ Sơn",
+    "khoái châu": "Khoái Châu",
+    "hưng yên": "Hưng Yên",
+    "nipt": "NIPT",
+    "siêu âm 4d": "siêu âm 4D",
+    "siêu âm 5d": "siêu âm 5D",
+    "double test": "Double test",
+    "triple test": "Triple test",
+    "bác sỹ": "bác sĩ"
+  }
+}
