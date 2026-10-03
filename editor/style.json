@@ -16,6 +16,8 @@
   },
 
   "asr": {
+    "_comment": "backend: auto (faster-whisper, lỗi thì tự chuyển sherpa-onnx) | faster-whisper | sherpa-onnx",
+    "backend": "auto",
     "model": "large-v3",
     "language": "vi",
     "beam_size": 5,

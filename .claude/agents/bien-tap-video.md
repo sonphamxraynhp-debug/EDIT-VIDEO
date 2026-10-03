@@ -25,8 +25,9 @@ camera thành video ngắn hoàn chỉnh, đúng phong cách các video mẫu đ
 ```bash
 ffmpeg -version | head -1 && python3 -c "import faster_whisper, PIL, numpy, cv2" && echo OK
 ```
-Thiếu thì cài: `pip install -r editor/requirements.txt`. Lần chạy đầu Whisper sẽ tải mô hình (cần mạng tới huggingface.co).
-Máy yếu/không GPU: thêm `--model medium` (nhanh hơn, kém chính xác hơn một chút).
+Thiếu thì cài: `pip install -r editor/requirements.txt`. Nhận dạng giọng nói mặc định (`--asr auto`) dùng Whisper
+(tải từ huggingface.co); nếu mạng chặn sẽ tự chuyển sang Zipformer tiếng Việt (sherpa-onnx, tải từ GitHub).
+Máy yếu/không GPU: thêm `--model medium` hoặc dùng thẳng `--asr sherpa-onnx` (nhanh nhất).
 
 ### Bước 1 – Chuẩn bị (cắt lặng + nhận dạng)
 ```bash
@@ -42,8 +43,9 @@ Kết quả: `work/<tên>/edit_plan.json` (+ `transcript_source.json` được c
    - Sửa dấu tiếng Việt, từ nghe nhầm, thuật ngữ sản khoa (nghén, thai nhi, tam cá nguyệt, NIPT, siêu âm 4D, ối, nhau thai…).
    - Chữ thường, không dấu câu; giữ hoa cho tên riêng (Phạm Sơn, Khoái Châu, Hưng Yên). Không viết hoa sai kiểu "tuổi Thai".
    - **Trung thành với lời nói** – không tóm tắt, không thêm thông tin y khoa bác sĩ không nói.
-   - Câu dài > 2 dòng hoặc ngắt giữa cụm từ: được phép tách/gộp câu, chia lại thời gian theo `words`.
-   - Có thể ép xuống dòng bằng `\n` trong `text`.
+   - Ngắt câu chưa đẹp (vd. "người / nhà thử…"): viết lại toàn bộ phụ đề vào file văn bản, mỗi dòng một câu,
+     rồi chạy `python3 editor/edit_video.py recaption "work/<tên>/edit_plan.json" cau.txt` – tự căn thời gian.
+   - Có thể ép xuống dòng bằng `\n`.
    - Từ nào hay bị nhận dạng sai lặp lại: thêm vào `editor/style.json > glossary` để lần sau tự sửa.
 2. **Nói lặp / nói hỏng (retake)**: nếu thấy bác sĩ nói lại cùng một câu, tìm thời gian GỐC của lần hỏng trong
    `transcript_source.json`, rồi chạy lại Bước 1 với `--remove "A-B"` (giây gốc, dùng nhiều lần được).

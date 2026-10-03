@@ -35,7 +35,8 @@ def caption_lines(text, cfg, k, split):
     """Ngắt dòng phụ đề theo độ rộng pixel thật của font."""
     if "\n" in text:
         return text.split("\n")
-    return split(text, cfg["max_line_width"] * k, cfg["max_lines"], text_measure(cfg["font"], int(cfg["font_size"] * k)))
+    return split(text, cfg["max_line_width"] * k, cfg["max_lines"], text_measure(cfg["font"], int(cfg["font_size"] * k)),
+                 no_end=cfg.get("no_end", ()))
 
 
 def caption_image(lines, W, H, cfg, k):
@@ -156,15 +157,20 @@ def hook_images(hook, W, H, cfg, k, wrap):
         size = int(st["size"] * k)
         txt = hook["text"].upper() if st.get("uppercase") else hook["text"]
         lines = wrap(txt, cfg["max_line_width"] * k, 2, text_measure(st["font"], size))
+    ox, oy = int(cfg["bubble_back_offset"][0] * k), int(cfg["bubble_back_offset"][1] * k)
+    pad_x = int(cfg["pad_x"] * k)
+    # Bong bóng (kể cả lớp tím lệch phía sau) phải nằm trọn trong khung, chừa lề hai bên
+    max_bw = W - 2 * int(24 * k) - abs(ox)
     text_img, tW, tH, tw, th = _styled_text(lines, st, k, st.get("uppercase"))
+    if tw + 2 * pad_x > max_bw:  # chữ quá dài -> thu nhỏ cỡ chữ cho vừa
+        text_img, tW, tH, tw, th = _styled_text(lines, st, k * (max_bw - 2 * pad_x) / tw, st.get("uppercase"))
 
     bw = int(W * cfg["bubble_width_ratio"])
-    bw = max(bw, tw + int(2 * cfg["pad_x"] * k))
-    bw = min(bw, W - int(30 * k))
+    bw = min(max(bw, tw + 2 * pad_x), max_bw)
     bh = th + int(2 * cfg["pad_y"] * k)
     pos = hook.get("position") or cfg["default_position"]
     cy = int(H * cfg["positions"].get(pos, 0.145))
-    x0, y0 = (W - bw) // 2, cy - bh // 2
+    x0, y0 = (W - bw - ox) // 2, cy - bh // 2
     x1, y1 = x0 + bw, y0 + bh
     r = int(cfg["bubble_radius"] * k)
     wob = cfg["bubble_wobble"] * k
@@ -172,7 +178,6 @@ def hook_images(hook, W, H, cfg, k, wrap):
 
     bubble = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(bubble)
-    ox, oy = int(cfg["bubble_back_offset"][0] * k), int(cfg["bubble_back_offset"][1] * k)
     back = _wobbly_rounded_rect(x0 + ox, y0 + oy, x1 + ox, y1 + oy, r, wob, seed=7)
     d.polygon(back, fill=tuple(cfg["bubble_back"]))
     d.line(back + back[:1], fill=tuple(cfg["bubble_border"]), width=max(2, int(cfg["bubble_border_width"] * k * 0.7)), joint="curve")
@@ -181,7 +186,7 @@ def hook_images(hook, W, H, cfg, k, wrap):
     d.line(front + front[:1], fill=tuple(cfg["bubble_border"]), width=max(2, int(cfg["bubble_border_width"] * k)), joint="curve")
 
     sharp = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sharp.alpha_composite(text_img, ((W - tW) // 2, cy - tH // 2))
+    sharp.alpha_composite(text_img, (x0 + (bw - tW) // 2, cy - tH // 2))
     blurred = sharp.filter(ImageFilter.GaussianBlur(14 * k))
     return bubble, sharp, blurred
 

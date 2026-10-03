@@ -29,10 +29,11 @@ Làm việc trong một thư mục ghi được (vd. `/tmp/edit` hoặc thư m�
 ffmpeg -version | head -1
 pip install -q -r $SKILL/scripts/requirements.txt
 ```
-Nhận dạng giọng nói dùng faster-whisper; lần đầu tải mô hình từ huggingface.co (large-v3 ≈ 3 GB,
-`--model medium`/`small` nhẹ hơn). **Nếu môi trường không tải được mô hình** (mạng chặn): nói rõ với người dùng và
-đề nghị một trong hai cách – (a) gửi kèm file phụ đề `.srt` (xuất từ CapCut/Premiere…) rồi chạy với
-`--transcript file.srt`; (b) chỉ cắt lặng với `--no-asr`. Đừng tự bịa lời thoại – bạn không nghe được âm thanh.
+Nhận dạng giọng nói (`--asr auto`, mặc định): thử faster-whisper (tải mô hình từ huggingface.co); nếu không
+được sẽ **tự chuyển sang Zipformer tiếng Việt** của sherpa-onnx (≈ 250 MB, tải từ GitHub Releases, rất nhanh trên CPU;
+mốc thời gian từ kém chính xác hơn nên chỉ dùng cho phụ đề). Nếu cả hai đều không tải được: đề nghị người dùng gửi
+file phụ đề `.srt` (xuất từ CapCut/Premiere…) rồi chạy với `--transcript file.srt`, hoặc chỉ cắt lặng với `--no-asr`.
+Đừng tự bịa lời thoại – bạn không nghe được âm thanh.
 
 ### 1. Chuẩn bị: cắt lặng + nhận dạng
 ```bash
@@ -46,7 +47,10 @@ Phòng quay ồn, cắt chưa đủ → chạy lại với `--threshold-db -40` 
    - Sửa dấu tiếng Việt, từ nghe nhầm, thuật ngữ sản khoa (nghén, thai nhi, tam cá nguyệt, NIPT, siêu âm 4D, ối, nhau thai…).
    - Chữ thường, không dấu câu; viết hoa tên riêng (Phạm Sơn, Khoái Châu, Hưng Yên). Không viết hoa sai kiểu "tuổi Thai".
    - Trung thành với lời nói: không tóm tắt, không thêm thông tin y khoa bác sĩ không nói.
-   - Được tách/gộp câu (chia lại `start`/`end` theo `words`); ép xuống dòng bằng `\n`.
+   - Cách sửa nhanh nhất: viết lại toàn bộ phụ đề vào một file văn bản, **mỗi dòng một câu** (cụm ý 3–10 từ,
+     ngắt ở chỗ người nói ngừng), rồi chạy
+     `python3 $SKILL/scripts/edit_video.py recaption "<work>/<tên>/edit_plan.json" cau.txt` – công cụ tự căn thời gian
+     từng câu theo lời nói. Ép xuống dòng trong một câu bằng `\n`.
 2. **Nói lặp / nói hỏng**: tìm thời gian GỐC trong `transcript_source.json`, chạy lại bước 1 với
    `--remove "A-B"` (giây gốc, dùng nhiều lần được). Transcript được cache nên chạy lại rất nhanh.
 3. **`hook`** (tiêu đề bong bóng 0–4 s đầu, phụ đề tự ẩn trong lúc này):

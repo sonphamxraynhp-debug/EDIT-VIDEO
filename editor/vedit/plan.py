@@ -71,7 +71,7 @@ def zoom_schedule(duration, cuts, chunks, hook_end, cfg):
     return sched
 
 
-def prepare(input_path, workdir, style, transcript=None, model=None, threshold_db=None,
+def prepare(input_path, workdir, style, transcript=None, model=None, asr_backend=None, threshold_db=None,
             remove=None, no_asr=False, hook_text=None, hook_style=None, hook_position=None):
     os.makedirs(workdir, exist_ok=True)
     info = media.probe(input_path)
@@ -92,13 +92,13 @@ def prepare(input_path, workdir, style, transcript=None, model=None, threshold_d
     elif not no_asr:
         wav = os.path.join(workdir, "audio16k.wav")
         media.write_wav16k(samples, info["sample_rate"], wav)
-        words_src = asr.transcribe(wav, style["asr"], model_name=model)
+        words_src = asr.transcribe(wav, style["asr"], model_name=model, backend=asr_backend)
         with open(cache, "w", encoding="utf-8") as f:
             json.dump({"words": words_src}, f, ensure_ascii=False, indent=1)
 
     # 2) Cắt khoảng lặng (không bao giờ cắt vào giữa từ đã nhận dạng)
     segs, thr = cut.detect_speech(samples, info["sample_rate"], style["silence"], threshold_db,
-                                  words=words_src, remove=remove)
+                                  words=[w for w in words_src or [] if not w.get("approx")], remove=remove)
     # Thời gian âm thanh -> thời gian hình (khung 0 = 0s)
     off = info.get("av_offset", 0.0)
     if off:

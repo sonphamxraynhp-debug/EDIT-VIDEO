@@ -108,3 +108,28 @@ def test_load_srt(tmp_path):
     words = load_transcript(str(srt))
     assert [w["w"] for w in words] == ["mẹ", "bầu", "nghén", "phải", "làm", "sao"]
     assert words[0]["s"] == pytest.approx(0.5) and words[3]["seg"] == 1
+
+
+def test_threshold_ignores_digital_silence():
+    # Nền phòng ~-50 dB + đoạn số 0 tuyệt đối giữa hai clip ghép
+    audio = np.concatenate([noise(1.0, 0.003), tone(1.0), np.zeros(2 * SR, np.float32),
+                            noise(1.5, 0.003), tone(1.0), noise(1.0, 0.003)])
+    segs, info = cut.detect_speech(audio[:, None], SR, STYLE["silence"])
+    assert info["noise_db"] > -80
+    assert len(segs) == 2 and sum(b - a for a, b in segs) < 2.8
+
+
+def test_word_span_in_silence_is_trimmed():
+    # Bộ nhận dạng đánh dấu từ bắt đầu từ 1.0 s nhưng tiếng thật bắt đầu ở 2.0 s
+    audio = np.concatenate([tone(1.0), noise(1.0, 0.003), tone(1.0)])
+    words = [{"w": "hôm", "s": 1.0, "e": 2.3}]
+    segs, _ = cut.detect_speech(audio[:, None], SR, STYLE["silence"], words=words)
+    assert len(segs) == 2
+
+
+def test_from_lines_aligns_rewritten_captions():
+    from vedit.captions import from_lines
+    words = [{"w": w, "s": i * 0.4, "e": i * 0.4 + 0.3} for i, w in enumerate("người nhà thử đổi câu mệt gì thành".split())]
+    caps = from_lines(["người nhà thử đổi câu", "mệt gì thành"], words, STYLE["captions"], STYLE["glossary"])
+    assert [c["text"] for c in caps] == ["người nhà thử đổi câu", "mệt gì thành"]
+    assert caps[1]["start"] == pytest.approx(2.0 - STYLE["captions"]["lead_in"], abs=1e-3)

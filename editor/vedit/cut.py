@@ -16,8 +16,11 @@ def frame_db(samples, sample_rate, window_ms):
 
 
 def auto_threshold(db, cfg):
-    noise = float(np.percentile(db, 10))
-    speech = float(np.percentile(db, 90))
+    # Bỏ qua "lặng tuyệt đối" (số 0 kỹ thuật số giữa các clip ghép) khi ước lượng nền nhiễu phòng
+    live = db[db > -90]
+    ref = live if len(live) > 0.2 * len(db) else db
+    noise = float(np.percentile(ref, 10))
+    speech = float(np.percentile(ref, 90))
     # Âm thanh gần như không còn khoảng lặng (vd. video đã cắt): phân vị 10 lại là giọng nói nhỏ
     # -> ước lượng nền nhiễu theo mức giọng để không coi giọng nhỏ là khoảng lặng.
     if speech - noise < 30:
@@ -54,10 +57,22 @@ def detect_speech(samples, sample_rate, cfg, threshold_db=None, words=None, remo
     # Bỏ tiếng động ngắn (click, va chạm) nhưng giữ nếu nằm sát tiếng nói khác
     segs = [s for s in segs if s[1] - s[0] >= cfg["min_speech"]]
 
-    # Đảm bảo phủ trọn các từ đã nhận dạng
+    # Đảm bảo phủ trọn các từ đã nhận dạng – nhưng chỉ phần THỰC SỰ có tiếng: bộ nhận dạng hay kéo
+    # mốc từ sang khoảng lặng (vd. từ đầu mỗi đoạn được đánh dấu từ 0 s), nếu tin nguyên mốc sẽ giữ lại lặng.
     if words:
-        # Bỏ qua từ có mốc thời gian bất thường (Whisper đôi khi kéo dài từ sang cả khoảng lặng)
-        segs += [(w["s"], w["e"]) for w in words if 0 < w["e"] - w["s"] <= 1.2]
+        for w in words:
+            a, b = int(w["s"] / step), int(np.ceil(w["e"] / step))
+            if b <= a:
+                continue
+            idx = np.where(voiced[a:b])[0]
+            if len(idx):
+                segs.append(((a + idx[0]) * step, (a + idx[-1] + 1) * step))
+            elif w["e"] - w["s"] <= 0.6:
+                # Từ nói rất nhỏ dưới ngưỡng: chỉ giữ khi nằm sát tiếng nói thật (≤ 0.3 s),
+                # còn từ "lơ lửng" giữa khoảng lặng là mốc thời gian sai của bộ nhận dạng.
+                near = int(0.3 / step)
+                if voiced[max(0, a - near):b + near].any():
+                    segs.append((w["s"], w["e"]))
         segs.sort()
 
     segs = _merge(segs, cfg["min_silence"])

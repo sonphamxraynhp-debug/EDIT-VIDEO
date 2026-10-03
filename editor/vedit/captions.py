@@ -18,7 +18,7 @@ def normalize(text, cfg, glossary):
     return text
 
 
-def split_lines(text, limit, max_lines=2, measure=len):
+def split_lines(text, limit, max_lines=2, measure=len, no_end=()):
     """Tách thành tối đa max_lines dòng, cân bằng độ dài (ưu tiên dòng trên dài hơn).
 
     limit/measure: giới hạn mỗi dòng theo ký tự (mặc định) hoặc theo pixel (truyền hàm đo chữ).
@@ -33,6 +33,8 @@ def split_lines(text, limit, max_lines=2, measure=len):
         la, lb = measure(a), measure(b)
         over = max(0, la - limit) + max(0, lb - limit)
         score = over * 10 + abs(la - lb) + (4 * unit if lb > la else 0)
+        if words[i - 1].lower() in no_end:  # tránh để từ nối treo cuối dòng ("vì / sợ")
+            score += 8 * unit
         if best_score is None or score < best_score:
             best, best_score = [a, b], score
     return best
@@ -134,3 +136,46 @@ def pick_hook(chunks, hcfg):
     hook_text = text[:1].upper() + text[1:]
     return {"text": hook_text, "start": 0.0, "end": round(end, 3),
             "style": hcfg["default_style"], "position": hcfg["default_position"]}
+
+
+def from_lines(lines, words, cfg, glossary):
+    """Câu phụ đề do người/agent viết lại (mỗi dòng một câu) -> căn thời gian theo mốc từ nhận dạng.
+
+    Dùng khi cần sửa chữ hoặc ngắt câu lại mà không phải đo thời gian bằng tay.
+    """
+    import difflib
+
+    def key(t):
+        return PUNCT_ANY.sub("", t).lower()
+
+    src = [key(w["w"]) for w in words]
+    tgt, owner = [], []
+    for i, line in enumerate(lines):
+        for tok in line.replace("\\n", " ").split():
+            tgt.append(key(tok))
+            owner.append(i)
+    mapping = {}
+    for a, b, n in difflib.SequenceMatcher(None, tgt, src, autojunk=False).get_matching_blocks():
+        for k in range(n):
+            mapping[a + k] = b + k
+
+    out = []
+    for i, line in enumerate(lines):
+        idx = [mapping[j] for j, o in enumerate(owner) if o == i and j in mapping]
+        if not idx:
+            raise ValueError(f"Không khớp được câu với lời nói: {line!r}")
+        # "\\n" gõ trong file = ép xuống dòng tại đó
+        text = "\n".join(normalize(part, cfg, glossary) for part in line.split("\\n"))
+        out.append({"text": text,
+                    "start": round(max(0.0, words[min(idx)]["s"] - cfg["lead_in"]), 3),
+                    "end": round(words[max(idx)]["e"], 3)})
+    for a, b in zip(out, out[1:]):
+        if b["start"] < a["end"]:
+            b["start"] = a["end"]
+        if b["start"] - a["end"] <= cfg["bridge_gap"]:
+            a["end"] = b["start"]
+        else:
+            a["end"] = round(a["end"] + cfg["hold_after"], 3)
+    if out:
+        out[-1]["end"] = round(out[-1]["end"] + cfg["hold_after"], 3)
+    return out

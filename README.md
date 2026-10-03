@@ -54,7 +54,8 @@ python3 editor/edit_video.py auto video_tho.mp4 -o video_final.mp4
 
 # Hoặc từng bước (để sửa phụ đề/hook trước khi dựng)
 python3 editor/edit_video.py prepare video_tho.mp4 -w work/video1
-#   -> sửa work/video1/edit_plan.json (captions, hook, broll, music)
+#   -> sửa work/video1/edit_plan.json (hook, broll, music)
+python3 editor/edit_video.py recaption work/video1/edit_plan.json cau.txt   # phụ đề viết lại, mỗi dòng 1 câu
 python3 editor/edit_video.py render work/video1/edit_plan.json -o video_final.mp4
 python3 editor/edit_video.py qa video_final.mp4 --source video_tho.mp4 --sheet sheet.jpg
 ```
@@ -67,6 +68,7 @@ Tuỳ chọn hay dùng của `prepare` / `auto`:
 | `--remove 12.5-15.2` | Bỏ hẳn một đoạn (giây theo video gốc), vd. câu nói hỏng – dùng nhiều lần được |
 | `--threshold-db -40` | Ngưỡng lặng cố định (cao hơn = cắt mạnh hơn) khi phòng quay ồn |
 | `--model medium` | Mô hình Whisper nhẹ hơn cho máy yếu |
+| `--asr sherpa-onnx` | Dùng Zipformer tiếng Việt (nhanh, tải từ GitHub). Mặc định `auto`: Whisper, lỗi thì tự chuyển |
 | `--transcript t.json` / `t.srt` | Dùng transcript/phụ đề có sẵn thay cho nhận dạng |
 | `--no-asr` | Chỉ cắt lặng, không phụ đề |
 
