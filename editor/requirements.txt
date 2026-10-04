@@ -1,0 +1,5 @@
+faster-whisper>=1.0
+numpy
+pillow>=10
+opencv-python-headless>=4.8,<5
+sherpa-onnx>=1.10
