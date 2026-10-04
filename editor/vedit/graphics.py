@@ -36,7 +36,7 @@ def caption_lines(text, cfg, k, split):
     if "\n" in text:
         return text.split("\n")
     return split(text, cfg["max_line_width"] * k, cfg["max_lines"], text_measure(cfg["font"], int(cfg["font_size"] * k)),
-                 no_end=cfg.get("no_end", ()))
+                 no_end=cfg.get("no_end", ()), keep_together=set(cfg.get("keep_together", ())))
 
 
 def caption_image(lines, W, H, cfg, k):

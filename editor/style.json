@@ -48,6 +48,7 @@
     "lowercase": true,
     "strip_punctuation": true,
     "no_end": ["của", "và", "là", "làm", "cho", "với", "mà", "thì", "những", "các", "một", "để", "vì", "nhưng", "hay", "hoặc", "rất", "đã", "đang", "sẽ", "được", "bị", "khi", "nếu", "như", "này", "lại", "cũng", "không", "có"],
+    "keep_together": ["bác sĩ", "mẹ bầu", "siêu âm", "thai nhi", "thai kỳ", "mang thai", "phòng khám", "câu hỏi", "quần áo", "chiếc váy", "bộ đồ", "tấm ảnh", "vóc dáng", "cân nặng", "tăng cân", "người thân", "người nhà", "dinh dưỡng", "bữa ăn", "điện thoại", "giải thích", "con số", "tình hình", "thể trạng", "tuổi thai", "nước ối", "nhau thai", "dị tật", "sàng lọc", "xét nghiệm", "buổi khám", "lần khám", "mục tiêu", "lo lắng", "tủi thân", "nghỉ ngơi", "dễ chịu", "bao nhiêu", "thế nào", "dạo này"],
     "break_before": ["nhưng", "mà", "thì", "nên", "vì", "để", "hoặc", "còn", "nếu", "khi", "vì vậy", "cho nên", "tuy nhiên"]
   },
 

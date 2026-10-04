@@ -54,9 +54,17 @@ def test_never_cut_inside_word():
     assert any(a <= 1.2 and b >= 1.7 for a, b in segs)
 
 
-def test_split_lines_balanced_top_heavy():
-    assert split_lines("những lúc ấy ép mẹ ăn một bát đầy", 24) == ["những lúc ấy ép mẹ", "ăn một bát đầy"]
-    assert split_lines("hồi nghén", 24) == ["hồi nghén"]
+def test_split_lines_matches_sample_videos():
+    # Ngắt dòng theo độ rộng pixel (đường dùng thật khi dựng) phải khớp các video mẫu
+    from vedit import graphics
+
+    def lines(t):
+        return graphics.caption_lines(t, STYLE["captions"], 1.0, split_lines)
+    assert lines("những lúc ấy ép mẹ ăn một bát đầy") == ["những lúc ấy ép mẹ", "ăn một bát đầy"]
+    assert lines("tăng cân như thế nào là phù hợp") == ["tăng cân như thế nào", "là phù hợp"]
+    assert lines("vì vậy mẹ đừng lấy cân nặng của người khác làm mục tiêu") == [
+        "vì vậy mẹ đừng lấy cân nặng", "của người khác làm mục tiêu"]
+    assert lines("hồi nghén") == ["hồi nghén"]
 
 
 def test_build_chunks_style():
@@ -141,3 +149,9 @@ def test_map_time_nearest_keeps_words_in_cut_gaps():
     assert cut.map_time_nearest(tmap, 1.2) == pytest.approx(1.0)   # gần mép cuối đoạn 1
     assert cut.map_time_nearest(tmap, 1.9) == pytest.approx(1.0)   # gần mép đầu đoạn 2
     assert cut.map_time_nearest(tmap, 2.5) == pytest.approx(1.5)
+
+
+def test_split_lines_keeps_compound_words():
+    from vedit import graphics
+    lines = graphics.caption_lines("mà vẫn buồn khi quần áo chẳng còn vừa", STYLE["captions"], 1.0, split_lines)
+    assert not any(l.endswith("quần") for l in lines)

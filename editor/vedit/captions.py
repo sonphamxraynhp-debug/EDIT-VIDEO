@@ -18,7 +18,7 @@ def normalize(text, cfg, glossary):
     return text
 
 
-def split_lines(text, limit, max_lines=2, measure=len, no_end=()):
+def split_lines(text, limit, max_lines=2, measure=len, no_end=(), keep_together=()):
     """Tách thành tối đa max_lines dòng, cân bằng độ dài (ưu tiên dòng trên dài hơn).
 
     limit/measure: giới hạn mỗi dòng theo ký tự (mặc định) hoặc theo pixel (truyền hàm đo chữ).
@@ -32,9 +32,11 @@ def split_lines(text, limit, max_lines=2, measure=len, no_end=()):
         a, b = " ".join(words[:i]), " ".join(words[i:])
         la, lb = measure(a), measure(b)
         over = max(0, la - limit) + max(0, lb - limit)
-        score = over * 10 + abs(la - lb) + (4 * unit if lb > la else 0)
+        score = over * 10 + abs(la - lb) + (2 * unit if lb > la else 0)
         if words[i - 1].lower() in no_end:  # tránh để từ nối treo cuối dòng ("vì / sợ")
             score += 8 * unit
+        if f"{words[i - 1]} {words[i]}".lower() in keep_together:  # không tách từ ghép ("quần / áo")
+            score += 12 * unit
         if best_score is None or score < best_score:
             best, best_score = [a, b], score
     return best
