@@ -133,3 +133,11 @@ def test_from_lines_aligns_rewritten_captions():
     caps = from_lines(["người nhà thử đổi câu", "mệt gì thành"], words, STYLE["captions"], STYLE["glossary"])
     assert [c["text"] for c in caps] == ["người nhà thử đổi câu", "mệt gì thành"]
     assert caps[1]["start"] == pytest.approx(2.0 - STYLE["captions"]["lead_in"], abs=1e-3)
+
+
+def test_map_time_nearest_keeps_words_in_cut_gaps():
+    tmap = [(0.0, 1.0, 0.0), (2.0, 3.0, 1.0)]
+    assert cut.map_time_nearest(tmap, 0.5) == pytest.approx(0.5)
+    assert cut.map_time_nearest(tmap, 1.2) == pytest.approx(1.0)   # gần mép cuối đoạn 1
+    assert cut.map_time_nearest(tmap, 1.9) == pytest.approx(1.0)   # gần mép đầu đoạn 2
+    assert cut.map_time_nearest(tmap, 2.5) == pytest.approx(1.5)

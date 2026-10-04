@@ -168,6 +168,18 @@ def map_time(tmap, t):
     return None
 
 
+def map_time_nearest(tmap, t):
+    """Như map_time nhưng thời điểm rơi vào phần bị cắt được kéo về mép đoạn giữ lại gần nhất."""
+    best, best_d = None, None
+    for a, b, o in tmap:
+        if a <= t <= b:
+            return o + (t - a)
+        for edge, val in ((a, o), (b, o + (b - a))):
+            if best_d is None or abs(t - edge) < best_d:
+                best, best_d = val, abs(t - edge)
+    return best
+
+
 def cut_points(tmap):
     """Các mốc (giây, sau cắt) nơi hai đoạn được nối với nhau, kèm độ dài phần bị bỏ."""
     pts = []

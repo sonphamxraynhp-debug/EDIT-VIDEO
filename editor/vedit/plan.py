@@ -111,20 +111,22 @@ def prepare(input_path, workdir, style, transcript=None, model=None, asr_backend
     print(f"[prepare] Ngưỡng lặng {thr['threshold_db']} dB (nền {thr['noise_db']}, giọng {thr['speech_db']}). "
           f"Giữ {len(frame_segs)} đoạn: {info['duration']:.1f}s -> {out_dur:.1f}s")
 
-    # 3) Đổi mốc từ sang thời gian sau cắt
+    # 3) Đổi mốc từ sang thời gian sau cắt. Từ có mốc rơi vào phần lặng bị cắt (mốc nhận dạng lệch)
+    #    vẫn được giữ cho phụ đề, kéo về mép đoạn gần nhất; chỉ bỏ từ nằm trong vùng --remove.
     words = []
     for w in words_src or []:
         mid = (w["s"] + w["e"]) / 2
-        if cut.map_time(tmap, mid) is None:
+        if any(ra <= mid <= rb for ra, rb in remove or []):
             continue
-        s = cut.map_time(tmap, w["s"])
-        e = cut.map_time(tmap, w["e"])
-        s = s if s is not None else cut.map_time(tmap, mid)
-        e = e if e is not None else cut.map_time(tmap, mid) + 0.05
+        s = cut.map_time_nearest(tmap, w["s"])
+        e = cut.map_time_nearest(tmap, w["e"])
+        if s is None:
+            continue
         nw = {"w": w["w"], "s": round(s, 3), "e": round(max(e, s + 0.05), 3)}
         if "seg" in w:
             nw["seg"] = w["seg"]
         words.append(nw)
+    words.sort(key=lambda w: w["s"])
 
     chunks = build_chunks(words, style["captions"], style["glossary"]) if words else []
     hook = pick_hook(chunks, style["hook"]) if chunks else None
