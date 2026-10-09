@@ -1,0 +1,158 @@
+{
+  "_comment": "Thông số học từ video mẫu 'Sơn demo' (1080x1920, 30 fps). Kích thước px tính cho khung 1080x1920 và tự co giãn theo video thật; vị trí dọc là tỉ lệ chiều cao.",
+  "reference_width": 1080,
+  "reference_height": 1920,
+
+  "silence": {
+    "_comment": "Cắt khoảng lặng: ngưỡng = nền nhiễu + threshold_ratio*(giọng - nền). Khoảng lặng >= min_silence bị cắt, giữ đệm trước/sau -> khoảng nghỉ còn ~0.2 s như mẫu.",
+    "window_ms": 10,
+    "threshold_ratio": 0.4,
+    "min_margin_db": 10,
+    "min_silence": 0.25,
+    "hysteresis_db": 8,
+    "min_speech": 0.08,
+    "pad_before": 0.08,
+    "pad_after": 0.12,
+    "audio_fade_ms": 8
+  },
+
+  "asr": {
+    "engine": "sherpa",
+    "sherpa_model": "sherpa-onnx-zipformer-vi-2025-04-20",
+    "sherpa_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/{name}.tar.bz2",
+    "int8": false,
+    "whisper_model": "large-v3",
+    "language": "vi",
+    "max_chunk": 18,
+    "initial_prompt": ""
+  },
+
+  "look": {
+    "_comment": "Chữ trắng ở trên chuyển kem-vàng ở dưới, quầng kem sát chữ, phát sáng vàng cam rộng. Bóng ma = bản sao chữ trắng mờ lệch xuống dưới.",
+    "fill_top": [255, 255, 255],
+    "fill_bottom": [255, 228, 150],
+    "halo": [255, 236, 170],
+    "halo_radius": 3.0,
+    "halo_strength": 0.9,
+    "glow": [255, 170, 30],
+    "glow_radius": 9,
+    "glow_strength": 1.15,
+    "glow_wide_strength": 0.45,
+    "ghost_color": [255, 255, 255],
+    "ghost_alpha": 0.42
+  },
+
+  "captions": {
+    "_comment": "Phụ đề chạy: Be Vietnam Pro Bold ~80px, căn giữa, dòng cuối cố định ở 83% chiều cao, tối đa 2 dòng, cụm 2-8 từ, hiện/ẩn bằng mờ->nét.",
+    "font": "BeVietnamPro-ExtraBold.ttf",
+    "size": 78,
+    "min_size": 60,
+    "line_height": 1.2,
+    "bottom_y": 0.831,
+    "max_width": 900,
+    "max_lines": 2,
+    "max_words": 8,
+    "min_words": 2,
+    "target_words": 5,
+    "max_chars": 34,
+    "hard_gap": 0.6,
+    "max_duration": 2.4,
+    "min_duration": 0.45,
+    "break_gap": 0.2,
+    "sentence_gap": 0.32,
+    "capitalize_sentence": true,
+    "lead_in": 0.05,
+    "hold_after": 0.22,
+    "gap": 0.06,
+    "anim_in": 0.13,
+    "anim_out": 0.1,
+    "blur_in": 9,
+    "no_end": ["của", "và", "là", "làm", "cho", "với", "mà", "thì", "những", "các", "một", "để", "vì", "nhưng", "hay", "hoặc", "rất", "đã", "đang", "sẽ", "được", "bị", "khi", "nếu", "như", "cũng", "có", "người", "cả"],
+    "attach_prev": ["nhé", "nhá", "nha", "nhỉ", "không", "chưa", "đâu", "rồi", "ạ", "à", "hả", "thôi", "nữa", "luôn", "đấy", "đó", "này", "nghe"],
+    "break_before": ["nhưng", "mà", "thì", "nên", "vì", "để", "hoặc", "còn", "nếu", "khi", "thay vì", "vì vậy", "cho nên", "tuy nhiên", "và", "hay", "những", "đừng", "muốn", "có khi", "có hôm"]
+  },
+
+  "hook": {
+    "_comment": "Tiêu đề mở đầu kiểu 'Vợ chồng / có cần kể hết?': dòng chính ExtraBold rất to lệch trái, dòng phụ ExtraBold nghiêng lệch phải; giữa khung (~60%), có bóng ma trượt ra sau ~0.25 s.",
+    "start": 0.6,
+    "min_duration": 2.2,
+    "max_duration": 4.0,
+    "auto_max_words": 7,
+    "main_font": "BeVietnamPro-ExtraBold.ttf",
+    "main_size": 175,
+    "sub_font": "BeVietnamPro-ExtraBoldItalic.ttf",
+    "sub_size": 100,
+    "center_y": 0.598,
+    "main_dx": -0.045,
+    "sub_dx": 0.075,
+    "sub_dy": 0.69,
+    "sub_gap": 1.05,
+    "max_width": 0.92,
+    "anim_in": 0.2,
+    "anim_out": 0.18,
+    "blur_in": 14,
+    "ghost": {"delay": 0.25, "slide": 0.35, "dx": 14, "dy": 40}
+  },
+
+  "header": {
+    "_comment": "Tên mục (chương) góc trên trái, giữ tới khi sang mục mới.",
+    "font": "BeVietnamPro-Bold.ttf",
+    "size": 78,
+    "x": 55,
+    "center_y": 0.067,
+    "max_width": 960,
+    "anim_in": 0.22,
+    "anim_out": 0.1,
+    "blur_in": 12
+  },
+
+  "notes": {
+    "_comment": "Ghi chú giữa khung (trên phụ đề): danh sách ✅/❌ chữ nghiêng hiện dần, câu trích dẫn, gạch ngang. Dòng cuối của ghi chú nằm ở 70% chiều cao; các dòng xuất hiện lần lượt.",
+    "font": "BeVietnamPro-ExtraBoldItalic.ttf",
+    "size": 56,
+    "line_pitch": 1.58,
+    "bottom_y": 0.703,
+    "x_left": 108,
+    "max_width": 900,
+    "emoji_scale": 0.95,
+    "anim_in": 0.16,
+    "anim_out": 0.14,
+    "blur_in": 9,
+    "strike_anim": 0.25,
+    "big": {"font": "BeVietnamPro-Bold.ttf", "size": 115, "center_y": 0.617, "emoji_scale": 0.62}
+  },
+
+  "transition": {
+    "_comment": "Chuyển mục / mở đầu: cả khung mờ mạnh + phóng nhẹ rồi nét lại trong ~0.2 s.",
+    "duration": 0.2,
+    "blur": 22,
+    "zoom": 1.06
+  },
+
+  "audio": {
+    "loudnorm": true,
+    "target_lufs": -14,
+    "true_peak": -1.5,
+    "highpass_hz": 70
+  },
+
+  "encode": {
+    "codec": "libx264",
+    "crf": 17,
+    "preset": "medium",
+    "audio_bitrate": "192k"
+  },
+
+  "glossary": {
+    "_comment": "Sửa chữ hoa / lỗi nhận dạng thường gặp. key = cụm từ chữ thường, value = cách viết đúng.",
+    "phạm sơn": "Phạm Sơn",
+    "bác sĩ sơn": "bác sĩ Sơn",
+    "khoái châu": "Khoái Châu",
+    "hưng yên": "Hưng Yên",
+    "hà nội": "Hà Nội",
+    "nipt": "NIPT",
+    "siêu âm 4d": "siêu âm 4D",
+    "siêu âm 5d": "siêu âm 5D",
+    "bác sỹ": "bác sĩ"
+  }
+}
