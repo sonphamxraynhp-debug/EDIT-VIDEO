@@ -1,0 +1,6 @@
+numpy
+pillow>=10
+opencv-python-headless>=4.8
+sherpa-onnx>=1.10
+# Tuỳ chọn – chỉ khi muốn dùng --engine whisper (cần truy cập huggingface.co):
+# faster-whisper>=1.0

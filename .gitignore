@@ -1,0 +1,10 @@
+models/
+__pycache__/
+*.pyc
+*_work/
+work/
+output/
+*.mp4
+*.mov
+*.MOV
+*.m4v
