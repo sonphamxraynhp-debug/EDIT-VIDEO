@@ -87,12 +87,12 @@ def blend(frame, sprite, alpha, blur, dx=0, dy=0, xclip=None):
 
 
 # ----------------------------------------------------------------------------- dựng các lớp từ plan
-def fit_size(text, font_name, size, max_width, min_size, max_lines=1, no_end=()):
+def fit_size(text, font_name, size, max_width, min_size, max_lines=1, no_end=(), glue=()):
     """Giảm cỡ chữ tới khi vừa khung (với số dòng cho phép)."""
     s = size
     while True:
         f = graphics.font(font_name, s)
-        lines = graphics.wrap_balanced(text, f, max_width, max_lines, no_end) if max_lines > 1 else [text]
+        lines = graphics.wrap_balanced(text, f, max_width, max_lines, no_end, glue) if max_lines > 1 else [text]
         if all(graphics.text_width(l, f) <= max_width for l in lines) or s <= min_size:
             return s, lines
         s = max(min_size, s * 0.94)
@@ -111,7 +111,7 @@ def build_layers(plan, style, W, H):
         if not text or cap["end"] - cap["start"] < 0.05:
             continue
         size, lines = fit_size(text, c["font"], c["size"] * k, c["max_width"] * k, c["min_size"] * k,
-                               c["max_lines"], set(c["no_end"]))
+                               c["max_lines"], set(c["no_end"]), set(c.get("compounds", [])))
         if len(lines) > c["max_lines"]:
             warnings.append(f"Phụ đề {cap['start']:.2f}s dài hơn {c['max_lines']} dòng: {text!r}")
         pitch = size * c["line_height"]
@@ -328,7 +328,7 @@ def render(plan_path, output, style, preview=False, keep_temp=False):
             "-t", f"{dur:.4f}", "-movflags", "+faststart", output])
 
     print(f"[render] Dựng {output}: {W}x{H} @ {info['fps_str']}, {n_frames} khung ({dur:.1f}s), "
-          f"{len(layers)} lớp chữ, {len(trs)} chuyển cảnh", flush=True)
+          f"{len(layers)} lớp chữ, {len(trs)} chuyển cảnh (gồm hiệu ứng mở đầu)", flush=True)
     pd = subprocess.Popen(dec, stdout=subprocess.PIPE)
     pe = subprocess.Popen(enc, stdin=subprocess.PIPE)
     fsize = W * H * 3
@@ -383,6 +383,7 @@ def render(plan_path, output, style, preview=False, keep_temp=False):
 
 
 def stills(plan_path, times, out_path, style, width=360, cols=4):
+    cols = max(1, min(cols, len(times)))
     """Ảnh xem nhanh tại các thời điểm (giây, sau cắt) – không cần render cả video."""
     from PIL import Image, ImageDraw
 

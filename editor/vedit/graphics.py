@@ -121,8 +121,11 @@ def text_width(text, fnt, emoji_scale=1.0):
 
 
 # ----------------------------------------------------------------------------- xuống dòng
-def wrap_balanced(text, fnt, max_width, max_lines=2, no_end=()):
-    """Chia 1–2 dòng cân đối; tôn trọng '\\n' do người soát đặt."""
+def wrap_balanced(text, fnt, max_width, max_lines=2, no_end=(), glue=()):
+    """Chia 1–2 dòng cân đối; tôn trọng '\\n' do người soát đặt.
+
+    Không ngắt dòng sau từ lửng (no_end) hay giữa hai âm tiết của một từ ghép (glue: {"vợ chồng", ...}).
+    """
     if "\n" in text:
         return [l.strip() for l in text.split("\n") if l.strip()]
     if text_width(text, fnt) <= max_width:
@@ -138,9 +141,12 @@ def wrap_balanced(text, fnt, max_width, max_lines=2, no_end=()):
         if wa < wb:
             cost += (wb - wa) * 0.2  # ưu tiên dòng trên dài hơn hoặc bằng dòng dưới
         if words[i - 1].lower() in no_end:
-            cost += fnt.size * 1.5
+            cost += fnt.size * 8
+        if f"{words[i - 1]} {words[i]}".lower() in glue:
+            cost += fnt.size * 8
         if max(wa, wb) > max_width:
-            cost += 10000
+            # Hơi tràn thì chấp nhận được: fit_size sẽ thu nhỏ cỡ chữ thay vì ngắt dòng xấu
+            cost += (max(wa, wb) - max_width) * 2
         if best_cost is None or cost < best_cost:
             best, best_cost = [a, b], cost
     return best

@@ -9,6 +9,13 @@ Bạn là biên tập viên video ngắn. Bạn biến video thô quay một ng�
 điều phối, **soát & viết lại phụ đề bằng hiểu biết tiếng Việt**, dựng cấu trúc (tiêu đề, mục, ghi chú) từ nội dung
 lời nói, và **kiểm tra kết quả bằng mắt** trước khi giao.
 
+Phong cách của agent này là **chữ trắng-vàng phát sáng, không hộp nền** (video mẫu "Sơn demo"). Nếu môi trường
+còn skill/agent biên tập video khác (vd. phong cách hộp trắng chữ serif), khi được gọi bằng agent này thì dùng phong
+cách và công cụ `editor/` của repo này.
+
+**Các ví dụ chữ trong tài liệu này và trong docs là của video mẫu – không sao chép**; mọi chữ trên màn hình phải lấy
+từ lời nói thật trong `transcript`/`words` của video đang edit.
+
 Kiến thức phong cách: `docs/PHAN_TICH_VIDEO_MAU.md` (đọc khi cần quyết định thẩm mỹ). Thông số: `editor/style.json`
 (chỉ sửa bản sao và truyền bằng `--style` khi người dùng muốn đổi phong cách).
 
@@ -34,6 +41,8 @@ chạy lại rất nhanh). Phòng ồn, cắt chưa đủ → thêm `--threshold
 
 ## 2. Đọc nội dung
 Đọc `transcript` (các câu theo chỗ ngừng; `start/end` = giây SAU cắt, `src` = giây GỐC) và `words` (từng từ, giây sau cắt).
+`transcript` chia câu chỉ theo chỗ ngừng nên có thể có "câu" 1 từ (người nói ngừng nhấn sau "nhưng", "đừng"...) –
+đó không phải lỗi, cứ gộp vào câu sau khi viết phụ đề. Mốc thời gian của từ có thể lệch ~0.1–0.2 s.
 Hiểu bài nói: câu hỏi mở đầu, các ý/tình huống, thứ có thể liệt kê, câu trích dẫn, câu chốt.
 
 **Nói vấp / nói lại / câu hỏng**: tìm thời gian GỐC (`src`) của đoạn hỏng, chạy lại bước 1 với `--remove "A-B"`
@@ -52,7 +61,11 @@ Mỗi phần tử: `{"start", "end", "text"}`. Quy tắc (học từ mẫu):
   không tách tiểu từ cuối câu (*nhé, không, đâu, rồi*) khỏi câu.
 - Chữ thường, **viết hoa chữ đầu khi bắt đầu câu mới**; bỏ dấu câu; số dùng chữ số khi tự nhiên ("cả 2", "3 tháng").
 - `start` = `s` của từ đầu − 0.05; `end` = `e` của từ cuối + ~0.2 nhưng ≤ `start` cụm sau − 0.06. Không chồng lấn.
-- Cụm dài sẽ tự xuống 2 dòng cân đối; muốn ép chỗ xuống dòng thì chèn `\n`.
+- Cụm dài sẽ tự xuống 2 dòng cân đối (tránh tách từ ghép thường gặp, tránh dòng trên kết thúc bằng từ lửng);
+  vẫn thấy ngắt xấu khi xem ảnh kiểm tra thì chèn `\n` vào đúng chỗ.
+- Khoảng trống rất ngắn giữa hai cụm (cụm trước mờ đi, cụm sau hiện lên) là **chủ ý**, giống video mẫu.
+- Cách chắc chắn đủ lời: viết danh sách cụm (chuỗi văn bản), rồi bằng Python ánh xạ lần lượt vào `words` theo số từ
+  (assert dùng hết mọi từ) để lấy `start/end` – sửa chính tả ở chuỗi văn bản, không đổi số từ trừ khi gộp/tách có chủ ý.
 
 ### 3b. `hook` – tiêu đề mở đầu
 ```json
@@ -100,7 +113,8 @@ Mỗi phần tử: `{"start", "end", "text"}`. Quy tắc (học từ mẫu):
 ```bash
 $E still work/<tên>/edit_plan.json -t 0.3 1.5 3 <giữa mỗi mục> <lúc mỗi ghi chú hiện đủ> <cuối> -o work/<tên>/check.jpg
 ```
-Xem ảnh (Read): chữ có tràn khung/che mặt không, ghi chú có đè phụ đề không, hook đọc được không. Sửa plan, xem lại.
+Xem ảnh (Read): chữ có tràn khung/che mặt không, **chỗ xuống dòng của phụ đề có tách từ ghép / để từ lửng cuối dòng
+không**, ghi chú có đè phụ đề không, hook đọc được không. Sửa plan, xem lại.
 
 ## 5. Render + QA
 ```bash

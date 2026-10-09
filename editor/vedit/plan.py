@@ -75,7 +75,7 @@ def prepare(input_path, workdir, style, transcript=None, engine=None, threshold_
         hook = {"start": style["hook"]["start"], "end": style["hook"]["start"] + 3.0,
                 "lines": [{"text": parts[0], "style": "main"}] + [{"text": p, "style": "sub"} for p in parts[1:]]}
     elif sents:
-        hook = captions.auto_hook(sents, style["hook"])
+        hook = captions.auto_hook(sents, style["hook"], set(ccfg["no_end"]))
 
     plan = {
         "input": os.path.abspath(input_path),

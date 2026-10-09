@@ -35,6 +35,7 @@ def build_captions(words, cfg, glossary=None):
     n = len(words)
     no_end = set(cfg["no_end"])
     attach = set(cfg.get("attach_prev", []))
+    glue = set(cfg.get("compounds", []))
     starters = [s.split() for s in cfg["break_before"]]
     toks = [w["w"].lower() for w in words]
 
@@ -62,6 +63,8 @@ def build_captions(words, cfg, glossary=None):
                 c += 4.0
             if toks[j + 1] in attach:
                 c += 5.0
+            if f"{toks[j]} {toks[j + 1]}" in glue:
+                c += 6.0
         return c
 
     best = [0.0] + [None] * n
@@ -111,22 +114,27 @@ def sentences(words, sentence_gap):
              "text": " ".join(w["w"] for w in s)} for s in out]
 
 
-def auto_hook(sents, cfg):
-    """Tiêu đề mở đầu mặc định từ câu đầu: dòng to 1–3 từ + dòng nghiêng phần còn lại."""
+def auto_hook(sents, cfg, no_end=()):
+    """Tiêu đề mở đầu mặc định từ câu đầu: dòng to 1–2 từ + dòng nghiêng ngắn (≤ 4 từ, thêm "?" nếu là câu hỏi).
+
+    Chỉ là gợi ý – agent nên viết lại cho gọn ý.
+    """
     if not sents:
         return None
     words = sents[0]["text"].split()
-    if len(words) > cfg["auto_max_words"]:
-        words = words[:cfg["auto_max_words"]]
-    if len(words) <= 3:
-        lines = [{"text": capitalize_first(" ".join(words)), "style": "main"}]
-    else:
-        k = 2 if len(" ".join(words[:2])) <= 10 else 1
-        sub = " ".join(words[k:])
-        if words[-1] in QUESTION_END:
-            sub += "?"
-        lines = [{"text": capitalize_first(" ".join(words[:k])), "style": "main"},
-                 {"text": sub, "style": "sub"}]
+    while words and words[0] in {"là", "thì", "và", "mà", "nhưng", "còn"}:
+        words = words[1:]
+    if not words:
+        return None
+    question = sents[0]["text"].split()[-1] in QUESTION_END or any(w in QUESTION_END for w in words[2:9])
+    k = 2 if len(words) > 2 and len(" ".join(words[:2])) <= 12 else 1
+    main = capitalize_first(" ".join(words[:k]))
+    sub = words[k:k + 4]
+    while sub and (sub[-1] in no_end or sub[-1] in QUESTION_END):
+        sub = sub[:-1]
+    lines = [{"text": main, "style": "main"}]
+    if sub:
+        lines.append({"text": " ".join(sub) + ("?" if question else ""), "style": "sub"})
     start = cfg["start"]
     end = min(max(sents[0]["end"] + 0.4, start + cfg["min_duration"]), start + cfg["max_duration"])
     return {"auto": True, "start": round(start, 2), "end": round(end, 2), "lines": lines}
