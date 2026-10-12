@@ -25,8 +25,12 @@ def default_model_root():
     env = os.environ.get("EDIT_VIDEO_MODELS")
     if env:
         return env
-    repo_models = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "models")
-    return repo_models
+    # Mặc định: <repo>/models; nếu thư mục đó không ghi được (vd. skill cài sẵn, chỉ đọc) -> ~/.cache/edit-video/models
+    local = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "models")
+    parent = os.path.dirname(local)
+    if os.path.isdir(local) or os.access(parent, os.W_OK):
+        return local
+    return os.path.join(os.path.expanduser("~"), ".cache", "edit-video", "models")
 
 
 # ----------------------------------------------------------------------------- chia đoạn
