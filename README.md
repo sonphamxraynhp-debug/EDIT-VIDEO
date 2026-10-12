@@ -54,6 +54,6 @@ docs/                     phân tích video mẫu
 ```
 
 ## Lưu thành skill trong tài khoản Claude
-`bash skill/build.sh` tạo `output/editvideoai.skill` (skill **editvideoai** = agent này + toàn bộ công cụ, font, emoji,
+`bash skill/build.sh` tạo `dist/editvideoai.skill` (bản dựng sẵn đã có trong repo) (skill **editvideoai** = agent này + toàn bộ công cụ, font, emoji,
 tài liệu phân tích). Mở file đó trong Claude và bấm **Save skill**, hoặc tải lên ở claude.ai → Settings → Capabilities → Skills.
 Nội dung skill: `skill/SKILL.md`; sửa code trong `editor/` rồi chạy lại `build.sh` để cập nhật.
