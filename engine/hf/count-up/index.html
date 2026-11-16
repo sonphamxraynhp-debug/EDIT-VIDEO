@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Count Up Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg, #0b0c0e);
+      }
+
+      #root {
+        --bg: #0b0c0e;
+        --fg: #f8fafc;
+        --muted: #94a3b8;
+        --surface: #14171c;
+        --border: #343a46;
+        --brand: #71f5a7;
+        --accent: #61a8ff;
+        --accent-2: #c5a3ff;
+        --font-display: Inter, system-ui, sans-serif;
+        --font-body: Inter, system-ui, sans-serif;
+        --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        --radius: 3cqmin;
+        --space-1: 1.2cqmin;
+        --space-2: 2.4cqmin;
+        --space-3: 4cqmin;
+        --dur-beat: 0.4s;
+        --ease-standard: cubic-bezier(0.215, 0.61, 0.355, 1);
+        --ease-emphasis: cubic-bezier(0.19, 1, 0.22, 1);
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: radial-gradient(
+          ellipse at 50% 44%,
+          color-mix(in srgb, var(--surface) 88%, var(--accent-2)) 0%,
+          var(--bg) 72%
+        );
+      }
+
+      .mount-card {
+        width: 72%;
+        height: 42%;
+        left: 14%;
+        top: 29%;
+        container-type: size;
+        overflow: hidden;
+        border: 0.12cqmin solid color-mix(in srgb, var(--border) 72%, transparent);
+        border-radius: calc(var(--radius) * 1.35);
+        background: color-mix(in srgb, var(--surface) 78%, transparent);
+        box-shadow: 0 4cqh 10cqh color-mix(in srgb, var(--bg) 64%, transparent);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="count-up-demo" data-start="0" data-width="1920" data-height="1080" data-duration="3" data-fps="30" data-hf-anc="">
+      <div id="count-up-mount" class="mount-card clip" data-composition-id="count-up" data-variable-values="{&quot;start&quot;:1200,&quot;end&quot;:12500,&quot;prefix&quot;:&quot;$&quot;,&quot;suffix&quot;:&quot;+&quot;,&quot;accent&quot;:&quot;violet&quot;}" data-start="0" data-duration="3" data-track-index="0" data-width="1382" data-height="454" data-composition-variables="[
+    { &quot;id&quot;: &quot;start&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Start value&quot;, &quot;description&quot;: &quot;First value shown by the count.&quot;, &quot;default&quot;: 0, &quot;step&quot;: 1 },
+    { &quot;id&quot;: &quot;end&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;End value&quot;, &quot;description&quot;: &quot;Final value where the count lands.&quot;, &quot;default&quot;: 100, &quot;step&quot;: 1 },
+    { &quot;id&quot;: &quot;prefix&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Prefix&quot;, &quot;description&quot;: &quot;Optional text shown before the value.&quot;, &quot;default&quot;: &quot;&quot; },
+    { &quot;id&quot;: &quot;suffix&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Suffix&quot;, &quot;description&quot;: &quot;Optional text shown after the value.&quot;, &quot;default&quot;: &quot;%&quot; },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Color used by the count.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;glow&quot;, &quot;type&quot;: &quot;boolean&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Glow&quot;, &quot;description&quot;: &quot;Optional soft accent glow under the count. Off by default.&quot;, &quot;default&quot;: false },
+    { &quot;id&quot;: &quot;exit&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Exit&quot;, &quot;description&quot;: &quot;Optional departure. Default none: the landed value holds until the frame cuts.&quot;, &quot;default&quot;: &quot;none&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;none&quot;, &quot;label&quot;: &quot;None&quot; }, { &quot;value&quot;: &quot;fade&quot;, &quot;label&quot;: &quot;Fade&quot; }, { &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="count-up" data-duration="3" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            isolation: isolate;
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            pointer-events: none;
+          }
+
+          .cu-clip {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: var(--bg, transparent);
+          }
+
+          .cu-stage {
+            display: flex;
+            width: 92cqw;
+            align-items: baseline;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--cu-accent);
+            font-size: var(--cu-font-size);
+            font-variant-numeric: tabular-nums;
+            font-feature-settings: "tnum" 1;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.045em;
+            text-align: center;
+            transform-origin: 50% 58%;
+            white-space: nowrap;
+            will-change: transform, opacity;
+          }
+
+          /* Glow is opt-in via the glow variable; the register ships flat. */
+          .cu-stage.cu-glow {
+            text-shadow: 0 2.4cqh 7cqh color-mix(in srgb, var(--cu-accent) 24%, transparent);
+          }
+
+          .cu-affix {
+            position: relative;
+            flex: 0 0 auto;
+            color: color-mix(in srgb, var(--cu-accent) 72%, var(--fg, #f8fafc));
+            font-size: 0.55em;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+          }
+
+          /* Affix gaps are font-relative (em of the affix), never layout
+             spacing tokens, so the lockup scales with the figure. */
+          .cu-prefix {
+            margin-right: 0.14em;
+          }
+
+          .cu-suffix {
+            margin-left: 0.14em;
+          }
+
+          .cu-affix:empty {
+            display: none;
+          }
+
+          .cu-value {
+            display: inline-block;
+            min-width: 1ch;
+          }
+        </style>
+
+        <div id="count-up-clip" class="cu-clip clip" data-start="0" data-duration="3" data-track-index="0">
+          <div class="cu-stage" role="img">
+            <span class="cu-affix cu-prefix" aria-hidden="true"></span>
+            <span class="cu-value" aria-hidden="true"></span>
+            <span class="cu-affix cu-suffix" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            var stage = root.querySelector(".cu-stage");
+            var valueElement = root.querySelector(".cu-value");
+            var prefixElement = root.querySelector(".cu-prefix");
+            var suffixElement = root.querySelector(".cu-suffix");
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            var startCandidate = vars.start;
+            var endCandidate = vars.end;
+            var start = Number.isFinite(startCandidate) ? startCandidate : 0;
+            var end = Number.isFinite(endCandidate) ? endCandidate : 100;
+            var prefix = vars.prefix == null ? "" : String(vars.prefix);
+            var suffix = vars.suffix == null ? "%" : String(vars.suffix);
+            var accentColors = {
+              green: "var(--brand, #71f5a7)",
+              blue: "var(--accent, #61a8ff)",
+              violet: "var(--accent-2, #c5a3ff)",
+            };
+            var accent = Object.prototype.hasOwnProperty.call(accentColors, vars.accent)
+              ? vars.accent
+              : "green";
+            var glow = vars.glow === true || vars.glow === "true";
+            var exit = vars.exit === "fade" || vars.exit === "up" ? vars.exit : "none";
+
+            function formatValue(value) {
+              return Math.round(value).toLocaleString("en-US");
+            }
+
+            prefixElement.textContent = prefix;
+            suffixElement.textContent = suffix;
+
+            // Optical trim: flex baseline alignment is metric, not optical.
+            // At 0.55em a lone currency glyph hugs the baseline and a lone
+            // math-axis glyph (+, ~) sits below the figures' visual middle,
+            // so the two affixes land at different heights. Lift both onto
+            // the figures' optical center; full-height strings (%, letters,
+            // digits) stay on the shared baseline.
+            function affixLift(text) {
+              if (/^[$€£¥₹₩]$/.test(text)) return "-0.31em";
+              if (/^[+−±×=~<>-]+$/.test(text)) return "-0.36em";
+              return "";
+            }
+            prefixElement.style.top = affixLift(prefix);
+            suffixElement.style.top = affixLift(suffix);
+            root.style.setProperty("--cu-accent", accentColors[accent]);
+            stage.classList.toggle("cu-glow", glow);
+
+            var startText = prefix + formatValue(start) + suffix;
+            var endText = prefix + formatValue(end) + suffix;
+            var characterCount = Math.max(
+              Array.from(startText).length,
+              Array.from(endText).length,
+              1,
+            );
+            var fittedCqw = Math.min(20, 150 / characterCount);
+            root.style.setProperty("--cu-font-size", "min(" + fittedCqw.toFixed(3) + "cqw, 34cqh)");
+            stage.setAttribute("aria-label", endText);
+
+            var IN_BASE = 2.05;
+            var OUT_BASE = exit === "none" ? 0 : 0.45;
+            var COUNT_BASE = 1.72;
+            var PULSE_HALF_BASE = 0.165;
+            var ARRIVAL_BASE = 0.38;
+            var STILLNESS = 0.25;
+            var FPS = 30;
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "3"));
+            var totalBase = Math.max(0.001, IN_BASE + OUT_BASE);
+            var scale = duration < totalBase ? duration / totalBase : 1;
+            var IN = IN_BASE * scale;
+            var OUT = OUT_BASE * scale;
+            var COUNT = COUNT_BASE * scale;
+            var PULSE_HALF = PULSE_HALF_BASE * scale;
+            var ARRIVAL = ARRIVAL_BASE * scale;
+            var HOLD = Math.max(0, duration - (IN + OUT));
+            var HOLD_START = IN;
+            var OUT_START = IN + HOLD;
+            var lastFrame = Math.max(1, Math.round(COUNT * FPS));
+            var countEase = gsap.parseEase("sine.inOut");
+            var frameRows = [];
+
+            for (var frame = 0; frame <= lastFrame; frame += 1) {
+              var progress = frame / lastFrame;
+              var easedProgress = countEase(progress);
+              frameRows.push(formatValue(start + (end - start) * easedProgress));
+            }
+
+            gsap.set(stage, { opacity: 0, y: "2.2cqh", scale: 0.98 });
+            valueElement.textContent = frameRows[0];
+
+            var tl = gsap.timeline({ paused: true });
+
+            tl.to(stage, { opacity: 1, duration: ARRIVAL, ease: "power2.out" }, 0);
+            tl.to(stage, { y: "0cqh", scale: 1, duration: ARRIVAL, ease: "power3.out" }, 0);
+
+            frameRows.forEach(function (row, frameIndex) {
+              tl.set(valueElement, { textContent: row }, COUNT * (frameIndex / lastFrame));
+            });
+
+            tl.to(stage, { scale: 1.07, duration: PULSE_HALF, ease: "power3.out" }, COUNT);
+            tl.to(
+              stage,
+              { scale: 1, duration: PULSE_HALF, ease: "power2.out" },
+              COUNT + PULSE_HALF,
+            );
+
+            var driftDuration = Math.max(0, HOLD - STILLNESS);
+            if (driftDuration > 0) {
+              tl.to(
+                stage,
+                {
+                  y: "-0.55cqh",
+                  duration: driftDuration / 2,
+                  ease: "sine.inOut",
+                  yoyo: true,
+                  repeat: 1,
+                },
+                HOLD_START,
+              );
+            }
+
+            // OUT: optional departure; exit none holds until the frame cuts.
+            if (exit === "up") {
+              tl.to(stage, { y: "-2.2cqh", duration: OUT, ease: "power2.in" }, OUT_START);
+              tl.to(
+                stage,
+                { opacity: 0, scale: 0.985, duration: OUT, ease: "power2.in" },
+                OUT_START,
+              );
+            } else if (exit === "fade") {
+              tl.to(stage, { opacity: 0, duration: OUT, ease: "power2.in" }, OUT_START);
+            }
+
+            tl.seek(0);
+            window.__timelines = window.__timelines || {};
+            window.__timelines["count-up"] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["count-up-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

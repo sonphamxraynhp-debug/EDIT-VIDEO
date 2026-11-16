@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>light-sweep-pass Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg, #eef0f3);
+      }
+
+      #root {
+        --bg: #eef0f3;
+        --fg: #14171c;
+        --muted: #626873;
+        --surface: #fbfcfd;
+        --border: #d3d8df;
+        --brand: #16a34a;
+        --accent: #0284c7;
+        --accent-2: #7c5cff;
+        --font-display: Inter, system-ui, sans-serif;
+        --font-body: Inter, system-ui, sans-serif;
+        --radius: 22px;
+        --space-1: 8px;
+        --space-2: 16px;
+        --space-3: 32px;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg, #eef0f3);
+      }
+
+      .mount-stage {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        container-type: size;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="light-sweep-pass-demo" data-start="0" data-width="1920" data-height="1080" data-duration="4" data-fps="30" data-hf-anc="">
+      <div id="light-sweep-pass-mount" class="mount-stage clip" data-composition-id="light-sweep-pass" data-variable-values="{&quot;angle&quot;:128,&quot;sweep_at&quot;:0.6,&quot;accent&quot;:&quot;blue&quot;}" data-start="0" data-duration="4" data-track-index="0" data-width="1920" data-height="1080" data-composition-variables="[
+    { &quot;id&quot;: &quot;angle&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Angle&quot;, &quot;description&quot;: &quot;Band and highlight gradient angle in degrees.&quot;, &quot;default&quot;: 115, &quot;min&quot;: 60, &quot;max&quot;: 160, &quot;step&quot;: 1, &quot;unit&quot;: &quot;deg&quot; },
+    { &quot;id&quot;: &quot;sweep_at&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Sweep start&quot;, &quot;description&quot;: &quot;Seconds after mount start when the band starts crossing.&quot;, &quot;default&quot;: 0.9, &quot;min&quot;: 0, &quot;max&quot;: 8, &quot;step&quot;: 0.05, &quot;unit&quot;: &quot;s&quot; },
+    { &quot;id&quot;: &quot;strength&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Strength&quot;, &quot;description&quot;: &quot;Band opacity and highlight bloom multiplier.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;subtle&quot;, &quot;label&quot;: &quot;Subtle&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }] },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Tint inside the band and the highlight blooms.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;exit&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Exit&quot;, &quot;description&quot;: &quot;Outgoing transition. None holds the settled key.&quot;, &quot;default&quot;: &quot;none&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;none&quot;, &quot;label&quot;: &quot;None&quot; }, { &quot;value&quot;: &quot;fade&quot;, &quot;label&quot;: &quot;Fade&quot; }, { &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="light-sweep-pass" data-duration="4" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          /* --light-x starts off-frame left; the timeline is its only
+             writer. --lsp-angle and --lsp-strength are set once at mount. */
+          #root {
+            --light-x: -35;
+            --lsp-angle: 115;
+            --lsp-strength: 1;
+            position: absolute;
+            inset: 0;
+            container-type: size;
+            isolation: isolate;
+            overflow: hidden;
+            background: var(--bg, #0b0c0e);
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-body, Inter, system-ui, sans-serif);
+          }
+
+          .lsp-clip,
+          .lsp-stage,
+          .lsp-scene,
+          .lsp-ambient,
+          .lsp-band {
+            position: absolute;
+            inset: 0;
+          }
+
+          .lsp-clip {
+            overflow: hidden;
+          }
+
+          .lsp-stage {
+            opacity: 0;
+          }
+
+          .lsp-scene {
+            overflow: hidden;
+          }
+
+          /* Every lit element derives its whole treatment from the ONE
+             --light-x scalar: distance d to the band, |d| via max(d, -d),
+             a 0..1 proximity bloom, a shadow that slides away from the
+             light and deepens as the band passes. Elements opt in with
+             data-lit and an inline --lsp-x (center along the sweep axis,
+             percent of frame width). */
+          [data-lit] {
+            --lsp-d: calc(var(--light-x) - var(--lsp-x, 50));
+            --lsp-abs: max(var(--lsp-d), calc(-1 * var(--lsp-d)));
+            --lsp-glow: clamp(0, calc(1 - var(--lsp-abs) / 26), 1);
+            position: relative;
+            box-shadow: calc(clamp(-30, var(--lsp-d), 30) * -0.05cqw)
+              calc(0.8cqh + var(--lsp-glow) * 0.7cqh) calc(2.2cqh + var(--lsp-glow) * 2.4cqh)
+              color-mix(in srgb, #000000 26%, transparent);
+          }
+
+          /* The highlight bloom: a static angle-matched gradient whose
+             opacity is the proximity term. No transitions, no tweens. */
+          [data-lit]::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            background: linear-gradient(
+              calc(var(--lsp-angle) * 1deg),
+              color-mix(in srgb, #ffffff 86%, var(--lsp-accent, #22c55e)) 0%,
+              transparent 62%
+            );
+            opacity: calc(var(--lsp-glow) * 0.32 * var(--lsp-strength));
+          }
+
+          /* Ambient lift: the scene starts a touch dim and brightens for
+             good once the band has entered the frame. Monotonic in
+             --light-x, so the settle never re-dims it. */
+          .lsp-ambient {
+            pointer-events: none;
+            background: #000000;
+            opacity: calc(clamp(0, (26 - var(--light-x)) / 130, 0.16) * var(--lsp-strength));
+          }
+
+          /* The band: an oversized angle-matched gradient sheet that only
+             ever translates along X, driven by the same scalar. Screen
+             blend keeps it a light, never a paint. */
+          .lsp-band {
+            inset: -55%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            background: linear-gradient(
+              calc(var(--lsp-angle) * 1deg),
+              transparent 36%,
+              color-mix(in srgb, #ffffff 24%, transparent) 46%,
+              color-mix(in srgb, #ffffff 78%, var(--lsp-accent, #22c55e)) 50%,
+              color-mix(in srgb, #ffffff 24%, transparent) 54%,
+              transparent 64%
+            );
+            opacity: 0;
+            transform: translateX(calc((var(--light-x) - 50) * 1.4cqw));
+            will-change: transform, opacity;
+          }
+
+          #root[data-strength="subtle"] {
+            --lsp-strength: 0.55;
+          }
+
+          /* ---------- default slot scene: token hero + three cards ---------- */
+
+          .lsp-default {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-rows: auto auto;
+            align-content: center;
+            justify-items: center;
+            row-gap: var(--space-3, 5cqh);
+            padding: var(--space-3, 6cqh) 10cqw;
+            background: linear-gradient(
+              calc(var(--lsp-angle) * 1deg),
+              color-mix(in srgb, var(--fg, #f8fafc) 3%, var(--bg, #0b0c0e)) 0%,
+              var(--bg, #0b0c0e) 55%,
+              color-mix(in srgb, #000000 6%, var(--bg, #0b0c0e)) 100%
+            );
+          }
+
+          .lsp-hero {
+            display: grid;
+            align-content: center;
+            row-gap: var(--space-2, 2.4cqh);
+            width: 58cqw;
+            height: 30cqh;
+            padding: var(--space-3, 4cqh) var(--space-3, 3cqw);
+            border: 0.16cqw solid var(--border, #343a46);
+            border-radius: var(--radius, 2.4cqmin);
+            background: var(--surface, #14171c);
+          }
+
+          .lsp-hero-bar {
+            width: 46%;
+            height: 4.6cqh;
+            border-radius: 1.4cqh;
+            background: color-mix(in srgb, var(--fg, #f8fafc) 82%, var(--surface, #14171c));
+          }
+
+          .lsp-hero-line {
+            height: 2.2cqh;
+            border-radius: 1.1cqh;
+            background: var(--muted, #94a3b8);
+            opacity: 0.55;
+          }
+
+          .lsp-hero-line:nth-of-type(3) {
+            width: 72%;
+          }
+
+          .lsp-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: var(--space-2, 2cqw);
+            width: 58cqw;
+          }
+
+          .lsp-card {
+            display: grid;
+            align-content: start;
+            row-gap: var(--space-1, 1.6cqh);
+            height: 24cqh;
+            padding: var(--space-2, 2.6cqh) var(--space-2, 1.6cqw);
+            border: 0.16cqw solid var(--border, #343a46);
+            border-radius: var(--radius, 2.4cqmin);
+            background: var(--surface, #14171c);
+          }
+
+          .lsp-dot {
+            width: 3.4cqh;
+            height: 3.4cqh;
+            border-radius: 50%;
+            background: color-mix(in srgb, var(--lsp-accent, #22c55e) 72%, var(--surface, #14171c));
+          }
+
+          .lsp-line {
+            height: 1.9cqh;
+            border-radius: 1cqh;
+            background: var(--muted, #94a3b8);
+            opacity: 0.5;
+          }
+
+          .lsp-line:nth-of-type(3) {
+            width: 64%;
+          }
+        </style>
+
+        <div id="light-sweep-pass-clip" class="lsp-clip clip" data-start="0" data-duration="4" data-track-index="0">
+          <div class="lsp-stage">
+            <div class="lsp-scene" data-slot="scene">
+              
+              <div class="lsp-default" aria-hidden="true">
+                <div class="lsp-hero" data-lit="" style="--lsp-x: 50">
+                  <div class="lsp-hero-bar"></div>
+                  <div class="lsp-hero-line"></div>
+                  <div class="lsp-hero-line"></div>
+                </div>
+                <div class="lsp-row">
+                  <div class="lsp-card" data-lit="" style="--lsp-x: 31">
+                    <div class="lsp-dot"></div>
+                    <div class="lsp-line"></div>
+                    <div class="lsp-line"></div>
+                  </div>
+                  <div class="lsp-card" data-lit="" style="--lsp-x: 50">
+                    <div class="lsp-dot"></div>
+                    <div class="lsp-line"></div>
+                    <div class="lsp-line"></div>
+                  </div>
+                  <div class="lsp-card" data-lit="" style="--lsp-x: 69">
+                    <div class="lsp-dot"></div>
+                    <div class="lsp-line"></div>
+                    <div class="lsp-line"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lsp-ambient" aria-hidden="true"></div>
+            <div class="lsp-band" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            // Literal id: mount flattening strips data-composition-id from the
+            // live root before this timeline registers.
+            var compositionId = "light-sweep-pass";
+            var stage = root.querySelector(".lsp-stage");
+            var band = root.querySelector(".lsp-band");
+
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            function clampNumber(raw, fallback, min, max) {
+              var value = raw == null ? fallback : Number(raw);
+              if (!Number.isFinite(value)) return fallback;
+              return Math.max(min, Math.min(max, value));
+            }
+
+            var angle = clampNumber(vars.angle, 115, 60, 160);
+            var sweepAt = clampNumber(vars.sweep_at, 0.9, 0, 8);
+            var strength = vars.strength === "subtle" ? "subtle" : "standard";
+            var accentTokens = {
+              green: "var(--brand, #22c55e)",
+              blue: "var(--accent, #38bdf8)",
+              violet: "var(--accent-2, #c5a3ff)",
+            };
+            var accent = Object.prototype.hasOwnProperty.call(accentTokens, vars.accent)
+              ? vars.accent
+              : "green";
+            // The bundler mirrors composition variables as scoped CSS custom
+            // props, so this unit's own accent variable can shadow the contract
+            // --accent token ("blue" is a valid CSS color). When the shadow is
+            // present, fall back to the literal contract value.
+            var shadowedAccent = getComputedStyle(root).getPropertyValue("--accent").trim();
+            if (
+              shadowedAccent === "green" ||
+              shadowedAccent === "blue" ||
+              shadowedAccent === "violet"
+            ) {
+              accentTokens.blue = "#38bdf8";
+            }
+            // INVARIANT: only none | fade | up reaches the timeline.
+            var exit = vars.exit === "fade" || vars.exit === "up" ? vars.exit : "none";
+
+            root.dataset.strength = strength;
+            root.style.setProperty("--lsp-angle", String(angle));
+            root.style.setProperty("--lsp-accent", accentTokens[accent]);
+
+            // RETIME RANGE: fixed IN and OUT scale together only when D is
+            // too short. HOLD is the sole elastic phase. Never timeScale().
+            var SWEEP_BASE = 1.6;
+            var SETTLE_BASE = 0.55;
+            var STAGE_IN_BASE = 0.5;
+            var IN_BASE = sweepAt + SWEEP_BASE + SETTLE_BASE;
+            var OUT_BASE = exit === "none" ? 0 : 0.5;
+
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "4"));
+            var totalBase = IN_BASE + OUT_BASE;
+            var scale = duration < totalBase ? duration / totalBase : 1;
+            var SWEEP = SWEEP_BASE * scale;
+            var SETTLE = SETTLE_BASE * scale;
+            var STAGE_IN = Math.min(STAGE_IN_BASE * scale, IN_BASE * scale);
+            var SWEEP_AT = sweepAt * scale;
+            var SWEEP_END = SWEEP_AT + SWEEP;
+            var IN = IN_BASE * scale;
+            var OUT = OUT_BASE * scale;
+            var HOLD = Math.max(0, duration - (IN + OUT));
+            var OUT_START = IN + HOLD;
+
+            // The light's authored waypoints: parked off-frame left, fully
+            // crossed off-frame right, then the resting key in the upper
+            // third of the travel. All in --light-x units (frame percent).
+            var LIGHT_START = -35;
+            var LIGHT_CROSSED = 118;
+            var LIGHT_REST = 62;
+
+            function fireSfx(id, t) {
+              root.dispatchEvent(
+                new CustomEvent("hf:sfx", { detail: { id: id, t: t }, bubbles: true }),
+              );
+            }
+
+            // ONE proxy owns --light-x; every highlight, shadow, ambient
+            // lift, and the band transform read it via calc in static CSS.
+            var light = { x: LIGHT_START };
+            function writeLight() {
+              root.style.setProperty("--light-x", light.x.toFixed(3));
+            }
+            writeLight();
+
+            gsap.set(stage, { opacity: 0, y: "1.5cqh" });
+            gsap.set(band, { autoAlpha: 0 });
+
+            var tl = gsap.timeline({ paused: true });
+
+            // IN: the scene settles first, then one confident crossing.
+            tl.to(stage, { opacity: 1, y: "0cqh", duration: STAGE_IN, ease: "power2.out" }, 0);
+            tl.fromTo(
+              light,
+              { x: LIGHT_START },
+              {
+                x: LIGHT_CROSSED,
+                duration: SWEEP,
+                ease: "sine.inOut",
+                onUpdate: writeLight,
+              },
+              SWEEP_AT,
+            );
+            tl.fromTo(
+              band,
+              { autoAlpha: 0 },
+              {
+                autoAlpha: 1,
+                duration: Math.min(0.3 * scale, SWEEP),
+                ease: "power1.out",
+                immediateRender: false,
+              },
+              SWEEP_AT,
+            );
+            tl.to(
+              band,
+              { autoAlpha: 0, duration: 0.35 * scale, ease: "power1.in" },
+              Math.max(SWEEP_AT, SWEEP_END - 0.35 * scale),
+            );
+
+            // The settle: the band is gone; the key light glides back to its
+            // resting position and the per-element shading follows it there.
+            tl.to(
+              light,
+              { x: LIGHT_REST, duration: SETTLE, ease: "power2.out", onUpdate: writeLight },
+              SWEEP_END,
+            );
+            tl.call(
+              function () {
+                fireSfx("light-settle-soft", IN);
+              },
+              [],
+              IN,
+            );
+
+            // HOLD: deliberately still under the settled key.
+
+            // OUT: only when the exit variable asks for one.
+            if (exit !== "none") {
+              tl.to(stage, { opacity: 0, duration: OUT, ease: "power2.in" }, OUT_START);
+              if (exit === "up") {
+                tl.to(stage, { y: "-6cqh", duration: OUT, ease: "power2.in" }, OUT_START);
+              }
+            }
+
+            tl.seek(0);
+
+            window.__timelines = window.__timelines || {};
+            window.__timelines[compositionId] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["light-sweep-pass-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

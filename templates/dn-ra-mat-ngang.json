@@ -1,0 +1,82 @@
+{
+ "id": "dn-ra-mat-ngang",
+ "name": "Ra mắt sản phẩm (ngang)",
+ "category": "doanhnghiep",
+ "aspect": "16:9",
+ "pack": "hf_tin",
+ "desc": "Video ngang: tiêu đề đập mạnh, điện thoại + tablet + laptop xoè ra, thẻ tính năng bay quanh, 3 điện thoại giới thiệu app.",
+ "tags": [
+  "ra mắt",
+  "sản phẩm",
+  "3D",
+  "ngang"
+ ],
+ "title": "Ra mắt sản phẩm",
+ "caption_style": "hf_gradient_fill",
+ "music": "epic_2",
+ "brand": {
+  "primary": "#7C5CFF",
+  "accent": "#FFD166",
+  "dark": "#0A0718"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên sản phẩm",
+  "tính năng"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.2
+ },
+ "fx": [
+  {
+   "t": 4,
+   "type": "whip"
+  },
+  {
+   "t": 14.8,
+   "type": "flash"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "headline-slam",
+   "t0": 0,
+   "t1": 3.6,
+   "hideCaptions": true,
+   "vars": {
+    "text": "Sản phẩm mới đã có mặt",
+    "accent_word_index": 1
+   }
+  },
+  {
+   "type": "hf",
+   "block": "multi-device-splay",
+   "t0": 4,
+   "t1": 8.6,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "orbit-card",
+   "t0": 9,
+   "t1": 14.4,
+   "hideCaptions": true,
+   "offset": 4,
+   "vars": {
+    "feature1Title": "Luôn đồng bộ",
+    "feature1Desc": "Thay đổi cập nhật tức thì trên mọi thiết bị."
+   }
+  },
+  {
+   "type": "hf",
+   "block": "app-showcase",
+   "t0": 14.8,
+   "t1": 20.2,
+   "hideCaptions": true
+  }
+ ]
+}

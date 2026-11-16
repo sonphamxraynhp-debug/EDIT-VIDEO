@@ -1,0 +1,110 @@
+{
+ "id": "rv-my-pham-truoc-sau",
+ "name": "Mỹ phẩm trước – sau",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "transform",
+ "desc": "Review làm đẹp / chăm da: đếm ngày dùng, thanh trượt trước-sau, chỉ số đo được và con dấu WOW.",
+ "tags": [
+  "mỹ phẩm",
+  "skincare",
+  "trước sau",
+  "làm đẹp"
+ ],
+ "title": "14 ngày dùng thử",
+ "caption_style": "transform",
+ "music": "happy",
+ "brand": {
+  "primary": "#FF6FA8",
+  "accent": "#FFD36E",
+  "dark": "#22101A"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh trước / sau thật (cùng ánh sáng)",
+  "ảnh sản phẩm",
+  "số liệu đo thật"
+ ],
+ "preview": {
+  "from": 2.4,
+  "to": 8.4,
+  "still": 7.8
+ },
+ "scenes": [
+  {
+   "type": "tf_timer",
+   "t0": 0.2,
+   "t1": 2.8,
+   "x": 360,
+   "y": 700,
+   "size": 82,
+   "from": 1,
+   "to": 14,
+   "unit": "Ngày",
+   "title": "Dùng thử 14 ngày",
+   "count": 1.6
+  },
+  {
+   "type": "rv_product",
+   "t0": 3.0,
+   "t1": 6.0,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "image": "media/serum.png",
+   "name": "Tên sản phẩm",
+   "brand": "Thương hiệu",
+   "price": "390.000đ",
+   "badge": "DÙNG THỬ"
+  },
+  {
+   "type": "tf_slider",
+   "t0": 6.2,
+   "t1": 10.6,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "frame": "card",
+   "before_label": "NGÀY 1",
+   "after_label": "NGÀY 14"
+  },
+  {
+   "type": "tf_stats",
+   "t0": 10.8,
+   "t1": 15.0,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "title": "Đo bằng máy (ví dụ)",
+   "rows": [
+    {
+     "label": "Độ ẩm",
+     "from": 38,
+     "to": 52,
+     "unit": "%",
+     "better": "up"
+    },
+    {
+     "label": "Dầu nhờn",
+     "from": 64,
+     "to": 48,
+     "unit": "%",
+     "better": "down"
+    }
+   ]
+  },
+  {
+   "type": "tf_stamp",
+   "t0": 17.8,
+   "t1": 20.2,
+   "x": 360,
+   "y": 520,
+   "size": 100,
+   "text": "WOW!",
+   "style": "wow",
+   "sub": "Kết quả mỗi người khác nhau",
+   "keep": true
+  }
+ ]
+}

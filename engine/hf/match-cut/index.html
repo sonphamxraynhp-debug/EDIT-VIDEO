@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Match Cut Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0c0e;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 44%, #171a20 0%, #0b0c0e 72%);
+      }
+
+      .mount-card {
+        width: 72%;
+        height: 72%;
+        left: 14%;
+        top: 14%;
+        container-type: size;
+        overflow: hidden;
+        border: 2px solid rgba(148, 163, 184, 0.22);
+        border-radius: 32px;
+        background: #0d121d;
+        box-shadow: 0 48px 120px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="match-cut-demo" data-start="0" data-width="1920" data-height="1080" data-duration="4" data-fps="30" data-hf-anc="">
+      <div id="match-cut-mount" class="mount-card clip" data-composition-id="match-cut" data-variable-values="{&quot;accent&quot;:&quot;violet&quot;,&quot;label_a&quot;:&quot;Launch&quot;,&quot;label_b&quot;:&quot;Complete&quot;}" data-start="0" data-duration="4" data-track-index="0" data-width="1382" data-height="778" data-composition-variables="[
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Color shared by the matched circles.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;label_a&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Scene A label&quot;, &quot;description&quot;: &quot;Text inside the outgoing button.&quot;, &quot;default&quot;: &quot;Start&quot; },
+    { &quot;id&quot;: &quot;label_b&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Scene B label&quot;, &quot;description&quot;: &quot;Result text revealed after the cut.&quot;, &quot;default&quot;: &quot;Done&quot; }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="match-cut" data-duration="4" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            isolation: isolate;
+            color: #f8fafc;
+            font-family: Inter, system-ui, sans-serif;
+            pointer-events: none;
+          }
+
+          .mc-clip,
+          .mc-shell,
+          .mc-scene {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+          }
+
+          .mc-scene {
+            display: grid;
+            place-items: center;
+          }
+
+          .mc-scene-a {
+            background: radial-gradient(circle at 50% 50%, #182032 0%, #0b0f18 68%);
+          }
+
+          .mc-scene-b {
+            background: radial-gradient(circle at 50% 44%, #202b42 0%, #0d121d 72%);
+            opacity: 0;
+          }
+
+          /* Both actors share this one geometry owner. At the cut, each is
+             centered at scale 1, so their painted circles match exactly. */
+          .mc-circle {
+            display: grid;
+            place-items: center;
+            width: 32cqmin;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: var(--mc-accent, #4ade80);
+            box-shadow: 0 3.2cqh 8cqh color-mix(in srgb, var(--mc-accent, #4ade80) 30%, transparent);
+            transform-origin: 50% 50%;
+            will-change: transform;
+          }
+
+          .mc-label-a {
+            display: block;
+            max-width: 78%;
+            overflow: hidden;
+            color: #081018;
+            font-size: 5.2cqmin;
+            font-weight: 780;
+            letter-spacing: -0.035em;
+            line-height: 1;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .mc-circle-b {
+            color: #081018;
+          }
+
+          .mc-check {
+            width: 34%;
+            height: 22%;
+            border-left: 2.4cqmin solid currentColor;
+            border-bottom: 2.4cqmin solid currentColor;
+            transform: translateY(-8%) rotate(-45deg);
+          }
+
+          .mc-copy-b {
+            position: absolute;
+            top: 69%;
+            left: 12cqw;
+            right: 12cqw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.6cqh;
+            text-align: center;
+          }
+
+          .mc-kicker,
+          .mc-label-b {
+            opacity: 0;
+          }
+
+          .mc-kicker {
+            color: color-mix(in srgb, var(--mc-accent, #4ade80) 76%, #f8fafc);
+            font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+            font-size: 2.1cqmin;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+          }
+
+          .mc-label-b {
+            display: block;
+            max-width: 74cqw;
+            overflow: hidden;
+            color: #f8fafc;
+            font-size: 6.8cqmin;
+            font-weight: 760;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        </style>
+
+        <div id="match-cut-clip" class="mc-clip clip" data-start="0" data-duration="4" data-track-index="0">
+          <div class="mc-shell">
+            <section class="mc-scene mc-scene-a" aria-label="Outgoing scene">
+              <div class="mc-circle mc-circle-a">
+                <span class="mc-label-a"></span>
+              </div>
+            </section>
+
+            <section class="mc-scene mc-scene-b" aria-label="Incoming scene">
+              <div class="mc-circle mc-circle-b" aria-hidden="true">
+                <span class="mc-check"></span>
+              </div>
+              <div class="mc-copy-b">
+                <span class="mc-kicker" data-hft="0">Match complete</span>
+                <span class="mc-label-b"></span>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            var shell = root.querySelector(".mc-shell");
+            var sceneA = root.querySelector(".mc-scene-a");
+            var sceneB = root.querySelector(".mc-scene-b");
+            var circleA = root.querySelector(".mc-circle-a");
+            var circleB = root.querySelector(".mc-circle-b");
+            var labelA = root.querySelector(".mc-label-a");
+            var labelB = root.querySelector(".mc-label-b");
+            var revealB = root.querySelectorAll(".mc-kicker, .mc-label-b");
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            var accentName =
+              vars.accent === "blue" || vars.accent === "violet" ? vars.accent : "green";
+            var accents = { green: "#4ade80", blue: "#60a5fa", violet: "#a78bfa" };
+            var labelAText = vars.label_a == null ? "Start" : String(vars.label_a);
+            var labelBText = vars.label_b == null ? "Done" : String(vars.label_b);
+
+            root.style.setProperty("--mc-accent", accents[accentName]);
+            labelA.textContent = labelAText;
+            labelB.textContent = labelBText;
+
+            var IN_BASE = 2.35;
+            var OUT_BASE = 0.5;
+            var CUT_AT_BASE = 1.4;
+            var A_APPROACH_BASE = 0.45;
+            var B_SETTLE_BASE = 0.65;
+            var COPY_DELAY_BASE = 0.1;
+            var COPY_IN_BASE = 0.55;
+
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "4"));
+            var envelopeBase = IN_BASE + OUT_BASE;
+            var phaseScale = duration < envelopeBase ? duration / envelopeBase : 1;
+            var IN = IN_BASE * phaseScale;
+            var OUT = OUT_BASE * phaseScale;
+            var CUT_AT = CUT_AT_BASE * phaseScale;
+            var A_APPROACH = A_APPROACH_BASE * phaseScale;
+            var B_SETTLE = B_SETTLE_BASE * phaseScale;
+            var COPY_DELAY = COPY_DELAY_BASE * phaseScale;
+            var COPY_IN = COPY_IN_BASE * phaseScale;
+            var HOLD = Math.max(0, duration - IN - OUT);
+            var HOLD_START = IN;
+            var OUT_START = IN + HOLD;
+
+            var tl = gsap.timeline({ paused: true });
+
+            tl.set(shell, { opacity: 0 }, 0);
+            tl.set(sceneA, { opacity: 1 }, 0);
+            tl.set(sceneB, { opacity: 0 }, 0);
+            tl.set(circleA, { scale: 0.54 }, 0);
+            tl.set(circleB, { scale: 1, y: 0 }, 0);
+            tl.set(revealB, { opacity: 0, y: "2.4cqh" }, 0);
+
+            tl.to(shell, { opacity: 1, duration: Math.min(0.3, IN), ease: "power2.out" }, 0);
+            tl.to(circleA, { scale: 0.64, duration: A_APPROACH, ease: "power3.out" }, 0);
+            tl.to(
+              circleA,
+              {
+                scale: 1,
+                duration: Math.max(0, CUT_AT - A_APPROACH),
+                ease: "power4.in",
+              },
+              A_APPROACH,
+            );
+
+            // HARD CUT: both opacity states change at the exact same instant.
+            tl.set(sceneA, { opacity: 0 }, CUT_AT);
+            tl.set(sceneB, { opacity: 1 }, CUT_AT);
+
+            // Scene B starts at the matching geometry and leaves the cut at
+            // peak speed, then decelerates into its smaller resting pose.
+            tl.to(circleB, { scale: 0.74, duration: B_SETTLE, ease: "power4.out" }, CUT_AT);
+            tl.to(
+              revealB,
+              {
+                opacity: 1,
+                y: 0,
+                duration: COPY_IN,
+                stagger: 0.08 * phaseScale,
+                ease: "power3.out",
+              },
+              CUT_AT + COPY_DELAY,
+            );
+
+            if (HOLD > 0) {
+              tl.to(
+                circleB,
+                {
+                  y: "-0.8cqh",
+                  duration: HOLD / 2,
+                  ease: "sine.inOut",
+                  yoyo: true,
+                  repeat: 1,
+                },
+                HOLD_START,
+              );
+            }
+
+            tl.to(shell, { opacity: 0, duration: OUT, ease: "power2.in" }, OUT_START);
+
+            tl.seek(0);
+            window.__timelines = window.__timelines || {};
+            window.__timelines["match-cut"] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["match-cut-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

@@ -1,0 +1,126 @@
+{
+ "id": "ai-quet-hologram",
+ "name": "Quét hologram AI",
+ "category": "ai",
+ "aspect": "9:16",
+ "pack": "broadcast",
+ "desc": "Vật thể được nhắc tới hiện thành wireframe phát sáng trên bệ chiếu: khoá mục tiêu, giá trị cuộn chữ chuyển màu hổ phách, chip xếp vào thanh bên; phụ đề HUD có sóng âm.",
+ "tags": [
+  "hologram",
+  "hud",
+  "công nghệ",
+  "ai",
+  "wireframe"
+ ],
+ "title": "Video AI",
+ "caption_style": "bc_holo",
+ "recipe_opts": {
+  "variant": "holo"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "vật thể chính nhắc tới (điện thoại / máy tính / sách / cốc / video)",
+  "2 bộ phận để khoá",
+  "giá trị thật cho thẻ (trạng thái, tên)",
+  "2–4 mục cho bàn xoay"
+ ],
+ "preview": {
+  "from": 2.2,
+  "to": 8.2,
+  "still": 5.6
+ },
+ "fx": [
+  {
+   "t": 10.6,
+   "type": "glitch"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "bc_holo_chrome",
+   "t0": 0,
+   "t1": 20.2,
+   "keep": true,
+   "subject": "VIDEO MẪU // QUÉT"
+  },
+  {
+   "type": "bc_holo_scan",
+   "t0": 2.4,
+   "t1": 7.2,
+   "cut": true,
+   "model": "monitor",
+   "title": "Video clip",
+   "locks": [
+    {
+     "part": "screen",
+     "label": "Khung hình",
+     "t": 4.0
+    },
+    {
+     "part": "timeline",
+     "label": "Dòng thời gian",
+     "t": 4.9
+    }
+   ],
+   "card": {
+    "label": "Chế độ",
+    "value": "Tự động (ví dụ)",
+    "t": 5.6
+   },
+   "dock": {
+    "label": "Tự động",
+    "on": true,
+    "t": 6.7
+   }
+  },
+  {
+   "type": "bc_holo_target",
+   "t0": 8.0,
+   "t1": 10.0,
+   "x": 470,
+   "y": 660,
+   "w": 170,
+   "h": 170,
+   "label": "Cử chỉ",
+   "value": "Ví dụ"
+  },
+  {
+   "type": "bc_holo_list",
+   "t0": 10.6,
+   "t1": 15.8,
+   "cut": true,
+   "title": "Các bước",
+   "items": [
+    {
+     "icon": "cursor",
+     "label": "Kéo thả",
+     "t": 11.3
+    },
+    {
+     "icon": "spark",
+     "label": "Hiệu ứng",
+     "t": 12.5
+    },
+    {
+     "icon": "text",
+     "label": "Phông chữ",
+     "t": 13.7
+    },
+    {
+     "icon": "video",
+     "label": "Xuất clip",
+     "t": 14.9
+    }
+   ]
+  },
+  {
+   "type": "bc_holo_card",
+   "t0": 17.4,
+   "t1": 20.2,
+   "label": "Kết quả",
+   "value": "Sẵn sàng đăng",
+   "y": 800
+  }
+ ]
+}

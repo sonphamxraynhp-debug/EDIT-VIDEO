@@ -1,0 +1,288 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "caption_style": "review",
+ "captions": "work/captions.json",
+ "scenes": [
+  {
+   "type": "rv_product",
+   "t0": 0.0,
+   "t1": 2.95,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "image": "media/phone_a.png",
+   "name": "Nova X Pro",
+   "brand": "Samsung",
+   "logo": "si:samsung",
+   "price": "12.990.000đ",
+   "old_price": "15.490.000đ",
+   "badge": "MỚI"
+  },
+  {
+   "type": "rv_callout",
+   "t0": 1.3,
+   "t1": 2.95,
+   "px": 360,
+   "py": 238,
+   "x": 168,
+   "y": 175,
+   "size": 100,
+   "text": "Camera 200MP",
+   "sub": "zoom quang 5x",
+   "w": 240
+  },
+  {
+   "type": "rv_proscons",
+   "t0": 3.0,
+   "t1": 5.65,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "pros": [
+    "Pin trâu 2 ngày",
+    "Màn hình 120Hz siêu mượt",
+    "Sạc nhanh 45W"
+   ],
+   "cons": [
+    "Hơi nặng tay",
+    "Không kèm củ sạc"
+   ]
+  },
+  {
+   "type": "rv_specs_vs",
+   "t0": 5.7,
+   "t1": 8.15,
+   "x": 360,
+   "y": 480,
+   "size": 100,
+   "a": {
+    "name": "Nova X Pro",
+    "image": "media/phone_a.png"
+   },
+   "b": {
+    "name": "Zeta 15",
+    "image": "media/phone_b.png"
+   },
+   "rows": [
+    {
+     "label": "Chip",
+     "a": "SD 8 Gen 3",
+     "b": "A17 Pro",
+     "win": "b"
+    },
+    {
+     "label": "Pin",
+     "a": "5000 mAh",
+     "b": "4422 mAh",
+     "win": "a"
+    },
+    {
+     "label": "Sạc nhanh",
+     "a": "45W",
+     "b": "27W",
+     "win": "a"
+    },
+    {
+     "label": "Giá",
+     "a": "12,9tr",
+     "b": "24,9tr",
+     "win": "a"
+    }
+   ],
+   "stagger": 0.25
+  },
+  {
+   "type": "rv_bars",
+   "t0": 8.2,
+   "t1": 10.05,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "title": "Test pin xem video",
+   "unit": "giờ",
+   "bars": [
+    {
+     "label": "Nova X Pro",
+     "value": 12.5
+    },
+    {
+     "label": "Zeta 15",
+     "value": 9
+    },
+    {
+     "label": "Máy tầm trung",
+     "value": 7.5
+    }
+   ],
+   "note": "Độ sáng 50%, wifi bật, YouTube 1080p"
+  },
+  {
+   "type": "rv_rating_bar",
+   "t0": 10.1,
+   "t1": 11.85,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "items": [
+    {
+     "label": "Thiết kế",
+     "score": 9,
+     "icon": "🎨"
+    },
+    {
+     "label": "Pin",
+     "score": 9.5,
+     "icon": "🔋"
+    },
+    {
+     "label": "Camera",
+     "score": 7.5,
+     "icon": "📷"
+    },
+    {
+     "label": "Hiệu năng",
+     "score": 8.5,
+     "icon": "⚡"
+    },
+    {
+     "label": "Giá",
+     "score": 6,
+     "icon": "💰"
+    }
+   ],
+   "stagger": 0.15
+  },
+  {
+   "type": "rv_unbox",
+   "t0": 11.9,
+   "t1": 13.45,
+   "x": 360,
+   "y": 460,
+   "size": 100,
+   "items": [
+    {
+     "icon": "📱",
+     "text": "Thân máy"
+    },
+    {
+     "icon": "🔌",
+     "text": "Cáp USB-C"
+    },
+    {
+     "icon": "📄",
+     "text": "Sách hướng dẫn"
+    },
+    {
+     "icon": "📌",
+     "text": "Que chọc SIM"
+    }
+   ],
+   "stagger": 0.22
+  },
+  {
+   "type": "rv_price_compare",
+   "t0": 13.5,
+   "t1": 14.95,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "stagger": 0.2,
+   "shops": [
+    {
+     "shop": "Shopee",
+     "icon": "si:shopee",
+     "price": "12.490.000đ",
+     "note": "Freeship Xtra"
+    },
+    {
+     "shop": "Lazada",
+     "icon": "si:lazada",
+     "price": "12.690.000đ",
+     "note": "Tặng ốp lưng"
+    },
+    {
+     "shop": "TikTok Shop",
+     "icon": "si:tiktok",
+     "price": "12.290.000đ",
+     "note": "Voucher live"
+    }
+   ]
+  },
+  {
+   "type": "rv_coupon",
+   "t0": 15.0,
+   "t1": 16.35,
+   "x": 360,
+   "y": 520,
+   "size": 100,
+   "discount": "15%",
+   "sub": "tối đa 500K",
+   "code": "NOVA15",
+   "expiry": "HSD: 30/11",
+   "logo": "si:shopee",
+   "shop": "Shopee"
+  },
+  {
+   "type": "rv_score",
+   "t0": 16.4,
+   "t1": 20.2,
+   "x": 360,
+   "y": 378,
+   "size": 88,
+   "score": 8.6,
+   "label": "Rất đáng tiền",
+   "keep": true
+  },
+  {
+   "type": "rv_verdict",
+   "t0": 18.2,
+   "t1": 20.2,
+   "x": 360,
+   "y": 748,
+   "size": 96,
+   "verdict": "buy",
+   "sub": "Pin trâu – giá quá hợp lý",
+   "keep": true
+  }
+ ],
+ "audio": {
+  "voice": "work/voice.wav",
+  "mix": "work/mix.wav",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 20.2,
+    "mood": "hype",
+    "gain": -16
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.05,
+    "name": "whoosh",
+    "gain": -12
+   },
+   {
+    "t": 18.4,
+    "name": "boom",
+    "gain": -10
+   },
+   {
+    "t": 15.0,
+    "name": "cash_register",
+    "gain": -12
+   }
+  ]
+ },
+ "brand": {}
+}

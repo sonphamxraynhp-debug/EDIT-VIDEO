@@ -1,0 +1,173 @@
+{
+ "id": "kh-hoat-hinh-giai-thich",
+ "name": "Hoạt hình tự vẽ giải thích",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "montage",
+ "desc": "Không cần quay mặt: giọng kể + một thế giới tự vẽ (cây mọc lên, rễ đâm xuống, máy quay lặn xuống đất rồi vươn lên), tiêu đề serif, nhãn chỉ, chữ nặng, bốn mùa.",
+ "tags": [
+  "giải thích",
+  "hoạt hình",
+  "bài học",
+  "ẩn dụ",
+  "không lộ mặt"
+ ],
+ "title": "Gốc rễ và quả ngọt",
+ "caption_style": "mt_vec",
+ "music": "inspire",
+ "recipe_opts": {
+  "variant": "vector"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "giọng đọc ~60 s (bài học / khái niệm)",
+  "3–4 câu tiêu đề",
+  "2–3 từ nặng cho đoạn khó khăn"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 4.6
+ },
+ "fx": [
+  {
+   "t": 6.8,
+   "type": "shake"
+  },
+  {
+   "t": 7.3,
+   "type": "shake"
+  },
+  {
+   "t": 7.8,
+   "type": "shake"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "mt_vec_world",
+   "t0": 0,
+   "t1": 20.2,
+   "seed": 7,
+   "grow_t": 0.8,
+   "grow_end_t": 8.0,
+   "sun_t": 9.6,
+   "burst_t": 9.4,
+   "warm_t": 9.6,
+   "fruit_t": 13.0,
+   "seasons_t": 16.0,
+   "seasons_end_t": 17.6,
+   "cam": [
+    {
+     "t": 0,
+     "x": 360,
+     "y": 1280,
+     "s": 1.6
+    },
+    {
+     "t": 2.2,
+     "x": 360,
+     "y": 1280,
+     "s": 1
+    },
+    {
+     "t": 5.8,
+     "x": 360,
+     "y": 1280,
+     "s": 1
+    },
+    {
+     "t": 6.6,
+     "x": 360,
+     "y": 1640,
+     "s": 1.3
+    },
+    {
+     "t": 9.0,
+     "x": 360,
+     "y": 1640,
+     "s": 1.3
+    },
+    {
+     "t": 10.0,
+     "x": 360,
+     "y": 960,
+     "s": 1.15
+    },
+    {
+     "t": 13.0,
+     "x": 360,
+     "y": 960,
+     "s": 1.15
+    },
+    {
+     "t": 14.0,
+     "x": 360,
+     "y": 1180,
+     "s": 0.92
+    }
+   ]
+  },
+  {
+   "type": "mt_vec_headline",
+   "t0": 0.3,
+   "t1": 3.0,
+   "text": "Cây mọc theo *hai hướng* cùng lúc",
+   "y": 220
+  },
+  {
+   "type": "mt_vec_arrows",
+   "t0": 3.3,
+   "t1": 6.0,
+   "y": 640,
+   "len": 260
+  },
+  {
+   "type": "mt_vec_heavy",
+   "t0": 6.7,
+   "t1": 9.0,
+   "words": [
+    "ÁP LỰC",
+    "BÓNG TỐI",
+    "ĐẤT ĐÁ"
+   ],
+   "stagger": 0.5
+  },
+  {
+   "type": "mt_vec_headline",
+   "t0": 9.6,
+   "t1": 12.6,
+   "text": "Rồi một ngày, nó *vươn lên*",
+   "y": 220
+  },
+  {
+   "type": "mt_vec_label",
+   "t0": 13.7,
+   "t1": 15.9,
+   "text": "thành quả",
+   "x": 430,
+   "y": 420,
+   "dx": 100,
+   "dy": -80
+  },
+  {
+   "type": "mt_vec_label",
+   "t0": 14.1,
+   "t1": 16.0,
+   "text": "công sức *thầm lặng*",
+   "x": 300,
+   "y": 880,
+   "dx": 120,
+   "dy": -50
+  },
+  {
+   "type": "mt_vec_headline",
+   "t0": 17.6,
+   "t1": 20.2,
+   "text": "Gốc vững thì *quả ngọt* (ví dụ)",
+   "y": 220,
+   "keep": true
+  }
+ ]
+}

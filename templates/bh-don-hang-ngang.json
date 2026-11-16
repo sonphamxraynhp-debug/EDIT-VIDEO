@@ -1,0 +1,68 @@
+{
+ "id": "bh-don-hang-ngang",
+ "name": "Livestream chốt đơn (ngang)",
+ "category": "banhang",
+ "aspect": "16:9",
+ "pack": "hf_tin",
+ "desc": "Video ngang: thông báo đơn mới, chồng tin nhắn khách hỏi giá, bình luận hiện dần, pháo giấy và nút đặt hàng.",
+ "tags": [
+  "livestream",
+  "chốt đơn",
+  "bình luận",
+  "ngang"
+ ],
+ "title": "Chốt đơn livestream",
+ "caption_style": "hf_kinetic_slam",
+ "music": "hype",
+ "brand": {
+  "primary": "#EF4444",
+  "accent": "#FDE047",
+  "dark": "#140404"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "sản phẩm",
+  "giá",
+  "lời kêu gọi"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2
+ },
+ "fx": [],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "notification-stack",
+   "t0": 0.2,
+   "t1": 4.4,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "yt-comment-card",
+   "t0": 4.8,
+   "t1": 12.6
+  },
+  {
+   "type": "hf",
+   "block": "confetti",
+   "t0": 13,
+   "t1": 17
+  },
+  {
+   "type": "hf",
+   "block": "cta-lockup",
+   "t0": 17.2,
+   "t1": 20.2,
+   "hideCaptions": true,
+   "vars": {
+    "action_line": "Chốt đơn ngay",
+    "button_label": "Đặt hàng",
+    "microcopy": "Freeship hôm nay"
+   }
+  }
+ ]
+}

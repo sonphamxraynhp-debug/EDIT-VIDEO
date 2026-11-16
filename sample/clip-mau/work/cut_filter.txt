@@ -1,0 +1,1 @@
+[0:v]fps=30,select='between(t,0.380,4.960)+between(t,5.260,12.100)+between(t,12.240,18.980)+between(t,19.140,29.040)+between(t,29.340,30.360)',setpts=N/30/TB[v];[0:a]aselect='between(t,0.380,4.960)+between(t,5.260,12.100)+between(t,12.240,18.980)+between(t,19.140,29.040)+between(t,29.340,30.360)',asetpts=N/SR/TB[a]

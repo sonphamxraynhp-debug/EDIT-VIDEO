@@ -1,0 +1,112 @@
+{
+ "id": "bh-san-pham-theo-nhip",
+ "name": "Sản phẩm theo nhịp",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "beatslide",
+ "desc": "Showcase sản phẩm bằng ảnh cắt theo phách nhạc: intro đập, slideshow, cột EQ, chữ theo nhịp, outro mua ngay.",
+ "tags": [
+  "showcase",
+  "nhịp nhạc",
+  "ảnh sản phẩm",
+  "ra mắt"
+ ],
+ "title": "Bộ sưu tập *mới*",
+ "caption_style": "beatslide",
+ "music": "hype_2",
+ "brand": {
+  "accent": "#7CFFCB",
+  "primary": "#9B5CFF",
+  "name": "Tên shop",
+  "phone": "09xx xxx xxx",
+  "website": "shop-vidu.vn"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "5–10 ảnh sản phẩm",
+  "tên shop",
+  "SĐT / link"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.2
+ },
+ "scenes": [
+  {
+   "type": "beat_intro",
+   "t0": 0,
+   "t1": 1.94,
+   "bpm": 124,
+   "title": "Bộ sưu tập *mới*",
+   "tag": "RA MẮT",
+   "sub": "Số lượng có hạn",
+   "image": "media/gs_hero.jpg"
+  },
+  {
+   "type": "beat_slideshow",
+   "t0": 1.94,
+   "t1": 9.7,
+   "bpm": 124,
+   "images": [
+    "media/serum.png",
+    "media/phone_a.png",
+    "media/phone_b.png",
+    "media/tf_after.jpg"
+   ],
+   "labels": [
+    "Món 1",
+    "Món 2",
+    "Món 3",
+    "Món 4"
+   ],
+   "every": 2,
+   "trans": "mix",
+   "fit": "blurfill"
+  },
+  {
+   "type": "beat_bars",
+   "t0": 1.94,
+   "t1": 16.9,
+   "bpm": 124,
+   "mode": "mirror",
+   "h": 70,
+   "opacity": 0.45,
+   "n": 40,
+   "y": 1180
+  },
+  {
+   "type": "beat_text",
+   "t0": 9.7,
+   "t1": 12.6,
+   "bpm": 124,
+   "words": [
+    "GIẢM",
+    "*30%*",
+    "HÔM",
+    "NAY"
+   ],
+   "y": 560,
+   "box": true
+  },
+  {
+   "type": "beat_pulse",
+   "t0": 9.7,
+   "t1": 16.9,
+   "bpm": 124,
+   "amp": 0.05,
+   "edge": true
+  },
+  {
+   "type": "beat_outro",
+   "t0": 16.9,
+   "t1": 20.2,
+   "bpm": 124,
+   "image": "media/gs_hero.jpg",
+   "name": "Đặt *ngay*",
+   "cta": "MUA NGAY",
+   "keep": true
+  }
+ ]
+}

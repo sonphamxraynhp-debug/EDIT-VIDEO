@@ -1,0 +1,116 @@
+{
+ "id": "bds-can-ho-ngang",
+ "name": "Căn hộ YouTube ngang",
+ "category": "bds",
+ "aspect": "16:9",
+ "pack": "realestate",
+ "desc": "Bản ngang 16:9 cho YouTube: thẻ dự án bên phải, thông số, tour ảnh toàn màn, trả góp và liên hệ.",
+ "tags": [
+  "youtube",
+  "ngang",
+  "căn hộ",
+  "tour"
+ ],
+ "title": "Tên dự án (ví dụ)",
+ "music": "corporate",
+ "brand": {
+  "name": "Tên môi giới",
+  "phone": "09xx xxx xxx",
+  "website": "duan-vidu.vn",
+  "accent": "#D9B26A"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "video ngang",
+  "ảnh căn hộ",
+  "giá",
+  "SĐT"
+ ],
+ "preview": {
+  "from": 2.4,
+  "to": 8.4,
+  "still": 4.6
+ },
+ "scenes": [
+  {
+   "type": "re_title",
+   "t0": 0,
+   "t1": 3.0,
+   "tag": "CĂN HỘ 3PN",
+   "name": "Tên dự án (ví dụ)",
+   "sub": "Tầng cao · view công viên",
+   "address": "Địa chỉ dự án"
+  },
+  {
+   "type": "re_specs",
+   "t0": 3.2,
+   "t1": 6.4,
+   "x": 1000,
+   "y": 330,
+   "size": 52,
+   "title": "Thông tin căn hộ",
+   "items": [
+    {
+     "icon": "area",
+     "value": "98 m²",
+     "label": "Diện tích"
+    },
+    {
+     "icon": "bed",
+     "value": "3",
+     "label": "Phòng ngủ"
+    },
+    {
+     "icon": "bath",
+     "value": "2",
+     "label": "WC"
+    }
+   ]
+  },
+  {
+   "type": "re_gallery",
+   "t0": 6.6,
+   "t1": 10.0,
+   "mode": "full",
+   "per": 0.85,
+   "images": [
+    "media/living.jpg",
+    "media/bedroom.jpg",
+    "media/kitchen.jpg",
+    "media/facade.jpg"
+   ],
+   "labels": [
+    "Phòng khách",
+    "Phòng ngủ",
+    "Bếp",
+    "Mặt tiền"
+   ]
+  },
+  {
+   "type": "re_price",
+   "t0": 10.2,
+   "t1": 13.0,
+   "x": 1000,
+   "y": 360,
+   "size": 52,
+   "value": "4,6",
+   "unit": "tỷ",
+   "per_m2": "~ 47 triệu/m² (ví dụ)",
+   "ribbon": "ƯU ĐÃI"
+  },
+  {
+   "type": "re_floorplan",
+   "t0": 13.2,
+   "t1": 16.4,
+   "title": "Mặt bằng căn hộ",
+   "sub": "98 m² · 3PN · 2WC"
+  },
+  {
+   "type": "re_agent",
+   "t0": 16.6,
+   "t1": 20.2,
+   "keep": true
+  }
+ ]
+}

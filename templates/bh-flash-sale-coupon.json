@@ -1,0 +1,117 @@
+{
+ "id": "bh-flash-sale-coupon",
+ "name": "Flash sale mã giảm giá",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "review",
+ "desc": "Chốt đơn nhanh: thẻ sản phẩm giá gạch, so giá cửa hàng, mã giảm giá có hạn, con dấu NÊN MUA.",
+ "tags": [
+  "flash sale",
+  "mã giảm giá",
+  "giá sốc",
+  "chốt đơn"
+ ],
+ "title": "Giá sốc hôm nay",
+ "caption_style": "review",
+ "music": "hype_2",
+ "brand": {
+  "primary": "#FF2E63",
+  "accent": "#FFE14D",
+  "dark": "#14070C"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh sản phẩm",
+  "giá gốc / giá sale",
+  "mã giảm giá + hạn dùng"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.2
+ },
+ "scenes": [
+  {
+   "type": "rv_product",
+   "t0": 0.0,
+   "t1": 3.4,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "image": "media/serum.png",
+   "name": "Tên sản phẩm",
+   "brand": "Thương hiệu của bạn",
+   "price": "299.000đ",
+   "old_price": "450.000đ",
+   "badge": "SALE"
+  },
+  {
+   "type": "rv_callout",
+   "t0": 1.4,
+   "t1": 3.4,
+   "px": 360,
+   "py": 300,
+   "x": 170,
+   "y": 180,
+   "size": 100,
+   "text": "Giảm 33%",
+   "sub": "chỉ hôm nay (ví dụ)",
+   "w": 240
+  },
+  {
+   "type": "rv_price_compare",
+   "t0": 3.6,
+   "t1": 7.6,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "stagger": 0.2,
+   "shops": [
+    {
+     "shop": "Giá niêm yết",
+     "icon": "🏷️",
+     "price": "450.000đ",
+     "note": ""
+    },
+    {
+     "shop": "Giá thường",
+     "icon": "🛒",
+     "price": "350.000đ",
+     "note": ""
+    },
+    {
+     "shop": "Hôm nay",
+     "icon": "🔥",
+     "price": "299.000đ",
+     "note": "Kèm quà"
+    }
+   ]
+  },
+  {
+   "type": "rv_coupon",
+   "t0": 7.8,
+   "t1": 12.0,
+   "x": 360,
+   "y": 520,
+   "size": 100,
+   "discount": "50K",
+   "sub": "cho đơn từ 299K",
+   "code": "MAVIDU50",
+   "expiry": "HSD: ngày/tháng",
+   "logo": "🎁",
+   "shop": "Shop của bạn"
+  },
+  {
+   "type": "rv_verdict",
+   "t0": 17.6,
+   "t1": 20.2,
+   "x": 360,
+   "y": 640,
+   "size": 100,
+   "verdict": "buy",
+   "sub": "Số lượng có hạn",
+   "keep": true
+  }
+ ]
+}

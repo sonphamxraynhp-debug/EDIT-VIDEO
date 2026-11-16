@@ -1,0 +1,99 @@
+{
+ "id": "bds-biet-thu-toi-gian",
+ "name": "Biệt thự tối giản",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "luxury",
+ "desc": "Bất động sản hạng sang theo lối tối giản: màu phim ấm, hộp chú thích, hình thoi viền đỏ, thẻ giá navy.",
+ "tags": [
+  "biệt thự",
+  "hạng sang",
+  "tối giản",
+  "luxury"
+ ],
+ "title": "Biệt thự ven sông",
+ "caption_style": "luxury",
+ "music": "mellow",
+ "brand": {
+  "primary": "#8C6A3F",
+  "name": "TÊN DỰ ÁN",
+  "handle": "@ten.du.an"
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "video/ảnh biệt thự",
+  "điểm nổi bật",
+  "giá",
+  "handle"
+ ],
+ "preview": {
+  "from": 8.4,
+  "to": 14.4,
+  "still": 12.4
+ },
+ "scenes": [
+  {
+   "type": "luxury_callout",
+   "t0": 6.0,
+   "t1": 8.6,
+   "icon": "chest",
+   "l1": "biệt thự",
+   "l2": "ven sông riêng tư",
+   "l1_at": 0.4,
+   "l2_at": 0.9
+  },
+  {
+   "type": "luxury_diamonds",
+   "t0": 8.8,
+   "t1": 11.0,
+   "items": [
+    {
+     "text": "450 m²",
+     "t": 8.9
+    },
+    {
+     "text": "5 phòng ngủ",
+     "t": 9.5
+    }
+   ]
+  },
+  {
+   "type": "re_price",
+   "t0": 11.2,
+   "t1": 14.2,
+   "x": 360,
+   "y": 760,
+   "hideCaptions": true,
+   "size": 60,
+   "value": "38",
+   "unit": "tỷ",
+   "per_m2": false,
+   "ribbon": "GIÁ THAM KHẢO",
+   "label": "Giá (ví dụ)",
+   "count_dur": 1.2
+  },
+  {
+   "type": "luxury_labels",
+   "t0": 14.4,
+   "t1": 17.6,
+   "dip": false,
+   "items": [
+    {
+     "x": 60,
+     "y": 680,
+     "l1": "hồ bơi",
+     "l2": "riêng",
+     "t": 14.7
+    },
+    {
+     "x": 660,
+     "y": 680,
+     "l1": "bến du thuyền",
+     "l2": "nội khu",
+     "t": 15.4
+    }
+   ]
+  }
+ ]
+}

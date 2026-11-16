@@ -1,0 +1,41 @@
+{
+ "id": "u_studio_luoi_ai",
+ "name": "Studio lưới AI",
+ "category": "ai",
+ "aspect": "9:16",
+ "pack": "u_studio_luoi_ai",
+ "desc": "Talking head đặt thành thẻ bo góc trên nền lưới xám xanh, ô app cam phía trên, phụ đề kiểu hộp đang chọn trong editor, tag vàng serif, LED headline, sơ đồ nền mờ, outro phát sáng.",
+ "tags": [
+  "ai",
+  "tin tức",
+  "tech",
+  "grid",
+  "editor",
+  "talking head",
+  "style của tôi"
+ ],
+ "title": "AI edit video thì nó làm gì?",
+ "caption_style": "u_studio_luoi_ai",
+ "music": "tech",
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "Logo (BR().logo) cho ô app cam; nếu không có dùng ngôi sao trắng mặc định",
+  "Tiêu đề hook và tên kênh",
+  "Nội dung sơ đồ (nhân vật, 2 bên, ý chính) và từ khoá cần nhấn"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.2
+ },
+ "style_lab": {
+  "kind": "clone",
+  "src": "snaptik.vn_7702089090908409095_wm.mp4",
+  "created": "2026-11-03T07:37:50.295Z",
+  "seen": "Ảnh 1–2: cảnh quay màn hình laptop, phụ đề trắng Be Vietnam Pro nằm trong hộp xanh tím mờ viền nét đứt có 4 ô vuông góc như đang chọn trong editor, ở y≈0.75; đầu video có bảng editor sáng màu nổi phía trên đầu và ô app cam bo góc cạnh hộp chữ. Ảnh 3–4: nền lưới xám xanh (#3B4751) kẻ ô, video dọc thu nhỏ thành thẻ bo góc ở giữa, ô cam với ngôi sao trắng nổi phía trên; từ khoá nổi bằng hộp vàng chữ serif nghiêng đậm (gây shock), chữ neon đỏ (đáng sợ), chữ mint phát sáng (AI); tiêu đề LED chấm cam 'TIN SHOCK' với dãy 5 icon app phía trên; cảnh nền mờ tối với sơ đồ: vòng tròn người, hai chip tối, pill vàng và pill viền vàng nối bằng đường mảnh, caption dời lên trên; outro đen chữ cam futuristic phát sáng + pill trắng logo + câu hỏi nghiêng.",
+  "summary": "Nền lưới xám xanh với video thành thẻ bo góc và ô app cam phía trên, phụ đề trắng trong hộp 'đang chọn' kiểu editor, từ khoá nổi bằng hộp vàng serif, neon đỏ hoặc mint phát sáng. Graphic tin tức: headline LED cam, sơ đồ nhân vật–công ty trên nền mờ, thẻ chủ đề, outro đen chữ cam phát sáng, nhịp fx mỗi 4–5 s theo nhạc tech.",
+  "skill": "video-style-studio-luoi-ai",
+  "skill_desc": "Style 'Studio lưới AI' cho video tin tức/bình luận AI & công nghệ dạng talking head dọc: nền lưới xám xanh kiểu bản vẽ, video thu thành thẻ bo góc, ô app cam ở trên, phụ đề trắng dày hiện từng từ với hộp 'đang chọn trong editor' (viền nét đứt + ô góc), từ khoá nhấn bằng hộp vàng serif nghiêng / neon đỏ / mint phát sáng, headline LED cam, sơ đồ nhân vật–công ty–ý chính trên nền mờ, thẻ chủ đề ảnh đen trắng, outro chữ cam phát sáng + CTA. Nhịp ~1 fx mỗi 4–5 s theo nhạc tech 105 BPM. Dùng khi người dùng nói 'edit video kiểu tin sốc AI', 'dựng theo style studio lưới', 'kiểu editor đang chọn chữ', 'video tin tức công nghệ nền lưới', 'style tin shock'."
+ }
+}

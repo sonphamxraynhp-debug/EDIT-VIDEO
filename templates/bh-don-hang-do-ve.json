@@ -1,0 +1,106 @@
+{
+ "id": "bh-don-hang-do-ve",
+ "name": "Đơn hàng đổ về",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Thông báo có đơn mới bật lên, chồng thông báo thanh toán/giao hàng, tiền tăng vọt, pháo giấy và nút Mua ngay.",
+ "tags": [
+  "đơn hàng",
+  "thông báo",
+  "chốt đơn",
+  "bán hàng online"
+ ],
+ "title": "Đơn hàng đổ về",
+ "caption_style": "hf_kinetic_slam",
+ "music": "hype",
+ "brand": {
+  "primary": "#EF4444",
+  "accent": "#FDE047",
+  "dark": "#140404"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "sản phẩm",
+  "doanh số",
+  "lời kêu gọi"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.6
+ },
+ "fx": [
+  {
+   "t": 0.2,
+   "type": "shake",
+   "amp": 10
+  },
+  {
+   "t": 13,
+   "type": "punch",
+   "amp": 0.1
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "headline-slam",
+   "t0": 0.2,
+   "t1": 3.4,
+   "y": 640,
+   "hideCaptions": true,
+   "size": 150,
+   "vars": {
+    "text": "Đơn về liên tục",
+    "accent_word_index": 1
+   }
+  },
+  {
+   "type": "hf",
+   "block": "notification-stack",
+   "t0": 3.8,
+   "t1": 8,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "notification-pileup",
+   "t0": 8.4,
+   "t1": 12.6
+  },
+  {
+   "type": "hf",
+   "block": "apple-money-count",
+   "t0": 13,
+   "t1": 16.8,
+   "y": 1010,
+   "hideCaptions": true,
+   "texts": {
+    "0": "0đ"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "confetti",
+   "t0": 16.6,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": false
+  },
+  {
+   "type": "hf",
+   "block": "cta-close",
+   "t0": 17.4,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "action_line": "Chốt đơn ngay",
+    "button_label": "Mua ngay"
+   }
+  }
+ ]
+}

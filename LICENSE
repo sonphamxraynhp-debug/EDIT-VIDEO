@@ -1,0 +1,39 @@
+MIT License
+
+Copyright (c) 2026 Nguyễn Tất Kiểm (nguyentatkiem.com.vn)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+Ngoại lệ: video mẫu trong sample/ và mọi hình ảnh/video xem trước dựng từ nó
+(templates/previews/, studio/thumbs/, docs/images/) thuộc chủ sở hữu repo, giữ mọi quyền.
+Chỉ dùng để xem thử phần mềm.
+
+---
+Bên thứ ba: engine/hf/ chứa các khối hoạt ảnh lấy từ HyperFrames của HeyGen
+(https://github.com/heygen-com/hyperframes), giấy phép Apache License 2.0, toàn văn ở
+engine/hf/LICENSE-HyperFrames.txt. Đã sửa: gắn khối con vào trang, thêm shim biến/chữ,
+thay ảnh mẫu bằng ảnh của repo này. Một số khối kèm thư viện có giấy phép riêng
+(GSAP, three.js, font), xem các file *LICENSE* / *NOTICE* trong thư mục của khối.
+
+Thư viện đóng gói sẵn để chạy offline, giữ nguyên giấy phép gốc:
+- engine/hf/_lib/: GSAP (giấy phép Standard "No Charge" của GreenSock/Webflow), three.js (MIT),
+  d3 / d3-delaunay / topojson-client / world-atlas (ISC), clipper-lib (Boost), font Inter và
+  Roboto Flex (SIL OFL 1.1).
+- studio/vendor/tabler-icons/: Tabler Icons (MIT, xem LICENSE trong thư mục).

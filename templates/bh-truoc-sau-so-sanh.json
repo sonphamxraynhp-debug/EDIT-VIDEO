@@ -1,0 +1,70 @@
+{
+ "id": "bh-truoc-sau-so-sanh",
+ "name": "Trước & sau dịch vụ",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Hai khung trước/sau so sánh, thanh quét trước/sau, danh sách lợi ích và nút đặt lịch.",
+ "tags": [
+  "trước sau",
+  "so sánh",
+  "dịch vụ",
+  "kết quả"
+ ],
+ "title": "Trước và sau",
+ "caption_style": "hf_matrix_decode",
+ "music": "happy_2",
+ "brand": {
+  "primary": "#A855F7",
+  "accent": "#F3E8FF",
+  "dark": "#0F0618"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh trước",
+  "ảnh sau",
+  "lợi ích"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.4
+ },
+ "fx": [],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "comparison-split",
+   "t0": 0.2,
+   "t1": 4.4
+  },
+  {
+   "type": "hf",
+   "block": "before-after-wipe",
+   "t0": 4.8,
+   "t1": 9,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "mk-specs-list",
+   "t0": 9.4,
+   "t1": 15
+  },
+  {
+   "type": "hf",
+   "block": "cta-lockup",
+   "t0": 16.4,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "action_line": "Đặt lịch hôm nay",
+    "button_label": "Nhận tư vấn miễn phí",
+    "microcopy": "Ưu đãi cho 20 khách đầu"
+   }
+  }
+ ]
+}

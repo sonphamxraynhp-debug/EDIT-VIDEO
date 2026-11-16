@@ -1,0 +1,42 @@
+{
+ "id": "u_bds_den_gold",
+ "name": "BĐS Đen Gold",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "u_bds_den_gold",
+ "desc": "Style video bất động sản cao cấp tông đen tuyền – vàng gold, chữ serif Playfair, khung viền mảnh, intro tên dự án, thẻ giá đếm số, bản đồ vị trí, CTA gọi điện.",
+ "tags": [
+  "bất động sản",
+  "sang trọng",
+  "luxury",
+  "đen vàng",
+  "gold",
+  "serif",
+  "style của tôi"
+ ],
+ "title": "The Golden Residence",
+ "caption_style": "u_bds_den_gold",
+ "music": "corporate",
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "Tên dự án và dòng vị trí cho intro",
+  "Giá bán (số + đơn vị) và ghi chú thanh toán",
+  "3–4 tiện ích / thông số nổi bật (phòng ngủ, m², hồ bơi…)",
+  "Các điểm đến gần và số phút di chuyển",
+  "Số hotline, tên đơn vị bán hàng, website"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.2
+ },
+ "style_lab": {
+  "kind": "describe",
+  "src": "Video bất động sản sang trọng tông đen–vàng gold, chữ serif, intro tên dự án, thẻ giá, bản đồ vị trí, CTA gọi điện",
+  "created": "2026-11-03T07:18:02.806Z",
+  "seen": "",
+  "summary": "Gói dựng video bất động sản cao cấp với tông đen – vàng gold, chữ serif Playfair và khung viền mảnh bao quanh toàn bài. Có intro tên dự án, thẻ giá đếm số, bản đồ vị trí, chip tiện ích, wipe vàng và CTA gọi điện, phụ đề thanh mảnh viền vàng dưới mặt người nói.",
+  "skill": "video-style-bds-den-gold"
+ }
+}

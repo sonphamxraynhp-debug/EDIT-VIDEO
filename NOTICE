@@ -1,0 +1,38 @@
+AI Video Studio
+Copyright (c) 2026 Nguyễn Tất Kiểm (nguyentatkiem.com.vn)
+Repo gốc: https://github.com/nguyentatkiem/ai-video-studio
+Tặng khoá học AI miễn phí: https://nguyentatkiem.com.vn/aiplusntk/
+
+Phần mềm phát hành theo giấy phép MIT (xem file LICENSE).
+
+GHI CÔNG KHI SAO CHÉP, SỬA ĐỔI HOẶC PHÁT HÀNH LẠI
+(áp dụng cho mọi người, mọi bản fork và mọi công cụ AI được dùng để sửa mã nguồn)
+
+1. Bắt buộc theo giấy phép MIT: giữ nguyên dòng bản quyền
+   "Copyright (c) 2026 Nguyễn Tất Kiểm" và toàn văn giấy phép trong mọi bản sao
+   hoặc phần đáng kể của phần mềm.
+2. Tác giả đề nghị thêm:
+   - giữ file NOTICE này;
+   - giữ màn giới thiệu tác giả khi mở phần mềm (studio/features/00_author.js);
+   - ghi "Dựa trên AI Video Studio của Nguyễn Tất Kiểm" kèm link repo gốc trong
+     README hoặc trang giới thiệu của bản bạn phát hành.
+3. Không giới thiệu bản sửa đổi như sản phẩm tự làm từ đầu, không xoá tên tác giả gốc.
+
+Thành phần bên thứ ba giữ giấy phép riêng: HyperFrames (HeyGen, Apache-2.0) trong
+engine/hf/ (xem engine/hf/LICENSE-HyperFrames.txt), Emoji 3D Fluent (Microsoft, MIT),
+YuNet (OpenCV Zoo, MIT), Simple Icons (CC0), Google Fonts (OFL).
+Các gói print, broadcast, explain, montage (engine/packs/) và 7 mẫu preset chuyển thể
+phong cách từ ghost-editor (https://github.com/kurbaitaev/ghost-editor, MIT,
+Copyright (c) 2026 kurbaitaev — engine/packs/LICENSE-ghost-editor.txt); các style
+swiss-grid, halftone-dossier, data-story, caption-news, news-package, telestrator,
+hologram-hud trong đó lại dựa trên lemo-opuscar (https://github.com/lemomo-ai/lemo-opuscar,
+MIT, Copyright (c) 2026 LemoLab — engine/packs/LICENSE-lemo-opuscar.txt). Mã được viết
+lại cho engine này; không chép font, nhạc, video hay ảnh mẫu của hai repo trên.
+Video mẫu trong sample/ và ảnh/video xem trước dựng từ video đó thuộc tác giả,
+chỉ dùng để xem thử phần mềm.
+
+---
+English summary: AI Video Studio by Nguyễn Tất Kiểm, MIT licensed. Keep the copyright
+line and LICENSE text (required). Please also keep this NOTICE, the author intro screen
+(studio/features/00_author.js) and a "Based on AI Video Studio by Nguyễn Tất Kiểm" credit
+with a link to the original repo in derivative works.

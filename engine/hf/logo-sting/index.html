@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Logo Sting Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0c0e;
+      }
+
+      #root {
+        --bg: #0b0c0e;
+        --fg: #f8fafc;
+        --font-display: Inter, system-ui, sans-serif;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0c0e;
+      }
+
+      .mount-card {
+        width: 76%;
+        height: 52%;
+        left: 12%;
+        top: 24%;
+        container-type: size;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="logo-sting-demo" data-start="0" data-width="1920" data-height="1080" data-duration="2.2" data-fps="30" data-hf-anc="">
+      <div id="logo-sting-mount" class="mount-card clip" data-composition-id="logo-sting" data-variable-values="{&quot;wordmark&quot;:&quot;MOTION LAB&quot;,&quot;accent&quot;:&quot;violet&quot;}" data-start="0" data-duration="2.2" data-track-index="0" data-width="1459" data-height="562" data-composition-variables="[
+    { &quot;id&quot;: &quot;wordmark&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Wordmark&quot;, &quot;description&quot;: &quot;Brand name displayed in the final lockup.&quot;, &quot;default&quot;: &quot;HYPERFRAMES&quot; },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Color of the single impact ring.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="logo-sting" data-duration="2.2" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            background: var(--bg, #0b0c0e);
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            pointer-events: none;
+          }
+
+          .ls-clip {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+          }
+
+          .ls-ring {
+            position: absolute;
+            z-index: 1;
+            width: min(42cqw, 72cqh);
+            aspect-ratio: 1;
+            border: min(0.34cqw, 0.62cqh) solid var(--ls-accent);
+            border-radius: 50%;
+            opacity: 0;
+            will-change: transform, opacity;
+          }
+
+          .ls-wordmark {
+            position: relative;
+            z-index: 2;
+            max-width: 90cqw;
+            color: var(--fg, #f8fafc);
+            font-size: min(10.5cqw, 18cqh);
+            font-weight: 850;
+            line-height: 0.9;
+            letter-spacing: -0.055em;
+            text-align: center;
+            white-space: nowrap;
+            transform-origin: 50% 50%;
+            will-change: transform;
+          }
+
+          .ls-flash {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background: #ffffff;
+            opacity: 0;
+          }
+        </style>
+
+        <div id="logo-sting-clip" class="ls-clip clip" data-start="0" data-duration="2.2" data-track-index="0">
+          <div class="ls-ring" aria-hidden="true"></div>
+          <div class="ls-wordmark"></div>
+          <div class="ls-flash" aria-hidden="true"></div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            var wordmark = root.querySelector(".ls-wordmark");
+            var ring = root.querySelector(".ls-ring");
+            var flash = root.querySelector(".ls-flash");
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            var accentColors = {
+              green: "var(--brand, #5df28b)",
+              blue: "var(--accent, #4da3ff)",
+              violet: "var(--accent-2, #a978ff)",
+            };
+            var accent = Object.prototype.hasOwnProperty.call(accentColors, vars.accent)
+              ? vars.accent
+              : "green";
+            var wordmarkText = vars.wordmark == null ? "HYPERFRAMES" : String(vars.wordmark);
+
+            wordmark.textContent = wordmarkText;
+            root.style.setProperty("--ls-accent", accentColors[accent]);
+
+            var IN_BASE = 0.95;
+            var IMPACT_BASE = 0.55;
+            var parsedDuration = parseFloat(root.dataset.duration);
+            var duration = Number.isFinite(parsedDuration) ? Math.max(0.001, parsedDuration) : 2.2;
+            var IN = Math.min(IN_BASE, duration);
+            var retime = IN / IN_BASE;
+            var IMPACT = IMPACT_BASE * retime;
+            var RING_DURATION = (IN_BASE - IMPACT_BASE) * retime;
+            var FLASH_FRAME = Math.min(1 / 30, RING_DURATION);
+            var HOLD = Math.max(0, duration - IN);
+
+            gsap.set(ring, { scale: 0.34, opacity: 0 });
+            gsap.set(flash, { opacity: 0 });
+
+            var tl = gsap.timeline({ paused: true });
+
+            tl.fromTo(
+              wordmark,
+              { scale: 1.15 },
+              { scale: 1, duration: IMPACT, ease: "expo.out" },
+              0,
+            );
+            tl.set(ring, { opacity: 0.92 }, IMPACT);
+            tl.to(
+              ring,
+              { scale: 2.4, opacity: 0, duration: RING_DURATION, ease: "power3.out" },
+              IMPACT,
+            );
+            tl.set(flash, { opacity: 1 }, IMPACT);
+            tl.set(flash, { opacity: 0 }, IMPACT + FLASH_FRAME);
+            tl.addLabel("hold", IN);
+            tl.addLabel("end", IN + HOLD);
+
+            tl.seek(0);
+            window.__timelines = window.__timelines || {};
+            window.__timelines["logo-sting"] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["logo-sting-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

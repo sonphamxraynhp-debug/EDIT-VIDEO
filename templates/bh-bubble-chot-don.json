@@ -1,0 +1,165 @@
+{
+ "id": "bh-bubble-chot-don",
+ "name": "Bubble chốt đơn",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "bubble",
+ "desc": "Bán hàng kiểu bubble: thẻ mở đầu, spotlight chữ lật 3D + sticker, logo bấm, nút Follow và từ khoá phát sáng.",
+ "tags": [
+  "bubble",
+  "sticker",
+  "follow",
+  "shop"
+ ],
+ "title": "DEAL HỜI",
+ "music": "happy_2",
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh sản phẩm",
+  "từ khoá chốt (vd: MUA)"
+ ],
+ "preview": {
+  "from": 0.4,
+  "to": 6.4,
+  "still": 2.9
+ },
+ "fx": [
+  {
+   "t": 1.8,
+   "type": "punch",
+   "amp": 0.06
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hook_card",
+   "t0": 0,
+   "t1": 1.8,
+   "screen": {
+    "broll": {
+     "template": "ticker",
+     "pal": "ember",
+     "items": [
+      "SALE",
+      "DEAL",
+      "HÔM NAY"
+     ]
+    }
+   },
+   "lines": [
+    {
+     "text": "DEAL HỜI",
+     "t": 0,
+     "style": "white",
+     "size": 46,
+     "y": 548,
+     "anim": "slide_l"
+    },
+    {
+     "text": "CHỈ HÔM NAY",
+     "t": 0.5,
+     "style": "yellow",
+     "size": 46,
+     "y": 602,
+     "anim": "fly",
+     "from_y": 712
+    }
+   ]
+  },
+  {
+   "type": "spotlight",
+   "t0": 1.8,
+   "t1": 4.0,
+   "lines": [
+    {
+     "text": "GIẢM 50%",
+     "t": 1.9,
+     "style": "yellow",
+     "size": 84,
+     "y": 685,
+     "anim": "tumble"
+    },
+    {
+     "text": "ĐƠN ĐẦU TIÊN",
+     "t": 2.3,
+     "style": "white",
+     "size": 50,
+     "y": 610,
+     "anim": "slide_r"
+    }
+   ],
+   "sticker": {
+    "src": "media/serum.png",
+    "t": 2.5,
+    "from": "left",
+    "size": 300,
+    "y": 960
+   }
+  },
+  {
+   "type": "sticker",
+   "t0": 6.0,
+   "t1": 8.2,
+   "src": "🎁",
+   "from": "pop",
+   "size": 220,
+   "y": 900
+  },
+  {
+   "type": "text",
+   "t0": 6.0,
+   "t1": 8.2,
+   "lines": [
+    {
+     "text": "QUÀ TẶNG KÈM",
+     "t": 6.1,
+     "style": "glow",
+     "size": 52,
+     "y": 760,
+     "anim": "blur_zoom"
+    }
+   ]
+  },
+  {
+   "type": "spotlight",
+   "t0": 11.0,
+   "t1": 13.2,
+   "lines": [
+    {
+     "text": "SẮP HẾT",
+     "t": 11.1,
+     "style": "yellow",
+     "size": 84,
+     "y": 685,
+     "anim": "tumble"
+    },
+    {
+     "text": "SỐ LƯỢNG CÓ HẠN",
+     "t": 11.45,
+     "style": "white",
+     "size": 46,
+     "y": 610,
+     "anim": "slide_r"
+    }
+   ],
+   "sticker": {
+    "src": "⏰",
+    "t": 11.6,
+    "from": "up",
+    "y": 960
+   }
+  },
+  {
+   "type": "follow_cta",
+   "t0": 17.2,
+   "t1": 20.2,
+   "keep": true,
+   "label": "Follow",
+   "keyword": {
+    "text": "MUA",
+    "t": 18.4
+   }
+  }
+ ]
+}

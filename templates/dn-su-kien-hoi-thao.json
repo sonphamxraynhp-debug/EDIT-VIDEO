@@ -1,0 +1,91 @@
+{
+ "id": "dn-su-kien-hoi-thao",
+ "name": "Sự kiện / hội thảo",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Bảng lật chữ báo sự kiện, tên diễn giả, lưới ảnh hội trường, đồng hồ đếm số người tham dự và nút đăng ký.",
+ "tags": [
+  "sự kiện",
+  "hội thảo",
+  "workshop",
+  "đăng ký"
+ ],
+ "title": "Hội thảo 2026",
+ "caption_style": "hf_clip_wipe",
+ "music": "inspire_2",
+ "brand": {
+  "primary": "#0EA5E9",
+  "accent": "#BAE6FD",
+  "dark": "#03111A"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên sự kiện",
+  "diễn giả",
+  "thời gian / địa điểm"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.2
+ },
+ "fx": [],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "split-flap-board",
+   "t0": 0,
+   "t1": 3.4,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "boardText": "HOI THAO 2026",
+    "cellCount": 13
+   }
+  },
+  {
+   "type": "hf",
+   "block": "lt-soft-pill",
+   "t0": 3.6,
+   "t1": 8.4,
+   "texts": {
+    "0": "Diễn giả: Lê Quang Huy",
+    "1": "Chuyên gia marketing"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "mk-placeholder-grid",
+   "t0": 8.8,
+   "t1": 13.2
+  },
+  {
+   "type": "hf",
+   "block": "count-up",
+   "t0": 13.6,
+   "t1": 16.8,
+   "y": 1010,
+   "hideCaptions": true,
+   "vars": {
+    "end": 500,
+    "prefix": "",
+    "suffix": "+"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "cta-lockup",
+   "t0": 17.2,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "action_line": "Giữ chỗ miễn phí",
+    "button_label": "Đăng ký tham dự",
+    "microcopy": "Chỉ còn 50 ghế"
+   }
+  }
+ ]
+}

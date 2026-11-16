@@ -1,0 +1,146 @@
+{
+ "id": "tt-phan-ung-bai-bao",
+ "name": "Phản ứng bài báo",
+ "category": "tintuc",
+ "aspect": "9:16",
+ "pack": "greenscreen",
+ "desc": "News reaction: người nói tách nền đứng trước bài báo, bài đăng mạng xã hội, khoanh vùng và zoom chi tiết.",
+ "tags": [
+  "reaction",
+  "bài báo",
+  "mạng xã hội",
+  "greenscreen"
+ ],
+ "title": "Bạn đã đọc tin này?",
+ "caption_style": "greenscreen",
+ "music": "suspense",
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh chụp bài báo (ghi nguồn)",
+  "ảnh bài đăng",
+  "ảnh nền"
+ ],
+ "preview": {
+  "from": 4.0,
+  "to": 10.0,
+  "still": 7.8
+ },
+ "scenes": [
+  {
+   "type": "gs_backdrop",
+   "t0": 0,
+   "t1": 15.6,
+   "bg": "media/gs_bg_city.jpg",
+   "kb": 0.08,
+   "x": 360,
+   "y": 1280,
+   "size": 52
+  },
+  {
+   "type": "gs_article",
+   "t0": 0,
+   "t1": 6,
+   "source": "Báo mẫu",
+   "url": "baomau.vn/tin-moi",
+   "category": "Thời sự",
+   "headline": "Tiêu đề bài báo (văn bản mẫu, thay bằng tin thật)",
+   "date": "ngày/tháng/năm",
+   "author": "Tác giả",
+   "image": "media/gs_hero.jpg",
+   "lead": "Đoạn mở đầu bài báo mẫu.",
+   "before": "Đoạn quan trọng:",
+   "highlight": "câu cần nhấn mạnh",
+   "after": "trong bài."
+  },
+  {
+   "type": "gs_zoomfocus",
+   "t0": 3.4,
+   "t1": 6,
+   "keys": [
+    {
+     "t": 3.4,
+     "x": 50,
+     "y": 33,
+     "s": 1
+    },
+    {
+     "t": 4.0,
+     "x": 50,
+     "y": 33,
+     "s": 1.45
+    },
+    {
+     "t": 5.4,
+     "x": 50,
+     "y": 33,
+     "s": 1.45
+    },
+    {
+     "t": 6,
+     "x": 50,
+     "y": 33,
+     "s": 1
+    }
+   ]
+  },
+  {
+   "type": "gs_tweet",
+   "t0": 6.2,
+   "t1": 11.0,
+   "name": "Tài khoản mẫu",
+   "handle": "@taikhoan.mau",
+   "time": "2 giờ",
+   "avatar": "media/gs_avatar.jpg",
+   "text": "Nội dung bài đăng mẫu — thay bằng ảnh chụp bài đăng thật và ghi nguồn.",
+   "stats": {
+    "replies": 120,
+    "reposts": 340,
+    "likes": 2560,
+    "views": 120000
+   },
+   "like_t": 7.6,
+   "x": 360,
+   "y": 360,
+   "size": 100
+  },
+  {
+   "type": "gs_pointer",
+   "t0": 8.4,
+   "t1": 10.8,
+   "kind": "circle",
+   "x": 360,
+   "y": 362,
+   "w": 560,
+   "h": 90,
+   "label": "CHÚ Ý",
+   "label_y": 168
+  },
+  {
+   "type": "gs_screen",
+   "t0": 11.2,
+   "t1": 15.4,
+   "image": "media/gs_site.jpg",
+   "url": "trangnguon.vn",
+   "from": 0,
+   "to": 0.75
+  },
+  {
+   "type": "gs_backdrop",
+   "t0": 15.6,
+   "t1": 20.2,
+   "bg": {
+    "gradient": [
+     "#2A0B3A",
+     "#5B1450",
+     "#120818"
+    ],
+    "glow": "#FF4FA0",
+    "glow2": "#3FA7FF"
+   },
+   "size": 62,
+   "outline": 4,
+   "keep": true
+  }
+ ]
+}

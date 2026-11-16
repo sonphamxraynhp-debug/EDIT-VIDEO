@@ -1,0 +1,34 @@
+{
+ "id": "tt-ban-tin-truyen-hinh",
+ "name": "Bản tin truyền hình",
+ "category": "tintuc",
+ "aspect": "9:16",
+ "pack": "news",
+ "desc": "Bản tin 60 giây kiểu truyền hình: ident mở đầu, TRỰC TIẾP, lower-third, TIN NÓNG, ticker chạy chữ.",
+ "tags": [
+  "bản tin",
+  "truyền hình",
+  "tin nóng",
+  "ticker"
+ ],
+ "title": "BẢN TIN 60 GIÂY",
+ "music": "epic",
+ "brand": {
+  "name": "TÊN KÊNH"
+ },
+ "recipe_opts": {},
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "tên kênh",
+  "tên + chức danh người dẫn",
+  "tiêu đề tin",
+  "nguồn"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.4
+ },
+ "scenes": []
+}

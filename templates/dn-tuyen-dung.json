@@ -1,0 +1,109 @@
+{
+ "id": "dn-tuyen-dung",
+ "name": "Tuyển dụng",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Tiêu đề đập mạnh \"Chúng tôi đang tuyển\", tên + vị trí người tuyển, thẻ checklist quyền lợi, bảng lật chữ và nút ứng tuyển.",
+ "tags": [
+  "tuyển dụng",
+  "việc làm",
+  "HR",
+  "tuyển người"
+ ],
+ "title": "Chúng tôi đang tuyển",
+ "caption_style": "hf_neon_accent",
+ "music": "happy",
+ "brand": {
+  "primary": "#EC4899",
+  "accent": "#FBCFE8",
+  "dark": "#16050E"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "vị trí tuyển",
+  "quyền lợi",
+  "cách ứng tuyển"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.8
+ },
+ "fx": [
+  {
+   "t": 0,
+   "type": "flash"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "headline-slam",
+   "t0": 0,
+   "t1": 3,
+   "y": 640,
+   "hideCaptions": true,
+   "size": 150,
+   "vars": {
+    "text": "Chúng tôi đang tuyển",
+    "accent_word_index": 3
+   }
+  },
+  {
+   "type": "hf",
+   "block": "lt-color-block",
+   "t0": 3.2,
+   "t1": 8,
+   "texts": {
+    "0": "Trần Thu Hà",
+    "1": "Trưởng phòng nhân sự"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "marker-checklist-card",
+   "t0": 8.4,
+   "t1": 13,
+   "y": 1010,
+   "hideCaptions": true,
+   "vars": {
+    "top": "LÀM VIỆC",
+    "mid": "Ở",
+    "circled": "ĐÂY",
+    "rest": "ĐƯỢC GÌ",
+    "l1": "LƯƠNG",
+    "v1": "CẠNH TRANH",
+    "l2": "THƯỞNG",
+    "v2": "THÁNG 13",
+    "l3": "HỌC",
+    "v3": "MIỄN PHÍ"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "split-flap-board",
+   "t0": 13.4,
+   "t1": 16.8,
+   "y": 1010,
+   "hideCaptions": true,
+   "vars": {
+    "boardText": "TUYEN DUNG"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "cta-lockup",
+   "t0": 17.2,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "action_line": "Ứng tuyển ngay",
+    "button_label": "Gửi CV hôm nay",
+    "microcopy": "Phản hồi trong 48 giờ"
+   }
+  }
+ ]
+}

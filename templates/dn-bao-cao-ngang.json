@@ -1,0 +1,72 @@
+{
+ "id": "dn-bao-cao-ngang",
+ "name": "Báo cáo quý (ngang)",
+ "category": "doanhnghiep",
+ "aspect": "16:9",
+ "pack": "hf_tin",
+ "desc": "Video ngang: đếm số tăng trưởng, đua doanh thu các kênh, thẻ biểu đồ cột và sơ đồ kế hoạch quý sau.",
+ "tags": [
+  "báo cáo",
+  "số liệu",
+  "họp",
+  "ngang"
+ ],
+ "title": "Báo cáo quý",
+ "caption_style": "hf_weight_shift",
+ "music": "corporate_2",
+ "brand": {
+  "primary": "#22C55E",
+  "accent": "#BBF7D0",
+  "dark": "#06130B"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "số liệu quý",
+  "kế hoạch"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.5
+ },
+ "fx": [],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "count-up",
+   "t0": 0.2,
+   "t1": 3.4,
+   "hideCaptions": true,
+   "vars": {
+    "end": 245,
+    "prefix": "+",
+    "suffix": "%"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "bar-chart-race",
+   "t0": 3.6,
+   "t1": 12.6,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "animated-bar-chart",
+   "t0": 13,
+   "t1": 17,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "lt-stack-bars",
+   "t0": 17.2,
+   "t1": 20.2,
+   "texts": {
+    "0": "Phạm Quốc Bảo",
+    "1": "Giám đốc kinh doanh"
+   }
+  }
+ ]
+}

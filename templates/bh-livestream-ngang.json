@@ -1,0 +1,105 @@
+{
+ "id": "bh-livestream-ngang",
+ "name": "Giới thiệu SP ngang",
+ "category": "banhang",
+ "aspect": "16:9",
+ "pack": "review",
+ "desc": "Bản ngang cho website / YouTube: thẻ sản phẩm, điểm chi tiết, so giá, mã giảm giá trên nền video mờ.",
+ "tags": [
+  "ngang",
+  "website",
+  "sản phẩm",
+  "mã giảm giá"
+ ],
+ "title": "Tên sản phẩm",
+ "caption_style": "review",
+ "music": "corporate_2",
+ "brand": {
+  "primary": "#2EC4B6",
+  "accent": "#FFD166",
+  "dark": "#0B1416"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh sản phẩm",
+  "điểm mạnh",
+  "giá + mã giảm giá"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.0
+ },
+ "scenes": [
+  {
+   "type": "rv_product",
+   "t0": 0.0,
+   "t1": 3.6,
+   "x": 900,
+   "y": 360,
+   "size": 80,
+   "image": "media/phone_a.png",
+   "name": "Tên sản phẩm",
+   "brand": "Thương hiệu",
+   "price": "Giá (ví dụ)",
+   "badge": "MỚI"
+  },
+  {
+   "type": "rv_rating_bar",
+   "t0": 3.8,
+   "t1": 8.0,
+   "x": 900,
+   "y": 360,
+   "size": 80,
+   "stagger": 0.15,
+   "items": [
+    {
+     "label": "Thiết kế",
+     "score": 9,
+     "icon": "🎨"
+    },
+    {
+     "label": "Tiện dụng",
+     "score": 8.5,
+     "icon": "👌"
+    },
+    {
+     "label": "Độ bền",
+     "score": 8,
+     "icon": "🛡️"
+    },
+    {
+     "label": "Giá",
+     "score": 7.5,
+     "icon": "💰"
+    }
+   ]
+  },
+  {
+   "type": "rv_coupon",
+   "t0": 8.4,
+   "t1": 12.4,
+   "x": 900,
+   "y": 360,
+   "size": 80,
+   "discount": "10%",
+   "sub": "tối đa 100K",
+   "code": "MAVIDU10",
+   "expiry": "HSD: ngày/tháng",
+   "logo": "🎟️",
+   "shop": "Shop của bạn"
+  },
+  {
+   "type": "rv_score",
+   "t0": 16.4,
+   "t1": 20.2,
+   "x": 900,
+   "y": 330,
+   "size": 76,
+   "score": 8.6,
+   "label": "Đáng mua",
+   "keep": true
+  }
+ ]
+}

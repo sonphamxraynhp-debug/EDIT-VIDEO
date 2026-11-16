@@ -1,0 +1,140 @@
+{
+ "id": "rv-so-sanh-a-b",
+ "name": "So sánh A vs B",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "split",
+ "desc": "So kè 2 sản phẩm: màn hình chia đôi A | B, bảng thông số có bên thắng, biểu đồ test và kết luận.",
+ "tags": [
+  "so sánh",
+  "vs",
+  "thông số",
+  "chọn mua"
+ ],
+ "title": "A hay B?",
+ "caption_style": "review",
+ "music": "tech",
+ "brand": {
+  "accent": "#00E5FF",
+  "primary": "#FF4D6D",
+  "good": "#00E08A"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh 2 sản phẩm",
+  "bảng thông số",
+  "kết quả test"
+ ],
+ "preview": {
+  "from": 2.0,
+  "to": 8.0,
+  "still": 7.8
+ },
+ "scenes": [
+  {
+   "type": "split_label",
+   "t0": 0.2,
+   "t1": 2.4,
+   "text": "Sản phẩm A vs Sản phẩm B",
+   "icon": "⚔️",
+   "x": 360,
+   "y": 170,
+   "size": 100
+  },
+  {
+   "type": "split_compare",
+   "t0": 2.6,
+   "t1": 6.4,
+   "a": {
+    "media": "media/phone_a.png",
+    "fit": "contain"
+   },
+   "b": {
+    "media": "media/phone_b.png",
+    "fit": "contain"
+   },
+   "label_a": {
+    "text": "Sản phẩm A"
+   },
+   "label_b": {
+    "text": "Sản phẩm B"
+   }
+  },
+  {
+   "type": "rv_specs_vs",
+   "t0": 6.6,
+   "t1": 11.0,
+   "x": 360,
+   "y": 480,
+   "size": 100,
+   "stagger": 0.25,
+   "a": {
+    "name": "Sản phẩm A",
+    "image": "media/phone_a.png"
+   },
+   "b": {
+    "name": "Sản phẩm B",
+    "image": "media/phone_b.png"
+   },
+   "rows": [
+    {
+     "label": "Màn hình",
+     "a": "6,7\"",
+     "b": "6,1\"",
+     "win": "a"
+    },
+    {
+     "label": "Pin",
+     "a": "5000 mAh",
+     "b": "4300 mAh",
+     "win": "a"
+    },
+    {
+     "label": "Trọng lượng",
+     "a": "220 g",
+     "b": "175 g",
+     "win": "b"
+    },
+    {
+     "label": "Giá",
+     "a": "9,9tr",
+     "b": "14,9tr",
+     "win": "a"
+    }
+   ]
+  },
+  {
+   "type": "rv_bars",
+   "t0": 11.2,
+   "t1": 14.6,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "title": "Test pin (ví dụ)",
+   "unit": "giờ",
+   "bars": [
+    {
+     "label": "Sản phẩm A",
+     "value": 12
+    },
+    {
+     "label": "Sản phẩm B",
+     "value": 9.5
+    }
+   ],
+   "note": "Ghi rõ điều kiện test của bạn"
+  },
+  {
+   "type": "rv_verdict",
+   "t0": 17.4,
+   "t1": 20.2,
+   "x": 360,
+   "y": 640,
+   "size": 100,
+   "verdict": "buy",
+   "sub": "Chọn A nếu cần pin trâu",
+   "keep": true
+  }
+ ]
+}

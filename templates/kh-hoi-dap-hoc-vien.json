@@ -1,0 +1,90 @@
+{
+ "id": "kh-hoi-dap-hoc-vien",
+ "name": "Hỏi đáp học viên",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "qa",
+ "desc": "Trả lời câu hỏi học viên: thẻ câu hỏi gõ chữ, bộ đếm Câu 1/3, thẻ trả lời đánh số, chữ đáp án nổ to.",
+ "tags": [
+  "hỏi đáp",
+  "học viên",
+  "faq",
+  "bình luận"
+ ],
+ "title": "Học viên hỏi gì?",
+ "caption_style": "qa",
+ "music": "happy",
+ "brand": {
+  "primary": "#8B7CFF",
+  "name": "Lớp học AI"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "2–3 câu hỏi",
+  "ý trả lời"
+ ],
+ "preview": {
+  "from": 0.2,
+  "to": 6.2,
+  "still": 5.4
+ },
+ "scenes": [
+  {
+   "type": "qa_counter",
+   "t0": 0.3,
+   "t1": 7.4,
+   "num": 1,
+   "total": 3
+  },
+  {
+   "type": "qa_comment_q",
+   "t0": 0.3,
+   "t1": 3.6,
+   "user": "@hocvien.vidu",
+   "text": "Người mới nên |bắt đầu| từ đâu ạ?"
+  },
+  {
+   "type": "qa_answer",
+   "t0": 3.8,
+   "t1": 8.2,
+   "items": [
+    "Nắm |kiến thức nền| trước",
+    "Làm bài tập nhỏ mỗi ngày",
+    "Hỏi ngay khi vướng"
+   ],
+   "stagger": 0.8
+  },
+  {
+   "type": "qa_counter",
+   "t0": 8.4,
+   "t1": 14.6,
+   "num": 2,
+   "total": 3
+  },
+  {
+   "type": "qa_question",
+   "t0": 8.4,
+   "t1": 11.6,
+   "text": "Học bao lâu thì |làm được| việc?",
+   "num": 2
+  },
+  {
+   "type": "qa_reveal",
+   "t0": 11.8,
+   "t1": 14.4,
+   "kicker": "TRẢ LỜI",
+   "text": "30 NGÀY",
+   "emoji": "🎯",
+   "sub": "nếu |thực hành| đều (ví dụ)"
+  },
+  {
+   "type": "qa_comment_q",
+   "t0": 17.0,
+   "t1": 20.2,
+   "variant": "input",
+   "text": "Hỏi tiếp ở bình luận nhé 👇",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,180 @@
+{
+ "id": "rv-review-nhanh-kinetic",
+ "name": "Review nhanh 30 giây",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "kinetic",
+ "desc": "Review dồn dập kiểu short-form: hook chữ to, số đập vào, chữ xếp tầng, b-roll + từ khoá, emoji bung.",
+ "tags": [
+  "review nhanh",
+  "short",
+  "kinetic",
+  "tiktok"
+ ],
+ "title": "Có đáng tiền?",
+ "caption_style": "kinetic",
+ "music": "hype",
+ "brand": {
+  "accent": "#C6FF3D",
+  "primary": "#FF3B3B"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên sản phẩm",
+  "1 con số ấn tượng",
+  "kết luận"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.9
+ },
+ "fx": [
+  {
+   "t": 1.4,
+   "type": "punch",
+   "amp": 0.08
+  },
+  {
+   "t": 2.2,
+   "type": "flash"
+  },
+  {
+   "t": 5.2,
+   "type": "blur_in"
+  },
+  {
+   "t": 8.6,
+   "type": "whip"
+  },
+  {
+   "t": 12.4,
+   "type": "glitch"
+  },
+  {
+   "t": 15.3,
+   "type": "shake",
+   "amp": 10
+  }
+ ],
+ "scenes": [
+  {
+   "type": "kinetic_hook",
+   "t0": 0,
+   "t1": 2.2,
+   "text": "Có đáng tiền",
+   "text2": "hay không?",
+   "upper": true
+  },
+  {
+   "type": "kinetic_slam",
+   "t0": 2.3,
+   "t1": 3.9,
+   "count": {
+    "to": 48,
+    "suffix": "h"
+   },
+   "top": "pin dùng",
+   "bottom": "liên tục (ví dụ)"
+  },
+  {
+   "type": "kinetic_words",
+   "t0": 4.0,
+   "t1": 5.6,
+   "bg": "arc",
+   "words": [
+    {
+     "text": "nhưng mà",
+     "t": 4.02,
+     "tier": "s",
+     "align": "left"
+    },
+    {
+     "text": "có 1 điểm",
+     "t": 4.5,
+     "tier": "l",
+     "hl": true
+    },
+    {
+     "text": "trừ",
+     "t": 5.0,
+     "tier": "s",
+     "align": "right"
+    }
+   ]
+  },
+  {
+   "type": "kinetic_emoji",
+   "t0": 5.7,
+   "t1": 6.9,
+   "emojis": [
+    "🤔",
+    "👀",
+    "❓"
+   ],
+   "x": 560,
+   "y": 330,
+   "size": 140
+  },
+  {
+   "type": "kinetic_broll",
+   "t0": 8.6,
+   "t1": 10.4,
+   "layout": "split",
+   "broll": {
+    "template": "ticker",
+    "pal": "ember",
+    "items": [
+     "PIN",
+     "CAMERA",
+     "GIÁ",
+     "THIẾT KẾ"
+    ]
+   },
+   "keyword": "điểm cộng",
+   "kw_t": 9.0
+  },
+  {
+   "type": "kinetic_zoomcut",
+   "t0": 12.4,
+   "t1": 13.5,
+   "word": "ĐÁNG MUA",
+   "word_t": 12.6,
+   "scale": 1.5,
+   "grade": "bw"
+  },
+  {
+   "type": "kinetic_cta",
+   "t0": 18.0,
+   "t1": 20.2,
+   "text": "Follow xem review tiếp",
+   "tap_t": 19.0,
+   "handle": "@kenh.cua.ban",
+   "keep": true
+  },
+  {
+   "type": "kinetic_progress",
+   "t0": 0,
+   "t1": 20.2,
+   "chapters": [
+    {
+     "t": 0,
+     "text": "Hook"
+    },
+    {
+     "t": 4.0,
+     "text": "Điểm trừ"
+    },
+    {
+     "t": 8.6,
+     "text": "Điểm cộng"
+    },
+    {
+     "t": 12.4,
+     "text": "Kết luận"
+    }
+   ]
+  }
+ ]
+}

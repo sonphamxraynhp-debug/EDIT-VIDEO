@@ -1,0 +1,92 @@
+{
+ "id": "bh-uu-dai-co-han",
+ "name": "Ưu đãi có hạn",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Tiêu đề giảm giá sốc, con số % quay kiểu máy xèng, huy hiệu bật, dấu tích đã áp mã và câu chốt đơn.",
+ "tags": [
+  "khuyến mãi",
+  "giảm giá",
+  "flash sale",
+  "ưu đãi"
+ ],
+ "title": "Giảm giá sốc",
+ "caption_style": "hf_texture",
+ "music": "hype_2",
+ "brand": {
+  "primary": "#F43F5E",
+  "accent": "#FFE4E6",
+  "dark": "#18040A"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "mức giảm",
+  "thời hạn",
+  "lời kêu gọi"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.5
+ },
+ "fx": [
+  {
+   "t": 0,
+   "type": "shake",
+   "amp": 14
+  },
+  {
+   "t": 3.4,
+   "type": "flash"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "headline-slam",
+   "t0": 0,
+   "t1": 3,
+   "y": 640,
+   "hideCaptions": true,
+   "size": 150
+  },
+  {
+   "type": "hf",
+   "block": "slot-machine-roll",
+   "t0": 3.4,
+   "t1": 8,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "badge-pop",
+   "t0": 8.4,
+   "t1": 12.4,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "success-check",
+   "t0": 12.8,
+   "t1": 16.6,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "cta-close",
+   "t0": 17,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "action_line": "Chỉ hôm nay thôi",
+    "button_label": "Mua ngay"
+   }
+  }
+ ]
+}

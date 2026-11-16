@@ -1,0 +1,86 @@
+{
+ "id": "cs-dien-anh-film",
+ "name": "Điện ảnh film vàng",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "cinema",
+ "desc": "Phim tài liệu: màu film, viền đen, tiêu đề serif vàng, chữ đánh máy, trích dẫn, ít âm thanh nhưng nặng.",
+ "tags": [
+  "điện ảnh",
+  "film",
+  "tài liệu",
+  "preset"
+ ],
+ "title": "Một ngày bình thường",
+ "caption_style": "cinema",
+ "music": "suspense",
+ "music_gain": -19,
+ "brand": {
+  "primary": "#E7C27A",
+  "accent": "#B8914A",
+  "dark": "#0f0f10",
+  "light": "#EDE6DA",
+  "font": "'Montserrat',var(--sans)",
+  "disp": "'Playfair Display',serif"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "địa danh, thời gian"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.4
+ },
+ "fx": [
+  {
+   "t": 2.8,
+   "type": "blur_in"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "cine_letterbox",
+   "t0": 0,
+   "t1": 20.2,
+   "ratio": 2.0,
+   "grade": "warm"
+  },
+  {
+   "type": "cine_title",
+   "t0": 0.2,
+   "t1": 2.8,
+   "kicker": "CHƯƠNG I",
+   "title": "Một ngày bình thường",
+   "sub": "Câu chuyện mẫu"
+  },
+  {
+   "type": "cine_location",
+   "t0": 5,
+   "t1": 8.4,
+   "place": "Đà Lạt, Việt Nam (ví dụ)",
+   "time": "05:40 · sáng sớm"
+  },
+  {
+   "type": "cine_flash",
+   "t0": 10.6,
+   "t1": 11.4,
+   "color": "warm"
+  },
+  {
+   "type": "cine_quote",
+   "t0": 12,
+   "t1": 15.6,
+   "text": "Có những ngày bình thường, sau này nhìn lại mới thấy là đẹp nhất.",
+   "author": "Nhật ký (ví dụ)"
+  },
+  {
+   "type": "cine_type",
+   "t0": 17.6,
+   "t1": 20.2,
+   "text": "Còn tiếp…",
+   "keep": true
+  }
+ ]
+}

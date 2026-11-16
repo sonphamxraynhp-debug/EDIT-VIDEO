@@ -1,0 +1,66 @@
+{
+ "id": "kh-bai-giang-xanh",
+ "name": "Bài giảng xanh dương",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "course",
+ "desc": "Bài học ngắn chuẩn khoá học: thẻ BÀI, giảng viên, ghi nhớ, trắc nghiệm, thuật ngữ và CTA đăng ký.",
+ "tags": [
+  "bài giảng",
+  "quiz",
+  "thuật ngữ",
+  "đăng ký"
+ ],
+ "title": "Tên bài học",
+ "music": "corporate",
+ "brand": {
+  "name": "Tên khoá học",
+  "handle": "@kenh.cua.ban"
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "số bài + tên bài",
+  "tên giảng viên",
+  "câu hỏi trắc nghiệm",
+  "giá khoá học"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.4
+ },
+ "scenes": [
+  {
+   "type": "course_keypoint",
+   "t0": 5.0,
+   "t1": 7.4,
+   "kind": "remember",
+   "key_t": 5.05,
+   "text": "Ý chính *quan trọng nhất* của bài"
+  },
+  {
+   "type": "course_quiz",
+   "t0": 7.6,
+   "t1": 11.0,
+   "reveal_t": 10.0,
+   "question": "Câu hỏi kiểm tra nhanh?",
+   "options": [
+    "Đáp án đúng",
+    "Đáp án B",
+    "Đáp án C",
+    "Đáp án D"
+   ],
+   "correct": 0
+  },
+  {
+   "type": "course_term",
+   "t0": 11.4,
+   "t1": 15.0,
+   "term": "Thuật ngữ",
+   "en": "Term · tiếng Anh",
+   "definition": "Giải thích *ngắn gọn, dễ hiểu* cho người mới.",
+   "example": "Một ví dụ đời thường."
+  }
+ ]
+}

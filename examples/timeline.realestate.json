@@ -1,0 +1,197 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "caption_style": "realestate",
+ "captions": "work/captions.json",
+ "scenes": [
+  {
+   "type": "re_title",
+   "t0": 0,
+   "t1": 2.2,
+   "x": 360,
+   "y": 790,
+   "size": 60,
+   "tag": "CĂN HỘ 2PN",
+   "name": "The Riverside Residence",
+   "sub": "Căn góc · view sông Sài Gòn",
+   "address": "Đường Nguyễn Hữu Cảnh, Bình Thạnh, TP.HCM",
+   "cid": "re0"
+  },
+  {
+   "type": "re_specs",
+   "t0": 2.2,
+   "t1": 4.0,
+   "x": 360,
+   "y": 650,
+   "size": 60,
+   "title": "Thông tin căn hộ",
+   "cid": "re1"
+  },
+  {
+   "type": "re_gallery",
+   "t0": 4.0,
+   "t1": 6.4,
+   "mode": "full",
+   "per": 0.6,
+   "images": [
+    "media/living.jpg",
+    "media/bedroom.jpg",
+    "media/kitchen.jpg",
+    "media/facade.jpg"
+   ],
+   "labels": [
+    "Phòng khách",
+    "Phòng ngủ master",
+    "Bếp mở",
+    "Mặt tiền dự án"
+   ],
+   "cid": "re2"
+  },
+  {
+   "type": "re_price",
+   "t0": 6.4,
+   "t1": 8.4,
+   "x": 360,
+   "y": 700,
+   "size": 60,
+   "value": "3,25",
+   "unit": "tỷ",
+   "old": "3,6 tỷ",
+   "per_m2": "~ 43 triệu/m²",
+   "ribbon": "GIÁ TỐT",
+   "count_dur": 1.0,
+   "cid": "re3"
+  },
+  {
+   "type": "re_stamp",
+   "t0": 7.5,
+   "t1": 8.4,
+   "x": 360,
+   "y": 420,
+   "size": 48,
+   "text": "CHỈ CÒN 2 CĂN",
+   "rotate": -6,
+   "cid": "re4"
+  },
+  {
+   "type": "re_compare",
+   "t0": 8.4,
+   "t1": 10.3,
+   "x": 360,
+   "y": 580,
+   "size": 60,
+   "images": [
+    "media/raw.jpg",
+    "media/living.jpg"
+   ],
+   "labels": [
+    "THÔ",
+    "HOÀN THIỆN"
+   ],
+   "keys": [
+    {
+     "t": 0,
+     "p": 0.94
+    },
+    {
+     "t": 0.3,
+     "p": 0.94
+    },
+    {
+     "t": 1.3,
+     "p": 0.06
+    },
+    {
+     "t": 1.8,
+     "p": 0.5
+    }
+   ],
+   "cid": "re5"
+  },
+  {
+   "type": "re_map",
+   "t0": 10.3,
+   "t1": 12.3,
+   "x": 360,
+   "y": 590,
+   "size": 60,
+   "title": "Vị trí đắc địa",
+   "radius_label": "3 km",
+   "stagger": 0.2,
+   "cid": "re6"
+  },
+  {
+   "type": "re_amenities",
+   "t0": 12.3,
+   "t1": 13.8,
+   "x": 360,
+   "y": 650,
+   "size": 60,
+   "title": "Tiện ích nội khu",
+   "stagger": 0.08,
+   "cid": "re7"
+  },
+  {
+   "type": "re_floorplan",
+   "t0": 13.8,
+   "t1": 15.6,
+   "x": 360,
+   "y": 600,
+   "size": 60,
+   "title": "Mặt bằng căn hộ",
+   "sub": "75 m² · 2PN · 2WC",
+   "stagger": 0.2,
+   "cid": "re8"
+  },
+  {
+   "type": "re_loan",
+   "t0": 15.6,
+   "t1": 18.0,
+   "x": 360,
+   "y": 620,
+   "size": 60,
+   "price": "3,25",
+   "ltv": 70,
+   "rate": 8,
+   "years": 20,
+   "cid": "re9"
+  },
+  {
+   "type": "re_agent",
+   "t0": 18.0,
+   "t1": 20.2,
+   "x": 360,
+   "y": 680,
+   "size": 60,
+   "keep": true,
+   "cid": "re10"
+  }
+ ],
+ "audio": {
+  "voice": "work/voice.wav",
+  "mix": "work/mix.wav",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 22.7,
+    "mood": "inspire",
+    "gain": -20
+   }
+  ],
+  "sfx": []
+ },
+ "brand": {
+  "name": "Nguyễn Minh Anh",
+  "phone": "0909 123 456",
+  "website": "riverside-residence.vn"
+ }
+}

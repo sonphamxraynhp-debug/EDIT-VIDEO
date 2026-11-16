@@ -1,0 +1,98 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "captions": "work/captions.json",
+ "caption_style": "news",
+ "brand": {
+  "name": "TIN TỨC 24H"
+ },
+ "audio": {
+  "voice": "work/voice.wav",
+  "mix": "work/mix.wav",
+  "music": [],
+  "sfx": []
+ },
+ "scenes": [
+  {
+   "type": "news_intro",
+   "t0": 0,
+   "t1": 2,
+   "channel": "TIN TỨC 24H",
+   "name": "BẢN TIN CÔNG NGHỆ",
+   "sub": "Thứ Sáu, 31/10/2026"
+  },
+  {
+   "type": "news_live",
+   "t0": 2,
+   "t1": 20.2,
+   "label": "TRỰC TIẾP",
+   "clock": "20:15:00",
+   "place": "HÀ NỘI",
+   "keep": true
+  },
+  {
+   "type": "news_ticker",
+   "t0": 2,
+   "t1": 20.2,
+   "label": "TIN NÓNG",
+   "keep": true,
+   "speed": 110,
+   "items": [
+    "Cựu nhà nghiên cứu cảnh báo cuộc đua siêu trí tuệ",
+    "Các công ty AI tăng tốc huấn luyện mô hình mới",
+    "Chuyên gia kêu gọi sớm có khung quản lý AI"
+   ]
+  },
+  {
+   "type": "news_lowerthird",
+   "t0": 2.2,
+   "t1": 5.8,
+   "name": "Minh Quân",
+   "title": "Biên tập viên công nghệ",
+   "tag": "Dẫn chương trình"
+  },
+  {
+   "type": "news_breaking",
+   "t0": 6.4,
+   "t1": 9.2,
+   "label": "TIN NÓNG",
+   "sub": "BREAKING NEWS",
+   "text": "AI có thể tự cải thiện trong vài năm tới"
+  },
+  {
+   "type": "news_headline",
+   "t0": 9.6,
+   "t1": 13.3,
+   "tag": "Công nghệ",
+   "text": "Nhà nghiên cứu rời OpenAI và Anthropic lên tiếng cảnh báo",
+   "sub": "Cập nhật lúc 20:16"
+  },
+  {
+   "type": "news_map",
+   "t0": 13.5,
+   "t1": 16.8,
+   "place": "San Francisco",
+   "sub": "California, Hoa Kỳ",
+   "coord": "37.77°N · 122.42°W"
+  },
+  {
+   "type": "news_quote",
+   "t0": 17,
+   "t1": 20.2,
+   "text": "Đây là cuộc đua tới siêu trí tuệ có khả năng tự cải thiện.",
+   "source": "Nhà nghiên cứu AI",
+   "role": "Cựu thành viên hai phòng thí nghiệm lớn",
+   "avatar": "media/news_avatar.jpg",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+{
+ "id": "khac-podcast-result",
+ "name": "Podcast RESULT ấm áp",
+ "category": "khac",
+ "aspect": "9:16",
+ "pack": "montage",
+ "desc": "Podcast kể chuyện tông ấm: thẻ navy hai tầng chữ, giấy kraft viết tay, polaroid, xấp ảnh lật, hạt phim và vệt cháy phim ở chỗ chuyển ý.",
+ "tags": [
+  "podcast",
+  "kể chuyện",
+  "hoài niệm",
+  "polaroid",
+  "giấy"
+ ],
+ "title": "Tấm vé cũ",
+ "caption_style": "mt_result",
+ "music": "lofi_2",
+ "recipe_opts": {
+  "variant": "result"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "câu chuyện 4–6 ý",
+  "3–5 ảnh kỷ niệm",
+  "1 câu hỏi kết"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.4
+ },
+ "scenes": [
+  {
+   "type": "mt_film",
+   "t0": 0,
+   "t1": 20.2,
+   "leaks": [
+    {
+     "t": 6.4
+    },
+    {
+     "t": 13.2
+    }
+   ]
+  },
+  {
+   "type": "mt_result_card",
+   "t0": 0,
+   "t1": 2.3,
+   "surface": "navy",
+   "kicker": "hôm nay mình kể về",
+   "big": "TẤM VÉ CŨ",
+   "circle_at": 1.1
+  },
+  {
+   "type": "mt_polaroid",
+   "t0": 3.0,
+   "t1": 6.2,
+   "src": "media/top_dalat.jpg",
+   "label": "Đà Lạt, 2019 (ví dụ)",
+   "zone": "top",
+   "w": 270,
+   "enter": "toss"
+  },
+  {
+   "type": "mt_result_card",
+   "t0": 6.6,
+   "t1": 8.9,
+   "surface": "kraft",
+   "kicker": "mỗi chuyến đi giữ lại",
+   "script": "một tờ giấy",
+   "stamp": {
+    "text": "NGÀY 1",
+    "at": 1.4
+   }
+  },
+  {
+   "type": "mt_prop_note",
+   "t0": 9.6,
+   "t1": 12.8,
+   "kind": "ticket",
+   "header": "VÉ · NGÀY 3",
+   "lines": [
+    "HUẾ → HỘI AN",
+    {
+     "text": "GHẾ 12A · 07:40",
+     "at": 0.9
+    }
+   ],
+   "stamp": {
+    "text": "ĐÃ ĐI",
+    "at": 1.6
+   },
+   "zone": "top",
+   "enter": "slap"
+  },
+  {
+   "type": "mt_paper_stack",
+   "t0": 13.2,
+   "t1": 15.6,
+   "images": [
+    "media/top_hoian.jpg",
+    "media/top_halong.jpg",
+    "media/top_phuquoc.jpg",
+    "media/top_sapa.jpg"
+   ],
+   "title": "4 năm, 12 chuyến",
+   "sub": "ẢNH MINH HOẠ"
+  },
+  {
+   "type": "mt_quote_card",
+   "t0": 15.9,
+   "t1": 17.6,
+   "text": "Giữ lại giấy, là giữ lại ngày.",
+   "zone": "top",
+   "stagger": 0.1
+  },
+  {
+   "type": "mt_result_card",
+   "t0": 17.8,
+   "t1": 20.2,
+   "surface": "navy",
+   "kicker": "còn bạn, bạn giữ",
+   "big": "KỶ NIỆM NÀO?",
+   "captions": false,
+   "keep": true
+  }
+ ]
+}

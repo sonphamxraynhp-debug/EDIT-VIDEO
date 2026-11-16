@@ -1,0 +1,248 @@
+{
+ "id": "ai-hype-cam-ngang",
+ "name": "AI Hype Cam ngang",
+ "category": "ai",
+ "aspect": "16:9",
+ "pack": "hypecam",
+ "desc": "YouTube ngang năng lượng cao: nền tech đỏ + HUD khoá mặt, chữ hero cam, chữ siêu to, checklist, end card.",
+ "tags": [
+  "hype cam",
+  "youtube",
+  "ngang",
+  "năng lượng cao"
+ ],
+ "title": "Video này được edit bởi AI",
+ "caption_style": "",
+ "music": "hype",
+ "theme": {
+  "person": {
+   "x": 50,
+   "y": 60,
+   "rx": 20,
+   "ry": 62
+  }
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "video ngang (nên có cutout người)",
+  "câu hook",
+  "ảnh minh hoạ"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.9
+ },
+ "fx": [
+  {
+   "t": 2.6,
+   "type": "punch"
+  },
+  {
+   "t": 6.0,
+   "type": "glitch"
+  },
+  {
+   "t": 13.8,
+   "type": "shake"
+  }
+ ],
+ "scenes": [
+  {
+   "t0": 0.0,
+   "t1": 2.6,
+   "type": "slam_bg",
+   "tiles": [
+    "media/top_halong.jpg",
+    "media/gs_hero.jpg",
+    "media/top_dalat.jpg",
+    "media/tf_after.jpg",
+    "media/top_hoian.jpg",
+    "media/gs_bg_city.jpg"
+   ],
+   "cx": 640,
+   "cy": 250
+  },
+  {
+   "t0": 0.0,
+   "t1": 2.6,
+   "type": "hud",
+   "face": {
+    "x": 640,
+    "y": 230,
+    "w": 220,
+    "h": 260
+   },
+   "face_out": 1.0
+  },
+  {
+   "t0": 0.0,
+   "t1": 2.6,
+   "type": "kinetic",
+   "x": 60,
+   "y": 430,
+   "label": "Video này được edit",
+   "label_words": [
+    {
+     "w": "Video",
+     "t": 0.0
+    },
+    {
+     "w": "này",
+     "t": 0.38
+    },
+    {
+     "w": "được",
+     "t": 0.6
+    },
+    {
+     "w": "edit",
+     "t": 0.78
+    }
+   ],
+   "hero": "BỞI AI",
+   "hero_t": 1.6,
+   "hero_size": 84
+  },
+  {
+   "t0": 0.0,
+   "t1": 0.35,
+   "type": "flash_ring",
+   "cx": 640,
+   "cy": 250
+  },
+  {
+   "t0": 0.9,
+   "t1": 2.4,
+   "type": "stickers",
+   "items": [
+    {
+     "e": "🤖",
+     "x": 1080,
+     "y": 90,
+     "size": 95,
+     "t": 1.0
+    },
+    {
+     "e": "🎬",
+     "x": 1150,
+     "y": 330,
+     "size": 90,
+     "t": 1.2
+    }
+   ]
+  },
+  {
+   "t0": 3.0,
+   "t1": 5.6,
+   "type": "kinetic",
+   "x": 60,
+   "y": 400,
+   "label": "Chỉ cần",
+   "label_words": [
+    {
+     "w": "Chỉ",
+     "t": 3.0
+    },
+    {
+     "w": "cần",
+     "t": 3.2
+    }
+   ],
+   "hero": "1 CÂU LỆNH",
+   "hero_t": 3.6,
+   "hero_size": 76,
+   "sub": "là xong cả video",
+   "sub_t": 4.3
+  },
+  {
+   "t0": 6.0,
+   "t1": 7.1,
+   "type": "mega",
+   "text": "THẬT <em>KHÔNG?</em>",
+   "align": "center",
+   "y": 42,
+   "size": 120
+  },
+  {
+   "t0": 6.05,
+   "t1": 7.1,
+   "type": "question_marks"
+  },
+  {
+   "t0": 7.4,
+   "t1": 13.6,
+   "type": "checklist_panel",
+   "label": "AI tự làm hết",
+   "hero": "MỌI BƯỚC",
+   "items": [
+    {
+     "text": "Cắt lặng",
+     "t": 8.0,
+     "win": {
+      "type": "trim",
+      "from": 125,
+      "to": 71
+     }
+    },
+    {
+     "text": "Phụ đề",
+     "t": 9.2,
+     "win": {
+      "type": "waves"
+     }
+    },
+    {
+     "text": "Hiệu ứng",
+     "t": 10.4,
+     "win": {
+      "type": "emoji"
+     }
+    },
+    {
+     "text": "Âm thanh",
+     "t": 11.6,
+     "win": {
+      "type": "sfx"
+     }
+    }
+   ]
+  },
+  {
+   "t0": 13.8,
+   "t1": 14.6,
+   "type": "stamp",
+   "text": "TỰ ĐỘNG 100%",
+   "x": 60,
+   "y": 420,
+   "rot": -8
+  },
+  {
+   "t0": 14.6,
+   "t1": 16.6,
+   "type": "mosaic_wall",
+   "tiles": [
+    "media/top_halong.jpg",
+    "media/top_sapa.jpg",
+    "media/top_hoian.jpg",
+    "media/top_dalat.jpg",
+    "media/top_phuquoc.jpg",
+    "media/gs_hero.jpg",
+    "media/tf_after.jpg",
+    "media/living.jpg",
+    "media/kitchen.jpg"
+   ],
+   "text": "SINH ĐỘNG",
+   "text_t": 15.0
+  },
+  {
+   "t0": 16.8,
+   "t1": 20.2,
+   "type": "end_card",
+   "label": "Video này được edit",
+   "text": "100% BỞI AI",
+   "fade_out": 0.7
+  }
+ ]
+}

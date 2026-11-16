@@ -1,0 +1,92 @@
+{
+ "id": "cs-chu-dong-vang",
+ "name": "Chữ động nền vàng",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "kinetic",
+ "desc": "Kinetic type: chữ toàn màn từng từ trên nền màu, từ khoá to màu cam, người nói thu nhỏ khi chữ chạy.",
+ "tags": [
+  "kinetic",
+  "chữ động",
+  "typography",
+  "preset"
+ ],
+ "title": "Nói ít hiểu nhiều",
+ "caption_style": "hf_kinetic_slam",
+ "music": "hype",
+ "brand": {
+  "primary": "#FF5A1F",
+  "accent": "#D9440F",
+  "dark": "#141414",
+  "light": "#FFE14D",
+  "font": "'Montserrat',var(--sans)"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "2–3 câu then chốt để làm chữ động"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.0
+ },
+ "scenes": [
+  {
+   "type": "kinetic_hook",
+   "t0": 0,
+   "t1": 2.4,
+   "text": "NÓI ÍT",
+   "text2": "HIỂU NHIỀU"
+  },
+  {
+   "type": "kinetic_words",
+   "t0": 5.4,
+   "t1": 7.6,
+   "bg": "arc",
+   "words": [
+    {
+     "text": "đơn giản",
+     "t": 5.4,
+     "tier": "s",
+     "align": "left"
+    },
+    {
+     "text": "MỚI KHÓ",
+     "t": 5.9,
+     "tier": "l",
+     "hl": true
+    },
+    {
+     "text": "làm",
+     "t": 6.5,
+     "tier": "s",
+     "align": "right"
+    }
+   ]
+  },
+  {
+   "type": "kinetic_slam",
+   "t0": 11,
+   "t1": 12.8,
+   "count": {
+    "to": 3,
+    "suffix": " bước"
+   },
+   "top": "chỉ cần",
+   "bottom": "mỗi ngày"
+  },
+  {
+   "type": "kinetic_progress",
+   "t0": 0,
+   "t1": 20.2
+  },
+  {
+   "type": "kinetic_cta",
+   "t0": 17.8,
+   "t1": 20.2,
+   "text": "Theo dõi để xem tiếp",
+   "keep": true
+  }
+ ]
+}

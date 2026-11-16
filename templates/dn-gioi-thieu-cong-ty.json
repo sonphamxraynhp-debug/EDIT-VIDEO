@@ -1,0 +1,99 @@
+{
+ "id": "dn-gioi-thieu-cong-ty",
+ "name": "Giới thiệu công ty",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Thẻ tiêu đề thương hiệu, tên + chức danh người nói, biểu đồ doanh thu, dải đối tác và logo kết.",
+ "tags": [
+  "giới thiệu",
+  "công ty",
+  "thương hiệu",
+  "doanh nghiệp"
+ ],
+ "title": "Giới thiệu công ty",
+ "caption_style": "hf_weight_shift",
+ "music": "corporate",
+ "brand": {
+  "primary": "#3E7BFA",
+  "accent": "#9CC2FF",
+  "dark": "#0B1220"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên công ty",
+  "người nói + chức danh",
+  "số liệu nổi bật"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.9
+ },
+ "fx": [
+  {
+   "t": 3,
+   "type": "punch",
+   "amp": 0.06
+  },
+  {
+   "t": 17.8,
+   "type": "flash"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "titlecard-lockup",
+   "t0": 0,
+   "t1": 3,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "wordmark": "CÔNG TY ABC",
+    "label": "ĐỒNG HÀNH CÙNG DOANH NGHIỆP VIỆT",
+    "kicker": "XIN CHÀO"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "lt-kicker-name",
+   "t0": 3.2,
+   "t1": 8,
+   "texts": {
+    "0": "Nhà sáng lập",
+    "1": "Nguyễn Minh Anh"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "data-chart",
+   "t0": 8.6,
+   "t1": 14.2,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "trust-strip",
+   "t0": 14.6,
+   "t1": 17.6,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "logo-brand-close",
+   "t0": 17.8,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "wordmark": "CÔNG TY ABC",
+    "tagline": "Chất lượng tạo niềm tin",
+    "url": "congtyabc.vn"
+   }
+  }
+ ]
+}

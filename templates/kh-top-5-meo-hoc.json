@@ -1,0 +1,187 @@
+{
+ "id": "kh-top-5-meo-hoc",
+ "name": "Top 5 mẹo học nhanh",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "topn",
+ "desc": "Đếm ngược Top 5 mẹo / bài học: thẻ mở đầu, số hạng đập vào, thẻ mục có emoji, bục #1 và tổng kết.",
+ "tags": [
+  "top 5",
+  "mẹo",
+  "đếm ngược",
+  "list"
+ ],
+ "title": "Mẹo học nhanh",
+ "caption_style": "topn",
+ "music": "happy",
+ "brand": {
+  "primary": "#3D7BFF",
+  "accent": "#FFD23F",
+  "dark": "#0B1230",
+  "handle": "@kenh.cua.ban"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "5 mẹo + lý do ngắn"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 4.4
+ },
+ "scenes": [
+  {
+   "type": "top_title",
+   "t0": 0,
+   "t1": 2.5,
+   "count": 5,
+   "title": "Mẹo học nhanh",
+   "sub": "Áp dụng được ngay"
+  },
+  {
+   "type": "top_badge",
+   "t0": 2.5,
+   "t1": 14.1,
+   "label": "TOP 5",
+   "title": "Mẹo học nhanh",
+   "marks": [
+    {
+     "rank": 5,
+     "t": 2.5
+    },
+    {
+     "rank": 4,
+     "t": 5.4
+    },
+    {
+     "rank": 3,
+     "t": 8.3
+    },
+    {
+     "rank": 2,
+     "t": 11.2
+    },
+    {
+     "rank": 1,
+     "t": 14.1
+    }
+   ]
+  },
+  {
+   "type": "top_number",
+   "t0": 2.5,
+   "t1": 5.4,
+   "rank": 5,
+   "name": "Học 25 phút",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 3.7,
+   "t1": 5.4,
+   "rank": 5,
+   "name": "Học 25 phút",
+   "reason": "Nghỉ 5 phút giữa các phiên",
+   "emoji": "⏱️"
+  },
+  {
+   "type": "top_number",
+   "t0": 5.4,
+   "t1": 8.3,
+   "rank": 4,
+   "name": "Ghi chú tay",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 6.6,
+   "t1": 8.3,
+   "rank": 4,
+   "name": "Ghi chú tay",
+   "reason": "Viết lại bằng lời của mình",
+   "emoji": "✍️",
+   "compact": true
+  },
+  {
+   "type": "top_number",
+   "t0": 8.3,
+   "t1": 11.2,
+   "rank": 3,
+   "name": "Dạy lại",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 9.5,
+   "t1": 11.2,
+   "rank": 3,
+   "name": "Dạy lại",
+   "reason": "Giảng cho bạn bè nghe",
+   "emoji": "🗣️"
+  },
+  {
+   "type": "top_number",
+   "t0": 11.2,
+   "t1": 14.1,
+   "rank": 2,
+   "name": "Ôn ngắt quãng",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 12.4,
+   "t1": 14.1,
+   "rank": 2,
+   "name": "Ôn ngắt quãng",
+   "reason": "Ôn lại sau 1, 3, 7 ngày",
+   "emoji": "🔁",
+   "compact": true
+  },
+  {
+   "type": "top_podium",
+   "t0": 14.1,
+   "t1": 17.2,
+   "name": "Làm dự án thật",
+   "reason": "Học đi đôi với hành",
+   "emoji": "🚀",
+   "second": "Ôn ngắt quãng",
+   "third": "Dạy lại",
+   "kicker": "TOP 1"
+  },
+  {
+   "type": "top_recap",
+   "t0": 17.2,
+   "t1": 20.2,
+   "title": "Top 5 mẹo học",
+   "keep": true,
+   "items": [
+    {
+     "rank": 5,
+     "name": "Học 25 phút",
+     "emoji": "⏱️"
+    },
+    {
+     "rank": 4,
+     "name": "Ghi chú tay",
+     "emoji": "✍️"
+    },
+    {
+     "rank": 3,
+     "name": "Dạy lại",
+     "emoji": "🗣️"
+    },
+    {
+     "rank": 2,
+     "name": "Ôn ngắt quãng",
+     "emoji": "🔁"
+    },
+    {
+     "rank": 1,
+     "name": "Làm dự án thật",
+     "emoji": "🚀"
+    }
+   ]
+  }
+ ]
+}

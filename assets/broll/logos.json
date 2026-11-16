@@ -1,0 +1,833 @@
+{
+ "_": "Spoken tool/brand names -> Simple Icons 15 (CC0) slug + brand colour. Used by auto b-roll \"logo\" source (scripts/auto_broll.mjs). Logos remain trademarks of their owners: shown only when the speaker names the product.",
+ "logos": [
+  {
+   "names": [
+    "chatgpt",
+    "chat gpt",
+    "openai",
+    "gpt"
+   ],
+   "slug": "openai",
+   "title": "OpenAI",
+   "hex": "412991"
+  },
+  {
+   "names": [
+    "claude",
+    "anthropic"
+   ],
+   "slug": "claude",
+   "title": "Claude",
+   "hex": "D97757"
+  },
+  {
+   "names": [
+    "gemini",
+    "bard"
+   ],
+   "slug": "googlegemini",
+   "title": "Google Gemini",
+   "hex": "8E75B2"
+  },
+  {
+   "names": [
+    "copilot"
+   ],
+   "slug": "githubcopilot",
+   "title": "GitHub Copilot",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "perplexity"
+   ],
+   "slug": "perplexity",
+   "title": "Perplexity",
+   "hex": "1FB8CD"
+  },
+  {
+   "names": [
+    "grok"
+   ],
+   "slug": "x",
+   "title": "X",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "hugging face",
+    "huggingface"
+   ],
+   "slug": "huggingface",
+   "title": "Hugging Face",
+   "hex": "FFD21E"
+  },
+  {
+   "names": [
+    "ollama"
+   ],
+   "slug": "ollama",
+   "title": "Ollama",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "n8n"
+   ],
+   "slug": "n8n",
+   "title": "n8n",
+   "hex": "EA4B71"
+  },
+  {
+   "names": [
+    "make com",
+    "make.com"
+   ],
+   "slug": "make",
+   "title": "Make",
+   "hex": "6D00CC"
+  },
+  {
+   "names": [
+    "zapier"
+   ],
+   "slug": "zapier",
+   "title": "Zapier",
+   "hex": "FF4F00"
+  },
+  {
+   "names": [
+    "notion"
+   ],
+   "slug": "notion",
+   "title": "Notion",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "figma"
+   ],
+   "slug": "figma",
+   "title": "Figma",
+   "hex": "F24E1E"
+  },
+  {
+   "names": [
+    "canva"
+   ],
+   "slug": "canva",
+   "title": "Canva",
+   "hex": "00C4CC"
+  },
+  {
+   "names": [
+    "davinci",
+    "davinci resolve"
+   ],
+   "slug": "davinciresolve",
+   "title": "DaVinci Resolve",
+   "hex": "233A51"
+  },
+  {
+   "names": [
+    "blender"
+   ],
+   "slug": "blender",
+   "title": "Blender",
+   "hex": "E87D0D"
+  },
+  {
+   "names": [
+    "obs"
+   ],
+   "slug": "obsstudio",
+   "title": "OBS Studio",
+   "hex": "302E31"
+  },
+  {
+   "names": [
+    "tiktok",
+    "tik tok"
+   ],
+   "slug": "tiktok",
+   "title": "TikTok",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "youtube",
+    "youtube shorts"
+   ],
+   "slug": "youtube",
+   "title": "YouTube",
+   "hex": "FF0000"
+  },
+  {
+   "names": [
+    "facebook",
+    "fb"
+   ],
+   "slug": "facebook",
+   "title": "Facebook",
+   "hex": "0866FF"
+  },
+  {
+   "names": [
+    "instagram",
+    "insta"
+   ],
+   "slug": "instagram",
+   "title": "Instagram",
+   "hex": "FF0069"
+  },
+  {
+   "names": [
+    "messenger"
+   ],
+   "slug": "messenger",
+   "title": "Messenger",
+   "hex": "0866FF"
+  },
+  {
+   "names": [
+    "threads"
+   ],
+   "slug": "threads",
+   "title": "Threads",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "zalo"
+   ],
+   "slug": "zalo",
+   "title": "Zalo",
+   "hex": "0068FF"
+  },
+  {
+   "names": [
+    "telegram"
+   ],
+   "slug": "telegram",
+   "title": "Telegram",
+   "hex": "26A5E4"
+  },
+  {
+   "names": [
+    "whatsapp"
+   ],
+   "slug": "whatsapp",
+   "title": "WhatsApp",
+   "hex": "25D366"
+  },
+  {
+   "names": [
+    "discord"
+   ],
+   "slug": "discord",
+   "title": "Discord",
+   "hex": "5865F2"
+  },
+  {
+   "names": [
+    "pinterest"
+   ],
+   "slug": "pinterest",
+   "title": "Pinterest",
+   "hex": "BD081C"
+  },
+  {
+   "names": [
+    "twitter",
+    "x com"
+   ],
+   "slug": "x",
+   "title": "X",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "shopee"
+   ],
+   "slug": "shopee",
+   "title": "Shopee",
+   "hex": "EE4D2D"
+  },
+  {
+   "names": [
+    "alibaba",
+    "1688",
+    "taobao"
+   ],
+   "slug": "alibabadotcom",
+   "title": "Alibaba.com",
+   "hex": "FF6A00"
+  },
+  {
+   "names": [
+    "etsy"
+   ],
+   "slug": "etsy",
+   "title": "Etsy",
+   "hex": "F16521"
+  },
+  {
+   "names": [
+    "ebay"
+   ],
+   "slug": "ebay",
+   "title": "eBay",
+   "hex": "E53238"
+  },
+  {
+   "names": [
+    "grab"
+   ],
+   "slug": "grab",
+   "title": "Grab",
+   "hex": "00B14F"
+  },
+  {
+   "names": [
+    "gojek"
+   ],
+   "slug": "gojek",
+   "title": "Gojek",
+   "hex": "00AA13"
+  },
+  {
+   "names": [
+    "paypal"
+   ],
+   "slug": "paypal",
+   "title": "PayPal",
+   "hex": "003087"
+  },
+  {
+   "names": [
+    "stripe"
+   ],
+   "slug": "stripe",
+   "title": "Stripe",
+   "hex": "635BFF"
+  },
+  {
+   "names": [
+    "visa"
+   ],
+   "slug": "visa",
+   "title": "Visa",
+   "hex": "1A1F71"
+  },
+  {
+   "names": [
+    "mastercard"
+   ],
+   "slug": "mastercard",
+   "title": "MasterCard",
+   "hex": "EB001B"
+  },
+  {
+   "names": [
+    "google"
+   ],
+   "slug": "google",
+   "title": "Google",
+   "hex": "4285F4"
+  },
+  {
+   "names": [
+    "gmail"
+   ],
+   "slug": "gmail",
+   "title": "Gmail",
+   "hex": "EA4335"
+  },
+  {
+   "names": [
+    "google sheets",
+    "google sheet",
+    "sheets"
+   ],
+   "slug": "googlesheets",
+   "title": "Google Sheets",
+   "hex": "34A853"
+  },
+  {
+   "names": [
+    "google docs"
+   ],
+   "slug": "googledocs",
+   "title": "Google Docs",
+   "hex": "4285F4"
+  },
+  {
+   "names": [
+    "google drive",
+    "drive"
+   ],
+   "slug": "googledrive",
+   "title": "Google Drive",
+   "hex": "4285F4"
+  },
+  {
+   "names": [
+    "google meet"
+   ],
+   "slug": "googlemeet",
+   "title": "Google Meet",
+   "hex": "00897B"
+  },
+  {
+   "names": [
+    "google maps",
+    "maps"
+   ],
+   "slug": "googlemaps",
+   "title": "Google Maps",
+   "hex": "4285F4"
+  },
+  {
+   "names": [
+    "google ads"
+   ],
+   "slug": "googleads",
+   "title": "Google Ads",
+   "hex": "4285F4"
+  },
+  {
+   "names": [
+    "google analytics",
+    "analytics"
+   ],
+   "slug": "googleanalytics",
+   "title": "Google Analytics",
+   "hex": "E37400"
+  },
+  {
+   "names": [
+    "chrome"
+   ],
+   "slug": "googlechrome",
+   "title": "Google Chrome",
+   "hex": "4285F4"
+  },
+  {
+   "names": [
+    "zoom"
+   ],
+   "slug": "zoom",
+   "title": "Zoom",
+   "hex": "0B5CFF"
+  },
+  {
+   "names": [
+    "slack"
+   ],
+   "slug": "slack",
+   "title": "Slack",
+   "hex": "4A154B"
+  },
+  {
+   "names": [
+    "apple",
+    "iphone",
+    "ipad",
+    "macbook",
+    "mac"
+   ],
+   "slug": "apple",
+   "title": "Apple",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "android"
+   ],
+   "slug": "android",
+   "title": "Android",
+   "hex": "3DDC84"
+  },
+  {
+   "names": [
+    "samsung"
+   ],
+   "slug": "samsung",
+   "title": "Samsung",
+   "hex": "1428A0"
+  },
+  {
+   "names": [
+    "xiaomi"
+   ],
+   "slug": "xiaomi",
+   "title": "Xiaomi",
+   "hex": "FF6900"
+  },
+  {
+   "names": [
+    "oppo"
+   ],
+   "slug": "oppo",
+   "title": "OPPO",
+   "hex": "2D683D"
+  },
+  {
+   "names": [
+    "linux"
+   ],
+   "slug": "linux",
+   "title": "Linux",
+   "hex": "FCC624"
+  },
+  {
+   "names": [
+    "spotify"
+   ],
+   "slug": "spotify",
+   "title": "Spotify",
+   "hex": "1ED760"
+  },
+  {
+   "names": [
+    "netflix"
+   ],
+   "slug": "netflix",
+   "title": "Netflix",
+   "hex": "E50914"
+  },
+  {
+   "names": [
+    "shopify"
+   ],
+   "slug": "shopify",
+   "title": "Shopify",
+   "hex": "7AB55C"
+  },
+  {
+   "names": [
+    "wordpress"
+   ],
+   "slug": "wordpress",
+   "title": "WordPress",
+   "hex": "21759B"
+  },
+  {
+   "names": [
+    "wix"
+   ],
+   "slug": "wix",
+   "title": "Wix",
+   "hex": "0C6EFC"
+  },
+  {
+   "names": [
+    "woocommerce"
+   ],
+   "slug": "woocommerce",
+   "title": "WooCommerce",
+   "hex": "96588A"
+  },
+  {
+   "names": [
+    "hubspot"
+   ],
+   "slug": "hubspot",
+   "title": "HubSpot",
+   "hex": "FF7A59"
+  },
+  {
+   "names": [
+    "mailchimp"
+   ],
+   "slug": "mailchimp",
+   "title": "MailChimp",
+   "hex": "FFE01B"
+  },
+  {
+   "names": [
+    "trello"
+   ],
+   "slug": "trello",
+   "title": "Trello",
+   "hex": "0052CC"
+  },
+  {
+   "names": [
+    "asana"
+   ],
+   "slug": "asana",
+   "title": "Asana",
+   "hex": "F06A6A"
+  },
+  {
+   "names": [
+    "jira"
+   ],
+   "slug": "jira",
+   "title": "Jira",
+   "hex": "0052CC"
+  },
+  {
+   "names": [
+    "airtable"
+   ],
+   "slug": "airtable",
+   "title": "Airtable",
+   "hex": "18BFFF"
+  },
+  {
+   "names": [
+    "clickup"
+   ],
+   "slug": "clickup",
+   "title": "ClickUp",
+   "hex": "7B68EE"
+  },
+  {
+   "names": [
+    "github"
+   ],
+   "slug": "github",
+   "title": "GitHub",
+   "hex": "181717"
+  },
+  {
+   "names": [
+    "gitlab"
+   ],
+   "slug": "gitlab",
+   "title": "GitLab",
+   "hex": "FC6D26"
+  },
+  {
+   "names": [
+    "python"
+   ],
+   "slug": "python",
+   "title": "Python",
+   "hex": "3776AB"
+  },
+  {
+   "names": [
+    "javascript"
+   ],
+   "slug": "javascript",
+   "title": "JavaScript",
+   "hex": "F7DF1E"
+  },
+  {
+   "names": [
+    "vs code",
+    "vscode"
+   ],
+   "slug": "vscodium",
+   "title": "VSCodium",
+   "hex": "2F80ED"
+  },
+  {
+   "names": [
+    "docker"
+   ],
+   "slug": "docker",
+   "title": "Docker",
+   "hex": "2496ED"
+  },
+  {
+   "names": [
+    "firebase"
+   ],
+   "slug": "firebase",
+   "title": "Firebase",
+   "hex": "DD2C00"
+  },
+  {
+   "names": [
+    "vercel"
+   ],
+   "slug": "vercel",
+   "title": "Vercel",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "supabase"
+   ],
+   "slug": "supabase",
+   "title": "Supabase",
+   "hex": "3FCF8E"
+  },
+  {
+   "names": [
+    "tesla"
+   ],
+   "slug": "tesla",
+   "title": "Tesla",
+   "hex": "CC0000"
+  },
+  {
+   "names": [
+    "toyota"
+   ],
+   "slug": "toyota",
+   "title": "Toyota",
+   "hex": "EB0A1E"
+  },
+  {
+   "names": [
+    "honda"
+   ],
+   "slug": "honda",
+   "title": "Honda",
+   "hex": "E40521"
+  },
+  {
+   "names": [
+    "bmw"
+   ],
+   "slug": "bmw",
+   "title": "BMW",
+   "hex": "0066B1"
+  },
+  {
+   "names": [
+    "hyundai"
+   ],
+   "slug": "hyundai",
+   "title": "Hyundai",
+   "hex": "002C5E"
+  },
+  {
+   "names": [
+    "kia"
+   ],
+   "slug": "kia",
+   "title": "Kia",
+   "hex": "05141F"
+  },
+  {
+   "names": [
+    "starbucks"
+   ],
+   "slug": "starbucks",
+   "title": "Starbucks",
+   "hex": "006241"
+  },
+  {
+   "names": [
+    "mcdonald",
+    "mcdonalds"
+   ],
+   "slug": "mcdonalds",
+   "title": "McDonald's",
+   "hex": "FBC817"
+  },
+  {
+   "names": [
+    "kfc"
+   ],
+   "slug": "kfc",
+   "title": "KFC",
+   "hex": "F40027"
+  },
+  {
+   "names": [
+    "airbnb"
+   ],
+   "slug": "airbnb",
+   "title": "Airbnb",
+   "hex": "FF5A5F"
+  },
+  {
+   "names": [
+    "bitcoin"
+   ],
+   "slug": "bitcoin",
+   "title": "Bitcoin",
+   "hex": "F7931A"
+  },
+  {
+   "names": [
+    "ethereum"
+   ],
+   "slug": "ethereum",
+   "title": "Ethereum",
+   "hex": "3C3C3D"
+  },
+  {
+   "names": [
+    "binance"
+   ],
+   "slug": "binance",
+   "title": "Binance",
+   "hex": "F0B90B"
+  },
+  {
+   "names": [
+    "nike"
+   ],
+   "slug": "nike",
+   "title": "Nike",
+   "hex": "111111"
+  },
+  {
+   "names": [
+    "adidas"
+   ],
+   "slug": "adidas",
+   "title": "Adidas",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "uniqlo"
+   ],
+   "slug": "uniqlo",
+   "title": "Uniqlo",
+   "hex": "FF0000"
+  },
+  {
+   "names": [
+    "ikea"
+   ],
+   "slug": "ikea",
+   "title": "IKEA",
+   "hex": "0058A3"
+  },
+  {
+   "names": [
+    "elevenlabs",
+    "eleven labs"
+   ],
+   "slug": "elevenlabs",
+   "title": "ElevenLabs",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "suno"
+   ],
+   "slug": "suno",
+   "title": "Suno",
+   "hex": "000000"
+  },
+  {
+   "names": [
+    "sora"
+   ],
+   "slug": "openai",
+   "title": "OpenAI",
+   "hex": "412991"
+  },
+  {
+   "names": [
+    "veo",
+    "veo 3"
+   ],
+   "slug": "googlegemini",
+   "title": "Google Gemini",
+   "hex": "8E75B2"
+  }
+ ]
+}

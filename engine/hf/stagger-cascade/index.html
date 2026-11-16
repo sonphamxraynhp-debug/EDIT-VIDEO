@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Stagger Cascade Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+
+      #root {
+        --bg: #090d16;
+        --fg: #f4f7fb;
+        --muted: #8d99aa;
+        --surface: #171e2d;
+        --border: rgba(244, 247, 251, 0.14);
+        --brand: #79a8ff;
+        --accent: #8be0c4;
+        --font-display: Inter, system-ui, sans-serif;
+        --font-body: Inter, system-ui, sans-serif;
+        --font-mono: ui-monospace, monospace;
+        --radius: 16px;
+        --space-1: 8px;
+        --space-2: 16px;
+        --space-3: 32px;
+        --dur-beat: 0.4s;
+        --ease-standard: cubic-bezier(0.215, 0.61, 0.355, 1);
+        --ease-emphasis: cubic-bezier(0.19, 1, 0.22, 1);
+        --ease-exit: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-body);
+      }
+
+      .mount-card {
+        width: 50%;
+        height: 60%;
+        left: 25%;
+        top: 20%;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--surface);
+        box-shadow: 0 40px 100px color-mix(in srgb, var(--fg) 12%, transparent);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="stagger-cascade-demo" data-start="0" data-width="1920" data-height="1080" data-duration="4" data-fps="30" data-hf-anc="">
+      <div id="stagger-cascade-mount" class="mount-card clip" data-composition-id="stagger-cascade" data-variable-values="{&quot;itemCount&quot;:8,&quot;stagger&quot;:90,&quot;direction&quot;:&quot;left&quot;}" data-start="0" data-duration="4" data-track-index="0" data-width="960" data-height="648" data-composition-variables="[
+    { &quot;id&quot;: &quot;itemCount&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;layout&quot;, &quot;label&quot;: &quot;Item count&quot;, &quot;description&quot;: &quot;Number of tiles in the responsive grid.&quot;, &quot;default&quot;: 6, &quot;min&quot;: 3, &quot;max&quot;: 12, &quot;step&quot;: 1 },
+    { &quot;id&quot;: &quot;stagger&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Stagger&quot;, &quot;description&quot;: &quot;Delay between consecutive tile entrances.&quot;, &quot;default&quot;: 60, &quot;min&quot;: 20, &quot;max&quot;: 150, &quot;step&quot;: 1, &quot;unit&quot;: &quot;ms&quot; },
+    { &quot;id&quot;: &quot;direction&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Direction&quot;, &quot;description&quot;: &quot;Direction each tile travels into its resting position.&quot;, &quot;default&quot;: &quot;up&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }, { &quot;value&quot;: &quot;down&quot;, &quot;label&quot;: &quot;Down&quot; }, { &quot;value&quot;: &quot;left&quot;, &quot;label&quot;: &quot;Left&quot; }, { &quot;value&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Right&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="stagger-cascade" data-start="0" data-duration="4" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          /* Root fills the host box. Every internal measurement uses cqw/cqh,
+             and every painted color comes from the host theme contract. */
+          #root {
+            position: absolute;
+            inset: 0;
+            container-type: size;
+            isolation: isolate;
+            overflow: hidden;
+            color: var(--fg, #f4f7fb);
+            font-family: var(--font-body, Inter, system-ui, sans-serif);
+          }
+
+          .sc-clip {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: var(--bg, #090d16);
+          }
+
+          .sc-grid {
+            width: 82cqw;
+            height: 70cqh;
+            display: grid;
+            grid-template-columns: repeat(var(--sc-columns), minmax(0, 1fr));
+            grid-auto-rows: minmax(0, 1fr);
+            gap: min(2.2cqw, 3.8cqh);
+          }
+
+          .sc-tile {
+            position: relative;
+            min-width: 0;
+            min-height: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            border: 0.16cqw solid var(--border, rgba(244, 247, 251, 0.14));
+            border-radius: min(2.4cqw, 4cqh);
+            background: color-mix(in srgb, var(--surface, #171e2d) 92%, var(--brand, #79a8ff));
+            color: var(--fg, #f4f7fb);
+          }
+
+          .sc-tile::after {
+            content: "";
+            position: absolute;
+            left: 14%;
+            right: 14%;
+            bottom: 12%;
+            height: min(0.55cqw, 0.95cqh);
+            border-radius: 50cqw;
+            background: var(--brand, #79a8ff);
+            opacity: 0.72;
+          }
+
+          .sc-tile-index {
+            display: block;
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            font-size: min(5cqw, 8cqh);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--fg, #f4f7fb);
+          }
+        </style>
+
+        <div id="stagger-cascade-clip" class="sc-clip clip" data-start="0" data-duration="4" data-track-index="0">
+          <div class="sc-grid" aria-label="Cascading tile grid"></div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            var compositionId = "stagger-cascade";
+            var grid = root.querySelector(".sc-grid");
+
+            // EDIT ZONE: declarations above and clamped reads below are the
+            // single source of truth for the primitive's three public knobs.
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            var rawItemCount = Number(vars.itemCount);
+            var itemCount = Number.isFinite(rawItemCount) ? Math.round(rawItemCount) : 6;
+            itemCount = Math.max(3, Math.min(12, itemCount));
+
+            var rawStagger = Number(vars.stagger);
+            var staggerMs = Number.isFinite(rawStagger) ? rawStagger : 60;
+            staggerMs = Math.max(20, Math.min(150, staggerMs));
+
+            // INVARIANT: only these four mappings can reach GSAP. Each option
+            // has a distinct axis or sign at preview size.
+            var offsets = {
+              up: { x: "0cqw", y: "12cqh" },
+              down: { x: "0cqw", y: "-12cqh" },
+              left: { x: "8cqw", y: "0cqh" },
+              right: { x: "-8cqw", y: "0cqh" },
+            };
+            var offset = Object.prototype.hasOwnProperty.call(offsets, vars.direction)
+              ? offsets[vars.direction]
+              : offsets.up;
+
+            // itemCount owns both DOM count and the responsive grid shape.
+            var fragment = document.createDocumentFragment();
+            for (var index = 0; index < itemCount; index += 1) {
+              var tile = document.createElement("div");
+              var number = document.createElement("span");
+              tile.className = "sc-tile";
+              tile.setAttribute("aria-hidden", "true");
+              number.className = "sc-tile-index";
+              number.textContent = String(index + 1).padStart(2, "0");
+              tile.appendChild(number);
+              fragment.appendChild(tile);
+            }
+            grid.replaceChildren(fragment);
+            grid.style.setProperty(
+              "--sc-columns",
+              String(Math.min(4, Math.ceil(Math.sqrt(itemCount)))),
+            );
+
+            var tiles = root.querySelectorAll(".sc-tile");
+
+            // RETIME RANGE: change these four base values together. IN_BASE is
+            // sized so 12 items at 150ms plus the entrance tween finish exactly
+            // at its boundary. HOLD alone absorbs longer host durations.
+            var IN_BASE = 2.4;
+            var OUT_BASE = 0.4;
+            var CASCADE_START_BASE = 0.1;
+            var ENTRY_DURATION_BASE = 0.65;
+
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "4"));
+            var totalBase = IN_BASE + OUT_BASE;
+            var scale = duration < totalBase ? duration / totalBase : 1;
+            var IN = IN_BASE * scale;
+            var OUT = OUT_BASE * scale;
+            var HOLD = Math.max(0, duration - (IN + OUT));
+            var OUT_START = IN + HOLD;
+            var CASCADE_START = CASCADE_START_BASE * scale;
+            var ENTRY_DURATION = ENTRY_DURATION_BASE * scale;
+            var STAGGER_SECONDS = (staggerMs / 1000) * scale;
+
+            var timeline = gsap.timeline({ paused: true });
+
+            // IN: the sole mechanic. Explicit endpoints keep mounted re-seeks
+            // deterministic. power2.out is --ease-standard.
+            timeline.fromTo(
+              tiles,
+              { opacity: 0, x: offset.x, y: offset.y },
+              {
+                opacity: 1,
+                x: "0cqw",
+                y: "0cqh",
+                duration: ENTRY_DURATION,
+                ease: "power2.out",
+                stagger: { each: STAGGER_SECONDS, from: "start" },
+              },
+              CASCADE_START,
+            );
+
+            // HOLD: deliberately unanimated. OUT: one clean group fade with
+            // power2.in, the GSAP form of --ease-exit.
+            timeline.to(grid, { opacity: 0, duration: OUT, ease: "power2.in" }, OUT_START);
+
+            timeline.seek(0);
+
+            window.__timelines = window.__timelines || {};
+            window.__timelines[compositionId] = timeline;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      // The mounted primitive owns all visible motion. This standalone host
+      // registers only the empty paused timeline required for its own id.
+      window.__timelines = window.__timelines || {};
+      window.__timelines["stagger-cascade-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

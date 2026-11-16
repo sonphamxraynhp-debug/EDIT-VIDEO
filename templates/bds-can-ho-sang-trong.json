@@ -1,0 +1,131 @@
+{
+ "id": "bds-can-ho-sang-trong",
+ "name": "Căn hộ sang trọng",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "realestate",
+ "desc": "Giới thiệu căn hộ kiểu môi giới chuyên nghiệp: thẻ kính navy-vàng, giá đếm số, tour ảnh và thẻ liên hệ.",
+ "tags": [
+  "căn hộ",
+  "môi giới",
+  "giá",
+  "tour ảnh"
+ ],
+ "title": "Tên dự án (ví dụ)",
+ "music": "inspire",
+ "brand": {
+  "name": "Tên môi giới",
+  "phone": "09xx xxx xxx",
+  "website": "duan-vidu.vn"
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh căn hộ (4 phòng)",
+  "giá bán",
+  "diện tích, số phòng",
+  "tên + SĐT môi giới"
+ ],
+ "preview": {
+  "from": 1.5,
+  "to": 7.5,
+  "still": 5.4
+ },
+ "scenes": [
+  {
+   "type": "re_specs",
+   "t0": 2.9,
+   "t1": 5.0,
+   "x": 360,
+   "y": 800,
+   "size": 52,
+   "hideCaptions": true,
+   "title": "Thông tin căn hộ",
+   "items": [
+    {
+     "icon": "area",
+     "value": "75 m²",
+     "label": "Diện tích"
+    },
+    {
+     "icon": "bed",
+     "value": "2",
+     "label": "Phòng ngủ"
+    },
+    {
+     "icon": "bath",
+     "value": "2",
+     "label": "WC"
+    },
+    {
+     "icon": "compass",
+     "value": "Đông Nam",
+     "label": "Hướng"
+    },
+    {
+     "icon": "doc",
+     "value": "Sổ hồng",
+     "label": "Pháp lý"
+    },
+    {
+     "icon": "building",
+     "value": "Tầng 18",
+     "label": "Vị trí"
+    }
+   ]
+  },
+  {
+   "type": "re_gallery",
+   "t0": 5.0,
+   "t1": 8.0,
+   "mode": "full",
+   "per": 0.75,
+   "images": [
+    "media/living.jpg",
+    "media/bedroom.jpg",
+    "media/kitchen.jpg",
+    "media/facade.jpg"
+   ],
+   "labels": [
+    "Phòng khách",
+    "Phòng ngủ",
+    "Bếp",
+    "Mặt tiền"
+   ]
+  },
+  {
+   "type": "re_price",
+   "t0": 8.0,
+   "t1": 10.6,
+   "x": 360,
+   "y": 700,
+   "size": 60,
+   "value": "3,2",
+   "unit": "tỷ",
+   "old": "3,5 tỷ",
+   "per_m2": "~ 43 triệu/m² (ví dụ)",
+   "ribbon": "GIÁ TỐT",
+   "count_dur": 1.0
+  },
+  {
+   "type": "re_stamp",
+   "t0": 9.4,
+   "t1": 10.6,
+   "x": 360,
+   "y": 420,
+   "size": 48,
+   "text": "CHỈ CÒN 2 CĂN",
+   "rotate": -6
+  },
+  {
+   "type": "re_amenities",
+   "t0": 10.8,
+   "t1": 13.4,
+   "x": 360,
+   "y": 650,
+   "size": 60,
+   "title": "Tiện ích nội khu",
+   "stagger": 0.08
+  }
+ ]
+}

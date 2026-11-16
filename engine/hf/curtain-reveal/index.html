@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Curtain Reveal Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #060607;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #060607;
+      }
+      .mount-bleed {
+        position: absolute;
+        inset: 0;
+        container-type: size;
+        overflow: hidden;
+      }
+      .demo-card {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        padding-bottom: 80px;
+        background: #111318;
+        font-family: Inter, system-ui, sans-serif;
+        color: #f7f1e8;
+      }
+      .demo-eyebrow {
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(247, 232, 212, 0.7);
+      }
+      .demo-title {
+        font-size: 232px;
+        font-weight: 600;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        font-kerning: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <template data-slot="curtain-reveal-stage" data-hf-demo="">
+      <div class="demo-card">
+        <p class="demo-eyebrow">Now announcing</p>
+        <h1 class="demo-title">Aurora 2</h1>
+      </div>
+    </template>
+
+    <div id="root" data-composition-id="curtain-reveal-demo" data-start="0" data-width="1920" data-height="1080" data-duration="2.4" data-fps="30" data-hf-anc="">
+      <div id="curtain-reveal-mount" class="mount-bleed clip" data-composition-id="curtain-reveal" data-variable-values="{&quot;tone&quot;:&quot;burgundy&quot;,&quot;pelmet&quot;:&quot;off&quot;,&quot;spotlight&quot;:&quot;on&quot;}" data-start="0" data-duration="2.4" data-track-index="0" data-width="1920" data-height="1080" data-composition-variables="[
+    { &quot;id&quot;: &quot;tone&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Curtain tone&quot;, &quot;description&quot;: &quot;Curtain color.&quot;, &quot;default&quot;: &quot;burgundy&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;red&quot;, &quot;label&quot;: &quot;Red&quot; }, { &quot;value&quot;: &quot;burgundy&quot;, &quot;label&quot;: &quot;Burgundy&quot; }, { &quot;value&quot;: &quot;navy&quot;, &quot;label&quot;: &quot;Navy&quot; }, { &quot;value&quot;: &quot;forest&quot;, &quot;label&quot;: &quot;Forest&quot; }] },
+    { &quot;id&quot;: &quot;pelmet&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Pelmet&quot;, &quot;description&quot;: &quot;Static valance framing the top of the stage.&quot;, &quot;default&quot;: &quot;on&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;on&quot;, &quot;label&quot;: &quot;On&quot; }, { &quot;value&quot;: &quot;off&quot;, &quot;label&quot;: &quot;Off&quot; }] },
+    { &quot;id&quot;: &quot;spotlight&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Spotlight&quot;, &quot;description&quot;: &quot;Soft glow blooming over the stage as the curtains part.&quot;, &quot;default&quot;: &quot;on&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;on&quot;, &quot;label&quot;: &quot;On&quot; }, { &quot;value&quot;: &quot;off&quot;, &quot;label&quot;: &quot;Off&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="curtain-reveal" data-duration="2.4" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            isolation: isolate;
+            color: var(--fg, #1d1b16);
+            font-family: var(--font-display, "Inter", system-ui, sans-serif);
+            background: #060607;
+          }
+
+          .cvr-clip {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+          }
+
+          .cvr-stage {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+          }
+
+          .cvr-stage > img,
+          .cvr-stage > video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .cvr-stage-default {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(60% 60% at 50% 42%, #2a2a2e 0%, #0c0c0d 78%);
+          }
+
+          .cvr-stage-default-mark {
+            font-size: 4.5cqmin;
+            font-weight: 700;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: #fff;
+            opacity: 0.4;
+          }
+
+          .cvr-spotlight {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+              34% 52% at 50% 44%,
+              rgba(255, 196, 128, 0.42) 0%,
+              rgba(255, 196, 128, 0) 72%
+            );
+            mix-blend-mode: screen;
+            opacity: 0;
+            pointer-events: none;
+          }
+
+          .cvr-curtain {
+            position: absolute;
+            inset: 0;
+          }
+
+          .cvr-fold {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            transform-origin: 0 0;
+            border-radius: 0 0 50% 50% / 0 0 1.6cqh 1.6cqh;
+            background:
+              linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.45) 0%,
+                rgba(0, 0, 0, 0) 16%,
+                rgba(0, 0, 0, 0) 82%,
+                rgba(0, 0, 0, 0.5) 100%
+              ),
+              linear-gradient(
+                90deg,
+                var(--cvr-fold-dark) 0%,
+                var(--cvr-fold-mid) 20%,
+                var(--cvr-fold-light) calc(var(--crest) - 14%),
+                var(--cvr-fold-sheen) var(--crest),
+                var(--cvr-fold-light) calc(var(--crest) + 10%),
+                var(--cvr-fold-mid) 80%,
+                var(--cvr-fold-dark) 100%
+              );
+          }
+          .cvr-fold::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: #000;
+            opacity: var(--shade, 0);
+          }
+          .cvr-fold:last-child {
+            box-shadow: 1.2cqw 0 2.4cqw rgba(0, 0, 0, 0.55);
+          }
+          /* The right curtain lays out from the right edge. */
+          .cvr-curtain-right .cvr-fold {
+            left: auto;
+            right: 0;
+            transform-origin: 100% 0;
+          }
+          .cvr-curtain-right .cvr-fold:last-child {
+            box-shadow: -1.2cqw 0 2.4cqw rgba(0, 0, 0, 0.55);
+          }
+
+          .cvr-pelmet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 11%;
+            background: var(--cvr-pelmet-color, #4a0e1f);
+            box-shadow: 0 0.6cqmin 1.4cqmin rgba(0, 0, 0, 0.55);
+            clip-path: var(--cvr-pelmet-hem);
+          }
+        </style>
+
+        <div id="curtain-reveal-clip" class="cvr-clip clip" data-start="0" data-duration="2.4" data-track-index="0">
+          <div class="cvr-stage" id="cvr-stage">
+            <div class="cvr-stage-default">
+              <span class="cvr-stage-default-mark" aria-hidden="true" data-hft="0">Stage</span>
+            </div>
+          </div>
+          <div class="cvr-spotlight" id="cvr-spotlight"></div>
+
+          <div class="cvr-curtain" id="cvr-curtain-left"></div>
+          <div class="cvr-curtain cvr-curtain-right" id="cvr-curtain-right"></div>
+
+          <div class="cvr-pelmet" id="cvr-pelmet"></div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            var stage = document.getElementById("cvr-stage");
+            var spotlight = document.getElementById("cvr-spotlight");
+            var curtainLeft = document.getElementById("cvr-curtain-left");
+            var curtainRight = document.getElementById("cvr-curtain-right");
+            var pelmet = document.getElementById("cvr-pelmet");
+
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            // fold: [dark, mid, light, sheen]
+            var toneTable = {
+              red: { fold: ["#3d0810", "#8a1a26", "#b23345", "#cc5c6e"], pelmet: "#4a0e1a" },
+              burgundy: { fold: ["#2b0912", "#5c1a2c", "#7d2c42", "#a04c62"], pelmet: "#3a0f1e" },
+              navy: { fold: ["#070d1f", "#152a5c", "#274a8f", "#4f72b4"], pelmet: "#0c1836" },
+              forest: { fold: ["#0c1f13", "#1f4a2b", "#356b3f", "#5c9166"], pelmet: "#12291a" },
+            };
+            var tone = Object.prototype.hasOwnProperty.call(toneTable, vars.tone)
+              ? vars.tone
+              : "burgundy";
+            var palette = toneTable[tone];
+            root.style.setProperty("--cvr-fold-dark", palette.fold[0]);
+            root.style.setProperty("--cvr-fold-mid", palette.fold[1]);
+            root.style.setProperty("--cvr-fold-light", palette.fold[2]);
+            root.style.setProperty("--cvr-fold-sheen", palette.fold[3]);
+            root.style.setProperty("--cvr-pelmet-color", palette.pelmet);
+
+            var pelmetOn = vars.pelmet !== "off";
+            var spotlightOn = vars.spotlight !== "off";
+            pelmet.style.display = pelmetOn ? "" : "none";
+
+            // Slot. Caller templates live at the host document level (the
+            // mount wipes host-clip children, and templates never render).
+            var hostDoc = root.ownerDocument;
+            var slotTemplate = null;
+            try {
+              slotTemplate = hostDoc.querySelector('template[data-slot="curtain-reveal-stage"]');
+            } catch (error) {
+              slotTemplate = null;
+            }
+            if (slotTemplate) {
+              var defaultMark = stage.querySelector(".cvr-stage-default");
+              if (defaultMark) defaultMark.remove();
+              stage.appendChild(hostDoc.importNode(slotTemplate.content, true));
+            }
+
+            // Closed-form scalloped hem: a fixed point count sampled from a
+            // sine wave, never randomised, so the trim is identical on every
+            // render of every instance.
+            function hemPolygon(scallops, ampPct, baseY) {
+              var STEPS = 24;
+              var pts = ["0% 0%", "100% 0%"];
+              for (var i = 0; i <= STEPS; i += 1) {
+                var t = i / STEPS;
+                var y = baseY + Math.sin(t * Math.PI * scallops) * ampPct;
+                pts.push((100 - t * 100).toFixed(2) + "% " + y.toFixed(2) + "%");
+              }
+              return "polygon(" + pts.join(", ") + ")";
+            }
+
+            root.style.setProperty("--cvr-pelmet-hem", hemPolygon(5, 14, 78));
+
+            // Fold widths in px at 1920 wide, outer edge first. Both sum to
+            // 1075 px: from 5cqw off frame to just past center.
+            var PX = 100 / 1920;
+            function buildCurtain(el, dir, widths) {
+              var total = 0;
+              var folds = widths.map(function (w, i) {
+                var fold = document.createElement("div");
+                fold.className = "cvr-fold";
+                // Slight overlap hides seams between neighbouring folds.
+                fold.style.width = w * PX + 0.2 + "cqw";
+                fold.style.setProperty("--crest", 44 + ((i * 5) % 13) + "%");
+                el.appendChild(fold);
+                total += w;
+                return { el: fold, w: w * PX, u: i / (widths.length - 1) };
+              });
+              return { folds: folds, dir: dir, anchor: 51 - total * PX };
+            }
+            var curtains = [
+              buildCurtain(curtainLeft, 1, [88, 124, 70, 106, 136, 80, 112, 62, 98, 130, 69]),
+              buildCurtain(curtainRight, -1, [104, 66, 128, 84, 120, 62, 100, 134, 76, 112, 89]),
+            ];
+
+            // p = eased draw progress. Folds nearer the outer edge compress
+            // harder, and the hem sweeps up toward the lead edge.
+            function poseCurtains(p) {
+              curtains.forEach(function (c) {
+                var x = c.anchor;
+                c.folds.forEach(function (f) {
+                  var sx = 1 - p * (0.86 - 0.16 * f.u);
+                  var sy = 1 - p * 0.07 * f.u * f.u;
+                  f.el.style.transform =
+                    "translateX(" +
+                    (c.dir * x).toFixed(3) +
+                    "cqw) scale(" +
+                    sx.toFixed(4) +
+                    ", " +
+                    sy.toFixed(4) +
+                    ")";
+                  f.el.style.setProperty("--shade", (0.34 * (1 - sx)).toFixed(3));
+                  x += f.w * sx;
+                });
+              });
+            }
+
+            // Envelope: fixed IN, elastic HOLD, never time-scaled.
+            var IN_BASE = 1.1;
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "2.4"));
+            var IN = Math.min(IN_BASE, duration);
+
+            gsap.set(spotlight, { opacity: 0 });
+
+            // Seek-safe driver: GSAP assigns `p` on every render, seek()
+            // included, so the setter re-poses the folds; onUpdate is
+            // suppressed on seek.
+            var drawn = 0;
+            var draw = {};
+            Object.defineProperty(draw, "p", {
+              get: function () {
+                return drawn;
+              },
+              set: function (next) {
+                drawn = next;
+                poseCurtains(next);
+              },
+            });
+            poseCurtains(0);
+
+            var tl = gsap.timeline({ paused: true });
+            tl.fromTo(draw, { p: 0 }, { p: 1, duration: IN, ease: "power2.inOut" }, 0);
+            if (spotlightOn) {
+              // Clamped to end by IN: uncapped, start (IN * 0.25) + duration
+              // (IN * 0.85) lands at IN * 1.10 -- fine while the hold covers
+              // it, but a short composition that compresses the hold away
+              // would push GSAP's auto-extended timeline past data-duration.
+              var spotlightStart = IN * 0.25;
+              var spotlightDuration = Math.min(IN * 0.85, IN - spotlightStart);
+              tl.fromTo(
+                spotlight,
+                { opacity: 0 },
+                { opacity: 0.9, duration: spotlightDuration, ease: "power1.out" },
+                spotlightStart,
+              );
+            }
+            tl.set({}, {}, duration);
+            tl.seek(0);
+
+            window.__timelines = window.__timelines || {};
+            window.__timelines["curtain-reveal"] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["curtain-reveal-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

@@ -1,0 +1,129 @@
+{
+ "id": "tt-phu-de-ban-tin",
+ "name": "Phụ đề bản tin chữ to",
+ "category": "tintuc",
+ "aspect": "9:16",
+ "pack": "broadcast",
+ "desc": "Bản tin xem không cần tiếng: phụ đề khổng lồ trên khối mực, từ khoá khối vàng mật, trang tiêu đề kẻ dòng thành logo góc, tài liệu + bút dạ, danh sách và lưới ô sáng.",
+ "tags": [
+  "phụ đề to",
+  "bản tin",
+  "từ khoá",
+  "tài liệu",
+  "xem không tiếng"
+ ],
+ "title": "Bản tin hôm nay",
+ "caption_style": "bc_capnews",
+ "recipe_opts": {
+  "variant": "capnews"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tiêu đề bản tin (2–4 chữ)",
+  "ảnh chụp tài liệu / bài báo được nhắc tới (ghi nguồn thật)",
+  "3 ý cho danh sách",
+  "tên nguồn thật"
+ ],
+ "preview": {
+  "from": 1.6,
+  "to": 7.6,
+  "still": 6.9
+ },
+ "scenes": [
+  {
+   "type": "bc_capnews_hook",
+   "t0": 0,
+   "t1": 1.75
+  },
+  {
+   "type": "bc_capnews_sting",
+   "t0": 1.8,
+   "t1": 4.1,
+   "title": "BẢN TIN |MẪU|",
+   "chip": "Tiêu đề ví dụ"
+  },
+  {
+   "type": "bc_capnews_badge",
+   "t0": 3.0,
+   "t1": 20.2,
+   "keep": true,
+   "a": "BẢN TIN",
+   "b": "MẪU"
+  },
+  {
+   "type": "bc_capnews_list",
+   "t0": 5.4,
+   "t1": 9.0,
+   "cut": true,
+   "title": "Ba điều cần nhớ (ví dụ)",
+   "items": [
+    {
+     "text": "Quay một lần",
+     "t": 5.8
+    },
+    {
+     "text": "AI tự cắt ghép",
+     "t": 6.7
+    },
+    {
+     "text": "Xuất trong vài phút",
+     "t": 7.6
+    }
+   ]
+  },
+  {
+   "type": "bc_capnews_doc",
+   "t0": 10.0,
+   "t1": 13.8,
+   "cut": true,
+   "kicker": "Tài liệu mẫu",
+   "title": "Báo cáo: thói quen làm video ngắn (ví dụ)",
+   "lines": [
+    "Thay bằng ảnh chụp tài liệu thật",
+    "Nhớ ghi rõ nguồn bên dưới logo"
+   ],
+   "hl": [
+    {
+     "line": "title",
+     "t": 10.8
+    },
+    {
+     "line": 1,
+     "t": 11.9
+    }
+   ],
+   "block": "Tiết kiệm thời gian",
+   "block_t": 12.4,
+   "source": "Nguồn mẫu"
+  },
+  {
+   "type": "bc_capnews_grid",
+   "t0": 14.6,
+   "t1": 18.0,
+   "cut": true,
+   "kicker": "Ví dụ",
+   "title": "Những việc tốn thời gian",
+   "items": [
+    {
+     "icon": "cut",
+     "label": "Cắt ghép",
+     "t": 15.0,
+     "badge": ""
+    },
+    {
+     "icon": "text",
+     "label": "Gõ phụ đề",
+     "t": 15.8,
+     "badge": ""
+    },
+    {
+     "icon": "spark",
+     "label": "Chọn hiệu ứng",
+     "t": 16.6,
+     "badge": ""
+    }
+   ]
+  }
+ ]
+}

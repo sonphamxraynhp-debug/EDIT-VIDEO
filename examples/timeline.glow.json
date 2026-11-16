@@ -1,0 +1,28 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": { "frames": "work/frames/%05d.jpg" },
+ "face": { "x": 360, "y": 520 },
+ "caption_style": "glow",
+ "captions": "work/captions.json",
+ "scenes": [
+  { "type": "glow_scrim", "t0": 0, "t1": 20.2, "top": 0.42, "bottom": 0.5 },
+  { "type": "glow_title", "t0": 0.3, "t1": 4.4, "big": "iRobot", "small": "có thật?", "x": 360, "y": 170, "size": 170 },
+  { "type": "glow_title", "t0": 2.2, "t1": 4.4, "big": "Vài năm", "small": "nữa thôi", "x": 360, "y": 800, "size": 130, "layout": "below" },
+  { "type": "glow_marker", "t0": 5.2, "t1": 7.0, "text": "Tổng hợp", "num": "01", "x": 76, "y": 100, "size": 68 },
+  { "type": "glow_keyword", "t0": 7.0, "t1": 8.6, "text": "TIN SHOCK", "x": 360, "y": 150, "size": 112 },
+  { "type": "glow_screen", "t0": 8.6, "t1": 11.1, "enter": "cut", "screen": { "broll": { "id": "cong-nghe-moi--neural--ember" } }, "x": 360, "y": 470, "size": 600 },
+  { "type": "glow_list", "t0": 8.9, "t1": 11.1, "header": "Tin AI tuần này", "icon": "📰", "items": ["1. Nghỉ việc ở OpenAI", "2. Đua tới siêu trí tuệ", "3. AI tự cải thiện"], "x": 360, "y": 815, "size": 54 },
+  { "type": "glow_punch", "t0": 11.1, "t1": 12.9, "size": 1.35 },
+  { "type": "glow_note", "t0": 11.2, "t1": 12.9, "items": ["Một nhà nghiên cứu", "làm ở cả hai công ty"], "x": 360, "y": 190, "size": 46 },
+  { "type": "glow_keyword", "t0": 12.92, "t1": 13.64, "text": "OPENAI", "icon": "si:openai", "x": 360, "y": 150, "size": 112 },
+  { "type": "glow_keyword", "t0": 13.64, "t1": 14.86, "text": "ANTHROPIC", "icon": "si:anthropic", "x": 360, "y": 150, "size": 104 },
+  { "type": "glow_screen", "t0": 14.86, "t1": 17.4, "enter": "cut", "x": 360, "y": 500, "size": 600,
+    "screen": { "chat": { "input": { "text": "Siêu trí tuệ là gì?", "t0": 14.9, "t1": 15.6 }, "messages": [ { "role": "user", "t": 15.7, "text": "Siêu trí tuệ là gì?" }, { "role": "ai", "t": 16.0, "text": "**Siêu trí tuệ** là AI vượt con người ở hầu hết mọi lĩnh vực, và có thể **tự cải thiện** chính nó.", "cps": 60 } ] } } },
+  { "type": "glow_marker", "t0": 14.9, "t1": 17.4, "text": "Siêu trí tuệ", "num": "02", "x": 76, "y": 110, "size": 68 },
+  { "type": "glow_endcard", "t0": 17.4, "t1": 20.2, "text": "Like & Cmt nhaaa", "icon": "❤️", "x": 360, "y": 110, "size": 52 }
+ ],
+ "audio": { "voice": "work/voice.wav", "mix": "work/mix.wav", "music": [ { "t0": 0, "t1": 20.2, "mood": "corporate", "gain": -11 } ], "sfx": [] }
+}

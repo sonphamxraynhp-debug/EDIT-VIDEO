@@ -1,0 +1,141 @@
+{
+ "id": "kh-man-hinh-sau-lung",
+ "name": "Màn hình sau lưng",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "explain",
+ "desc": "Hướng dẫn công cụ: màn hình phần mềm ở dải trên sau đầu, tiêu đề dải đen trắng, nhãn [Bước n], sơ đồ cách hoạt động, CTA bình luận từ khoá.",
+ "tags": [
+  "hướng dẫn",
+  "phần mềm",
+  "công cụ",
+  "tutorial"
+ ],
+ "title": "Hướng dẫn công cụ",
+ "caption_style": "ex_stan",
+ "music": "lofi_2",
+ "brand": {
+  "primary": "#5B5BF7"
+ },
+ "recipe_opts": {
+  "variant": "stan"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "video quay màn hình công cụ",
+  "các bước",
+  "từ khoá CTA"
+ ],
+ "preview": {
+  "from": 6,
+  "to": 12,
+  "still": 1.6
+ },
+ "scenes": [
+  {
+   "type": "ex_stan_hook",
+   "t0": 0,
+   "t1": 2.8,
+   "icons": [
+    "video",
+    "doc",
+    "spark"
+   ],
+   "lines": [
+    "hướng dẫn dựng video bằng AI",
+    "trong 3 phút (ví dụ)"
+   ]
+  },
+  {
+   "type": "ex_stan_diagram",
+   "t0": 3.2,
+   "t1": 6.2,
+   "sources": [
+    {
+     "icon": "video",
+     "label": "Video gốc"
+    },
+    {
+     "icon": "doc",
+     "label": "Kịch bản"
+    },
+    {
+     "icon": "music",
+     "label": "Nhạc"
+    }
+   ],
+   "tool": {
+    "icon": "spark",
+    "label": "Công cụ AI"
+   },
+   "output": "Video"
+  },
+  {
+   "type": "ex_stan_screen",
+   "t0": 6.6,
+   "t1": 10.4,
+   "screen": {
+    "kind": "app",
+    "app": "Công cụ (ví dụ)",
+    "heading": "Tạo video trong vài phút",
+    "prompt": "kéo thả video vào đây",
+    "button": "Bắt đầu",
+    "click_t": 8.0
+   }
+  },
+  {
+   "type": "ex_stan_step",
+   "t0": 7.2,
+   "t1": 9.4,
+   "num": 1,
+   "text": "Kéo thả video vào công cụ",
+   "icons": [
+    "video",
+    "folder"
+   ]
+  },
+  {
+   "type": "ex_stan_screen",
+   "t0": 10.6,
+   "t1": 14.2,
+   "screen": {
+    "kind": "chat",
+    "app": "Công cụ (ví dụ)",
+    "prompt": "Thêm phụ đề và nhạc nền vui tươi",
+    "lines": [
+     "Đã thêm phụ đề tự động",
+     "Đã chọn 3 bản nhạc phù hợp",
+     "Sẵn sàng xuất video"
+    ]
+   }
+  },
+  {
+   "type": "ex_stan_step",
+   "t0": 11.0,
+   "t1": 13.2,
+   "num": 2,
+   "text": "Chọn hiệu ứng",
+   "icons": [
+    "spark"
+   ]
+  },
+  {
+   "type": "ex_stan_step",
+   "t0": 14.6,
+   "t1": 16.8,
+   "num": 3,
+   "text": "Xuất video và đăng",
+   "icons": [
+    "play"
+   ]
+  },
+  {
+   "type": "ex_stan_cta",
+   "t0": 17.2,
+   "t1": 20.2,
+   "keyword": "kịch bản",
+   "gift": "bộ mẫu miễn phí (ví dụ)"
+  }
+ ]
+}

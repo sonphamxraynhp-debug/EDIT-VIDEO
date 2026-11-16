@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>AI Video Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/studio/vendor/tabler-icons/tabler-icons.min.css">
+<link rel="stylesheet" href="/studio/studio.css">
+</head>
+<body>
+<header id="top">
+  <div class="logo"><span class="mark"><i></i><i></i><i></i></span><b>AI Video Studio</b><span class="ver" id="ver">2.0</span></div>
+  <div class="sep"></div>
+  <div class="proj"><i class="ti ti-folder"></i><span id="ptag">—</span><span id="status" class="status">Đã lưu</span></div>
+  <div class="tbtns">
+    <button id="undo" class="icon" title="Hoàn tác (⌘Z)"><i class="ti ti-arrow-back-up"></i></button>
+    <button id="redo" class="icon" title="Làm lại (⇧⌘Z)"><i class="ti ti-arrow-forward-up"></i></button>
+  </div>
+  <div class="grow"></div>
+  <span class="aspect" id="aspect" title="Khổ hình">9:16</span>
+  <button id="fitall" class="icon" title="Vừa khung: preview + timeline (⇧Z)"><i class="ti ti-arrows-minimize"></i></button>
+  <div class="selwrap" title="Mở lại một bản lưu"><i class="ti ti-history"></i><select id="history"><option value="">Lịch sử</option></select></div>
+  <button id="newproj" class="ghost" title="Tạo dự án từ một video thô"><i class="ti ti-video-plus"></i> Video mới</button>
+  <button id="save" class="sec" title="Lưu (⌘S)"><i class="ti ti-device-floppy"></i> Lưu</button>
+  <button id="export" class="primary"><i class="ti ti-upload"></i> Xuất</button>
+</header>
+
+<main>
+  <nav id="rail"></nav>
+  <aside id="lib">
+    <div class="libhead"><b id="libtitle">Media</b><div class="grow"></div><span id="libact"></span></div>
+    <div class="libsearch" id="libsearch"><i class="ti ti-search"></i><input id="search" placeholder="Tìm…"></div>
+    <div id="libbody"></div>
+  </aside>
+
+  <section id="center">
+    <div id="stagewrap">
+      <div id="stagebox">
+        <iframe id="frame" src="/engine/index.html" scrolling="no"></iframe>
+        <div id="overlay"></div>
+      </div>
+    </div>
+    <div id="controls">
+      <div class="cl">
+        <span class="aspect sm" id="aspect2">9:16</span>
+        <button class="icon tog" id="safebtn" title="Vùng an toàn (không bị nút TikTok/Reels che)"><i class="ti ti-shield-check"></i></button>
+        <button class="icon tog" id="facebtn" title="Vùng mặt"><i class="ti ti-face-id"></i></button>
+        <input type="checkbox" id="safe" hidden><input type="checkbox" id="face" hidden>
+      </div>
+      <div class="cc">
+        <button class="icon" id="stepb" title="Lùi 1 khung (←)"><i class="ti ti-player-skip-back"></i></button>
+        <button id="play" class="playbtn" title="Phát / dừng (Space)"><i class="ti ti-player-play-filled"></i></button>
+        <button class="icon" id="stepf" title="Tiến 1 khung (→)"><i class="ti ti-player-skip-forward"></i></button>
+        <span class="tc"><span id="time">0:00.00</span><span class="dur" id="durtc">/ 0:00.00</span></span>
+      </div>
+      <div class="cr">
+        <button class="icon" id="expand" title="Phóng to preview"><i class="ti ti-arrows-maximize"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <aside id="right"><div id="insp"></div></aside>
+</main>
+
+<footer id="tlwrap">
+  <div id="tlhead">
+    <div class="tools">
+      <button class="icon" id="tsplit" title="Tách clip tại playhead (⌘B)"><i class="ti ti-scissors"></i></button>
+      <button class="icon" id="tdel" title="Xoá (Delete) — clip thì tự dồn"><i class="ti ti-trash"></i></button>
+      <button class="icon" id="tdup" title="Nhân bản (⌘D)"><i class="ti ti-copy"></i></button>
+      <span class="vsep"></span>
+      <button class="icon tog on" id="tsnap" title="Nam châm: tự hít vào playhead và mép khối"><i class="ti ti-magnet"></i></button>
+      <span id="tlinfo" class="muted"></span>
+    </div>
+    <div class="grow"></div>
+    <div class="zoomer">
+      <button class="icon" id="zout" title="Thu nhỏ (-)"><i class="ti ti-zoom-out"></i></button>
+      <input type="range" id="zoom" min="8" max="300" value="60">
+      <button class="icon" id="zin" title="Phóng to (+)"><i class="ti ti-zoom-in"></i></button>
+      <button class="icon" id="zfit" title="Vừa timeline"><i class="ti ti-arrows-horizontal"></i></button>
+    </div>
+  </div>
+  <div id="tl">
+    <div id="tllabels"></div>
+    <div id="tlscroll"><div id="tlinner"><div id="ruler"></div><div id="tracks"></div><div id="playhead"></div></div></div>
+  </div>
+</footer>
+
+<div id="modal" hidden><div class="box" id="modalbox"></div></div>
+<audio id="voice" preload="auto"></audio>
+<script src="/studio/clips.js"></script>
+<script src="/studio/library.js"></script>
+<script src="/studio/studio.js"></script>
+</body>
+</html>

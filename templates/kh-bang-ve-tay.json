@@ -1,0 +1,109 @@
+{
+ "id": "kh-bang-ve-tay",
+ "name": "Bảng vẽ tay chia đôi",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "explain",
+ "desc": "Bảng trắng ở nửa trên vẽ từng ý bằng bút dạ (hiện cả cây bút), người nói ở nửa dưới, lau bảng giữa các trang, phụ đề viên trắng trên đường nối.",
+ "tags": [
+  "bảng trắng",
+  "vẽ tay",
+  "giải thích",
+  "chia đôi"
+ ],
+ "title": "Giải thích bằng hình vẽ",
+ "caption_style": "ex_board",
+ "music": "mellow",
+ "recipe_opts": {
+  "variant": "board"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "các ý chính (mỗi ý 1 hình)",
+  "nhãn ngắn cho từng hình"
+ ],
+ "preview": {
+  "from": 1,
+  "to": 7,
+  "still": 3.4
+ },
+ "scenes": [
+  {
+   "type": "ex_board_hook",
+   "t0": 0,
+   "t1": 1.0,
+   "text": "Vẽ ra thì *dễ hiểu*",
+   "y": 900
+  },
+  {
+   "type": "ex_board_split",
+   "t0": 0.6,
+   "t1": 20.2,
+   "drop_at": 0
+  },
+  {
+   "type": "ex_board_draw",
+   "t0": 1.2,
+   "t1": 5.0,
+   "shape": "bulb",
+   "label": "ý tưởng",
+   "seed": 1
+  },
+  {
+   "type": "ex_board_draw",
+   "t0": 5.0,
+   "t1": 9.0,
+   "shape": "clock",
+   "label": "chỉ 3 phút",
+   "seed": 2,
+   "words": [
+    {
+     "text": "trước: vài giờ",
+     "t": 7.4,
+     "x": 170,
+     "y": 140,
+     "color": "red",
+     "size": 34
+    }
+   ]
+  },
+  {
+   "type": "ex_board_draw",
+   "t0": 9.0,
+   "t1": 13.0,
+   "shape": "rocket",
+   "label": "tự động",
+   "seed": 3
+  },
+  {
+   "type": "ex_board_draw",
+   "t0": 13.0,
+   "t1": 16.6,
+   "shape": "chart",
+   "label": "kết quả",
+   "seed": 4
+  },
+  {
+   "type": "ex_board_list",
+   "t0": 16.6,
+   "t1": 20.2,
+   "title": "Cách làm",
+   "erase": false,
+   "items": [
+    {
+     "text": "Quay video",
+     "t": 17.2
+    },
+    {
+     "text": "Kéo vào công cụ",
+     "t": 18.0
+    },
+    {
+     "text": "Xuất và đăng",
+     "t": 18.9
+    }
+   ]
+  }
+ ]
+}

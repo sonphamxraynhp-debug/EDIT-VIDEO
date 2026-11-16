@@ -1,0 +1,1850 @@
+[
+ {
+  "id": "ai-bubble-prompt",
+  "name": "3 câu lệnh AI",
+  "category": "ai",
+  "aspect": "9:16",
+  "pack": "bubble",
+  "desc": "Hướng dẫn prompt kiểu \"3 mã lệnh\": mặt trong bubble vàng + thẻ chat gõ lệnh, spotlight, logo bấm, Follow.",
+  "tags": [
+   "prompt",
+   "chatgpt",
+   "hướng dẫn",
+   "bubble"
+  ],
+  "needs": [
+   "câu lệnh (prompt) mẫu",
+   "kết quả AI trả lời",
+   "từ khoá CTA"
+  ],
+  "preview": "previews/ai-bubble-prompt.mp4",
+  "thumb": "previews/ai-bubble-prompt.jpg"
+ },
+ {
+  "id": "ai-clean-os",
+  "name": "Clean OS điện thoại",
+  "category": "ai",
+  "aspect": "9:16",
+  "pack": "explain",
+  "desc": "Ý tưởng thành thao tác trên điện thoại: người trong điện thoại, chồng thông báo, công tắc bật/tắt, vòng %, khung chọn đỏ, bút ký chữ.",
+  "tags": [
+   "điện thoại",
+   "giao diện",
+   "tối giản",
+   "giải thích"
+  ],
+  "needs": [
+   "ý chính từng câu",
+   "từ khoá cần nhấn"
+  ],
+  "preview": "previews/ai-clean-os.mp4",
+  "thumb": "previews/ai-clean-os.jpg"
+ },
+ {
+  "id": "ai-hype-cam-ngang",
+  "name": "AI Hype Cam ngang",
+  "category": "ai",
+  "aspect": "16:9",
+  "pack": "hypecam",
+  "desc": "YouTube ngang năng lượng cao: nền tech đỏ + HUD khoá mặt, chữ hero cam, chữ siêu to, checklist, end card.",
+  "tags": [
+   "hype cam",
+   "youtube",
+   "ngang",
+   "năng lượng cao"
+  ],
+  "needs": [
+   "video ngang (nên có cutout người)",
+   "câu hook",
+   "ảnh minh hoạ"
+  ],
+  "preview": "previews/ai-hype-cam-ngang.mp4",
+  "thumb": "previews/ai-hype-cam-ngang.jpg"
+ },
+ {
+  "id": "ai-neon-cong-cu",
+  "name": "Công cụ AI neon",
+  "category": "ai",
+  "aspect": "9:16",
+  "pack": "neon",
+  "desc": "Giới thiệu công cụ AI với phụ đề neon: khung đổi shot, chữ lớn phát sáng, ô logo công cụ, số chạy tăng.",
+  "tags": [
+   "công cụ AI",
+   "neon",
+   "logo",
+   "review AI"
+  ],
+  "needs": [
+   "logo / tên công cụ",
+   "1 con số"
+  ],
+  "preview": "previews/ai-neon-cong-cu.mp4",
+  "thumb": "previews/ai-neon-cong-cu.jpg"
+ },
+ {
+  "id": "ai-quet-hologram",
+  "name": "Quét hologram AI",
+  "category": "ai",
+  "aspect": "9:16",
+  "pack": "broadcast",
+  "desc": "Vật thể được nhắc tới hiện thành wireframe phát sáng trên bệ chiếu: khoá mục tiêu, giá trị cuộn chữ chuyển màu hổ phách, chip xếp vào thanh bên; phụ đề HUD có sóng âm.",
+  "tags": [
+   "hologram",
+   "hud",
+   "công nghệ",
+   "ai",
+   "wireframe"
+  ],
+  "needs": [
+   "vật thể chính nhắc tới (điện thoại / máy tính / sách / cốc / video)",
+   "2 bộ phận để khoá",
+   "giá trị thật cho thẻ (trạng thái, tên)",
+   "2–4 mục cho bàn xoay"
+  ],
+  "preview": "previews/ai-quet-hologram.mp4",
+  "thumb": "previews/ai-quet-hologram.jpg"
+ },
+ {
+  "id": "ai-tin-ai-slate",
+  "name": "Tin AI kiểu Claude edit",
+  "category": "ai",
+  "aspect": "9:16",
+  "pack": "slate",
+  "desc": "Tin tức / thủ thuật AI: nền lưới, thẻ video bo góc, hàng logo công cụ, chữ LED, sơ đồ, thẻ hỏi cuối.",
+  "tags": [
+   "tin AI",
+   "công cụ AI",
+   "logo",
+   "sơ đồ"
+  ],
+  "needs": [
+   "logo các công cụ nhắc tới",
+   "ý chính"
+  ],
+  "preview": "previews/ai-tin-ai-slate.mp4",
+  "thumb": "previews/ai-tin-ai-slate.jpg"
+ },
+ {
+  "id": "bds-ban-tin-bds",
+  "name": "Bản tin BĐS",
+  "category": "bds",
+  "aspect": "9:16",
+  "pack": "news",
+  "desc": "Bản tin thị trường nhà đất kiểu truyền hình: ident, TRỰC TIẾP, tiêu đề, bản đồ khu vực, ticker giá.",
+  "tags": [
+   "tin bđs",
+   "thị trường",
+   "bản tin",
+   "ticker"
+  ],
+  "needs": [
+   "tên kênh",
+   "tiêu đề tin",
+   "khu vực",
+   "các dòng tin ticker"
+  ],
+  "preview": "previews/bds-ban-tin-bds.mp4",
+  "thumb": "previews/bds-ban-tin-bds.jpg"
+ },
+ {
+  "id": "bds-biet-thu-toi-gian",
+  "name": "Biệt thự tối giản",
+  "category": "bds",
+  "aspect": "9:16",
+  "pack": "luxury",
+  "desc": "Bất động sản hạng sang theo lối tối giản: màu phim ấm, hộp chú thích, hình thoi viền đỏ, thẻ giá navy.",
+  "tags": [
+   "biệt thự",
+   "hạng sang",
+   "tối giản",
+   "luxury"
+  ],
+  "needs": [
+   "video/ảnh biệt thự",
+   "điểm nổi bật",
+   "giá",
+   "handle"
+  ],
+  "preview": "previews/bds-biet-thu-toi-gian.mp4",
+  "thumb": "previews/bds-biet-thu-toi-gian.jpg"
+ },
+ {
+  "id": "bds-can-ho-ngang",
+  "name": "Căn hộ YouTube ngang",
+  "category": "bds",
+  "aspect": "16:9",
+  "pack": "realestate",
+  "desc": "Bản ngang 16:9 cho YouTube: thẻ dự án bên phải, thông số, tour ảnh toàn màn, trả góp và liên hệ.",
+  "tags": [
+   "youtube",
+   "ngang",
+   "căn hộ",
+   "tour"
+  ],
+  "needs": [
+   "video ngang",
+   "ảnh căn hộ",
+   "giá",
+   "SĐT"
+  ],
+  "preview": "previews/bds-can-ho-ngang.mp4",
+  "thumb": "previews/bds-can-ho-ngang.jpg"
+ },
+ {
+  "id": "bds-can-ho-sang-trong",
+  "name": "Căn hộ sang trọng",
+  "category": "bds",
+  "aspect": "9:16",
+  "pack": "realestate",
+  "desc": "Giới thiệu căn hộ kiểu môi giới chuyên nghiệp: thẻ kính navy-vàng, giá đếm số, tour ảnh và thẻ liên hệ.",
+  "tags": [
+   "căn hộ",
+   "môi giới",
+   "giá",
+   "tour ảnh"
+  ],
+  "needs": [
+   "ảnh căn hộ (4 phòng)",
+   "giá bán",
+   "diện tích, số phòng",
+   "tên + SĐT môi giới"
+  ],
+  "preview": "previews/bds-can-ho-sang-trong.mp4",
+  "thumb": "previews/bds-can-ho-sang-trong.jpg"
+ },
+ {
+  "id": "bds-du-an-greenscreen",
+  "name": "Review dự án qua web",
+  "category": "bds",
+  "aspect": "9:16",
+  "pack": "greenscreen",
+  "desc": "Đứng trước ảnh dự án như phóng viên: bài viết, trang web dự án cuộn và mũi tên chỉ điểm, người nói tách nền.",
+  "tags": [
+   "dự án",
+   "phân tích",
+   "greenscreen",
+   "tin bđs"
+  ],
+  "needs": [
+   "ảnh phối cảnh dự án",
+   "ảnh chụp trang web/bài viết",
+   "tiêu đề, nguồn"
+  ],
+  "preview": "previews/bds-du-an-greenscreen.mp4",
+  "thumb": "previews/bds-du-an-greenscreen.jpg"
+ },
+ {
+  "id": "bds-nha-pho-xanh",
+  "name": "Nhà phố xanh – vay vốn",
+  "category": "bds",
+  "aspect": "9:16",
+  "pack": "realestate",
+  "desc": "Nhà phố / đất nền tông xanh rêu: bản đồ vị trí, ảnh dạng thẻ, bảng tính trả góp và thẻ môi giới.",
+  "tags": [
+   "nhà phố",
+   "trả góp",
+   "bản đồ",
+   "xanh"
+  ],
+  "needs": [
+   "ảnh nhà",
+   "giá + % vay",
+   "các tiện ích quanh nhà",
+   "SĐT"
+  ],
+  "preview": "previews/bds-nha-pho-xanh.mp4",
+  "thumb": "previews/bds-nha-pho-xanh.jpg"
+ },
+ {
+  "id": "bds-noi-that-truoc-sau",
+  "name": "Nội thất trước – sau",
+  "category": "bds",
+  "aspect": "9:16",
+  "pack": "transform",
+  "desc": "Cải tạo / hoàn thiện nội thất: thanh trượt thô → hoàn thiện, loé sáng lộ kết quả, lưới tiến độ thi công.",
+  "tags": [
+   "nội thất",
+   "cải tạo",
+   "trước sau",
+   "thi công"
+  ],
+  "needs": [
+   "ảnh trước (thô)",
+   "ảnh sau (hoàn thiện)",
+   "2–4 ảnh giữa quá trình"
+  ],
+  "preview": "previews/bds-noi-that-truoc-sau.mp4",
+  "thumb": "previews/bds-noi-that-truoc-sau.jpg"
+ },
+ {
+  "id": "bds-photo-tour-nhip",
+  "name": "Tour ảnh theo nhịp nhạc",
+  "category": "bds",
+  "aspect": "9:16",
+  "pack": "beatslide",
+  "desc": "Biến bộ ảnh căn nhà thành video cắt đúng phách nhạc: intro đập chữ, slideshow, collage polaroid, outro liên hệ.",
+  "tags": [
+   "tour ảnh",
+   "nhịp nhạc",
+   "slideshow",
+   "không cần quay"
+  ],
+  "needs": [
+   "6–10 ảnh căn nhà",
+   "tên dự án",
+   "SĐT / website"
+  ],
+  "preview": "previews/bds-photo-tour-nhip.mp4",
+  "thumb": "previews/bds-photo-tour-nhip.jpg"
+ },
+ {
+  "id": "bh-bubble-chot-don",
+  "name": "Bubble chốt đơn",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "bubble",
+  "desc": "Bán hàng kiểu bubble: thẻ mở đầu, spotlight chữ lật 3D + sticker, logo bấm, nút Follow và từ khoá phát sáng.",
+  "tags": [
+   "bubble",
+   "sticker",
+   "follow",
+   "shop"
+  ],
+  "needs": [
+   "ảnh sản phẩm",
+   "từ khoá chốt (vd: MUA)"
+  ],
+  "preview": "previews/bh-bubble-chot-don.mp4",
+  "thumb": "previews/bh-bubble-chot-don.jpg"
+ },
+ {
+  "id": "bh-don-hang-do-ve",
+  "name": "Đơn hàng đổ về",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Thông báo có đơn mới bật lên, chồng thông báo thanh toán/giao hàng, tiền tăng vọt, pháo giấy và nút Mua ngay.",
+  "tags": [
+   "đơn hàng",
+   "thông báo",
+   "chốt đơn",
+   "bán hàng online"
+  ],
+  "needs": [
+   "sản phẩm",
+   "doanh số",
+   "lời kêu gọi"
+  ],
+  "preview": "previews/bh-don-hang-do-ve.mp4",
+  "thumb": "previews/bh-don-hang-do-ve.jpg"
+ },
+ {
+  "id": "bh-don-hang-ngang",
+  "name": "Livestream chốt đơn (ngang)",
+  "category": "banhang",
+  "aspect": "16:9",
+  "pack": "hf_tin",
+  "desc": "Video ngang: thông báo đơn mới, chồng tin nhắn khách hỏi giá, bình luận hiện dần, pháo giấy và nút đặt hàng.",
+  "tags": [
+   "livestream",
+   "chốt đơn",
+   "bình luận",
+   "ngang"
+  ],
+  "needs": [
+   "sản phẩm",
+   "giá",
+   "lời kêu gọi"
+  ],
+  "preview": "previews/bh-don-hang-ngang.mp4",
+  "thumb": "previews/bh-don-hang-ngang.jpg"
+ },
+ {
+  "id": "bh-flash-sale-coupon",
+  "name": "Flash sale mã giảm giá",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "review",
+  "desc": "Chốt đơn nhanh: thẻ sản phẩm giá gạch, so giá cửa hàng, mã giảm giá có hạn, con dấu NÊN MUA.",
+  "tags": [
+   "flash sale",
+   "mã giảm giá",
+   "giá sốc",
+   "chốt đơn"
+  ],
+  "needs": [
+   "ảnh sản phẩm",
+   "giá gốc / giá sale",
+   "mã giảm giá + hạn dùng"
+  ],
+  "preview": "previews/bh-flash-sale-coupon.mp4",
+  "thumb": "previews/bh-flash-sale-coupon.jpg"
+ },
+ {
+  "id": "bh-khach-hang-noi-gi",
+  "name": "Khách hàng nói gì",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Thẻ đánh giá của khách, chấm 4,9 sao, thẻ 12.000+ khách hàng, tường logo và câu kêu gọi đặt hàng.",
+  "tags": [
+   "đánh giá",
+   "feedback",
+   "khách hàng",
+   "uy tín"
+  ],
+  "needs": [
+   "lời khen của khách",
+   "số khách đã mua",
+   "lời kêu gọi"
+  ],
+  "preview": "previews/bh-khach-hang-noi-gi.mp4",
+  "thumb": "previews/bh-khach-hang-noi-gi.jpg"
+ },
+ {
+  "id": "bh-kinetic-cta",
+  "name": "Chốt đơn chữ động",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "kinetic",
+  "desc": "Quảng cáo ngắn chữ động: hook nỗi đau, số % đập vào, hai hình thoi trước/sau, CTA nút bấm Mua ngay.",
+  "tags": [
+   "quảng cáo",
+   "chữ động",
+   "CTA",
+   "ads"
+  ],
+  "needs": [
+   "nỗi đau khách hàng",
+   "con số / lợi ích",
+   "lời kêu gọi"
+  ],
+  "preview": "previews/bh-kinetic-cta.mp4",
+  "thumb": "previews/bh-kinetic-cta.jpg"
+ },
+ {
+  "id": "bh-livestream-ngang",
+  "name": "Giới thiệu SP ngang",
+  "category": "banhang",
+  "aspect": "16:9",
+  "pack": "review",
+  "desc": "Bản ngang cho website / YouTube: thẻ sản phẩm, điểm chi tiết, so giá, mã giảm giá trên nền video mờ.",
+  "tags": [
+   "ngang",
+   "website",
+   "sản phẩm",
+   "mã giảm giá"
+  ],
+  "needs": [
+   "ảnh sản phẩm",
+   "điểm mạnh",
+   "giá + mã giảm giá"
+  ],
+  "preview": "previews/bh-livestream-ngang.mp4",
+  "thumb": "previews/bh-livestream-ngang.jpg"
+ },
+ {
+  "id": "bh-san-pham-theo-nhip",
+  "name": "Sản phẩm theo nhịp",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "beatslide",
+  "desc": "Showcase sản phẩm bằng ảnh cắt theo phách nhạc: intro đập, slideshow, cột EQ, chữ theo nhịp, outro mua ngay.",
+  "tags": [
+   "showcase",
+   "nhịp nhạc",
+   "ảnh sản phẩm",
+   "ra mắt"
+  ],
+  "needs": [
+   "5–10 ảnh sản phẩm",
+   "tên shop",
+   "SĐT / link"
+  ],
+  "preview": "previews/bh-san-pham-theo-nhip.mp4",
+  "thumb": "previews/bh-san-pham-theo-nhip.jpg"
+ },
+ {
+  "id": "bh-tap-chi-pop",
+  "name": "Tạp chí pop hồng",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "kinetic",
+  "desc": "Pop magazine: chữ khổng lồ đậm, phụ đề in hoa ô màu hồng ở từ khoá, khối màu mạnh, nhạc pop sôi động.",
+  "tags": [
+   "pop",
+   "tạp chí",
+   "màu mạnh",
+   "preset"
+  ],
+  "needs": [
+   "tên sản phẩm / xu hướng"
+  ],
+  "preview": "previews/bh-tap-chi-pop.mp4",
+  "thumb": "previews/bh-tap-chi-pop.jpg"
+ },
+ {
+  "id": "bh-truoc-sau-so-sanh",
+  "name": "Trước & sau dịch vụ",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Hai khung trước/sau so sánh, thanh quét trước/sau, danh sách lợi ích và nút đặt lịch.",
+  "tags": [
+   "trước sau",
+   "so sánh",
+   "dịch vụ",
+   "kết quả"
+  ],
+  "needs": [
+   "ảnh trước",
+   "ảnh sau",
+   "lợi ích"
+  ],
+  "preview": "previews/bh-truoc-sau-so-sanh.mp4",
+  "thumb": "previews/bh-truoc-sau-so-sanh.jpg"
+ },
+ {
+  "id": "bh-uu-dai-co-han",
+  "name": "Ưu đãi có hạn",
+  "category": "banhang",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Tiêu đề giảm giá sốc, con số % quay kiểu máy xèng, huy hiệu bật, dấu tích đã áp mã và câu chốt đơn.",
+  "tags": [
+   "khuyến mãi",
+   "giảm giá",
+   "flash sale",
+   "ưu đãi"
+  ],
+  "needs": [
+   "mức giảm",
+   "thời hạn",
+   "lời kêu gọi"
+  ],
+  "preview": "previews/bh-uu-dai-co-han.mp4",
+  "thumb": "previews/bh-uu-dai-co-han.jpg"
+ },
+ {
+  "id": "cs-chu-dong-vang",
+  "name": "Chữ động nền vàng",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "kinetic",
+  "desc": "Kinetic type: chữ toàn màn từng từ trên nền màu, từ khoá to màu cam, người nói thu nhỏ khi chữ chạy.",
+  "tags": [
+   "kinetic",
+   "chữ động",
+   "typography",
+   "preset"
+  ],
+  "needs": [
+   "2–3 câu then chốt để làm chữ động"
+  ],
+  "preview": "previews/cs-chu-dong-vang.mp4",
+  "thumb": "previews/cs-chu-dong-vang.jpg"
+ },
+ {
+  "id": "cs-danh-sach-seoul",
+  "name": "Danh sách kiểu Seoul",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "montage",
+  "desc": "Giọng kể danh sách trên b-roll cắt nhanh: mỗi ý một chữ lớn (serif nghiêng / chữ đậm), trang trắng, collage mở đầu, outro bong bóng chat.",
+  "tags": [
+   "danh sách",
+   "du lịch",
+   "b-roll",
+   "voice-over",
+   "thành phố"
+  ],
+  "needs": [
+   "giọng đọc 5–8 ý ngắn",
+   "6–10 cảnh quay / ảnh của nơi đó",
+   "1 từ chốt cho outro"
+  ],
+  "preview": "previews/cs-danh-sach-seoul.mp4",
+  "thumb": "previews/cs-danh-sach-seoul.jpg"
+ },
+ {
+  "id": "cs-dien-anh-film",
+  "name": "Điện ảnh film vàng",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "cinema",
+  "desc": "Phim tài liệu: màu film, viền đen, tiêu đề serif vàng, chữ đánh máy, trích dẫn, ít âm thanh nhưng nặng.",
+  "tags": [
+   "điện ảnh",
+   "film",
+   "tài liệu",
+   "preset"
+  ],
+  "needs": [
+   "địa danh, thời gian"
+  ],
+  "preview": "previews/cs-dien-anh-film.mp4",
+  "thumb": "previews/cs-dien-anh-film.jpg"
+ },
+ {
+  "id": "cs-dien-anh",
+  "name": "Điện ảnh kể chuyện",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "cinema",
+  "desc": "Kể chuyện như phim: letterbox 2.35, màu teal-cam, tiêu đề chương, địa danh, chữ đánh máy, credits cuối.",
+  "tags": [
+   "điện ảnh",
+   "kể chuyện",
+   "vlog",
+   "letterbox"
+  ],
+  "needs": [
+   "tiêu đề chương",
+   "địa danh + thời gian",
+   "câu trích dẫn"
+  ],
+  "preview": "previews/cs-dien-anh.mp4",
+  "thumb": "previews/cs-dien-anh.jpg"
+ },
+ {
+  "id": "cs-giay-thu-cong",
+  "name": "Giấy thủ công",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "print",
+  "desc": "Kể chuyện trên giấy in chuyển động stop-motion: trang báo mở góc, lật trang về mặt người, ảnh in cuộn lên, nét tay đỏ, chữ trồi sau mép giấy.",
+  "tags": [
+   "giấy",
+   "stop-motion",
+   "kể chuyện",
+   "thủ công",
+   "tactile"
+  ],
+  "needs": [
+   "câu mở đầu",
+   "tiêu đề + 2–3 dòng cho trang báo",
+   "1 ảnh / biểu tượng + nhãn (tên, năm)",
+   "1 từ khoá cho chữ trồi"
+  ],
+  "preview": "previews/cs-giay-thu-cong.mp4",
+  "thumb": "previews/cs-giay-thu-cong.jpg"
+ },
+ {
+  "id": "cs-goc-nhin-slate",
+  "name": "Góc nhìn trên lưới",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "slate",
+  "desc": "Chia sẻ góc nhìn / phân tích: thẻ video trên nền lưới, chữ LED, sơ đồ nối ý, thẻ kết đặt câu hỏi.",
+  "tags": [
+   "góc nhìn",
+   "phân tích",
+   "sơ đồ",
+   "lưới"
+  ],
+  "needs": [
+   "ý chính",
+   "2–3 khái niệm để nối sơ đồ"
+  ],
+  "preview": "previews/cs-goc-nhin-slate.mp4",
+  "thumb": "previews/cs-goc-nhin-slate.jpg"
+ },
+ {
+  "id": "cs-hanh-trinh-ngang",
+  "name": "Hành trình YouTube ngang",
+  "category": "chiase",
+  "aspect": "16:9",
+  "pack": "share",
+  "desc": "Bản ngang 16:9 cho vlog chia sẻ: dòng thời gian hành trình, con số lớn, bình chọn và nguồn sách.",
+  "tags": [
+   "youtube",
+   "ngang",
+   "hành trình",
+   "vlog"
+  ],
+  "needs": [
+   "các mốc thời gian",
+   "1 con số",
+   "câu hỏi bình chọn"
+  ],
+  "preview": "previews/cs-hanh-trinh-ngang.mp4",
+  "thumb": "previews/cs-hanh-trinh-ngang.jpg"
+ },
+ {
+  "id": "cs-hoi-dap-doi-song",
+  "name": "Hỏi nhanh đáp gọn",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "qa",
+  "desc": "Phỏng vấn / hỏi đáp đời sống: câu hỏi gõ chữ, micro + tên người trả lời, kết quả bình chọn, bình luận.",
+  "tags": [
+   "phỏng vấn",
+   "đường phố",
+   "bình chọn",
+   "đời sống"
+  ],
+  "needs": [
+   "câu hỏi",
+   "tên người trả lời",
+   "kết quả bình chọn"
+  ],
+  "preview": "previews/cs-hoi-dap-doi-song.mp4",
+  "thumb": "previews/cs-hoi-dap-doi-song.jpg"
+ },
+ {
+  "id": "cs-ke-chuyen-am-ap",
+  "name": "Kể chuyện ấm áp",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "share",
+  "desc": "Kể chuyện / chia sẻ kinh nghiệm: màu phim ấm, thẻ chương, trích dẫn, danh sách bài học, lưu & chia sẻ.",
+  "tags": [
+   "kể chuyện",
+   "kinh nghiệm",
+   "trích dẫn",
+   "bài học"
+  ],
+  "needs": [
+   "tiêu đề câu chuyện",
+   "câu trích dẫn",
+   "3 bài học"
+  ],
+  "preview": "previews/cs-ke-chuyen-am-ap.mp4",
+  "thumb": "previews/cs-ke-chuyen-am-ap.jpg"
+ },
+ {
+  "id": "cs-luoi-thuy-si",
+  "name": "Lưới Thuỵ Sĩ",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "print",
+  "desc": "Chia sẻ quan điểm kiểu poster Thuỵ Sĩ: lưới 6 cột, chữ Inter căn trái hiện theo lời, số chương khổng lồ, một màu đỏ duy nhất.",
+  "tags": [
+   "thuỵ sĩ",
+   "swiss",
+   "tối giản",
+   "poster",
+   "typography"
+  ],
+  "needs": [
+   "tiêu đề video",
+   "2–3 ý chính (chương)",
+   "1 con số cho lưới ô",
+   "tên 'nhân vật chính' của video"
+  ],
+  "preview": "previews/cs-luoi-thuy-si.mp4",
+  "thumb": "previews/cs-luoi-thuy-si.jpg"
+ },
+ {
+  "id": "cs-neon-dem-khuya",
+  "name": "Neon đêm khuya",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "neon",
+  "desc": "Chia sẻ năng lượng cao kiểu creator: nền gradient neon tím-hồng, chữ rải phát sáng, emoji bung, số chạy.",
+  "tags": [
+   "neon",
+   "creator",
+   "năng lượng",
+   "phụ đề đẹp"
+  ],
+  "needs": [
+   "từ khoá hook",
+   "1 con số"
+  ],
+  "preview": "previews/cs-neon-dem-khuya.mp4",
+  "thumb": "previews/cs-neon-dem-khuya.jpg"
+ },
+ {
+  "id": "cs-phim-tai-lieu",
+  "name": "Phim tài liệu chữ động",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "print",
+  "desc": "Kể chuyện kiểu phim tài liệu: ảnh đen trắng như ảnh in, chữ hiện đúng lúc nói, trang xám cho câu chuyển, số đếm đỏ, trích dẫn máy chữ.",
+  "tags": [
+   "tài liệu",
+   "documentary",
+   "đen trắng",
+   "kể chuyện",
+   "kinetic"
+  ],
+  "needs": [
+   "2 ảnh tư liệu (sẽ chuyển đen trắng)",
+   "câu chuyển (Nhưng…)",
+   "1 con số",
+   "câu trích dẫn kết"
+  ],
+  "preview": "previews/cs-phim-tai-lieu.mp4",
+  "thumb": "previews/cs-phim-tai-lieu.jpg"
+ },
+ {
+  "id": "cs-pov-hanh-trinh",
+  "name": "POV hành trình",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "montage",
+  "desc": "Clip góc nhìn thứ nhất (kính, GoPro, điện thoại) dựng thành chuyện: khung HUD, mở đầu chữ động, tua lại \"15 phút trước\", số liệu, khoảnh khắc đóng băng.",
+  "tags": [
+   "pov",
+   "vlog",
+   "du lịch",
+   "gopro",
+   "hành trình"
+  ],
+  "needs": [
+   "các clip POV của chuyến đi",
+   "giờ + địa điểm",
+   "1 khoảnh khắc đáng nhớ (thời điểm)",
+   "2–4 ảnh/clip phụ"
+  ],
+  "preview": "previews/cs-pov-hanh-trinh.mp4",
+  "thumb": "previews/cs-pov-hanh-trinh.jpg"
+ },
+ {
+  "id": "cs-tap-chi-editorial",
+  "name": "Tạp chí editorial",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "share",
+  "desc": "Kiểu tạp chí Gen Z: phụ đề nhấn chữ nghiêng, thẻ chương toàn màn, con số, trích dẫn, nhạc nền tối.",
+  "tags": [
+   "editorial",
+   "tạp chí",
+   "gen z",
+   "preset"
+  ],
+  "needs": [
+   "tên chương",
+   "câu trích dẫn"
+  ],
+  "preview": "previews/cs-tap-chi-editorial.mp4",
+  "thumb": "previews/cs-tap-chi-editorial.jpg"
+ },
+ {
+  "id": "cs-toi-gian-sang-trong",
+  "name": "Tối giản sang trọng",
+  "category": "chiase",
+  "aspect": "9:16",
+  "pack": "luxury",
+  "desc": "Chia sẻ quan điểm / thương hiệu cá nhân tối giản: grade ấm, zoom-blur, nền đen chỉ chữ, chân dung cắt nền.",
+  "tags": [
+   "tối giản",
+   "thương hiệu cá nhân",
+   "quan điểm",
+   "sang"
+  ],
+  "needs": [
+   "2 từ khoá chính",
+   "tên + 1 dòng giới thiệu"
+  ],
+  "preview": "previews/cs-toi-gian-sang-trong.mp4",
+  "thumb": "previews/cs-toi-gian-sang-trong.jpg"
+ },
+ {
+  "id": "dn-ban-tin-doanh-nghiep",
+  "name": "Bản tin doanh nghiệp",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Thanh tin tức + dải tin chạy kiểu truyền hình, bản đồ thị trường, chữ AI trả lời và logo kết.",
+  "tags": [
+   "bản tin",
+   "tin tức",
+   "thông báo",
+   "doanh nghiệp"
+  ],
+  "needs": [
+   "tiêu đề tin",
+   "nội dung chính"
+  ],
+  "preview": "previews/dn-ban-tin-doanh-nghiep.mp4",
+  "thumb": "previews/dn-ban-tin-doanh-nghiep.jpg"
+ },
+ {
+  "id": "dn-bao-cao-ngang",
+  "name": "Báo cáo quý (ngang)",
+  "category": "doanhnghiep",
+  "aspect": "16:9",
+  "pack": "hf_tin",
+  "desc": "Video ngang: đếm số tăng trưởng, đua doanh thu các kênh, thẻ biểu đồ cột và sơ đồ kế hoạch quý sau.",
+  "tags": [
+   "báo cáo",
+   "số liệu",
+   "họp",
+   "ngang"
+  ],
+  "needs": [
+   "số liệu quý",
+   "kế hoạch"
+  ],
+  "preview": "previews/dn-bao-cao-ngang.mp4",
+  "thumb": "previews/dn-bao-cao-ngang.jpg"
+ },
+ {
+  "id": "dn-bao-cao-so-lieu",
+  "name": "Báo cáo số liệu",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Con số tăng trưởng đếm lên, cuộc đua doanh thu giữa các kênh bán, thanh tiến độ mục tiêu và dấu tích hoàn thành.",
+  "tags": [
+   "số liệu",
+   "báo cáo",
+   "tăng trưởng",
+   "doanh thu"
+  ],
+  "needs": [
+   "con số chính",
+   "số liệu theo kênh",
+   "mục tiêu"
+  ],
+  "preview": "previews/dn-bao-cao-so-lieu.mp4",
+  "thumb": "previews/dn-bao-cao-so-lieu.jpg"
+ },
+ {
+  "id": "dn-cau-chuyen-so-lieu",
+  "name": "Câu chuyện số liệu",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "print",
+  "desc": "Kể bằng số liệu: biểu đồ tự vẽ trên giấy kem dưới cây bút chì đỏ-xanh, ghi chú viết tay, phụ đề kiểu chú thích hình.",
+  "tags": [
+   "số liệu",
+   "biểu đồ",
+   "báo cáo",
+   "data",
+   "doanh nghiệp"
+  ],
+  "needs": [
+   "số liệu thật + nguồn (tên, năm)",
+   "tiêu đề từng biểu đồ",
+   "1–2 ghi chú ngắn"
+  ],
+  "preview": "previews/dn-cau-chuyen-so-lieu.mp4",
+  "thumb": "previews/dn-cau-chuyen-so-lieu.jpg"
+ },
+ {
+  "id": "dn-demo-phan-mem",
+  "name": "Demo phần mềm / app",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Gõ câu lệnh mở đầu, điện thoại + tablet + laptop xoè ra, màn đăng ký, các bước hướng dẫn, tải app trên 2 kho.",
+  "tags": [
+   "app",
+   "phần mềm",
+   "SaaS",
+   "demo"
+  ],
+  "needs": [
+   "tên app",
+   "tính năng chính",
+   "link tải"
+  ],
+  "preview": "previews/dn-demo-phan-mem.mp4",
+  "thumb": "previews/dn-demo-phan-mem.jpg"
+ },
+ {
+  "id": "dn-gioi-thieu-cong-ty",
+  "name": "Giới thiệu công ty",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Thẻ tiêu đề thương hiệu, tên + chức danh người nói, biểu đồ doanh thu, dải đối tác và logo kết.",
+  "tags": [
+   "giới thiệu",
+   "công ty",
+   "thương hiệu",
+   "doanh nghiệp"
+  ],
+  "needs": [
+   "tên công ty",
+   "người nói + chức danh",
+   "số liệu nổi bật"
+  ],
+  "preview": "previews/dn-gioi-thieu-cong-ty.mp4",
+  "thumb": "previews/dn-gioi-thieu-cong-ty.jpg"
+ },
+ {
+  "id": "dn-gon-sach-doanh-nhan",
+  "name": "Gọn sạch doanh nhân",
+  "category": "khac",
+  "aspect": "9:16",
+  "pack": "share",
+  "desc": "Talking head kinh doanh tiết chế: phụ đề đậm 1 từ khoá vàng, giật zoom theo ý chính, rất ít thẻ, không nhạc.",
+  "tags": [
+   "doanh nhân",
+   "tối giản",
+   "không nhạc",
+   "preset"
+  ],
+  "needs": [
+   "con số chính của bạn"
+  ],
+  "preview": "previews/dn-gon-sach-doanh-nhan.mp4",
+  "thumb": "previews/dn-gon-sach-doanh-nhan.jpg"
+ },
+ {
+  "id": "dn-keynote-ngang",
+  "name": "Keynote doanh nghiệp",
+  "category": "doanhnghiep",
+  "aspect": "16:9",
+  "pack": "hf_tin",
+  "desc": "Video ngang: thẻ tiêu đề, tên người nói, lưới thẻ tính năng, biểu đồ doanh thu và logo kết toàn khung.",
+  "tags": [
+   "keynote",
+   "thuyết trình",
+   "ngang",
+   "YouTube"
+  ],
+  "needs": [
+   "tên công ty",
+   "tính năng",
+   "số liệu"
+  ],
+  "preview": "previews/dn-keynote-ngang.mp4",
+  "thumb": "previews/dn-keynote-ngang.jpg"
+ },
+ {
+  "id": "dn-quy-trinh-dich-vu",
+  "name": "Quy trình dịch vụ",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Sơ đồ quyết định dọc toàn màn hình, quy trình vẽ tay, gạch chân ý chính và dấu tích hoàn thành.",
+  "tags": [
+   "quy trình",
+   "dịch vụ",
+   "các bước",
+   "tư vấn"
+  ],
+  "needs": [
+   "các bước làm việc",
+   "câu hỏi khách hay gặp"
+  ],
+  "preview": "previews/dn-quy-trinh-dich-vu.mp4",
+  "thumb": "previews/dn-quy-trinh-dich-vu.jpg"
+ },
+ {
+  "id": "dn-ra-mat-ngang",
+  "name": "Ra mắt sản phẩm (ngang)",
+  "category": "doanhnghiep",
+  "aspect": "16:9",
+  "pack": "hf_tin",
+  "desc": "Video ngang: tiêu đề đập mạnh, điện thoại + tablet + laptop xoè ra, thẻ tính năng bay quanh, 3 điện thoại giới thiệu app.",
+  "tags": [
+   "ra mắt",
+   "sản phẩm",
+   "3D",
+   "ngang"
+  ],
+  "needs": [
+   "tên sản phẩm",
+   "tính năng"
+  ],
+  "preview": "previews/dn-ra-mat-ngang.mp4",
+  "thumb": "previews/dn-ra-mat-ngang.jpg"
+ },
+ {
+  "id": "dn-ra-mat-san-pham",
+  "name": "Ra mắt sản phẩm mới",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Cổng không gian mở màn, sản phẩm xoay 360°, danh sách thông số trượt vào, chốt bằng nút hành động.",
+  "tags": [
+   "ra mắt",
+   "sản phẩm mới",
+   "launch",
+   "thông số"
+  ],
+  "needs": [
+   "tên sản phẩm",
+   "thông số nổi bật",
+   "lời kêu gọi"
+  ],
+  "preview": "previews/dn-ra-mat-san-pham.mp4",
+  "thumb": "previews/dn-ra-mat-san-pham.jpg"
+ },
+ {
+  "id": "dn-ra-mat-tim",
+  "name": "Ra mắt sản phẩm tím",
+  "category": "ai",
+  "aspect": "9:16",
+  "pack": "screencast",
+  "desc": "Ra mắt phần mềm: cửa sổ UI tối, zoom theo thao tác, phím tắt, chú thích bước, glitch chuyển cảnh, tông tím.",
+  "tags": [
+   "ra mắt",
+   "phần mềm",
+   "launch",
+   "preset"
+  ],
+  "needs": [
+   "ảnh/clip quay màn hình sản phẩm",
+   "tên tính năng"
+  ],
+  "preview": "previews/dn-ra-mat-tim.mp4",
+  "thumb": "previews/dn-ra-mat-tim.jpg"
+ },
+ {
+  "id": "dn-saas-ngang",
+  "name": "Giới thiệu phần mềm (ngang)",
+  "category": "doanhnghiep",
+  "aspect": "16:9",
+  "pack": "hf_tin",
+  "desc": "Video ngang: giao diện lật 3D, khung trình duyệt, bật tắt cài đặt, con trỏ bấm và thẻ 5 sao cuối video.",
+  "tags": [
+   "phần mềm",
+   "SaaS",
+   "demo",
+   "ngang"
+  ],
+  "needs": [
+   "tên phần mềm",
+   "tính năng",
+   "số khách hàng"
+  ],
+  "preview": "previews/dn-saas-ngang.mp4",
+  "thumb": "previews/dn-saas-ngang.jpg"
+ },
+ {
+  "id": "dn-su-kien-hoi-thao",
+  "name": "Sự kiện / hội thảo",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Bảng lật chữ báo sự kiện, tên diễn giả, lưới ảnh hội trường, đồng hồ đếm số người tham dự và nút đăng ký.",
+  "tags": [
+   "sự kiện",
+   "hội thảo",
+   "workshop",
+   "đăng ký"
+  ],
+  "needs": [
+   "tên sự kiện",
+   "diễn giả",
+   "thời gian / địa điểm"
+  ],
+  "preview": "previews/dn-su-kien-hoi-thao.mp4",
+  "thumb": "previews/dn-su-kien-hoi-thao.jpg"
+ },
+ {
+  "id": "dn-tuyen-dung",
+  "name": "Tuyển dụng",
+  "category": "doanhnghiep",
+  "aspect": "9:16",
+  "pack": "hf_tin",
+  "desc": "Tiêu đề đập mạnh \"Chúng tôi đang tuyển\", tên + vị trí người tuyển, thẻ checklist quyền lợi, bảng lật chữ và nút ứng tuyển.",
+  "tags": [
+   "tuyển dụng",
+   "việc làm",
+   "HR",
+   "tuyển người"
+  ],
+  "needs": [
+   "vị trí tuyển",
+   "quyền lợi",
+   "cách ứng tuyển"
+  ],
+  "preview": "previews/dn-tuyen-dung.mp4",
+  "thumb": "previews/dn-tuyen-dung.jpg"
+ },
+ {
+  "id": "kh-bai-giang-xanh",
+  "name": "Bài giảng xanh dương",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "course",
+  "desc": "Bài học ngắn chuẩn khoá học: thẻ BÀI, giảng viên, ghi nhớ, trắc nghiệm, thuật ngữ và CTA đăng ký.",
+  "tags": [
+   "bài giảng",
+   "quiz",
+   "thuật ngữ",
+   "đăng ký"
+  ],
+  "needs": [
+   "số bài + tên bài",
+   "tên giảng viên",
+   "câu hỏi trắc nghiệm",
+   "giá khoá học"
+  ],
+  "preview": "previews/kh-bai-giang-xanh.mp4",
+  "thumb": "previews/kh-bai-giang-xanh.jpg"
+ },
+ {
+  "id": "kh-bang-trang-code",
+  "name": "Bảng trắng + code",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "course",
+  "desc": "Lớp lập trình / công thức: bảng trắng camera tròn, khung code gõ dần, các bước, khoanh chú thích.",
+  "tags": [
+   "lập trình",
+   "bảng trắng",
+   "code",
+   "công thức"
+  ],
+  "needs": [
+   "dàn ý bài",
+   "đoạn code / công thức"
+  ],
+  "preview": "previews/kh-bang-trang-code.mp4",
+  "thumb": "previews/kh-bang-trang-code.jpg"
+ },
+ {
+  "id": "kh-bang-ve-tay",
+  "name": "Bảng vẽ tay chia đôi",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "explain",
+  "desc": "Bảng trắng ở nửa trên vẽ từng ý bằng bút dạ (hiện cả cây bút), người nói ở nửa dưới, lau bảng giữa các trang, phụ đề viên trắng trên đường nối.",
+  "tags": [
+   "bảng trắng",
+   "vẽ tay",
+   "giải thích",
+   "chia đôi"
+  ],
+  "needs": [
+   "các ý chính (mỗi ý 1 hình)",
+   "nhãn ngắn cho từng hình"
+  ],
+  "preview": "previews/kh-bang-ve-tay.mp4",
+  "thumb": "previews/kh-bang-ve-tay.jpg"
+ },
+ {
+  "id": "kh-bo-the-buoc",
+  "name": "Bộ thẻ từng bước",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "explain",
+  "desc": "Mẹo theo bước như bộ thẻ: chữ to sau đầu, thẻ chữ navy/trắng mọc từng từ, số nghiêng khổng lồ thu nhỏ vào chỗ, bộ đếm, chữ chuyển màu chốt cuối.",
+  "tags": [
+   "mẹo",
+   "từng bước",
+   "thẻ chữ",
+   "danh sách"
+  ],
+  "needs": [
+   "3 bước / 3 mẹo",
+   "câu chốt"
+  ],
+  "preview": "previews/kh-bo-the-buoc.mp4",
+  "thumb": "previews/kh-bo-the-buoc.jpg"
+ },
+ {
+  "id": "kh-chia-man-hinh",
+  "name": "Dạy kèm màn hình",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "split",
+  "desc": "Chia đôi người dạy và màn hình thao tác, PIP góc khi demo, đổi trọng tâm 70/30 theo lúc giảng.",
+  "tags": [
+   "chia đôi",
+   "màn hình",
+   "demo",
+   "tutorial"
+  ],
+  "needs": [
+   "video quay màn hình",
+   "tên các bước"
+  ],
+  "preview": "previews/kh-chia-man-hinh.mp4",
+  "thumb": "previews/kh-chia-man-hinh.jpg"
+ },
+ {
+  "id": "kh-hoat-hinh-giai-thich",
+  "name": "Hoạt hình tự vẽ giải thích",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "montage",
+  "desc": "Không cần quay mặt: giọng kể + một thế giới tự vẽ (cây mọc lên, rễ đâm xuống, máy quay lặn xuống đất rồi vươn lên), tiêu đề serif, nhãn chỉ, chữ nặng, bốn mùa.",
+  "tags": [
+   "giải thích",
+   "hoạt hình",
+   "bài học",
+   "ẩn dụ",
+   "không lộ mặt"
+  ],
+  "needs": [
+   "giọng đọc ~60 s (bài học / khái niệm)",
+   "3–4 câu tiêu đề",
+   "2–3 từ nặng cho đoạn khó khăn"
+  ],
+  "preview": "previews/kh-hoat-hinh-giai-thich.mp4",
+  "thumb": "previews/kh-hoat-hinh-giai-thich.jpg"
+ },
+ {
+  "id": "kh-hoi-dap-hoc-vien",
+  "name": "Hỏi đáp học viên",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "qa",
+  "desc": "Trả lời câu hỏi học viên: thẻ câu hỏi gõ chữ, bộ đếm Câu 1/3, thẻ trả lời đánh số, chữ đáp án nổ to.",
+  "tags": [
+   "hỏi đáp",
+   "học viên",
+   "faq",
+   "bình luận"
+  ],
+  "needs": [
+   "2–3 câu hỏi",
+   "ý trả lời"
+  ],
+  "preview": "previews/kh-hoi-dap-hoc-vien.mp4",
+  "thumb": "previews/kh-hoi-dap-hoc-vien.jpg"
+ },
+ {
+  "id": "kh-keynote-thuyet-trinh",
+  "name": "Keynote thuyết trình",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "keynote",
+  "desc": "Bài giảng dạng keynote: thẻ video đổi khung, chữ lớn, gạch bỏ hiểu lầm, lộ trình bước và biểu đồ đi lên.",
+  "tags": [
+   "keynote",
+   "thuyết trình",
+   "lộ trình",
+   "biểu đồ"
+  ],
+  "needs": [
+   "ý chính",
+   "hiểu lầm cần gạch bỏ",
+   "các bước"
+  ],
+  "preview": "previews/kh-keynote-thuyet-trinh.mp4",
+  "thumb": "previews/kh-keynote-thuyet-trinh.jpg"
+ },
+ {
+  "id": "kh-man-hinh-sau-lung",
+  "name": "Màn hình sau lưng",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "explain",
+  "desc": "Hướng dẫn công cụ: màn hình phần mềm ở dải trên sau đầu, tiêu đề dải đen trắng, nhãn [Bước n], sơ đồ cách hoạt động, CTA bình luận từ khoá.",
+  "tags": [
+   "hướng dẫn",
+   "phần mềm",
+   "công cụ",
+   "tutorial"
+  ],
+  "needs": [
+   "video quay màn hình công cụ",
+   "các bước",
+   "từ khoá CTA"
+  ],
+  "preview": "previews/kh-man-hinh-sau-lung.mp4",
+  "thumb": "previews/kh-man-hinh-sau-lung.jpg"
+ },
+ {
+  "id": "kh-screencast-ngang",
+  "name": "Hướng dẫn phần mềm ngang",
+  "category": "khoahoc",
+  "aspect": "16:9",
+  "pack": "screencast",
+  "desc": "Quay màn hình 16:9: tự zoom theo vùng thao tác, vòng click, con trỏ to, chú thích bước, face-cam tròn.",
+  "tags": [
+   "screencast",
+   "phần mềm",
+   "zoom",
+   "youtube"
+  ],
+  "needs": [
+   "video quay màn hình (ngang)",
+   "các bước + phím tắt"
+  ],
+  "preview": "previews/kh-screencast-ngang.mp4",
+  "thumb": "previews/kh-screencast-ngang.jpg"
+ },
+ {
+  "id": "kh-top-5-meo-hoc",
+  "name": "Top 5 mẹo học nhanh",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "topn",
+  "desc": "Đếm ngược Top 5 mẹo / bài học: thẻ mở đầu, số hạng đập vào, thẻ mục có emoji, bục #1 và tổng kết.",
+  "tags": [
+   "top 5",
+   "mẹo",
+   "đếm ngược",
+   "list"
+  ],
+  "needs": [
+   "5 mẹo + lý do ngắn"
+  ],
+  "preview": "previews/kh-top-5-meo-hoc.mp4",
+  "thumb": "previews/kh-top-5-meo-hoc.jpg"
+ },
+ {
+  "id": "kh-tutorial-phat-sang",
+  "name": "Tutorial phát sáng",
+  "category": "khoahoc",
+  "aspect": "9:16",
+  "pack": "glow",
+  "desc": "Tutorial kiểu creator: tiêu đề kem-vàng phát sáng, mốc 01/02, khối liệt kê, màn hình laptop, punch-in.",
+  "tags": [
+   "tutorial",
+   "mẹo",
+   "glow",
+   "màn hình"
+  ],
+  "needs": [
+   "tên công cụ",
+   "các bước",
+   "ảnh/clip màn hình"
+  ],
+  "preview": "previews/kh-tutorial-phat-sang.mp4",
+  "thumb": "previews/kh-tutorial-phat-sang.jpg"
+ },
+ {
+  "id": "khac-meme-vui-nhon",
+  "name": "Meme vui nhộn",
+  "category": "khac",
+  "aspect": "9:16",
+  "pack": "kinetic",
+  "desc": "Năng lượng meme: phụ đề viền emoji nảy, emoji phản ứng cạnh đầu, chữ to đập vào, rung khung, không nhạc.",
+  "tags": [
+   "meme",
+   "hài",
+   "emoji",
+   "preset"
+  ],
+  "needs": [
+   "khoảnh khắc hài để chèn emoji"
+  ],
+  "preview": "previews/khac-meme-vui-nhon.mp4",
+  "thumb": "previews/khac-meme-vui-nhon.jpg"
+ },
+ {
+  "id": "khac-podcast-2-nguoi-doc",
+  "name": "Podcast 2 người dọc",
+  "category": "khac",
+  "aspect": "9:16",
+  "pack": "multicam",
+  "desc": "Clip podcast dọc cho Reels/TikTok: 2 camera xếp trên-dưới, màu riêng từng người, PIP người đang nghe.",
+  "tags": [
+   "podcast",
+   "clip dọc",
+   "multicam",
+   "reels"
+  ],
+  "needs": [
+   "video cam 1 + cam 2",
+   "tên 2 người",
+   "tiêu đề trích đoạn"
+  ],
+  "preview": "previews/khac-podcast-2-nguoi-doc.mp4",
+  "thumb": "previews/khac-podcast-2-nguoi-doc.jpg"
+ },
+ {
+  "id": "khac-podcast-2-nguoi-ngang",
+  "name": "Podcast 2 người ngang",
+  "category": "khac",
+  "aspect": "16:9",
+  "pack": "multicam",
+  "desc": "Podcast / phỏng vấn 16:9: tự cắt sang người đang nói, khung 2-up, tên lower-third, thanh tập và chủ đề.",
+  "tags": [
+   "podcast",
+   "phỏng vấn",
+   "multicam",
+   "youtube"
+  ],
+  "needs": [
+   "video cam 1 + cam 2 (multicam.py)",
+   "tên host / khách",
+   "số tập + chủ đề"
+  ],
+  "preview": "previews/khac-podcast-2-nguoi-ngang.mp4",
+  "thumb": "previews/khac-podcast-2-nguoi-ngang.jpg"
+ },
+ {
+  "id": "khac-podcast-quanh-mat",
+  "name": "Podcast đạo cụ quanh mặt",
+  "category": "khac",
+  "aspect": "9:16",
+  "pack": "montage",
+  "desc": "Người nói chính diện, đạo cụ giấy (ghi chú, trích dẫn, biểu đồ, polaroid, băng nhãn) hiện cạnh mặt — không bao giờ che mặt; phụ đề hai tầng trên thẻ navy dưới cằm.",
+  "tags": [
+   "talking head",
+   "podcast",
+   "giấy",
+   "ghi chú",
+   "tâm lý"
+  ],
+  "needs": [
+   "video nói chính diện (đặt vị trí mặt)",
+   "3–5 ý ngắn để viết lên giấy",
+   "1 câu trích dẫn",
+   "1 ảnh cho polaroid"
+  ],
+  "preview": "previews/khac-podcast-quanh-mat.mp4",
+  "thumb": "previews/khac-podcast-quanh-mat.jpg"
+ },
+ {
+  "id": "khac-podcast-result",
+  "name": "Podcast RESULT ấm áp",
+  "category": "khac",
+  "aspect": "9:16",
+  "pack": "montage",
+  "desc": "Podcast kể chuyện tông ấm: thẻ navy hai tầng chữ, giấy kraft viết tay, polaroid, xấp ảnh lật, hạt phim và vệt cháy phim ở chỗ chuyển ý.",
+  "tags": [
+   "podcast",
+   "kể chuyện",
+   "hoài niệm",
+   "polaroid",
+   "giấy"
+  ],
+  "needs": [
+   "câu chuyện 4–6 ý",
+   "3–5 ảnh kỷ niệm",
+   "1 câu hỏi kết"
+  ],
+  "preview": "previews/khac-podcast-result.mp4",
+  "thumb": "previews/khac-podcast-result.jpg"
+ },
+ {
+  "id": "khac-podcast-studio-vang",
+  "name": "Podcast studio vàng",
+  "category": "khac",
+  "aspect": "9:16",
+  "pack": "podcast",
+  "desc": "Podcast một người kiểu studio: thẻ video trên nền tối, nhãn chương, chữ lớn, gạch hiểu lầm, biểu đồ, CTA.",
+  "tags": [
+   "podcast",
+   "studio",
+   "talking head",
+   "chữ lớn"
+  ],
+  "needs": [
+   "chủ đề tập",
+   "ý chính",
+   "lời kêu gọi"
+  ],
+  "preview": "previews/khac-podcast-studio-vang.mp4",
+  "thumb": "previews/khac-podcast-studio-vang.jpg"
+ },
+ {
+  "id": "rv-danh-gia-chi-tiet",
+  "name": "Đánh giá chi tiết",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "review",
+  "desc": "Review sản phẩm đầy đủ: thẻ hero có giá, ưu/nhược, điểm chi tiết từng tiêu chí, điểm tổng và con dấu NÊN MUA.",
+  "tags": [
+   "review",
+   "ưu nhược",
+   "chấm điểm",
+   "đáng mua"
+  ],
+  "needs": [
+   "ảnh sản phẩm (PNG nền trong)",
+   "giá",
+   "ưu / nhược",
+   "điểm"
+  ],
+  "preview": "previews/rv-danh-gia-chi-tiet.mp4",
+  "thumb": "previews/rv-danh-gia-chi-tiet.jpg"
+ },
+ {
+  "id": "rv-dap-hop",
+  "name": "Đập hộp trải nghiệm",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "review",
+  "desc": "Unbox: trong hộp có gì, chú thích chỉ điểm chi tiết, so giá tham khảo và điểm tổng cuối video.",
+  "tags": [
+   "unbox",
+   "đập hộp",
+   "trải nghiệm",
+   "phụ kiện"
+  ],
+  "needs": [
+   "ảnh sản phẩm",
+   "danh sách phụ kiện",
+   "giá tham khảo"
+  ],
+  "preview": "previews/rv-dap-hop.mp4",
+  "thumb": "previews/rv-dap-hop.jpg"
+ },
+ {
+  "id": "rv-my-pham-truoc-sau",
+  "name": "Mỹ phẩm trước – sau",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "transform",
+  "desc": "Review làm đẹp / chăm da: đếm ngày dùng, thanh trượt trước-sau, chỉ số đo được và con dấu WOW.",
+  "tags": [
+   "mỹ phẩm",
+   "skincare",
+   "trước sau",
+   "làm đẹp"
+  ],
+  "needs": [
+   "ảnh trước / sau thật (cùng ánh sáng)",
+   "ảnh sản phẩm",
+   "số liệu đo thật"
+  ],
+  "preview": "previews/rv-my-pham-truoc-sau.mp4",
+  "thumb": "previews/rv-my-pham-truoc-sau.jpg"
+ },
+ {
+  "id": "rv-review-nhanh-kinetic",
+  "name": "Review nhanh 30 giây",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "kinetic",
+  "desc": "Review dồn dập kiểu short-form: hook chữ to, số đập vào, chữ xếp tầng, b-roll + từ khoá, emoji bung.",
+  "tags": [
+   "review nhanh",
+   "short",
+   "kinetic",
+   "tiktok"
+  ],
+  "needs": [
+   "tên sản phẩm",
+   "1 con số ấn tượng",
+   "kết luận"
+  ],
+  "preview": "previews/rv-review-nhanh-kinetic.mp4",
+  "thumb": "previews/rv-review-nhanh-kinetic.jpg"
+ },
+ {
+  "id": "rv-so-sanh-a-b",
+  "name": "So sánh A vs B",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "split",
+  "desc": "So kè 2 sản phẩm: màn hình chia đôi A | B, bảng thông số có bên thắng, biểu đồ test và kết luận.",
+  "tags": [
+   "so sánh",
+   "vs",
+   "thông số",
+   "chọn mua"
+  ],
+  "needs": [
+   "ảnh 2 sản phẩm",
+   "bảng thông số",
+   "kết quả test"
+  ],
+  "preview": "previews/rv-so-sanh-a-b.mp4",
+  "thumb": "previews/rv-so-sanh-a-b.jpg"
+ },
+ {
+  "id": "rv-top-5-san-pham",
+  "name": "Top 5 đáng mua",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "topn",
+  "desc": "Xếp hạng Top 5 sản phẩm: ảnh từng món, điểm, giá tham khảo, bục quán quân và bảng tổng kết.",
+  "tags": [
+   "top 5",
+   "xếp hạng",
+   "gợi ý mua",
+   "list"
+  ],
+  "needs": [
+   "ảnh 5 sản phẩm",
+   "tên + lý do",
+   "giá / điểm"
+  ],
+  "preview": "previews/rv-top-5-san-pham.mp4",
+  "thumb": "previews/rv-top-5-san-pham.jpg"
+ },
+ {
+  "id": "rv-trang-san-pham",
+  "name": "Trang sản phẩm nét mảnh",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "explain",
+  "desc": "Trang trắng kiểu trang sản phẩm: thẻ mở đầu, hình vẽ nét mảnh được máy quay đẩy vào, tiêu đề 2 tầng chữ nghiêng, chia đôi giao diện, bộ sưu tập hình vẽ.",
+  "tags": [
+   "sản phẩm",
+   "tối giản",
+   "review",
+   "trang trắng"
+  ],
+  "needs": [
+   "tên + ảnh sản phẩm",
+   "2–3 tính năng"
+  ],
+  "preview": "previews/rv-trang-san-pham.mp4",
+  "thumb": "previews/rv-trang-san-pham.jpg"
+ },
+ {
+  "id": "rv-ve-phan-tich",
+  "name": "Vẽ phân tích dừng hình",
+  "category": "review",
+  "aspect": "9:16",
+  "pack": "broadcast",
+  "desc": "Kiểu bình luận chiến thuật: dừng hình thật rồi vẽ vòng, mũi tên, vùng đỏ, nhãn quanh người nói; bảng điện thoại, tua lại, bảng tóm tắt, dấu chốt; khung chương trình mọi khung hình.",
+  "tags": [
+   "phân tích",
+   "dừng hình",
+   "vẽ",
+   "chiến thuật",
+   "review"
+  ],
+  "needs": [
+   "2 vị trí đáng dừng hình (lời nói có ý chính)",
+   "toạ độ tay / khoảng trống quanh mặt cho vòng và nhãn",
+   "4–5 dòng cho bảng điện thoại",
+   "3 việc cần làm",
+   "2 phe của thanh đối đầu"
+  ],
+  "preview": "previews/rv-ve-phan-tich.mp4",
+  "thumb": "previews/rv-ve-phan-tich.jpg"
+ },
+ {
+  "id": "tt-ban-tin-truyen-hinh",
+  "name": "Bản tin truyền hình",
+  "category": "tintuc",
+  "aspect": "9:16",
+  "pack": "news",
+  "desc": "Bản tin 60 giây kiểu truyền hình: ident mở đầu, TRỰC TIẾP, lower-third, TIN NÓNG, ticker chạy chữ.",
+  "tags": [
+   "bản tin",
+   "truyền hình",
+   "tin nóng",
+   "ticker"
+  ],
+  "needs": [
+   "tên kênh",
+   "tên + chức danh người dẫn",
+   "tiêu đề tin",
+   "nguồn"
+  ],
+  "preview": "previews/tt-ban-tin-truyen-hinh.mp4",
+  "thumb": "previews/tt-ban-tin-truyen-hinh.jpg"
+ },
+ {
+  "id": "tt-ho-so-mat",
+  "name": "Hồ sơ mật",
+  "category": "tintuc",
+  "aspect": "9:16",
+  "pack": "print",
+  "desc": "Bình luận tin / điều tra kiểu hồ sơ mật: giấy in chấm halftone, tiêu đề serif lệch màu, chân dung nghi phạm, bảng chứng cứ, con dấu.",
+  "tags": [
+   "hồ sơ",
+   "điều tra",
+   "halftone",
+   "con dấu",
+   "bình luận"
+  ],
+  "needs": [
+   "chủ đề hồ sơ",
+   "'nghi phạm' (đồ vật / thói quen)",
+   "ghi chú tang vật",
+   "3 manh mối"
+  ],
+  "preview": "previews/tt-ho-so-mat.mp4",
+  "thumb": "previews/tt-ho-so-mat.jpg"
+ },
+ {
+  "id": "tt-phan-ung-bai-bao",
+  "name": "Phản ứng bài báo",
+  "category": "tintuc",
+  "aspect": "9:16",
+  "pack": "greenscreen",
+  "desc": "News reaction: người nói tách nền đứng trước bài báo, bài đăng mạng xã hội, khoanh vùng và zoom chi tiết.",
+  "tags": [
+   "reaction",
+   "bài báo",
+   "mạng xã hội",
+   "greenscreen"
+  ],
+  "needs": [
+   "ảnh chụp bài báo (ghi nguồn)",
+   "ảnh bài đăng",
+   "ảnh nền"
+  ],
+  "preview": "previews/tt-phan-ung-bai-bao.mp4",
+  "thumb": "previews/tt-phan-ung-bai-bao.jpg"
+ },
+ {
+  "id": "tt-phong-su-truyen-hinh",
+  "name": "Phóng sự truyền hình",
+  "category": "tintuc",
+  "aspect": "9:16",
+  "pack": "broadcast",
+  "desc": "Người nói là người dẫn một bản tin một chủ đề: plate mở đầu bay thành logo góc, băng tên vàng chanh lật chữ, rundown các ý, bảng lật chữ, thẻ + ngoặc, tóm tắt đánh dấu ✓.",
+  "tags": [
+   "phóng sự",
+   "truyền hình",
+   "lower third",
+   "rundown",
+   "bảng lật"
+  ],
+  "needs": [
+   "chủ đề bản tin (2–4 chữ)",
+   "3 ý chính theo thứ tự nói",
+   "tiêu đề ngắn cho từng ý (≤ 26 ký tự)",
+   "nguồn thật nếu có số liệu"
+  ],
+  "preview": "previews/tt-phong-su-truyen-hinh.mp4",
+  "thumb": "previews/tt-phong-su-truyen-hinh.jpg"
+ },
+ {
+  "id": "tt-phu-de-ban-tin",
+  "name": "Phụ đề bản tin chữ to",
+  "category": "tintuc",
+  "aspect": "9:16",
+  "pack": "broadcast",
+  "desc": "Bản tin xem không cần tiếng: phụ đề khổng lồ trên khối mực, từ khoá khối vàng mật, trang tiêu đề kẻ dòng thành logo góc, tài liệu + bút dạ, danh sách và lưới ô sáng.",
+  "tags": [
+   "phụ đề to",
+   "bản tin",
+   "từ khoá",
+   "tài liệu",
+   "xem không tiếng"
+  ],
+  "needs": [
+   "tiêu đề bản tin (2–4 chữ)",
+   "ảnh chụp tài liệu / bài báo được nhắc tới (ghi nguồn thật)",
+   "3 ý cho danh sách",
+   "tên nguồn thật"
+  ],
+  "preview": "previews/tt-phu-de-ban-tin.mp4",
+  "thumb": "previews/tt-phu-de-ban-tin.jpg"
+ },
+ {
+  "id": "tt-tin-nhanh-slate",
+  "name": "Điểm tin trên lưới",
+  "category": "tintuc",
+  "aspect": "9:16",
+  "pack": "slate",
+  "desc": "Điểm tin nhanh: phụ đề ô vàng, khung video trên lưới, chữ LED TIN NÓNG, thẻ media có tiêu đề gradient.",
+  "tags": [
+   "điểm tin",
+   "tin nhanh",
+   "LED",
+   "lưới"
+  ],
+  "needs": [
+   "3 tin chính",
+   "hình minh hoạ"
+  ],
+  "preview": "previews/tt-tin-nhanh-slate.mp4",
+  "thumb": "previews/tt-tin-nhanh-slate.jpg"
+ },
+ {
+  "id": "tt-tin-nong-kinetic",
+  "name": "Tin nóng dồn dập",
+  "category": "tintuc",
+  "aspect": "9:16",
+  "pack": "kinetic",
+  "desc": "Tin nóng kiểu short-form: hook to, b-roll ticker TIN NÓNG, chân dung nhân vật, zoom-cut đỏ, thanh chương.",
+  "tags": [
+   "tin nóng",
+   "short",
+   "kinetic",
+   "breaking"
+  ],
+  "needs": [
+   "tiêu đề tin",
+   "nhân vật / tổ chức (ghi nguồn)",
+   "từ khoá"
+  ],
+  "preview": "previews/tt-tin-nong-kinetic.mp4",
+  "thumb": "previews/tt-tin-nong-kinetic.jpg"
+ }
+]

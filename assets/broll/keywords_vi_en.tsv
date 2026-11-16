@@ -1,0 +1,430 @@
+# vi<TAB>en — longest match wins (scripts/broll_fetch.py). Add rows freely.
+doanh thu	revenue growth chart
+lợi nhuận	profit business
+bán hàng	sales shop
+chốt đơn	online order
+đơn hàng	package delivery
+khách hàng	customer smiling
+cửa hàng	retail store
+shop	boutique shop
+siêu thị	supermarket
+thương mại điện tử	ecommerce shopping
+mua sắm	shopping bags
+giao hàng	delivery courier
+kho hàng	warehouse
+nhà máy	factory production
+sản xuất	manufacturing
+sản phẩm	product closeup
+đóng gói	packaging boxes
+thanh toán	payment card
+tiền	money cash
+tiền mặt	cash banknotes
+đầu tư	investment stock market
+chứng khoán	stock market trading
+tài chính	finance
+ngân hàng	bank
+tiết kiệm	saving piggy bank
+chi phí	expenses calculator
+lương	salary paycheck
+giàu	luxury lifestyle
+tự do tài chính	financial freedom beach
+doanh nghiệp	corporate office
+công ty	office building
+văn phòng	modern office
+họp	business meeting
+cuộc họp	meeting room
+thuyết trình	presentation
+đối tác	handshake partnership
+hợp đồng	signing contract
+ký kết	signing document
+đội ngũ	team collaboration
+nhân viên	employees working
+tuyển dụng	job interview
+lãnh đạo	leader ceo
+sếp	boss office
+khởi nghiệp	startup team
+startup	startup
+ý tưởng	idea lightbulb
+chiến lược	strategy planning
+kế hoạch	planning notebook
+mục tiêu	target goal
+thành công	success celebration
+chiến thắng	winner trophy
+thất bại	failure stress
+khó khăn	struggle
+áp lực	stress pressure
+cạnh tranh	competition race
+đối thủ	competitor chess
+thị trường	market city crowd
+xu hướng	trend
+phát triển	growth plant
+tăng trưởng	growth chart
+marketing	digital marketing
+quảng cáo	advertising billboard
+chạy ads	social media ads
+mạng xã hội	social media phone
+điện thoại	smartphone hand
+facebook	social media scrolling
+tiktok	vertical video phone
+youtube	video creator
+livestream	live streaming
+bình luận	comments phone
+tin nhắn	chat messages phone
+lượt xem	views audience
+người xem	audience watching
+viral	crowd phone filming
+nổi tiếng	celebrity paparazzi
+thương hiệu	brand logo
+logo	logo design
+nội dung	content creator
+sáng tạo nội dung	content creator studio
+quay video	filming camera
+quay phim	film camera crew
+máy quay	video camera
+camera	camera lens
+chụp ảnh	photographer
+edit video	video editing
+dựng video	video editing timeline
+hậu kỳ	post production
+micro	microphone
+podcast	podcast studio
+âm nhạc	music headphones
+nhạc	music
+ca hát	singing
+đàn	guitar
+nhảy	dancing
+sân khấu	stage lights
+sự kiện	event crowd
+hội thảo	conference
+khoá học	online course
+học viên	students class
+ai	artificial intelligence
+trí tuệ nhân tạo	artificial intelligence
+robot	robot
+máy tính	computer
+laptop	laptop typing
+bàn phím	keyboard typing
+gõ phím	typing keyboard
+lập trình	programming code
+code	code screen
+phần mềm	software
+ứng dụng	mobile app
+website	website browsing
+internet	internet network
+dữ liệu	data center
+máy chủ	server room
+bảo mật	cyber security
+hacker	hacker
+công nghệ	technology
+tương lai	futuristic city
+tự động	automation robot arm
+tự động hoá	automation factory
+chatbot	chatbot
+màn hình	screen
+vi mạch	circuit board
+chip	microchip
+thực tế ảo	virtual reality
+thời gian	clock time
+đồng hồ	clock
+deadline	deadline clock
+nhanh	fast motion
+chậm	slow motion
+buổi sáng	morning sunrise
+buổi tối	night city
+ban đêm	night
+mỗi ngày	daily routine
+lịch	calendar
+năm mới	new year fireworks
+tết	lunar new year
+mùa xuân	spring flowers
+mùa hè	summer beach
+gia đình	family together
+bố mẹ	parents
+con cái	children playing
+trẻ em	kids
+em bé	baby
+người già	elderly
+bạn bè	friends laughing
+tình yêu	couple love
+hẹn hò	couple dating
+đám cưới	wedding
+nhà	house home
+căn hộ	apartment interior
+bất động sản	real estate
+xây dựng	construction
+thành phố	city skyline
+đường phố	street traffic
+giao thông	traffic
+xe máy	motorbike traffic
+ô tô	car driving
+du lịch	travel
+máy bay	airplane
+sân bay	airport
+biển	ocean beach
+núi	mountains
+rừng	forest
+thiên nhiên	nature landscape
+hoàng hôn	sunset
+bình minh	sunrise
+mưa	rain
+cà phê	coffee shop
+ẩm thực	food cooking
+nấu ăn	cooking kitchen
+nhà hàng	restaurant
+món ăn	food plate
+trà sữa	bubble tea
+bánh	cake bakery
+sức khoẻ	healthy lifestyle
+tập gym	gym workout
+gym	gym workout
+chạy bộ	running jogging
+yoga	yoga
+thiền	meditation
+ngủ	sleeping bed
+bác sĩ	doctor
+bệnh viện	hospital
+thuốc	medicine pills
+làm đẹp	beauty skincare
+mỹ phẩm	cosmetics
+trang điểm	makeup
+spa	spa
+thời trang	fashion model
+quần áo	clothing rack
+học tập	studying books
+sách	books library
+đọc sách	reading book
+trường học	school classroom
+giáo viên	teacher
+học sinh	student
+thể thao	sports
+bóng đá	football soccer
+game	gaming
+chơi game	gamer
+thú cưng	pets
+chó	dog
+mèo	cat
+vui	happy people
+vui vẻ	joyful
+hạnh phúc	happiness
+cười	laughing
+buồn	sad person window
+cô đơn	lonely person
+khóc	crying
+tức giận	angry
+lo lắng	anxious worried
+sợ hãi	fear dark
+bất ngờ	surprised face
+ngạc nhiên	amazed
+bối rối	confused
+suy nghĩ	thinking person
+mệt mỏi	tired exhausted
+động lực	motivation
+cảm hứng	inspiration
+tự tin	confident
+bình an	peaceful calm
+thư giãn	relaxing
+ăn mừng	celebration party
+tiệc	party
+pháo hoa	fireworks
+việt nam	vietnam
+hà nội	hanoi
+sài gòn	ho chi minh city
+tp hcm	ho chi minh city
+đà nẵng	da nang
+hội an	hoi an
+hạ long	ha long bay
+sapa	sapa
+phở	pho noodle soup
+nông thôn	countryside rice field
+ruộng lúa	rice field
+chợ	market vendor
+áo dài	ao dai
+làm việc	working
+làm việc nhóm	teamwork
+làm việc tại nhà	work from home
+kinh doanh	business
+bán online	online shopping
+# v5: đời sống, ẩm thực, du lịch, sức khoẻ, làm đẹp, nhà cửa, giáo dục, bán lẻ, dịch vụ
+món ăn	delicious food
+phở	pho noodle soup
+bún	vietnamese noodles
+cơm tấm	broken rice vietnam
+bánh mì	banh mi sandwich
+lẩu	hot pot
+đồ nướng	barbecue grill
+trà sữa	bubble tea
+cà phê	coffee cup cafe
+bánh ngọt	cake pastry
+bánh kem	birthday cake
+hải sản	seafood
+tôm	shrimp
+cua	crab seafood
+ăn chay	vegetarian food
+nấu ăn	cooking kitchen
+vào bếp	cooking kitchen
+nhà hàng	restaurant dining
+quán ăn	street food stall
+giao đồ ăn	food delivery
+đặc sản	local specialty food
+ăn vặt	snack street food
+trái cây	fresh fruit
+rau sạch	organic vegetables
+thực phẩm sạch	organic food
+mâm cơm	family dinner
+bia	beer toast
+rượu vang	wine glass
+biển	beach sea
+bãi biển	tropical beach
+núi	mountain landscape
+leo núi	hiking mountain
+khách sạn	hotel room
+homestay	cozy homestay
+resort	luxury resort pool
+vé máy bay	airplane flight
+sân bay	airport terminal
+máy bay	airplane sky
+du lịch	travel tourism
+nhật bản	japan travel
+hàn quốc	seoul korea
+thái lan	bangkok thailand
+châu âu	europe travel
+phượt	motorbike road trip
+cắm trại	camping tent
+hoàng hôn	sunset
+bình minh	sunrise
+đảo	tropical island
+lặn biển	scuba diving
+vali	suitcase travel
+hộ chiếu	passport
+tim mạch	heart health
+huyết áp	blood pressure
+giảm cân	weight loss
+tập gym	gym workout
+yoga	yoga
+chạy bộ	running jogging
+đi bộ	walking
+bơi	swimming pool
+bệnh viện	hospital
+bác sĩ	doctor
+phòng khám	medical clinic
+thuốc	medicine pills
+nhà thuốc	pharmacy
+vitamin	vitamins supplements
+uống nước	drinking water
+giấc ngủ	sleeping
+mất ngủ	insomnia night
+căng thẳng	stress
+thiền	meditation
+nha khoa	dentist
+răng	teeth smile
+mẹ bầu	pregnant woman
+em bé	baby
+skincare	skincare routine
+dưỡng da	skincare face
+mỹ phẩm	cosmetics
+trang điểm	makeup
+son	lipstick
+tóc	hair salon
+cắt tóc	haircut
+spa	spa massage
+massage	massage
+nail	nail salon
+nước hoa	perfume
+chống nắng	sunscreen
+thời trang	fashion
+outfit	outfit fashion
+giày	sneakers shoes
+túi xách	handbag
+căn hộ	apartment interior
+chung cư	apartment building
+nhà phố	townhouse
+biệt thự	luxury villa
+đất nền	land plot
+nội thất	interior design
+sofa	living room sofa
+phòng ngủ	bedroom
+phòng bếp	kitchen interior
+xây nhà	house construction
+công trình	construction site
+sửa nhà	home renovation
+chìa khoá	house keys
+hồ bơi	swimming pool
+công viên	park
+dọn dẹp	cleaning house
+đồ gia dụng	kitchen appliances
+nồi chiên	air fryer
+điện mặt trời	solar panels
+học sinh	students classroom
+sinh viên	university students
+thi cử	exam students
+lớp học	classroom
+giáo viên	teacher
+đọc sách	reading book
+thư viện	library books
+tiếng anh	english learning
+du học	study abroad
+tốt nghiệp	graduation
+trẻ em	children playing
+mầm non	kindergarten
+dạy con	parent child
+gia đình	family
+ông bà	grandparents
+đám cưới	wedding
+sinh nhật	birthday party
+bạn bè	friends
+mua sắm	shopping
+giỏ hàng	shopping cart
+siêu thị	supermarket
+cửa hàng	retail store
+khai trương	grand opening
+giao hàng	delivery package
+shipper	delivery courier
+đóng gói	packing boxes
+kho hàng	warehouse
+hộp quà	gift box
+quà tặng	gift
+thanh toán	payment
+quét mã	qr code payment
+thẻ tín dụng	credit card
+tiền mặt	cash money
+ngân hàng	bank
+chứng khoán	stock market
+vàng	gold bars
+bitcoin	bitcoin
+heo đất	piggy bank
+tư vấn	customer service
+tổng đài	call center
+đặt lịch	appointment calendar
+bảo hiểm	insurance family
+luật sư	lawyer
+kế toán	accountant
+thợ sửa	repairman
+xe tải	truck logistics
+taxi	taxi
+xe điện	electric car charging
+ô tô	car
+garage	car repair garage
+tuyển dụng	job interview
+phỏng vấn	job interview
+nhà máy	factory production
+dây chuyền	assembly line
+trang trại	farm
+nông dân	farmer field
+ruộng lúa	rice field
+bóng đá	football soccer
+cầu lông	badminton
+pickleball	pickleball
+xem phim	cinema movie
+concert	concert crowd
+chó	dog
+mèo	cat
+thú cưng	pets
+giáng sinh	christmas
+trung thu	mid autumn lantern
+tết	lunar new year
+đèn lồng	lanterns
+pháo hoa	fireworks
+mùa hè	summer
+mưa	rain
+tái chế	recycling
+môi trường	nature environment

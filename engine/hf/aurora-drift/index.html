@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Aurora Drift Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0c0e;
+      }
+
+      #root {
+        --bg: #0b0c0e;
+        --surface: #17191f;
+        --fg: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+        --accent-2: #a78bfa;
+        --brand: #34d399;
+        --border: #334155;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 42%, #17191f 0%, #0b0c0e 72%);
+      }
+
+      .mount-card {
+        width: 75%;
+        height: 70%;
+        left: 12.5%;
+        top: 15%;
+        overflow: hidden;
+        border: 1px solid rgb(255 255 255 / 0.14);
+        border-radius: 28px;
+        background: #080a12;
+        box-shadow: 0 5cqh 14cqh rgb(0 0 0 / 0.52);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="aurora-drift-demo" data-start="0" data-width="1920" data-height="1080" data-duration="4" data-fps="30" data-hf-anc="">
+      <div id="aurora-drift-mount" class="mount-card clip" data-composition-id="aurora-drift" data-variable-values="{&quot;accent&quot;:&quot;violet&quot;,&quot;mood&quot;:&quot;bright&quot;}" data-start="0" data-duration="4" data-track-index="0" data-width="1440" data-height="756" data-composition-variables="[
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Accent token family used to derive the aurora hues.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;mood&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Mood&quot;, &quot;description&quot;: &quot;Base luminance and aurora field strength.&quot;, &quot;default&quot;: &quot;deep&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;deep&quot;, &quot;label&quot;: &quot;Deep&quot; }, { &quot;value&quot;: &quot;bright&quot;, &quot;label&quot;: &quot;Bright&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="aurora-drift" data-duration="4" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            isolation: isolate;
+            pointer-events: none;
+          }
+
+          .ad-clip,
+          .ad-base,
+          .ad-vignette {
+            position: absolute;
+            inset: 0;
+          }
+
+          .ad-clip {
+            overflow: hidden;
+          }
+
+          .ad-base {
+            background:
+              radial-gradient(
+                ellipse at 50% 42%,
+                color-mix(in srgb, var(--ad-color) 8%, var(--ad-base)) 0%,
+                var(--ad-base) 68%
+              ),
+              var(--ad-base);
+          }
+
+          .ad-blob {
+            --ad-blob-opacity: 1;
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            filter: blur(12cqmin) saturate(0.84) opacity(var(--ad-blob-opacity));
+            mix-blend-mode: screen;
+            opacity: var(--ad-strength);
+            will-change: transform;
+          }
+
+          .ad-blob-a {
+            width: 76cqw;
+            height: 72cqh;
+            left: -18cqw;
+            top: -22cqh;
+            background: radial-gradient(
+              ellipse at center,
+              color-mix(in srgb, var(--ad-color) 88%, white) 0%,
+              color-mix(in srgb, var(--ad-color) 42%, transparent) 48%,
+              transparent 76%
+            );
+          }
+
+          .ad-blob-b {
+            width: 84cqw;
+            height: 78cqh;
+            right: -28cqw;
+            top: -2cqh;
+            --ad-blob-opacity: 0.82;
+            background: radial-gradient(
+              ellipse at center,
+              color-mix(in srgb, var(--ad-color) 72%, var(--accent, #38bdf8)) 0%,
+              color-mix(in srgb, var(--ad-color) 36%, transparent) 52%,
+              transparent 78%
+            );
+          }
+
+          .ad-blob-c {
+            width: 72cqw;
+            height: 74cqh;
+            left: 18cqw;
+            bottom: -34cqh;
+            --ad-blob-opacity: 0.68;
+            background: radial-gradient(
+              ellipse at center,
+              color-mix(in srgb, var(--ad-color) 72%, var(--accent-2, #a78bfa)) 0%,
+              color-mix(in srgb, var(--ad-color) 32%, transparent) 50%,
+              transparent 76%
+            );
+          }
+
+          .ad-vignette {
+            background: radial-gradient(
+              ellipse at center,
+              transparent 35%,
+              rgb(0 0 0 / var(--ad-vignette)) 100%
+            );
+          }
+        </style>
+
+        <div id="aurora-drift-clip" class="ad-clip clip" data-start="0" data-duration="4" data-track-index="0">
+          <div class="ad-base"></div>
+          <div class="ad-blob ad-blob-a"></div>
+          <div class="ad-blob ad-blob-b"></div>
+          <div class="ad-blob ad-blob-c"></div>
+          <div class="ad-vignette"></div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            // Invalid enum overrides return to their declared defaults.
+            var accentTokens = {
+              green: "var(--brand, #34d399)",
+              blue: "var(--accent, #38bdf8)",
+              violet: "var(--accent-2, #a78bfa)",
+            };
+            var moodStyles = {
+              deep: { base: "#050711", strength: "0.42", vignette: "0.62" },
+              bright: { base: "#111827", strength: "0.56", vignette: "0.46" },
+            };
+            var accent = Object.prototype.hasOwnProperty.call(accentTokens, vars.accent)
+              ? vars.accent
+              : "green";
+            var mood = vars.mood === "bright" ? "bright" : "deep";
+            var moodStyle = moodStyles[mood];
+
+            root.style.setProperty("--ad-color", accentTokens[accent]);
+            root.style.setProperty("--ad-base", moodStyle.base);
+            root.style.setProperty("--ad-strength", moodStyle.strength);
+            root.style.setProperty("--ad-vignette", moodStyle.vignette);
+
+            var TAU = Math.PI * 2;
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "4"));
+            var state = { phase: 0 };
+            var paths = [
+              { element: root.querySelector(".ad-blob-a"), offset: 0, x: 4.6, y: 3.2 },
+              {
+                element: root.querySelector(".ad-blob-b"),
+                offset: TAU / 3,
+                x: 4.1,
+                y: 3.8,
+              },
+              {
+                element: root.querySelector(".ad-blob-c"),
+                offset: (TAU * 2) / 3,
+                x: 3.6,
+                y: 3,
+              },
+            ];
+
+            function renderPose() {
+              // The endpoint uses literal phase zero, avoiding the floating
+              // point residue from Math.sin(2 * PI).
+              var phase = state.phase === TAU ? 0 : state.phase;
+              paths.forEach(function (path) {
+                gsap.set(path.element, {
+                  x: Math.sin(phase + path.offset) * path.x + "cqw",
+                  y: Math.sin(phase + path.offset + Math.PI / 2) * path.y + "cqh",
+                });
+              });
+            }
+
+            var tl = gsap.timeline({ paused: true });
+
+            // HOLD: uniform phase travel produces smooth sine motion. Exactly
+            // one whole cycle is completed at the duration boundary.
+            tl.to(state, { phase: TAU, duration: duration, ease: "none", onUpdate: renderPose }, 0);
+
+            renderPose();
+            tl.seek(0);
+
+            window.__timelines = window.__timelines || {};
+            window.__timelines["aurora-drift"] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["aurora-drift-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

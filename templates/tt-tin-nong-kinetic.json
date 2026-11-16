@@ -1,0 +1,177 @@
+{
+ "id": "tt-tin-nong-kinetic",
+ "name": "Tin nóng dồn dập",
+ "category": "tintuc",
+ "aspect": "9:16",
+ "pack": "kinetic",
+ "desc": "Tin nóng kiểu short-form: hook to, b-roll ticker TIN NÓNG, chân dung nhân vật, zoom-cut đỏ, thanh chương.",
+ "tags": [
+  "tin nóng",
+  "short",
+  "kinetic",
+  "breaking"
+ ],
+ "title": "Chuyện gì vừa xảy ra?",
+ "caption_style": "kinetic",
+ "music": "suspense_2",
+ "brand": {
+  "accent": "#FFE08A",
+  "primary": "#E0362C"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tiêu đề tin",
+  "nhân vật / tổ chức (ghi nguồn)",
+  "từ khoá"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.0
+ },
+ "fx": [
+  {
+   "t": 2.2,
+   "type": "flash"
+  },
+  {
+   "t": 6.6,
+   "type": "whip"
+  },
+  {
+   "t": 10.0,
+   "type": "glitch"
+  },
+  {
+   "t": 14.86,
+   "type": "blur_in"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "kinetic_hook",
+   "t0": 0,
+   "t1": 2.2,
+   "text": "Chuyện gì",
+   "text2": "vừa xảy ra?",
+   "upper": true
+  },
+  {
+   "type": "kinetic_broll",
+   "t0": 2.2,
+   "t1": 3.66,
+   "layout": "full",
+   "broll": {
+    "template": "ticker",
+    "pal": "ember",
+    "items": [
+     "TIN NÓNG",
+     "CẬP NHẬT",
+     "BREAKING"
+    ]
+   },
+   "keyword": "tin nóng",
+   "sub": "vừa cập nhật",
+   "kw_t": 2.86,
+   "kw_y": 980
+  },
+  {
+   "type": "kinetic_words",
+   "t0": 3.66,
+   "t1": 5.2,
+   "bg": "arc",
+   "words": [
+    {
+     "text": "và điều",
+     "t": 3.68,
+     "tier": "s",
+     "align": "left"
+    },
+    {
+     "text": "bất ngờ",
+     "t": 4.28,
+     "tier": "l",
+     "hl": true
+    },
+    {
+     "text": "là",
+     "t": 4.84,
+     "tier": "s",
+     "align": "right"
+    }
+   ]
+  },
+  {
+   "type": "kinetic_broll",
+   "t0": 6.6,
+   "t1": 8.58,
+   "layout": "split",
+   "broll": {
+    "id": "ai--neural--ember"
+   },
+   "keyword": "chi tiết",
+   "kw_t": 7.2
+  },
+  {
+   "type": "kinetic_zoomcut",
+   "t0": 10.0,
+   "t1": 11.1,
+   "word": "ĐÁNG CHÚ Ý",
+   "word_t": 10.3,
+   "scale": 1.5,
+   "grade": "red"
+  },
+  {
+   "type": "kinetic_portrait",
+   "t0": 11.6,
+   "t1": 13.6,
+   "icon": "🧑‍💼",
+   "name": "Nhân vật (ví dụ)",
+   "tags": [
+    "lên tiếng",
+    "mới đây"
+   ],
+   "tag_t": [
+    11.9,
+    12.2
+   ]
+  },
+  {
+   "type": "kinetic_slam",
+   "t0": 15.3,
+   "t1": 16.54,
+   "text": "3",
+   "top": "điểm chính",
+   "bottom": "bạn cần biết"
+  },
+  {
+   "type": "kinetic_cta",
+   "t0": 18.3,
+   "t1": 20.2,
+   "text": "Follow để cập nhật",
+   "tap_t": 19.3,
+   "handle": "@kenh.tin",
+   "keep": true
+  },
+  {
+   "type": "kinetic_progress",
+   "t0": 0,
+   "t1": 20.2,
+   "chapters": [
+    {
+     "t": 0,
+     "text": "Tin chính"
+    },
+    {
+     "t": 6.6,
+     "text": "Chi tiết"
+    },
+    {
+     "t": 11.1,
+     "text": "Nhân vật"
+    }
+   ]
+  }
+ ]
+}

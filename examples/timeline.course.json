@@ -1,0 +1,155 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "brand": {
+  "name": "Học AI cùng Kiếm",
+  "handle": "@hocaicungkiem",
+  "phone": "0909 123 456",
+  "website": "hocai.vn"
+ },
+ "caption_style": "course",
+ "captions": "work/captions.json",
+ "scenes": [
+  {
+   "type": "course_chapter",
+   "t0": 0,
+   "t1": 2.4,
+   "cid": "chap",
+   "num": "BÀI 3",
+   "title": "AI sắp thành *siêu trí tuệ*?",
+   "subtitle": "Khoá học: Hiểu AI trong 30 ngày"
+  },
+  {
+   "type": "course_progress",
+   "t0": 2.3,
+   "t1": 16.7,
+   "cid": "prog",
+   "idx": 3,
+   "total": 12,
+   "title": "Siêu trí tuệ & cuộc đua AI",
+   "from": 0.2,
+   "to": 0.9
+  },
+  {
+   "type": "course_instructor",
+   "t0": 2.5,
+   "t1": 5.1,
+   "cid": "ins",
+   "name": "Nguyễn Tất Kiếm",
+   "role": "Giảng viên AI · 8 năm kinh nghiệm",
+   "avatar": "👨‍🏫",
+   "logo": "si:openai"
+  },
+  {
+   "type": "course_annotate",
+   "t0": 3.3,
+   "t1": 5.1,
+   "cid": "ann",
+   "shape": "circle",
+   "x": 375,
+   "y": 500,
+   "w": 380,
+   "h": 420,
+   "label": "iRobot?"
+  },
+  {
+   "type": "course_keypoint",
+   "t0": 5.2,
+   "t1": 7.6,
+   "cid": "kp",
+   "kind": "note",
+   "key_t": 5.25,
+   "text": "Tin *gây shock* luôn cần kiểm chứng nguồn"
+  },
+  {
+   "type": "course_quiz",
+   "t0": 7.6,
+   "t1": 10.4,
+   "cid": "quiz",
+   "reveal_t": 9.5,
+   "question": "Viễn cảnh trong phim iRobot là gì?",
+   "options": [
+    "Robot tự nhận thức",
+    "Xe tự lái",
+    "Điện thoại gập",
+    "Kính thực tế ảo"
+   ],
+   "correct": 0
+  },
+  {
+   "type": "course_code",
+   "t0": 10.4,
+   "t1": 12.4,
+   "cid": "code",
+   "title": "ai_race.py",
+   "lang": "PYTHON",
+   "cps": 90,
+   "delay": 0.25,
+   "code": "labs = [\"OpenAI\", \"Anthropic\"]\nfor lab in labs:\n    goal = \"siêu trí tuệ\"\n    print(lab, \"→\", goal)",
+   "hl_line": 3,
+   "hl_t": 11.7
+  },
+  {
+   "type": "course_steps",
+   "t0": 12.4,
+   "t1": 14.6,
+   "cid": "steps",
+   "title": "Chuyện gì xảy ra?",
+   "steps": [
+    {
+     "text": "Nhà nghiên cứu *nghỉ việc*",
+     "t": 12.6
+    },
+    {
+     "text": "Công bố cuộc đua AI",
+     "t": 13.3
+    },
+    {
+     "text": "Hướng tới *siêu trí tuệ*",
+     "t": 14.0
+    }
+   ]
+  },
+  {
+   "type": "course_term",
+   "t0": 14.6,
+   "t1": 16.7,
+   "cid": "term",
+   "term": "Siêu trí tuệ",
+   "en": "Superintelligence · ASI",
+   "definition": "AI *vượt trội con người* ở hầu hết mọi lĩnh vực, có thể tự cải thiện.",
+   "example": "Một AI tự viết lại mã nguồn để thông minh hơn."
+  },
+  {
+   "type": "course_cta",
+   "t0": 16.7,
+   "t1": 20.2,
+   "cid": "cta",
+   "course": "Hiểu AI trong 30 ngày",
+   "old_price": "2.990.000đ",
+   "price": "1.490.000đ",
+   "countdown": 86352
+  }
+ ],
+ "audio": {
+  "voice": "work/voice.wav",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 20.2,
+    "mood": "corporate",
+    "gain": -20
+   }
+  ],
+  "sfx": []
+ }
+}

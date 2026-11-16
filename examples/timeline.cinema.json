@@ -1,0 +1,109 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "caption_style": "cinema",
+ "captions": "work/captions.json",
+ "scenes": [
+  {
+   "type": "cine_letterbox",
+   "t0": 0,
+   "t1": 20.2,
+   "ratio": 2.35,
+   "grade": "teal"
+  },
+  {
+   "type": "cine_title",
+   "t0": 0.1,
+   "t1": 2.8,
+   "kicker": "CHƯƠNG I",
+   "title": "Viễn cảnh iRobot",
+   "sub": "Một câu chuyện về trí tuệ nhân tạo"
+  },
+  {
+   "type": "cine_location",
+   "t0": 0.8,
+   "t1": 4.6,
+   "place": "Hà Nội, Việt Nam",
+   "time": "06:42 · 31.10.2026"
+  },
+  {
+   "type": "cine_flash",
+   "t0": 2.5,
+   "t1": 3.2,
+   "color": "warm"
+  },
+  {
+   "type": "cine_type",
+   "t0": 5.0,
+   "t1": 8.4,
+   "text": "Vài năm nữa, có thể…"
+  },
+  {
+   "type": "cine_quote",
+   "t0": 9.1,
+   "t1": 12.2,
+   "text": "Xem xong sẽ thấy nó thực sự đáng sợ.",
+   "author": "Lời người kể",
+   "wps": 4
+  },
+  {
+   "type": "cine_slowmo",
+   "t0": 12.4,
+   "t1": 14.4,
+   "speed": 0.6
+  },
+  {
+   "type": "cine_flash",
+   "t0": 14.2,
+   "t1": 14.9,
+   "color": "warm",
+   "side": "right"
+  },
+  {
+   "type": "cine_credits",
+   "t0": 16.2,
+   "t1": 20.2,
+   "title": "Hết",
+   "lines": [
+    {
+     "role": "Đạo diễn",
+     "name": "Nguyễn Tất Kiểm"
+    },
+    {
+     "role": "Biên kịch",
+     "name": "Trợ lý AI"
+    },
+    {
+     "role": "Dựng phim",
+     "name": "AI Video Studio"
+    }
+   ],
+   "thanks": "Cảm ơn bạn đã xem"
+  }
+ ],
+ "audio": {
+  "voice": "work/voice.wav",
+  "mix": "work/mix.wav",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 20.2,
+    "mood": "epic",
+    "gain": -11
+   }
+  ],
+  "sfx": []
+ },
+ "brand": {
+  "name": "Nguyễn Tất Kiểm"
+ }
+}

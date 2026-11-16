@@ -1,0 +1,148 @@
+{
+ "id": "ai-bubble-prompt",
+ "name": "3 câu lệnh AI",
+ "category": "ai",
+ "aspect": "9:16",
+ "pack": "bubble",
+ "desc": "Hướng dẫn prompt kiểu \"3 mã lệnh\": mặt trong bubble vàng + thẻ chat gõ lệnh, spotlight, logo bấm, Follow.",
+ "tags": [
+  "prompt",
+  "chatgpt",
+  "hướng dẫn",
+  "bubble"
+ ],
+ "title": "3 CÂU LỆNH HAY",
+ "music": "happy",
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "câu lệnh (prompt) mẫu",
+  "kết quả AI trả lời",
+  "từ khoá CTA"
+ ],
+ "preview": {
+  "from": 1.2,
+  "to": 7.2,
+  "still": 2.6
+ },
+ "fx": [
+  {
+   "t": 1.72,
+   "type": "punch",
+   "amp": 0.06
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hook_card",
+   "t0": 0,
+   "t1": 1.72,
+   "screen": {
+    "broll": {
+     "id": "cong-nghe-moi--neural--ember"
+    }
+   },
+   "lines": [
+    {
+     "text": "3 CÂU LỆNH",
+     "t": 0,
+     "style": "white",
+     "size": 46,
+     "y": 548,
+     "anim": "slide_l"
+    },
+    {
+     "text": "AI LÀM HỘ BẠN",
+     "t": 0.5,
+     "style": "yellow",
+     "size": 46,
+     "y": 602,
+     "anim": "fly",
+     "from_y": 712
+    }
+   ]
+  },
+  {
+   "type": "spotlight",
+   "t0": 1.72,
+   "t1": 3.68,
+   "lines": [
+    {
+     "text": "QUÁ ĐỈNH",
+     "t": 1.8,
+     "style": "yellow",
+     "size": 84,
+     "y": 685,
+     "anim": "tumble"
+    },
+    {
+     "text": "LỆNH SỐ 1",
+     "t": 2.25,
+     "style": "white",
+     "size": 50,
+     "y": 610,
+     "anim": "slide_r"
+    }
+   ],
+   "sticker": {
+    "src": "🔥",
+    "t": 2.4,
+    "from": "left",
+    "y": 960
+   }
+  },
+  {
+   "type": "icon_tap",
+   "t0": 3.85,
+   "t1": 5.25,
+   "icon": "si:openai",
+   "size": 200,
+   "y": 985,
+   "taps": [
+    0.5,
+    1.0
+   ]
+  },
+  {
+   "type": "bubble_screen",
+   "t0": 5.25,
+   "t1": 16.8,
+   "enter": "drop",
+   "screen": {
+    "chat": {
+     "font": 15,
+     "placeholder": "Hỏi bất kỳ điều gì",
+     "input": {
+      "text": "Viết lại đoạn này cho tự nhiên như người thật: …",
+      "t0": 5.6,
+      "t1": 7.6
+     },
+     "messages": [
+      {
+       "role": "user",
+       "t": 7.6,
+       "text": "Viết lại đoạn này cho tự nhiên như người thật: …"
+      },
+      {
+       "role": "ai",
+       "t": 8.2,
+       "cps": 45,
+       "text": "**Đây là bản viết lại (mẫu):**\n- Câu ngắn, rõ ý\n- Bỏ từ sáo rỗng\n- Giữ giọng của bạn"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "type": "follow_cta",
+   "t0": 17.2,
+   "t1": 20.2,
+   "keep": true,
+   "label": "Follow",
+   "keyword": {
+    "text": "PROMPT",
+    "t": 18.4
+   }
+  }
+ ]
+}

@@ -1,0 +1,141 @@
+{
+ "id": "bh-kinetic-cta",
+ "name": "Chốt đơn chữ động",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "kinetic",
+ "desc": "Quảng cáo ngắn chữ động: hook nỗi đau, số % đập vào, hai hình thoi trước/sau, CTA nút bấm Mua ngay.",
+ "tags": [
+  "quảng cáo",
+  "chữ động",
+  "CTA",
+  "ads"
+ ],
+ "title": "Bạn đang gặp vấn đề này?",
+ "caption_style": "kinetic",
+ "music": "hype",
+ "brand": {
+  "accent": "#FFD84A",
+  "primary": "#FF5A36",
+  "dark": "#0A0A0A"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "nỗi đau khách hàng",
+  "con số / lợi ích",
+  "lời kêu gọi"
+ ],
+ "preview": {
+  "from": 0.6,
+  "to": 6.6,
+  "still": 5.2
+ },
+ "fx": [
+  {
+   "t": 1.4,
+   "type": "punch",
+   "amp": 0.08
+  },
+  {
+   "t": 2.2,
+   "type": "flash"
+  },
+  {
+   "t": 7.2,
+   "type": "whip"
+  },
+  {
+   "t": 15.3,
+   "type": "shake",
+   "amp": 12
+  }
+ ],
+ "scenes": [
+  {
+   "type": "kinetic_hook",
+   "t0": 0,
+   "t1": 2.2,
+   "text": "Bạn đang gặp",
+   "text2": "vấn đề này?",
+   "upper": true
+  },
+  {
+   "type": "kinetic_words",
+   "t0": 2.3,
+   "t1": 4.2,
+   "bg": "arc",
+   "words": [
+    {
+     "text": "mất",
+     "t": 2.32,
+     "tier": "s",
+     "align": "left"
+    },
+    {
+     "text": "hàng giờ",
+     "t": 2.8,
+     "tier": "l",
+     "hl": true
+    },
+    {
+     "text": "mỗi ngày",
+     "t": 3.4,
+     "tier": "s",
+     "align": "right"
+    }
+   ]
+  },
+  {
+   "type": "kinetic_slam",
+   "t0": 4.4,
+   "t1": 6.4,
+   "count": {
+    "to": 70,
+    "suffix": "%"
+   },
+   "top": "tiết kiệm",
+   "bottom": "thời gian (ví dụ)"
+  },
+  {
+   "type": "kinetic_diamonds",
+   "t0": 7.2,
+   "t1": 9.6,
+   "title": "trước và sau",
+   "items": [
+    {
+     "text": "Trước",
+     "icon": "😩",
+     "t": 7.3
+    },
+    {
+     "text": "Sau",
+     "icon": "😎",
+     "t": 8.0
+    }
+   ]
+  },
+  {
+   "type": "kinetic_emoji",
+   "t0": 10.0,
+   "t1": 11.4,
+   "emojis": [
+    "🔥",
+    "💯",
+    "🛒"
+   ],
+   "x": 540,
+   "y": 320,
+   "size": 140
+  },
+  {
+   "type": "kinetic_cta",
+   "t0": 16.6,
+   "t1": 20.2,
+   "text": "Bấm mua ngay",
+   "tap_t": 18.2,
+   "handle": "@shop.cua.ban",
+   "keep": true
+  }
+ ]
+}

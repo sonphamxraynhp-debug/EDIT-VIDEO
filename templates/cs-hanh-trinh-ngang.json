@@ -1,0 +1,118 @@
+{
+ "id": "cs-hanh-trinh-ngang",
+ "name": "Hành trình YouTube ngang",
+ "category": "chiase",
+ "aspect": "16:9",
+ "pack": "share",
+ "desc": "Bản ngang 16:9 cho vlog chia sẻ: dòng thời gian hành trình, con số lớn, bình chọn và nguồn sách.",
+ "tags": [
+  "youtube",
+  "ngang",
+  "hành trình",
+  "vlog"
+ ],
+ "title": "Hành trình *3 năm*",
+ "caption_style": "share",
+ "music": "inspire",
+ "brand": {
+  "handle": "@kenh.cua.ban",
+  "primary": "#3F7FBF",
+  "paper": "#EEF2F6"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "các mốc thời gian",
+  "1 con số",
+  "câu hỏi bình chọn"
+ ],
+ "preview": {
+  "from": 1.2,
+  "to": 7.2,
+  "still": 4.8
+ },
+ "scenes": [
+  {
+   "type": "sh_grade",
+   "t0": 0,
+   "t1": 20.2,
+   "mode": "cool",
+   "leak": false,
+   "fade": false
+  },
+  {
+   "type": "sh_chapter",
+   "t0": 0,
+   "t1": 2.4,
+   "mode": "full",
+   "num": "PHẦN 1",
+   "title": "Hành trình *3 năm*",
+   "sub": "Câu chuyện của mình"
+  },
+  {
+   "type": "sh_timeline",
+   "t0": 2.6,
+   "t1": 6.8,
+   "title": "Hành trình",
+   "items": [
+    {
+     "year": "Năm 1",
+     "text": "Bắt đầu từ con số 0",
+     "t": 2.9
+    },
+    {
+     "year": "Năm 2",
+     "text": "Thất bại đầu tiên",
+     "t": 3.6
+    },
+    {
+     "year": "Năm 3",
+     "text": "Làm lại, lớn hơn",
+     "t": 4.3
+    }
+   ]
+  },
+  {
+   "type": "sh_stat",
+   "t0": 7.0,
+   "t1": 9.6,
+   "value": "1.000+",
+   "kicker": "Con số (ví dụ)",
+   "label": "ngày kiên trì"
+  },
+  {
+   "type": "sh_poll",
+   "t0": 9.8,
+   "t1": 13.0,
+   "question": "Bạn chọn *an toàn* hay *mạo hiểm*?",
+   "options": [
+    {
+     "text": "An toàn",
+     "pct": 45
+    },
+    {
+     "text": "Mạo hiểm",
+     "pct": 55
+    }
+   ],
+   "note": "Kết quả mẫu",
+   "count": 0.8
+  },
+  {
+   "type": "sh_source",
+   "t0": 13.2,
+   "t1": 16.0,
+   "title": "Tên cuốn sách",
+   "author": "Tác giả",
+   "note": "Cuốn sách đổi cách mình nghĩ"
+  },
+  {
+   "type": "sh_cta",
+   "t0": 17.2,
+   "t1": 20.2,
+   "save_at": 0.8,
+   "share_at": 1.1,
+   "keep": true
+  }
+ ]
+}

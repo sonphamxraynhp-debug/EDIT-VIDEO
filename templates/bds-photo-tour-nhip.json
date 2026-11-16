@@ -1,0 +1,138 @@
+{
+ "id": "bds-photo-tour-nhip",
+ "name": "Tour ảnh theo nhịp nhạc",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "beatslide",
+ "desc": "Biến bộ ảnh căn nhà thành video cắt đúng phách nhạc: intro đập chữ, slideshow, collage polaroid, outro liên hệ.",
+ "tags": [
+  "tour ảnh",
+  "nhịp nhạc",
+  "slideshow",
+  "không cần quay"
+ ],
+ "title": "The *Riverside* (ví dụ)",
+ "caption_style": "beatslide",
+ "music": "hype",
+ "brand": {
+  "accent": "#FFD84A",
+  "primary": "#FF5A36",
+  "name": "Tên dự án",
+  "phone": "09xx xxx xxx",
+  "website": "duan-vidu.vn"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "6–10 ảnh căn nhà",
+  "tên dự án",
+  "SĐT / website"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.6
+ },
+ "scenes": [
+  {
+   "type": "beat_intro",
+   "t0": 0,
+   "t1": 1.875,
+   "bpm": 128,
+   "title": "The *Riverside*",
+   "tag": "GIỚI THIỆU",
+   "sub": "Căn hộ view sông (ví dụ)",
+   "image": "media/bedroom.jpg"
+  },
+  {
+   "type": "beat_slideshow",
+   "t0": 1.875,
+   "t1": 7.5,
+   "bpm": 128,
+   "images": [
+    "media/living.jpg",
+    "media/bedroom.jpg",
+    "media/kitchen.jpg",
+    "media/facade.jpg"
+   ],
+   "labels": [
+    "Phòng khách",
+    "Phòng ngủ",
+    "Bếp",
+    "Mặt tiền"
+   ],
+   "every": 2,
+   "trans": "mix"
+  },
+  {
+   "type": "beat_frame",
+   "t0": 7.5,
+   "t1": 10.3,
+   "bpm": 128,
+   "images": [
+    "media/living.jpg",
+    "media/bedroom.jpg",
+    "media/kitchen.jpg",
+    "media/facade.jpg"
+   ],
+   "labels": [
+    "living",
+    "bedroom",
+    "kitchen",
+    "home"
+   ],
+   "title": "Nhà *mơ ước*"
+  },
+  {
+   "type": "beat_slideshow",
+   "t0": 10.3,
+   "t1": 16.9,
+   "bpm": 128,
+   "images": [
+    "media/kitchen.jpg",
+    "media/living.jpg",
+    "media/facade.jpg",
+    "media/bedroom.jpg"
+   ],
+   "every": 2,
+   "trans": [
+    "flash",
+    "zoom"
+   ],
+   "counter": false
+  },
+  {
+   "type": "beat_text",
+   "t0": 10.3,
+   "t1": 12.2,
+   "bpm": 128,
+   "words": [
+    "SỐNG",
+    "*XANH*",
+    "MỖI",
+    "NGÀY"
+   ],
+   "y": 560
+  },
+  {
+   "type": "beat_bars",
+   "t0": 1.875,
+   "t1": 16.9,
+   "bpm": 128,
+   "mode": "bars",
+   "h": 56,
+   "opacity": 0.5,
+   "n": 48,
+   "y": 1240
+  },
+  {
+   "type": "beat_outro",
+   "t0": 16.9,
+   "t1": 20.2,
+   "bpm": 128,
+   "image": "media/living.jpg",
+   "name": "Liên hệ *xem nhà*",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,145 @@
+{
+ "id": "kh-screencast-ngang",
+ "name": "Hướng dẫn phần mềm ngang",
+ "category": "khoahoc",
+ "aspect": "16:9",
+ "pack": "screencast",
+ "desc": "Quay màn hình 16:9: tự zoom theo vùng thao tác, vòng click, con trỏ to, chú thích bước, face-cam tròn.",
+ "tags": [
+  "screencast",
+  "phần mềm",
+  "zoom",
+  "youtube"
+ ],
+ "title": "Hướng dẫn phần mềm",
+ "caption_style": "screencast",
+ "music": "lofi",
+ "brand": {
+  "primary": "#5B5BF7",
+  "accent": "#FFC83D"
+ },
+ "recipe_opts": {
+  "screen": {
+   "seq": "media/sc_demo/%05d.jpg",
+   "fps": 7.5,
+   "count": 60
+  },
+  "sw": 800,
+  "sh": 500,
+  "frame": "browser",
+  "url": "app.vidu.vn/bat-dau",
+  "bg": "aurora",
+  "focus": [
+   {
+    "t": 0.0,
+    "x": 400,
+    "y": 250,
+    "s": 1
+   },
+   {
+    "t": 0.65,
+    "x": 244,
+    "y": 111,
+    "s": 1.8
+   },
+   {
+    "t": 2.65,
+    "x": 222,
+    "y": 159,
+    "s": 1.8
+   },
+   {
+    "t": 4.117,
+    "x": 261,
+    "y": 201,
+    "s": 1.0
+   },
+   {
+    "t": 6.25,
+    "x": 469,
+    "y": 250,
+    "s": 1.0
+   },
+   {
+    "t": 6.65,
+    "x": 338,
+    "y": 98,
+    "s": 1.8
+   }
+  ],
+  "clicks": [
+   {
+    "t": 0.8,
+    "x": 204,
+    "y": 111
+   },
+   {
+    "t": 2.8,
+    "x": 222,
+    "y": 159
+   },
+   {
+    "t": 4.267,
+    "x": 261,
+    "y": 201
+   }
+  ]
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "video quay màn hình (ngang)",
+  "các bước + phím tắt"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.2
+ },
+ "scenes": [
+  {
+   "type": "sc_callout",
+   "t0": 1.0,
+   "t1": 2.6,
+   "num": 1,
+   "text": "Mở menu",
+   "at": {
+    "x": 204,
+    "y": 111
+   },
+   "screen": "scr"
+  },
+  {
+   "type": "sc_callout",
+   "t0": 2.8,
+   "t1": 4.2,
+   "num": 2,
+   "text": "Chọn mục cần dùng",
+   "at": {
+    "x": 222,
+    "y": 159
+   },
+   "screen": "scr"
+  },
+  {
+   "type": "sc_highlight",
+   "t0": 5.2,
+   "t1": 7.0,
+   "rect": {
+    "x": 655,
+    "y": 9,
+    "w": 129,
+    "h": 48
+   },
+   "label": "Lưu lại",
+   "screen": "scr"
+  },
+  {
+   "type": "sc_keys",
+   "t0": 7.4,
+   "t1": 9.4,
+   "keys": "⌘ + S",
+   "label": "Lưu nhanh"
+  }
+ ]
+}

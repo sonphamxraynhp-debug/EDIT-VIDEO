@@ -1,0 +1,106 @@
+{
+ "id": "cs-dien-anh",
+ "name": "Điện ảnh kể chuyện",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "cinema",
+ "desc": "Kể chuyện như phim: letterbox 2.35, màu teal-cam, tiêu đề chương, địa danh, chữ đánh máy, credits cuối.",
+ "tags": [
+  "điện ảnh",
+  "kể chuyện",
+  "vlog",
+  "letterbox"
+ ],
+ "title": "Những ngày cũ",
+ "caption_style": "cinema",
+ "music": "epic_2",
+ "brand": {
+  "name": "Tên của bạn"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tiêu đề chương",
+  "địa danh + thời gian",
+  "câu trích dẫn"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.8
+ },
+ "scenes": [
+  {
+   "type": "cine_letterbox",
+   "t0": 0,
+   "t1": 20.2,
+   "ratio": 2.35,
+   "grade": "teal"
+  },
+  {
+   "type": "cine_title",
+   "t0": 0.1,
+   "t1": 2.8,
+   "kicker": "CHƯƠNG I",
+   "title": "Những ngày cũ",
+   "sub": "Một câu chuyện có thật"
+  },
+  {
+   "type": "cine_location",
+   "t0": 0.8,
+   "t1": 4.6,
+   "place": "Tên địa danh",
+   "time": "06:42 · ngày tháng năm"
+  },
+  {
+   "type": "cine_flash",
+   "t0": 2.5,
+   "t1": 3.2,
+   "color": "warm"
+  },
+  {
+   "type": "cine_type",
+   "t0": 5.0,
+   "t1": 8.4,
+   "text": "Năm ấy, mình chỉ có…"
+  },
+  {
+   "type": "cine_quote",
+   "t0": 9.1,
+   "t1": 12.4,
+   "text": "Có những ngày bình thường, sau này nhìn lại mới thấy là đẹp nhất.",
+   "author": "Nhật ký",
+   "wps": 4
+  },
+  {
+   "type": "cine_slowmo",
+   "t0": 12.6,
+   "t1": 14.4,
+   "speed": 0.6
+  },
+  {
+   "type": "cine_flash",
+   "t0": 14.2,
+   "t1": 14.9,
+   "color": "warm",
+   "side": "right"
+  },
+  {
+   "type": "cine_credits",
+   "t0": 16.2,
+   "t1": 20.2,
+   "title": "Hết",
+   "lines": [
+    {
+     "role": "Kể chuyện",
+     "name": "Tên của bạn"
+    },
+    {
+     "role": "Dựng phim",
+     "name": "AI Video Studio"
+    }
+   ],
+   "thanks": "Cảm ơn bạn đã xem"
+  }
+ ]
+}

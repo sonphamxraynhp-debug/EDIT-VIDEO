@@ -1,0 +1,83 @@
+{
+ "id": "cs-phim-tai-lieu",
+ "name": "Phim tài liệu chữ động",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "print",
+ "desc": "Kể chuyện kiểu phim tài liệu: ảnh đen trắng như ảnh in, chữ hiện đúng lúc nói, trang xám cho câu chuyển, số đếm đỏ, trích dẫn máy chữ.",
+ "tags": [
+  "tài liệu",
+  "documentary",
+  "đen trắng",
+  "kể chuyện",
+  "kinetic"
+ ],
+ "title": "Ngôi nhà cũ",
+ "caption_style": "print_kdoc",
+ "music": "mellow_2",
+ "recipe_opts": {
+  "variant": "kdoc"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "2 ảnh tư liệu (sẽ chuyển đen trắng)",
+  "câu chuyển (Nhưng…)",
+  "1 con số",
+  "câu trích dẫn kết"
+ ],
+ "preview": {
+  "from": 4.6,
+  "to": 10.6,
+  "still": 5.9
+ },
+ "scenes": [
+  {
+   "type": "print_kdoc_window",
+   "t0": 0,
+   "t1": 2.2,
+   "src": "media/living.jpg",
+   "label": "Năm 2015 (ví dụ)"
+  },
+  {
+   "type": "print_kdoc_turn",
+   "t0": 5.0,
+   "t1": 6.5,
+   "words": [
+    {
+     "text": "Nhưng",
+     "t": 5.1
+    },
+    {
+     "text": "bây giờ",
+     "t": 5.55
+    }
+   ],
+   "red": 1
+  },
+  {
+   "type": "print_kdoc_print",
+   "t0": 8.0,
+   "t1": 10.6,
+   "src": "media/facade.jpg",
+   "label": "Ngôi nhà cũ",
+   "sub": "Ảnh minh hoạ (ví dụ)"
+  },
+  {
+   "type": "print_kdoc_counter",
+   "t0": 12.4,
+   "t1": 14.6,
+   "from": 0,
+   "to": 300,
+   "suffix": " giờ",
+   "label": "tiết kiệm mỗi năm (ví dụ)"
+  },
+  {
+   "type": "print_kdoc_type",
+   "t0": 16.6,
+   "t1": 19.6,
+   "text": "Thời gian là thứ duy nhất không mua lại được.",
+   "by": "Câu nói (ví dụ)"
+  }
+ ]
+}

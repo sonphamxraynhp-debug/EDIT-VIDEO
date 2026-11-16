@@ -1,0 +1,201 @@
+{
+ "width": 1280,
+ "height": 720,
+ "fps": 30,
+ "duration": 8.0,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "caption_style": "screencast",
+ "captions": "work/captions.json",
+ "brand": {
+  "primary": "#5B5BF7",
+  "accent": "#FFC83D"
+ },
+ "_note": "Màn hình mẫu: examples/media/sc_demo (60 khung 800x500, 7.5 fps). focus/clicks/cursor sinh bằng: python -I scripts/screen_focus.py examples/media/sc_demo --fps 7.5",
+ "scenes": [
+  {
+   "type": "sc_screen",
+   "cid": "scr",
+   "t0": 0,
+   "t1": 8.0,
+   "media": {
+    "seq": "media/sc_demo/%05d.jpg",
+    "fps": 7.5,
+    "count": 60
+   },
+   "sw": 800,
+   "sh": 500,
+   "frame": "browser",
+   "url": "app.adspilot.vn/campaigns/new",
+   "bg": "aurora",
+   "focus": [
+    {
+     "t": 0.0,
+     "x": 400,
+     "y": 250,
+     "s": 1
+    },
+    {
+     "t": 0.65,
+     "x": 244,
+     "y": 111,
+     "s": 1.8
+    },
+    {
+     "t": 2.65,
+     "x": 222,
+     "y": 159,
+     "s": 1.8
+    },
+    {
+     "t": 4.117,
+     "x": 261,
+     "y": 201,
+     "s": 1.0
+    },
+    {
+     "t": 6.25,
+     "x": 469,
+     "y": 250,
+     "s": 1.0
+    },
+    {
+     "t": 6.65,
+     "x": 338,
+     "y": 98,
+     "s": 1.8
+    }
+   ]
+  },
+  {
+   "type": "sc_click",
+   "cid": "clk",
+   "t0": 0,
+   "t1": 8.0,
+   "clicks": [
+    {
+     "t": 0.8,
+     "x": 204,
+     "y": 111
+    },
+    {
+     "t": 2.8,
+     "x": 222,
+     "y": 159
+    },
+    {
+     "t": 4.267,
+     "x": 261,
+     "y": 201
+    },
+    {
+     "t": 5.067,
+     "x": 230,
+     "y": 236
+    }
+   ],
+   "screen": "scr"
+  },
+  {
+   "type": "sc_cursor",
+   "cid": "cur",
+   "t0": 0,
+   "t1": 8.0,
+   "keys": [
+    {
+     "t": 0,
+     "x": 560,
+     "y": 380
+    },
+    {
+     "t": 0.45,
+     "x": 204,
+     "y": 111
+    },
+    {
+     "t": 2.45,
+     "x": 222,
+     "y": 159
+    },
+    {
+     "t": 3.917,
+     "x": 261,
+     "y": 201
+    },
+    {
+     "t": 4.717,
+     "x": 230,
+     "y": 236
+    }
+   ],
+   "clicks": [
+    0.8,
+    2.8,
+    4.267,
+    5.067
+   ],
+   "screen": "scr"
+  },
+  {
+   "type": "sc_callout",
+   "cid": "co1",
+   "t0": 4.0,
+   "t1": 5.1,
+   "num": 3,
+   "text": "Chọn ngân sách",
+   "at": {
+    "x": 261,
+    "y": 201
+   },
+   "screen": "scr"
+  },
+  {
+   "type": "sc_highlight",
+   "cid": "hl",
+   "t0": 5.2,
+   "t1": 6.1,
+   "rect": {
+    "x": 655,
+    "y": 9,
+    "w": 129,
+    "h": 48
+   },
+   "label": "Đã tạo xong",
+   "screen": "scr"
+  },
+  {
+   "type": "sc_keys",
+   "cid": "keys",
+   "t0": 6.2,
+   "t1": 7.8,
+   "keys": "⌘ + K",
+   "label": "Mở bảng lệnh"
+  },
+  {
+   "type": "sc_facecam",
+   "cid": "cam",
+   "t0": 0,
+   "t1": 8.0,
+   "shape": "circle",
+   "name": "Giảng viên"
+  }
+ ],
+ "audio": {
+  "voice": "work/voice.wav",
+  "mix": "work/mix_screencast.wav",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 8.0,
+    "mood": "lofi",
+    "gain": -20
+   }
+  ],
+  "sfx": []
+ }
+}
