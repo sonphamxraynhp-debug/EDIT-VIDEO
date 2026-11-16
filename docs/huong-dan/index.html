@@ -1,0 +1,320 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hướng dẫn AI Video Factory</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: tài liệu vận hành một cột, mục lục dính bên trái ở màn rộng, mỗi bước = ảnh màn hình + việc cần làm */
+:root{
+  --bg:#f6f5fb; --panel:#ffffff; --ink:#171a2b; --muted:#5a6078; --line:#dcdbe8;
+  --accent:#6a48f2; --accent-ink:#ffffff; --ok:#1f9d6a; --warn:#c7791a; --bad:#c9364a; --code-bg:#eeedf6;
+  --display:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1221; --panel:#171b31; --ink:#eceef8; --muted:#9aa1c0; --line:#2b3050;
+  --accent:#9b84ff; --accent-ink:#0f1221; --ok:#3ccf92; --warn:#f0a94a; --bad:#ff6b7f; --code-bg:#1f2440; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1221; --panel:#171b31; --ink:#eceef8; --muted:#9aa1c0; --line:#2b3050;
+  --accent:#9b84ff; --accent-ink:#0f1221; --ok:#3ccf92; --warn:#f0a94a; --bad:#ff6b7f; --code-bg:#1f2440; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;font-size:15.5px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(21px,2.6vw,26px);font-weight:800;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+h3{font-size:17px;font-weight:600;margin-top:22px}
+p{margin:10px 0;max-width:68ch}
+.wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px}
+@media (max-width:880px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static;display:none}}
+header.top{max-width:1120px;margin:0 auto;padding:40px 0 20px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lead{font-size:17px;color:var(--muted);max-width:72ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted)}
+.chip.ok{border-color:var(--ok);color:var(--ok)} .chip.warn{border-color:var(--warn);color:var(--warn)}
+.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:28px;font-size:13.5px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0;border-left:2px solid transparent;padding-left:10px}
+.toc a:hover{color:var(--ink);border-color:var(--accent)}
+.toc .grp{margin-top:12px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+main{min-width:0}
+figure{margin:18px 0 6px;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+figure img{display:block;width:100%;max-width:100%;height:auto}
+figcaption{font-size:13px;color:var(--muted);padding:8px 12px;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;margin-top:34px}
+.num{width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--accent-ink);font-family:var(--mono);font-weight:600;display:grid;place-items:center;font-size:15px}
+.step h3{margin-top:8px}
+.where{font-size:13px;color:var(--muted)} .where b{color:var(--ink);font-weight:600}
+ul,ol{margin:8px 0;padding-left:22px;max-width:70ch} li{margin:4px 0}
+code,kbd{font-family:var(--mono);font-size:.92em;background:var(--code-bg);padding:1px 6px;border-radius:5px}
+pre{font-family:var(--mono);font-size:13px;background:var(--code-bg);padding:12px 14px;border-radius:8px;overflow-x:auto;margin:10px 0;line-height:1.5}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:12px 0}
+.tbl{overflow-x:auto}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td:first-child{font-weight:600;white-space:nowrap}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;max-width:76ch}
+.note.warn{border-color:var(--warn)} .note.bad{border-color:var(--bad)}
+.note p{margin:4px 0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:14px}
+.grid3 figure{margin:0}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+.kv div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kv .big{font-family:var(--display);font-size:26px;font-weight:800;font-variant-numeric:tabular-nums}
+.kv .lbl{font-size:12.5px;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-right:6px}
+.tag.ok{background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok)}
+.tag.warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.tag.bad{background:color-mix(in srgb,var(--bad) 15%,transparent);color:var(--bad)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style></head><body>
+
+<header class="top">
+  <div class="eyebrow">Tài liệu vận hành · phiên bản 2026-11-08</div>
+  <h1>AI Video Factory — hướng dẫn sử dụng</h1>
+  <p class="lead">Từ video quay thật và hồ sơ sản phẩm có bằng chứng, tạo ra hàng trăm creative quảng cáo <em>khác nhau thật sự</em>, có kiểm duyệt claim, kiểm tra chính sách Meta/TikTok và điểm nguyên bản, chạy hoàn toàn trên máy của bạn.</p>
+  <div class="meta">
+    <span class="chip ok">43/43 test tự động</span>
+    <span class="chip ok">Đã chạy thử với 13 video thật trên macOS</span>
+    <span class="chip warn">Windows: đã rà soát mã, chưa chạy thử trên máy Windows thật</span>
+    <span class="chip">24 màn hình · 110 API</span>
+  </div>
+</header>
+
+<div class="wrap">
+<nav class="toc" aria-label="Mục lục">
+  <div class="grp">Bắt đầu</div>
+  <a href="#nguyen-tac">Nguyên tắc</a><a href="#cai-dat">Cài đặt</a>
+  <div class="grp">Quy trình</div>
+  <a href="#b1">1 · Dự án</a><a href="#b2">2 · Nguồn video</a><a href="#b3">3 · Phân tích</a><a href="#b4">4 · Product Brain</a>
+  <a href="#b5">5 · Chiến lược &amp; hook</a><a href="#b6">6 · Ma trận</a><a href="#b7">7 · Kịch bản</a><a href="#b8">8 · Storyboard</a>
+  <a href="#b9">9 · Giọng đọc</a><a href="#b10">10 · Editor</a><a href="#b11">11 · Sản xuất hàng loạt</a><a href="#b12">12 · Hàng đợi</a>
+  <a href="#b13">13 · Kiểm định QC</a><a href="#b14">14 · Thư viện &amp; xuất</a><a href="#b15">15 · Phân tích &amp; lô kế tiếp</a>
+  <div class="grp">Hệ thống</div>
+  <a href="#brand">Brand Kit</a><a href="#models">Mô hình AI</a><a href="#settings">Cài đặt</a>
+  <div class="grp">Tham khảo</div>
+  <a href="#cong">Các cổng an toàn</a><a href="#bo-cuc">Bố cục render</a><a href="#ket-qua">Kết quả kiểm thử</a><a href="#gioi-han">Giới hạn</a><a href="#faq">Câu hỏi thường gặp</a>
+</nav>
+
+<main>
+<h2 id="nguyen-tac">Nguyên tắc của phần mềm</h2>
+<p>Phần mềm được xây để bạn <b>giữ được tài khoản</b>. Nó tạo nhiều creative khác nhau từ cùng một bộ nguồn để chạy quảng cáo (Meta Ads Manager và TikTok Ads chấp nhận hàng trăm creative để test). Nó không nhân bản gần giống một video, không có kỹ thuật né bộ lọc trùng lặp (lật hình, đổi tốc độ, thêm nhiễu, xoá watermark), không đăng tự động và không quản lý nhiều tài khoản. Những thứ đó bị Meta xếp vào "unoriginal content" (từ 7/2025) và TikTok xếp vào "unoriginal / spam", hậu quả là giảm phân phối hoặc khoá cả cụm tài khoản.</p>
+<div class="note"><p><b>Ba cổng bắt buộc trước khi một video được xuất:</b> claim gate (chỉ nói điều có bằng chứng), cổng chính sách quảng cáo (không nói câu chắc chắn bị từ chối), điểm nguyên bản (không giống bản khác trong cùng chiến dịch). Cổng nào "fail" thì không duyệt được, không render final, không vào gói xuất.</p></div>
+
+<h2 id="cai-dat">Cài đặt</h2>
+<h3>Yêu cầu chung</h3>
+<ul>
+  <li><b>Python 3.11+</b>, <b>Node 18+</b>, <b>FFmpeg/ffprobe</b> trong PATH.</li>
+  <li>Tuỳ chọn nhưng nên có: <b>Ollama</b> với model <code>qwen3:8b</code> (viết kịch bản và hook), <b>whisper-cli</b> (tách lời thoại), <b>tesseract</b> (đọc chữ trên hình).</li>
+  <li>Một giọng đọc tiếng Việt của hệ điều hành: macOS có sẵn giọng <em>Linh</em>; Windows cài ở Settings → Time &amp; Language → Speech → Add voices → Tiếng Việt.</li>
+</ul>
+<h3>macOS</h3>
+<pre><code>./scripts/dev.sh      # API 127.0.0.1:8765 + worker + giao diện dev http://127.0.0.1:5190
+./scripts/start.sh    # build giao diện rồi chạy tất cả tại http://127.0.0.1:8765
+# Ứng dụng desktop: apps/desktop/src-tauri/target/release/bundle/macos/AI Video Factory.app</code></pre>
+<h3>Windows (PowerShell)</h3>
+<pre><code>winget install Gyan.FFmpeg          # hoặc tải ffmpeg và thêm vào PATH
+winget install Ollama.Ollama ; ollama pull qwen3:8b
+.\scripts\dev.ps1                    # chạy API + worker + giao diện dev
+.\scripts\start.ps1                  # build giao diện rồi chạy tại http://127.0.0.1:8765
+# Đóng gói desktop: cd apps\desktop ; npm run build ; npx tauri build --bundles nsis</code></pre>
+<div class="note warn"><p><b>Trạng thái Windows:</b> mã nguồn đã được rà soát và sửa cho Windows (đường dẫn, tên thư mục không chứa ký tự cấm, giọng SAPI, font, script PowerShell, vị trí file cấu hình của app desktop), nhưng mình chỉ có máy Mac nên <b>chưa chạy thử trên Windows thật</b>. Khi chạy lần đầu, hãy mở màn <em>Hệ thống → Cài đặt → Thành phần &amp; phụ thuộc</em> để xem FFmpeg, Ollama, whisper, tesseract và giọng đọc đã được nhận diện chưa.</p></div>
+<p>Dữ liệu nằm trong thư mục <code>data/</code> của dự án (CSDL SQLite, media, cache, model) và video xuất trong <code>data/output/</code>. Đổi vị trí bằng biến môi trường <code>AVF_DATA_DIR</code> và <code>AVF_OUTPUT_DIR</code>. Nếu bạn di chuyển cả thư mục dự án, phần mềm tự sửa đường dẫn trong CSDL ở lần khởi động kế tiếp.</p>
+
+<h2 id="quy-trinh">Quy trình 15 bước</h2>
+<p>Thanh bên trái của ứng dụng đi theo đúng thứ tự này. Mỗi bước dưới đây có ảnh màn hình thật từ dự án thử nghiệm "Test thực tế 13:34" (4 video nguồn, 25 cảnh).</p>
+
+<div class="step" id="b1"><div class="num">01</div><div>
+  <h3>Tạo dự án</h3>
+  <div class="where">Menu <b>Dự án</b> → nút <b>Dự án mới</b></div>
+  <p>Một dự án = một sản phẩm + một chiến dịch. Nhập tên dự án, tên sản phẩm và số video mục tiêu. Thẻ dự án hiển thị tiến độ sản xuất và trạng thái duyệt. Xoá dự án yêu cầu gõ lại tên để tránh nhầm.</p>
+  <figure><img src="img/02-projects.jpg" alt="Màn Dự án: thẻ dự án với tiến độ và trạng thái"><figcaption>Dự án sáng tạo. Tiến độ tính theo số video final đã hoàn tất trên số mục tiêu.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b2"><div class="num">02</div><div>
+  <h3>Nhập video nguồn</h3>
+  <div class="where">Menu <b>Tư liệu → Nguồn video</b></div>
+  <p>Kéo thả file hoặc chọn <b>Từ thư mục</b> để nhập cả thư mục mà không copy file. Phần mềm đọc thông số bằng ffprobe (độ phân giải, fps, codec, xoay màn hình), tính SHA-256 để chặn file trùng và tạo proxy để xem trước mượt. Bật/tắt các bước phân tích ở cột phải: tách cảnh, tách lời thoại, OCR, chất lượng hình.</p>
+  <div class="note"><p><b>Quan trọng cho quy mô lớn:</b> càng nhiều video nguồn khác góc máy, bối cảnh thì các creative càng khác nhau. Phần mềm yêu cầu tối thiểu 3 video và 12 cảnh khi sinh trên 20 bản, 5 video và 25 cảnh khi trên 100 bản, 8 video và 40 cảnh khi trên 300 bản.</p></div>
+  <figure><img src="img/03-media.jpg" alt="Màn Nguồn video với khu kéo thả, video đã nhập và tuỳ chọn phân tích"><figcaption>Nguồn video. Cột "Quyền sử dụng" phải được xác nhận; tư liệu không rõ quyền bị chặn ở QC.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b3"><div class="num">03</div><div>
+  <h3>Phân tích video</h3>
+  <div class="where">Menu <b>Tư liệu → AI phân tích video</b></div>
+  <p>Mỗi video được tách cảnh, lấy keyframe, chấm điểm sáng/rung, đọc chữ trên hình và tách lời thoại bằng whisper.cpp (tiếng Việt). Nhãn cảnh (packshot, thao tác tay, khuôn mặt…) chỉ là gợi ý với độ tin cậy thấp: <b>bạn phải bấm duyệt</b> từng cảnh hoặc chọn nhiều cảnh rồi "Đưa vào thư viện cảnh". Bấm vào một dòng transcript để nhảy video tới đúng giây đó. Cảnh đã duyệt được giữ nguyên khi bạn phân tích lại.</p>
+  <figure><img src="img/04-analyzer.jpg" alt="Màn AI phân tích video: 8 cảnh, transcript 16 đoạn"><figcaption>Phân tích IMG_7019.MOV: 8 cảnh, 16 đoạn lời thoại trong khoảng 20 giây xử lý.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b4"><div class="num">04</div><div>
+  <h3>Product Brain: claim và bằng chứng</h3>
+  <div class="where">Menu <b>Product Brain</b></div>
+  <p>Đây là nguồn sự thật duy nhất của AI. Nhập USP, cách dùng, giới hạn, CTA được phép, cụm từ cấm. Mỗi <b>claim</b> (lợi ích/công dụng) phải gắn một <b>bằng chứng</b> (tài liệu, chứng nhận) mới được duyệt; kịch bản chỉ được nói những claim đã duyệt và phải trích đúng ý. Thêm FAQ để AI có nhiều chất liệu hơn. Nên có ít nhất 5 claim khi làm lô trên 50 bản, nếu không kịch bản sẽ lặp ý.</p>
+  <figure><img src="img/05-brain.jpg" alt="Màn Product Brain với thông tin sản phẩm và audit"><figcaption>Bộ não sản phẩm. Thẻ "AI Knowledge Audit" bên phải cho biết còn bao nhiêu phát ngôn chưa có bằng chứng.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b5"><div class="num">05</div><div>
+  <h3>Chiến lược, thư viện hook và kế hoạch</h3>
+  <div class="where">Menu <b>AI Sáng tạo → Chiến lược nội dung</b></div>
+  <p>Chọn nhóm khách hàng, mạch kể, thời lượng, bố cục (toàn màn, chia đôi, hình-trong-hình, panel chữ), nền tảng đích (Facebook/Instagram, TikTok), ngành hàng (để áp đúng bộ quy tắc chính sách) và landing URL (để gói xuất gắn UTM). Góc nội dung được xếp theo tư liệu bạn có; góc thiếu cảnh sẽ báo "cần quay thêm".</p>
+  <ul>
+    <li><b>Thư viện hook:</b> bấm <em>Sinh hook (LLM)</em> để AI viết câu mở đầu. Hook mới phải khác mọi hook đã có, qua claim gate và cổng chính sách; mỗi hook dùng tối đa cho 5 bản. Bạn cũng có thể gõ hook tay; hook vi phạm (ví dụ nhắc tới ngoại hình người xem) bị từ chối ngay.</li>
+    <li><b>Kế hoạch &amp; ước tính:</b> nhập số bản mục tiêu (tới 1000) để xem bạn còn thiếu gì (video nguồn, hook, claim), bao nhiêu tổ hợp khả thi, mất bao nhiêu giờ LLM và render (đo từ các job đã chạy trên máy bạn), tốn bao nhiêu GB. Bấm <em>Sinh N biến thể</em> khi không còn cảnh báo đỏ.</li>
+  </ul>
+  <figure><img src="img/06-strategy.jpg" alt="Màn Chiến lược: thiết lập chiến dịch, nền tảng, ngành hàng, góc nội dung"><figcaption>Thiết lập chiến dịch. Hàng dưới cùng của thẻ là nền tảng, ngành hàng, landing URL và công tắc "Cho phép ít nguồn" (không khuyến nghị).</figcaption></figure>
+  <figure><img src="img/tour-07-hooks.jpg" alt="Thư viện hook và kế hoạch ước tính"><figcaption>Thư viện hook (13 hook, mỗi hook 0/5 lượt dùng) và Kế hoạch &amp; ước tính cho 6 bản: 0,2 giờ, 0,1 GB.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b6"><div class="num">06</div><div>
+  <h3>Ma trận sáng tạo</h3>
+  <div class="where">Menu <b>AI Sáng tạo → Ma trận sáng tạo</b></div>
+  <p>Mỗi dòng là một biến thể: khán giả × góc × kết cấu × thời lượng × bố cục, kèm biến số được gán tự động (tốc độ giọng, font, nhạc nếu có). Cột <b>Lô</b> cho biết bản thuộc lô nào; cột <b>Độc đáo</b> là điểm nguyên bản sau QC (đỏ = dưới ngưỡng). Nút <em>Tạo ma trận mới</em> mở hộp thoại: nhập số bản và chọn "Thêm thành lô mới" nếu muốn giữ các bản đang có. Nút <em>Tạo kịch bản</em> đưa toàn bộ bản nháp vào hàng đợi LLM.</p>
+  <figure><img src="img/08-matrix.jpg" alt="Màn Ma trận với 40 biến thể, cột Lô và Độc đáo"><figcaption>Ma trận 40 biến thể trong 3 lô. Bảng bên phải cảnh báo các cụm ý tưởng gần giống nhau.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b7"><div class="num">07</div><div>
+  <h3>Kịch bản</h3>
+  <div class="where">Menu <b>AI Sáng tạo → Nhà máy kịch bản</b></div>
+  <p>LLM viết kịch bản theo beat (hook, thân, CTA) với hook lấy từ thư viện. Cờ đỏ là lỗi nghiêm trọng: claim chưa duyệt, câu không khớp claim trích dẫn, cụm từ cấm, hoặc vi phạm chính sách quảng cáo (cam kết kết quả, trước/sau, công dụng y khoa…). Kịch bản có cờ đỏ không duyệt được; sửa trực tiếp trong trình soạn rồi bấm <em>Duyệt kịch bản</em>. Nếu LLM không có, phần mềm dùng engine mẫu chỉ ghép dữ liệu đã duyệt.</p>
+  <figure><img src="img/09-scripts.jpg" alt="Màn Nhà máy kịch bản với beat, claim và kiểm chứng"><figcaption>Kịch bản V-0001 đã duyệt. Khối bên phải: kết quả claim check, nguồn trích dẫn và cảnh báo kịch bản tương tự.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b8"><div class="num">08</div><div>
+  <h3>Storyboard</h3>
+  <div class="where">Menu <b>AI Sáng tạo → Storyboard AI</b></div>
+  <p>Mỗi beat được gán một cảnh từ thư viện theo nhãn và điểm chất lượng, ưu tiên cảnh <b>chưa được bản khác dùng</b> để các video không trùng hình. Bố cục chia đôi và hình-trong-hình lấy thêm một cảnh khác làm cảnh phụ. Bạn đổi cảnh, hiệu ứng chuyển động và thời lượng trong panel phải. Có thể dựng lại storyboard sau khi QC báo trùng.</p>
+  <figure><img src="img/10-storyboard.jpg" alt="Màn Storyboard với 4 cảnh và chi tiết cảnh"><figcaption>Storyboard V-0002: 4 cảnh, 11 giây, mỗi cảnh ghi rõ lời thoại, mục đích và nguồn tư liệu.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b9"><div class="num">09</div><div>
+  <h3>Giọng đọc</h3>
+  <div class="where">Menu <b>AI Sáng tạo → Phòng thu giọng đọc</b></div>
+  <p>Giọng đọc tiếng Việt của hệ điều hành, chuẩn hoá âm lượng về −16 LUFS, có từ điển phát âm cho số và đơn vị. Mỗi biến thể được gán một tốc độ (0,92 / 1,0 / 1,08) để không bản nào nghe y hệt nhau. Bấm <em>Nghe thử</em> để kiểm tra trước. Voice clone mặc định tắt theo đặc tả.</p>
+  <figure><img src="img/11-voice.jpg" alt="Màn Phòng thu giọng đọc với preset và thiết lập"><figcaption>Phòng thu giọng đọc. Nếu máy có thêm giọng tiếng Việt khác, phần mềm tự xoay vòng giữa các giọng.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b10"><div class="num">10</div><div>
+  <h3>Editor và xem trước</h3>
+  <div class="where">Menu <b>Sản xuất → Smart Video Editor</b></div>
+  <p>Xem timeline, cắt, tách, đổi cảnh, sửa phụ đề, chọn hiệu ứng chuyển động rồi <em>Render Preview</em>. Bản preview có watermark DRAFT và độ phân giải một nửa để render nhanh. Preview xong thì QC tự chạy.</p>
+  <figure><img src="img/12-editor.jpg" alt="Màn Smart Video Editor với timeline và inspector"><figcaption>Editor với tư liệu dự án, khung xem 9:16 và shot inspector theo câu thoại.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b11"><div class="num">11</div><div>
+  <h3>Sản xuất hàng loạt</h3>
+  <div class="where">Menu <b>Sản xuất → Sản xuất hàng loạt</b></div>
+  <p>Chọn chiến dịch, thời lượng, giọng, template, brand kit và chất lượng xuất rồi tạo lô render. Chỉ biến thể đã <b>duyệt QC</b> mới vào lô final; biến thể có điểm nguyên bản dưới ngưỡng bị loại và được liệt kê để bạn sửa. GPU (VideoToolbox trên Mac, NVENC/QSV/AMF trên Windows) được dùng khi có, tự chuyển sang CPU nếu lỗi.</p>
+  <figure><img src="img/13-batch.jpg" alt="Màn Trung tâm sản xuất hàng loạt"><figcaption>Trung tâm sản xuất hàng loạt: 40 bản dự kiến, 10 kịch bản đã duyệt, ước tính thời gian và dung lượng.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b12"><div class="num">12</div><div>
+  <h3>Hàng đợi render</h3>
+  <div class="where">Menu <b>Sản xuất → Render Queue</b></div>
+  <p>Hàng đợi bền vững trong SQLite: tắt máy giữa chừng thì mở lại chạy tiếp, job treo được tự phát hiện và thử lại. Tạm dừng, tiếp tục, thử lại, huỷ theo từng job hoặc <b>theo cả lô</b> (thẻ "Lô render" ở cuối trang). Chế độ Eco / Balanced / Turbo điều chỉnh số job song song.</p>
+  <figure><img src="img/14-queue.jpg" alt="Màn Render Queue với thống kê và danh sách job"><figcaption>Render Queue: 142 tác vụ, 138 hoàn thành, thời gian render trung bình 1 phút 9 giây mỗi video final.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b13"><div class="num">13</div><div>
+  <h3>Kiểm định nội dung (QC)</h3>
+  <div class="where">Menu <b>Kiểm duyệt → Kiểm định nội dung</b></div>
+  <p>Mỗi bản preview có báo cáo QC: claim, <b>chính sách quảng cáo</b> (theo ngành và nền tảng, có trích dẫn quy định), <b>điểm nguyên bản</b> (hình + tiếng + chữ so với bản gần nhất), trùng cảnh, quyền tư liệu, kỹ thuật (khung đen, đứng hình, clipping âm thanh), <b>vùng an toàn TikTok</b>, bản quyền nhạc. Quyết định: duyệt, yêu cầu sửa, từ chối, hoặc duyệt kèm lý do. Claim fail, chính sách fail và nguyên bản fail <b>không thể</b> duyệt kèm lý do.</p>
+  <figure><img src="img/15-qc.jpg" alt="Màn Kiểm định nội dung với bảng biến thể và chi tiết"><figcaption>Kiểm định nội dung. Dòng V-0007 có "Visual Source Reuse 11%" nhờ cơ chế ưu tiên cảnh chưa dùng.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b14"><div class="num">14</div><div>
+  <h3>Thư viện và gói xuất cho Ads Manager</h3>
+  <div class="where">Menu <b>Thư viện</b></div>
+  <p>Mọi video final (MP4 + SRT + ảnh thumbnail + manifest JSON) nằm ở đây, lọc theo chiến dịch, góc, ngày. Chọn preset <b>Meta Ads</b> hoặc <b>TikTok Ads</b> rồi <em>Xuất video</em>: phần mềm đặt tên file theo quy ước <code>chiendich_V-0001_goc_khachhang_30s_hook</code>, kiểm tra spec (thời lượng, tỷ lệ, dung lượng, chữ chạm UI TikTok) và tạo <code>ads_mapping.csv</code> với tên quảng cáo, primary text, headline, CTA, landing URL kèm UTM theo mã biến thể. Bạn tải lên Ads Manager <b>thủ công</b>; đây là thiết kế có chủ đích.</p>
+  <figure><img src="img/16-library.jpg" alt="Màn Thư viện video với preset xuất"><figcaption>Thư viện video. Nút "Dọn cache" xoá file tạm; "Xoá master" được bảo vệ bằng xác nhận.</figcaption></figure>
+</div></div>
+
+<div class="step" id="b15"><div class="num">15</div><div>
+  <h3>Phân tích hiệu suất và lô kế tiếp</h3>
+  <div class="where">Menu <b>Phân tích</b></div>
+  <p>Nhập CSV kết quả từ Ads Manager (cột <code>code</code> là mã biến thể, có file mẫu). Phần mềm không kết nối API nền tảng. Thẻ <b>Yếu tố thắng → lô kế tiếp</b> tính lift của từng hook, góc, khán giả, kết cấu, bố cục, thời lượng, tốc độ giọng, nhạc theo KPI bạn chọn (chỉ tính yếu tố có ít nhất 2 bản). Bấm <em>Sinh lô kế tiếp</em>: ma trận mới được đánh trọng số theo yếu tố thắng, hook thắng được ưu tiên, một tỷ lệ hook mới được sinh thêm để tiếp tục khám phá.</p>
+  <figure><img src="img/17-analytics.jpg" alt="Màn Phân tích hiệu quả sáng tạo"><figcaption>Phân tích hiệu quả: tổng quan, hiệu suất theo góc, A/B so sánh hai bản.</figcaption></figure>
+</div></div>
+
+<h2 id="tutorial">Hướng dẫn trong app</h2>
+<p>Lần đầu mở app, tour làm quen tự chạy qua toàn bộ quy trình (phím → ← Esc). Nút <b>?</b> trên thanh trên cùng mở lại tour, hướng dẫn riêng của màn đang mở và checklist 11 bước tính từ dữ liệu thật của dự án.</p>
+<figure><img src="img/tour-01-welcome.jpg" alt="Màn chào của tour"><figcaption>Tour làm quen hiện khi mở app lần đầu.</figcaption></figure>
+
+<h2 id="brand">Brand Kit</h2>
+<p>Menu <b>Hệ thống → Nhận diện thương hiệu</b>. Màu chủ đạo, kiểu phụ đề và từ khoá nhấn được áp vào render. Tải <b>logo</b> (PNG/JPG) để chèn góc trên trái trong vùng an toàn; bật <b>thẻ kết</b> 1,8 giây với nền màu thương hiệu, logo và CTA. Watermark và lower third hiện chỉ xem trước, chưa render.</p>
+<figure><img src="img/19-brand.jpg" alt="Màn Nhận diện thương hiệu"><figcaption>Brand Kit với bảng màu, typography, lockup và xem trước áp dụng vào video.</figcaption></figure>
+
+<h2 id="models">Quản lý mô hình AI</h2>
+<p>Menu <b>Hệ thống → Quản lý mô hình AI</b>. Xem engine nào đã sẵn sàng: LLM (Ollama), ASR (whisper.cpp, tải model ggml từ nguồn đã duyệt bằng một nút bấm), TTS, OCR, embedding, vision. Mọi thứ chạy offline sau khi tải model; phần mềm không gửi dữ liệu lên cloud.</p>
+<figure><img src="img/20-models.jpg" alt="Màn Quản lý mô hình AI"><figcaption>6/6 engine đã cài trên máy thử nghiệm. Tesseract mới có gói tiếng Anh; cần <code>vie.traineddata</code> để OCR tiếng Việt.</figcaption></figure>
+
+<h2 id="settings">Cài đặt</h2>
+<p>Menu <b>Hệ thống → Cài đặt hệ thống</b>. Đáng chú ý: số job song song, GPU, mức âm lượng mục tiêu, <b>ngưỡng điểm nguyên bản tối thiểu</b> (mặc định 0,35), các kiểm tra QC bật/tắt, sao lưu dữ liệu. Thẻ "Thành phần &amp; phụ thuộc" là nơi kiểm tra môi trường khi cài máy mới.</p>
+<figure><img src="img/21-settings.jpg" alt="Màn Cài đặt hệ thống"><figcaption>Cài đặt hệ thống với thông tin phiên bản, thành phần phụ thuộc và bộ mã hoá được hỗ trợ.</figcaption></figure>
+
+<h2 id="cong">Các cổng an toàn</h2>
+<div class="tbl"><table>
+<thead><tr><th>Cổng</th><th>Chạy ở đâu</th><th>Khi fail</th><th>Cách sửa</th></tr></thead>
+<tbody>
+<tr><td>Claim gate</td><td>Sinh kịch bản, duyệt kịch bản, QC</td><td><span class="tag bad">BLOCK-01</span> không duyệt được</td><td>Thêm bằng chứng cho claim hoặc sửa câu trong kịch bản</td></tr>
+<tr><td>Cổng chính sách</td><td>Sinh kịch bản, sửa kịch bản, QC</td><td><span class="tag bad">BLOCK-05</span> không duyệt được</td><td>Bỏ câu trước/sau, cam kết kết quả, công dụng y khoa, giảm cân theo kg, nhận xét ngoại hình người xem…</td></tr>
+<tr><td>Điểm nguyên bản</td><td>QC, tạo lô final, xuất gói</td><td><span class="tag bad">BLOCK-04</span> không duyệt, không render final, loại khỏi gói</td><td>Đổi hook, dựng lại storyboard (cảnh khác), đổi bố cục hoặc tốc độ giọng, chạy QC lại</td></tr>
+<tr><td>Cổng nguồn</td><td>Sinh ma trận</td><td><span class="tag bad">NEED_MORE_SOURCE</span></td><td>Quay thêm clip khác góc máy/bối cảnh rồi nhập và duyệt cảnh</td></tr>
+<tr><td>Quyền tư liệu</td><td>QC</td><td><span class="tag bad">BLOCK-02</span></td><td>Xác nhận quyền sử dụng ở màn Nguồn video</td></tr>
+<tr><td>Vùng an toàn TikTok</td><td>Render, QC</td><td><span class="tag warn">Cảnh báo</span></td><td>Phần mềm tự thu chữ; nếu vẫn chạm, rút ngắn câu phụ đề</td></tr>
+<tr><td>Bản quyền nhạc</td><td>QC</td><td><span class="tag warn">Cảnh báo</span></td><td>Đặt <code>LICENSE.txt</code> trong thư mục <code>data/music</code></td></tr>
+<tr><td>Nhãn AI</td><td>QC, manifest, gói xuất</td><td><span class="tag warn">Luôn nhắc</span></td><td>Bật nhãn "nội dung có AI" khi đăng; manifest ghi <code>ai_disclosure: yes</code></td></tr>
+</tbody></table></div>
+
+<h2 id="bo-cuc">Bố cục render</h2>
+<p>Bốn bố cục được gán xoay vòng theo biến thể. Cảnh phụ trong "chia đôi" và "hình-trong-hình" luôn là một cảnh khác, không phải bản lặp hay lật của cảnh chính.</p>
+<div class="grid3">
+  <figure><img src="img/layout-split.png" alt="Bố cục chia đôi: hai cảnh trên dưới"><figcaption>Chia đôi (split)</figcaption></figure>
+  <figure><img src="img/layout-pip.png" alt="Bố cục hình trong hình"><figcaption>Hình-trong-hình (pip)</figcaption></figure>
+  <figure><img src="img/layout-packshot.png" alt="Bố cục panel chữ"><figcaption>Panel chữ (packshot_text)</figcaption></figure>
+  <figure><img src="img/outro.png" alt="Thẻ kết thương hiệu"><figcaption>Thẻ kết 1,8 giây</figcaption></figure>
+</div>
+<p class="where">Ảnh là khung hình từ bản preview (có watermark DRAFT). Bản final không có watermark và ở độ phân giải đầy đủ 1080×1920.</p>
+
+<h2 id="ket-qua">Kết quả kiểm thử</h2>
+<div class="kv">
+  <div><div class="big">43/43</div><div class="lbl">test tự động (unit + integration, render thật bằng ffmpeg)</div></div>
+  <div><div class="big">13</div><div class="lbl">video thật dùng để test: iPhone HEVC 60fps, 674×1198, landscape, thư mục 10 clip</div></div>
+  <div><div class="big">1,0 → 0,12</div><div class="lbl">tỷ lệ trùng cảnh giữa các bản, trước và sau cơ chế đa dạng cảnh</div></div>
+  <div><div class="big">0,52–0,62</div><div class="lbl">điểm nguyên bản các bản thử nghiệm (ngưỡng 0,35)</div></div>
+</div>
+<h3>Lỗi đã phát hiện và sửa trong đợt test này</h3>
+<ul>
+  <li>Font Trebuchet và Impact thiếu dấu tiếng Việt, hiện ô vuông trên phụ đề. Giờ chỉ dùng font có đủ glyph tiếng Việt (kiểm tra tự động).</li>
+  <li>Bộ mã hoá AAC làm đỉnh âm thanh vượt limiter khoảng 1,3 dB nên QC báo clipping. Trần limiter hạ xuống −2,5 dB.</li>
+  <li>Mọi biến thể chọn cùng một bộ cảnh. Giờ ưu tiên cảnh chưa dùng ở bản khác, có nhiễu theo seed.</li>
+  <li>Phụ đề chạm vùng icon bên phải của TikTok. Giờ vùng chữ chừa 15% bên phải và tự thu kích thước.</li>
+  <li>Không dựng lại được storyboard sau khi QC. Đã cho phép.</li>
+  <li>Job mồ côi khi worker bị tắt ngay trước khi khởi động lại không được thu hồi. Worker giờ quét lại mỗi 30 giây.</li>
+  <li>Tên thư mục xuất chứa dấu hai chấm (giờ phút) không hợp lệ trên Windows. Đã làm sạch tên.</li>
+</ul>
+
+<h2 id="gioi-han">Giới hạn cần biết</h2>
+<ul>
+  <li>Bộ quy tắc chính sách là regex theo tài liệu công bố đến 2025. Nó chặn sớm các câu chắc chắn bị từ chối, nhưng không thay kiểm duyệt của Meta/TikTok và không bảo đảm quảng cáo được duyệt.</li>
+  <li>Điểm nguyên bản so sánh cảnh, bố cục, font, giọng, nhạc và chữ; chưa dùng perceptual hash khung hình hay embedding ngữ nghĩa.</li>
+  <li>Máy thử nghiệm chỉ có một giọng tiếng Việt (Linh) nên biến số giọng mới dừng ở tốc độ. Cài thêm giọng là phần mềm tự xoay vòng.</li>
+  <li>Thư mục nhạc <code>data/music</code> đang trống trên máy thử nghiệm; tính năng nhạc nền đã có test tự động nhưng chưa thử với file nhạc thật.</li>
+  <li>Windows: đã rà soát và sửa mã, có script PowerShell, chưa chạy thử trên máy Windows thật. Đóng gói desktop cho Windows cần chạy <code>npx tauri build --bundles nsis</code> trên Windows.</li>
+  <li>Video ngang đưa về khung dọc bị cắt lấy phần giữa; chưa có bám theo khuôn mặt.</li>
+  <li>Không có và sẽ không có: tự đăng, đa tài khoản, đổi proxy, né bộ lọc trùng lặp.</li>
+</ul>
+
+<h2 id="faq">Câu hỏi thường gặp</h2>
+<h3>Tại sao sinh ma trận báo "cần thêm nguồn"?</h3>
+<p>Vì số bản mục tiêu lớn hơn 20 mà dự án có dưới 3 video nguồn hoặc dưới 12 cảnh đã duyệt. Ít nguồn thì các bản sẽ trùng hình và nền tảng coi là nội dung lặp. Quay thêm clip khác góc, nhập và duyệt cảnh. Nếu buộc phải bỏ qua, bật "Cho phép ít nguồn" ở Chiến lược; phần mềm sẽ ghi cảnh báo vào kế hoạch.</p>
+<h3>QC báo BLOCK-04 dù kịch bản khác nhau?</h3>
+<p>Điểm nguyên bản tính cả hình và tiếng. Hai bản có kịch bản khác nhưng cùng cảnh, cùng bố cục, cùng tốc độ giọng vẫn giống nhau về mặt video. Dựng lại storyboard (cảnh khác sẽ được ưu tiên), đổi bố cục hoặc tốc độ giọng rồi QC lại.</p>
+<h3>Bao nhiêu bản là hợp lý cho một đợt?</h3>
+<p>Phụ thuộc vào nguồn: thẻ Kế hoạch &amp; ước tính cho con số tổ hợp khả thi và số hook cần có. Với 5 video nguồn, 25 cảnh, 5 claim và 20 hook, 60–100 bản là mức các bản vẫn khác nhau rõ. Trên 300 bản cần 8 video và 40 cảnh trở lên.</p>
+<h3>Có thể đăng tự động không?</h3>
+<p>Không. Gói xuất được thiết kế để tải lên Ads Manager thủ công. Nếu cần đăng tự động hợp lệ, hướng duy nhất là TikTok Content Posting API và Meta Graph API với tài khoản bạn sở hữu và app developer được duyệt; phần mềm chưa tích hợp.</p>
+</main>
+</div>
+</body></html>

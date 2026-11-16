@@ -1,0 +1,15 @@
+.venv/
+.venv-voice/
+data/
+apps/desktop/node_modules/
+apps/desktop/dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+apps/desktop/src-tauri/target/
+apps/desktop/src-tauri/gen/
+
+.DS_Store
+*.log
+data_dev.log
+*.tsbuildinfo
