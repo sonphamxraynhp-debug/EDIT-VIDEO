@@ -1,0 +1,135 @@
+{
+ "id": "bds-nha-pho-xanh",
+ "name": "Nhà phố xanh – vay vốn",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "realestate",
+ "desc": "Nhà phố / đất nền tông xanh rêu: bản đồ vị trí, ảnh dạng thẻ, bảng tính trả góp và thẻ môi giới.",
+ "tags": [
+  "nhà phố",
+  "trả góp",
+  "bản đồ",
+  "xanh"
+ ],
+ "title": "Nhà phố mặt tiền",
+ "caption_style": "realestate",
+ "music": "corporate",
+ "brand": {
+  "dark": "#0E3B2E",
+  "accent": "#D8B66A",
+  "light": "#F3F0E6",
+  "name": "Tên môi giới",
+  "phone": "09xx xxx xxx"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh nhà",
+  "giá + % vay",
+  "các tiện ích quanh nhà",
+  "SĐT"
+ ],
+ "preview": {
+  "from": 6.6,
+  "to": 12.6,
+  "still": 8.4
+ },
+ "scenes": [
+  {
+   "type": "re_title",
+   "t0": 0,
+   "t1": 2.8,
+   "x": 360,
+   "y": 800,
+   "size": 60,
+   "tag": "NHÀ PHỐ 1 TRỆT 2 LẦU",
+   "name": "Nhà phố mặt tiền",
+   "sub": "Khu dân cư hiện hữu (ví dụ)",
+   "address": "Đường số 1, Phường, Thành phố"
+  },
+  {
+   "type": "re_agent",
+   "t0": 3.0,
+   "t1": 6.4,
+   "mode": "lower",
+   "x": 30,
+   "y": 800,
+   "size": 60
+  },
+  {
+   "type": "re_map",
+   "t0": 6.6,
+   "t1": 10.2,
+   "x": 360,
+   "y": 590,
+   "size": 60,
+   "title": "Kết nối thuận tiện",
+   "radius_label": "2 km",
+   "stagger": 0.25,
+   "pois": [
+    {
+     "time": "3'",
+     "text": "Trường học",
+     "icon": "🏫"
+    },
+    {
+     "time": "5'",
+     "text": "Chợ, siêu thị",
+     "icon": "🛒"
+    },
+    {
+     "time": "8'",
+     "text": "Bệnh viện",
+     "icon": "🏥"
+    },
+    {
+     "time": "10'",
+     "text": "Trung tâm",
+     "icon": "🏙️"
+    }
+   ]
+  },
+  {
+   "type": "re_gallery",
+   "t0": 10.4,
+   "t1": 13.0,
+   "mode": "card",
+   "x": 360,
+   "y": 560,
+   "size": 60,
+   "images": [
+    "media/facade.jpg",
+    "media/living.jpg",
+    "media/kitchen.jpg"
+   ],
+   "labels": [
+    "Mặt tiền",
+    "Phòng khách",
+    "Bếp"
+   ]
+  },
+  {
+   "type": "re_loan",
+   "t0": 13.2,
+   "t1": 16.4,
+   "x": 360,
+   "y": 620,
+   "size": 60,
+   "price": "5,8",
+   "ltv": 60,
+   "rate": 8.5,
+   "years": 25,
+   "note": "Chỉ để tham khảo, lãi suất thực tế theo ngân hàng"
+  },
+  {
+   "type": "re_agent",
+   "t0": 16.6,
+   "t1": 20.2,
+   "x": 360,
+   "y": 680,
+   "size": 60,
+   "keep": true,
+   "cta": "Gọi xem nhà"
+  }
+ ]
+}

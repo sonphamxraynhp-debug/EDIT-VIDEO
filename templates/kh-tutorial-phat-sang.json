@@ -1,0 +1,134 @@
+{
+ "id": "kh-tutorial-phat-sang",
+ "name": "Tutorial phát sáng",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "glow",
+ "desc": "Tutorial kiểu creator: tiêu đề kem-vàng phát sáng, mốc 01/02, khối liệt kê, màn hình laptop, punch-in.",
+ "tags": [
+  "tutorial",
+  "mẹo",
+  "glow",
+  "màn hình"
+ ],
+ "title": "Mẹo dùng AI",
+ "caption_style": "glow",
+ "music": "tech",
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên công cụ",
+  "các bước",
+  "ảnh/clip màn hình"
+ ],
+ "preview": {
+  "from": 0.2,
+  "to": 6.2,
+  "still": 3.0
+ },
+ "scenes": [
+  {
+   "type": "glow_scrim",
+   "t0": 0,
+   "t1": 20.2,
+   "top": 0.42,
+   "bottom": 0.5
+  },
+  {
+   "type": "glow_title",
+   "t0": 0.3,
+   "t1": 4.4,
+   "big": "AI",
+   "small": "làm hộ bạn",
+   "x": 360,
+   "y": 170,
+   "size": 200
+  },
+  {
+   "type": "glow_title",
+   "t0": 2.2,
+   "t1": 4.4,
+   "big": "3 bước",
+   "small": "cực nhanh",
+   "x": 360,
+   "y": 960,
+   "size": 110,
+   "layout": "below",
+   "hideCaptions": true
+  },
+  {
+   "type": "glow_marker",
+   "t0": 5.0,
+   "t1": 8.6,
+   "text": "Bước",
+   "num": "01",
+   "x": 76,
+   "y": 100,
+   "size": 68
+  },
+  {
+   "type": "glow_screen",
+   "t0": 5.2,
+   "t1": 8.6,
+   "enter": "cut",
+   "screen": {
+    "broll": {
+     "id": "cong-nghe-moi--neural--ember"
+    }
+   },
+   "x": 360,
+   "y": 470,
+   "size": 600
+  },
+  {
+   "type": "glow_list",
+   "t0": 8.8,
+   "t1": 12.4,
+   "header": "Cần chuẩn bị",
+   "icon": "🧰",
+   "items": [
+    "1. Tài khoản",
+    "2. Câu lệnh mẫu",
+    "3. 5 phút rảnh"
+   ],
+   "x": 360,
+   "y": 815,
+   "size": 54
+  },
+  {
+   "type": "glow_punch",
+   "t0": 12.6,
+   "t1": 14.4,
+   "size": 1.35
+  },
+  {
+   "type": "glow_keyword",
+   "t0": 12.7,
+   "t1": 14.4,
+   "text": "QUAN TRỌNG",
+   "x": 360,
+   "y": 150,
+   "size": 108
+  },
+  {
+   "type": "glow_marker",
+   "t0": 14.6,
+   "t1": 17.4,
+   "text": "Bước",
+   "num": "02",
+   "x": 76,
+   "y": 100,
+   "size": 68
+  },
+  {
+   "type": "glow_endcard",
+   "t0": 17.4,
+   "t1": 20.2,
+   "text": "Lưu lại kẻo trôi",
+   "icon": "📌",
+   "x": 360,
+   "y": 110,
+   "size": 52
+  }
+ ]
+}

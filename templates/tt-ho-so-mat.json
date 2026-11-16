@@ -1,0 +1,113 @@
+{
+ "id": "tt-ho-so-mat",
+ "name": "Hồ sơ mật",
+ "category": "tintuc",
+ "aspect": "9:16",
+ "pack": "print",
+ "desc": "Bình luận tin / điều tra kiểu hồ sơ mật: giấy in chấm halftone, tiêu đề serif lệch màu, chân dung nghi phạm, bảng chứng cứ, con dấu.",
+ "tags": [
+  "hồ sơ",
+  "điều tra",
+  "halftone",
+  "con dấu",
+  "bình luận"
+ ],
+ "title": "Hồ sơ: thức khuya",
+ "caption_style": "print_dossier",
+ "music": "suspense",
+ "recipe_opts": {
+  "variant": "dossier"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "chủ đề hồ sơ",
+  "'nghi phạm' (đồ vật / thói quen)",
+  "ghi chú tang vật",
+  "3 manh mối"
+ ],
+ "preview": {
+  "from": 4.4,
+  "to": 10.4,
+  "still": 6.6
+ },
+ "scenes": [
+  {
+   "type": "print_dossier_page",
+   "t0": 0,
+   "t1": 2.4,
+   "title": "Hồ sơ: thức khuya (ví dụ)",
+   "exhibit": "HỒ SƠ MẬT",
+   "icon": "🗂️"
+  },
+  {
+   "type": "print_dossier_frame",
+   "t0": 2.4,
+   "t1": 20.2,
+   "case": "HỒ SƠ SỐ 001",
+   "date": "10.11.2026",
+   "chapters": [
+    {
+     "t": 2.4,
+     "text": "CHƯƠNG 1 · NGHI VẤN"
+    },
+    {
+     "t": 9.6,
+     "text": "CHƯƠNG 2 · TANG VẬT"
+    },
+    {
+     "t": 15.2,
+     "text": "CHƯƠNG 3 · KẾT LUẬN"
+    }
+   ]
+  },
+  {
+   "type": "print_dossier_suspect",
+   "t0": 5.0,
+   "t1": 7.8,
+   "icon": "📱",
+   "name": "NGHI PHẠM",
+   "case": "HỒ SƠ SỐ 001",
+   "title": "Nghi phạm số một"
+  },
+  {
+   "type": "print_dossier_page",
+   "t0": 9.6,
+   "t1": 12.8,
+   "title": "Tang vật",
+   "exhibit": "TANG VẬT 01",
+   "num": "02",
+   "icon": "⏰",
+   "label": "Ghi chú: 2 giờ sáng vẫn lướt (ví dụ)",
+   "stamp": "ĐÁNG NGỜ",
+   "stamp_at": 2.3
+  },
+  {
+   "type": "print_dossier_board",
+   "t0": 13.4,
+   "t1": 16.8,
+   "title": "Ba manh mối",
+   "items": [
+    {
+     "text": "Ngủ muộn",
+     "icon": "🌙"
+    },
+    {
+     "text": "Ít vận động",
+     "icon": "🏃"
+    },
+    {
+     "text": "Căng thẳng",
+     "icon": "💢"
+    }
+   ]
+  },
+  {
+   "type": "print_dossier_stamp",
+   "t0": 18.0,
+   "t1": 20.2,
+   "text": "ĐÃ ĐÓNG HỒ SƠ",
+   "keep": true
+  }
+ ]
+}

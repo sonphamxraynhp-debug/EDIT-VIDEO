@@ -1,0 +1,63 @@
+{
+ "id": "ai-neon-cong-cu",
+ "name": "Công cụ AI neon",
+ "category": "ai",
+ "aspect": "9:16",
+ "pack": "neon",
+ "desc": "Giới thiệu công cụ AI với phụ đề neon: khung đổi shot, chữ lớn phát sáng, ô logo công cụ, số chạy tăng.",
+ "tags": [
+  "công cụ AI",
+  "neon",
+  "logo",
+  "review AI"
+ ],
+ "title": "Công cụ AI mới",
+ "music": "tech",
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "logo / tên công cụ",
+  "1 con số"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.4
+ },
+ "scenes": [
+  {
+   "type": "neon_logochip",
+   "t0": 7.0,
+   "t1": 9.4,
+   "icon": "si:openai",
+   "label": "Công cụ 1",
+   "x": 250,
+   "y": 1010,
+   "size": 120,
+   "color": "#B388FF"
+  },
+  {
+   "type": "neon_logochip",
+   "t0": 7.6,
+   "t1": 9.4,
+   "icon": "si:googlegemini",
+   "label": "Công cụ 2",
+   "x": 470,
+   "y": 1010,
+   "size": 120,
+   "color": "#FFBCFF"
+  },
+  {
+   "type": "neon_counter",
+   "t0": 14.86,
+   "t1": 16.54,
+   "from": 0,
+   "to": 10,
+   "unit": "X NHANH HƠN",
+   "icon": "up",
+   "x": 360,
+   "y": 220,
+   "size": 80
+  }
+ ]
+}

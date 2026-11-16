@@ -1,0 +1,195 @@
+{
+ "id": "cs-danh-sach-seoul",
+ "name": "Danh sách kiểu Seoul",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "montage",
+ "desc": "Giọng kể danh sách trên b-roll cắt nhanh: mỗi ý một chữ lớn (serif nghiêng / chữ đậm), trang trắng, collage mở đầu, outro bong bóng chat.",
+ "tags": [
+  "danh sách",
+  "du lịch",
+  "b-roll",
+  "voice-over",
+  "thành phố"
+ ],
+ "title": "5 điều ở Đà Lạt",
+ "caption_style": "mt_seoul",
+ "music": "lofi",
+ "recipe_opts": {
+  "variant": "seoul"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "giọng đọc 5–8 ý ngắn",
+  "6–10 cảnh quay / ảnh của nơi đó",
+  "1 từ chốt cho outro"
+ ],
+ "preview": {
+  "from": 0.4,
+  "to": 6.4,
+  "still": 1.6
+ },
+ "scenes": [
+  {
+   "type": "mt_seoul_collage",
+   "t0": 0,
+   "t1": 2.6,
+   "mode": "shrink",
+   "src": "aroll",
+   "line": "5 điều ở Đà Lạt (ví dụ)",
+   "big": "bất ngờ",
+   "big_at": 1.0,
+   "stickers": [
+    {
+     "emoji": "👀",
+     "x": 600,
+     "y": 250
+    },
+    {
+     "emoji": "✋",
+     "x": 120,
+     "y": 1000,
+     "rot": -12
+    }
+   ]
+  },
+  {
+   "type": "mt_seoul_shots",
+   "t0": 2.6,
+   "t1": 8.2,
+   "shots": [
+    {
+     "src": "media/top_dalat.jpg"
+    },
+    {
+     "src": "media/top_sapa.jpg"
+    },
+    {
+     "src": "media/living.jpg"
+    },
+    {
+     "src": "media/top_hoian.jpg"
+    }
+   ],
+   "every": 1.4
+  },
+  {
+   "type": "mt_seoul_word",
+   "t0": 2.8,
+   "t1": 4.0,
+   "text": "sương mù",
+   "family": "serif",
+   "sub": "mỗi sáng sớm",
+   "y": 600
+  },
+  {
+   "type": "mt_seoul_word",
+   "t0": 4.3,
+   "t1": 5.5,
+   "text": "không",
+   "family": "sans",
+   "caps": true,
+   "sub": "kẹt xe",
+   "y": 600
+  },
+  {
+   "type": "mt_seoul_word",
+   "t0": 5.9,
+   "t1": 7.1,
+   "text": "cà phê",
+   "family": "serif",
+   "sub": "ở mọi góc phố",
+   "sub_pos": "below-left",
+   "y": 600
+  },
+  {
+   "type": "mt_seoul_flash",
+   "t0": 8.2,
+   "t1": 8.8,
+   "text": "thậm chí"
+  },
+  {
+   "type": "mt_seoul_shots",
+   "t0": 8.8,
+   "t1": 14.0,
+   "shots": [
+    {
+     "src": "media/top_halong.jpg"
+    },
+    {
+     "src": "media/kitchen.jpg"
+    },
+    {
+     "src": "media/top_phuquoc.jpg"
+    },
+    {
+     "src": "media/facade.jpg"
+    }
+   ],
+   "every": 1.3
+  },
+  {
+   "type": "mt_seoul_list",
+   "t0": 9.0,
+   "t1": 11.7,
+   "variant": "highlight",
+   "items": [
+    {
+     "text": "đi bộ",
+     "emoji": "🚶"
+    },
+    {
+     "text": "đạp xe"
+    },
+    {
+     "text": "ngắm hoàng hôn",
+     "emoji": "🌅"
+    }
+   ],
+   "stagger": 0.6
+  },
+  {
+   "type": "mt_seoul_word",
+   "t0": 12.1,
+   "t1": 13.4,
+   "text": "chậm lại",
+   "family": "serif",
+   "sub": "một nhịp",
+   "y": 600
+  },
+  {
+   "type": "mt_seoul_collage",
+   "t0": 14.0,
+   "t1": 17.6,
+   "mode": "photo",
+   "src": "media/top_sapa.jpg",
+   "line": "và điều cuối cùng",
+   "big": "con người",
+   "glitch": false,
+   "big_at": 1.0,
+   "stickers": [
+    {
+     "emoji": "🥰",
+     "x": 620,
+     "y": 330
+    }
+   ]
+  },
+  {
+   "type": "mt_seoul_imessage",
+   "t0": 17.6,
+   "t1": 20.2,
+   "src": "media/top_dalat.jpg",
+   "cards": [
+    "media/top_hoian.jpg",
+    "media/top_sapa.jpg"
+   ],
+   "word": "Đáng đi!",
+   "emoji": "❤️",
+   "typing_at": 0.6,
+   "word_at": 1.2,
+   "keep": true
+  }
+ ]
+}

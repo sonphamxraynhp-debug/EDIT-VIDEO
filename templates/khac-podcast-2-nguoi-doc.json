@@ -1,0 +1,91 @@
+{
+ "id": "khac-podcast-2-nguoi-doc",
+ "name": "Podcast 2 người dọc",
+ "category": "khac",
+ "aspect": "9:16",
+ "pack": "multicam",
+ "desc": "Clip podcast dọc cho Reels/TikTok: 2 camera xếp trên-dưới, màu riêng từng người, PIP người đang nghe.",
+ "tags": [
+  "podcast",
+  "clip dọc",
+  "multicam",
+  "reels"
+ ],
+ "title": "Trích đoạn podcast",
+ "caption_style": "multicam",
+ "music": "lofi",
+ "brand": {
+  "primary": "#FF7A59",
+  "accent": "#4DD4FF"
+ },
+ "recipe_opts": {
+  "episode": "TRÍCH ĐOẠN",
+  "chapters": [
+   {
+    "t": 0,
+    "title": "Câu hỏi đắt giá nhất tập"
+   }
+  ],
+  "cams": [
+   {
+    "media": "aroll",
+    "name": "Tên host",
+    "title": "Host",
+    "face": {
+     "x": 52,
+     "y": 38
+    }
+   },
+   {
+    "media": "aroll",
+    "name": "Tên khách mời",
+    "title": "Khách mời",
+    "face": {
+     "x": 50,
+     "y": 34
+    },
+    "zoom": 1.45,
+    "flip": true
+   }
+  ],
+  "cuts": [
+   {
+    "t": 0,
+    "cam": 0
+   },
+   {
+    "t": 3.1,
+    "cam": 1
+   },
+   {
+    "t": 6.7,
+    "cam": "both"
+   },
+   {
+    "t": 10.0,
+    "cam": 0
+   },
+   {
+    "t": 13.6,
+    "cam": 1
+   },
+   {
+    "t": 16.5,
+    "cam": "both"
+   }
+  ]
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "video cam 1 + cam 2",
+  "tên 2 người",
+  "tiêu đề trích đoạn"
+ ],
+ "preview": {
+  "from": 4.6,
+  "to": 10.6,
+  "still": 7.6
+ },
+ "scenes": []
+}

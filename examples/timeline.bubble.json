@@ -1,0 +1,377 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 45.33,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg",
+  "cutouts": "work/cutouts/%05d.png"
+ },
+ "face": {
+  "x": 362,
+  "y": 540
+ },
+ "scenes": [
+  {
+   "type": "hook_card",
+   "t0": 0,
+   "t1": 1.72,
+   "screen": {
+    "chat": {
+     "font": 13,
+     "pad": "14px 20px",
+     "actions": false,
+     "messages": [
+      {
+       "role": "user",
+       "t": 0,
+       "text": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing\nDùng tài liệu trên làm checklist. Từ giờ hãy tự kiểm tra và loại bỏ những pattern khiến văn bản nghe máy móc."
+      },
+      {
+       "role": "ai",
+       "t": 0.35,
+       "cps": 220,
+       "note": "Đã cập nhật bộ nhớ",
+       "text": "Đã cập nhật.\nMình sẽ dùng trang **Wikipedia: Signs of AI writing** làm checklist rà soát trước khi trả lời.\n- Không thổi phồng ý nghĩa của một điều rất bình thường.\n- Không lạm dụng từ ngữ \"sáo\", kiểu chatbot.\n- Không kết luận khuôn mẫu, không liệt kê máy móc."
+      }
+     ]
+    }
+   },
+   "lines": [
+    {
+     "text": "3 MÃ LỆNH ÉP CHATGPT",
+     "t": 0.0,
+     "style": "white",
+     "size": 46,
+     "y": 548,
+     "anim": "slide_l"
+    },
+    {
+     "text": "VIẾT NHƯ NGƯỜI THẬT",
+     "t": 0.5,
+     "style": "yellow",
+     "size": 46,
+     "y": 602,
+     "anim": "fly",
+     "from_y": 712,
+     "from_scale": 0.72,
+     "hold": 0.05
+    }
+   ]
+  },
+  {
+   "type": "spotlight",
+   "t0": 1.72,
+   "t1": 3.68,
+   "lines": [
+    {
+     "text": "DÒ AI",
+     "t": 1.8,
+     "style": "yellow",
+     "size": 80,
+     "y": 690,
+     "anim": "tumble"
+    },
+    {
+     "text": "QUA MẶT CÔNG CỤ",
+     "t": 2.25,
+     "style": "white",
+     "size": 46,
+     "y": 616,
+     "anim": "slide_r"
+    }
+   ],
+   "sticker": {
+    "src": "work/sticker_check.png",
+    "t": 2.4,
+    "from": "left",
+    "size": 330,
+    "y": 960,
+    "outline": 0
+   }
+  },
+  {
+   "type": "icon_tap",
+   "t0": 3.85,
+   "t1": 5.25,
+   "icon": "si:openai",
+   "size": 200,
+   "y": 985,
+   "taps": [
+    0.5,
+    1.0
+   ]
+  },
+  {
+   "type": "bubble_screen",
+   "t0": 5.25,
+   "t1": 24.2,
+   "enter": "drop",
+   "screen": {
+    "chat": {
+     "font": 15,
+     "placeholder": "Hỏi bất kỳ điều gì",
+     "input": {
+      "text": "/HUMANIZE Từ giờ hãy viết mọi nội dung tôi gửi theo giọng tự nhiên như người thật",
+      "t0": 5.6,
+      "t1": 7.5
+     },
+     "messages": [
+      {
+       "role": "user",
+       "t": 7.5,
+       "text": "/HUMANIZE\nTừ giờ hãy viết mọi nội dung tôi gửi theo giọng tự nhiên như người thật, bỏ cách diễn đạt sáo rỗng và máy móc"
+      },
+      {
+       "role": "ai",
+       "t": 8.0,
+       "cps": 70,
+       "note": "Đã cập nhật bộ nhớ",
+       "text": "Được. Từ giờ, mọi nội dung bạn gửi để viết hoặc chỉnh sửa, mình sẽ ưu tiên:\n- Viết tự nhiên, giống cách một người thật sẽ nói hoặc viết trong đúng ngữ cảnh.\n- Bỏ những câu sáo rỗng, khuôn mẫu, nghe \"đúng nhưng vô hồn\".\n- Tránh kiểu diễn đạt quá trơn tru, cân đối hoặc liệt kê máy móc.\n- Giữ nguyên ý và sắc thái của bạn."
+      },
+      {
+       "role": "user",
+       "t": 13.5,
+       "text": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing\nDùng tài liệu trên làm checklist. Từ giờ hãy tự kiểm tra và loại bỏ những pattern khiến văn bản nghe máy móc trước khi trả lời."
+      },
+      {
+       "role": "ai",
+       "t": 14.1,
+       "cps": 80,
+       "note": "Đã cập nhật bộ nhớ",
+       "text": "Đã cập nhật.\nMình sẽ dùng trang **Wikipedia: Signs of AI writing** làm checklist rà soát trước khi trả lời.\nĐặc biệt, mình sẽ tự kiểm tra:\n- Có đang **thổi phồng ý nghĩa** của một điều rất bình thường không.\n- Có dùng **từ ngữ, cách trình bày kiểu chatbot** không.\n- Có lặp lại **cặp pattern hành vi**: \"tóm lại\", \"nhìn chung\", \"điều này cho thấy\".\n- Quan trọng nhất: **chi tiết cụ thể** được ưu tiên hơn nhận xét chung chung."
+      }
+     ]
+    },
+    "pan": [
+     {
+      "t": 5.25,
+      "s": 1
+     },
+     {
+      "t": 9.6,
+      "s": 1
+     },
+     {
+      "t": 10.4,
+      "s": 1.18,
+      "x": 20,
+      "y": 60
+     },
+     {
+      "t": 12.0,
+      "s": 1
+     },
+     {
+      "t": 17.0,
+      "s": 1
+     },
+     {
+      "t": 17.8,
+      "s": 1.15,
+      "x": 15,
+      "y": 80
+     },
+     {
+      "t": 23.9,
+      "s": 1.15,
+      "x": 15,
+      "y": 80
+     }
+    ]
+   },
+   "lines": [
+    {
+     "text": "KHÔNG VIẾT CÁI TỪ NGỮ",
+     "t": 19.9,
+     "style": "fire",
+     "size": 38,
+     "y": 828,
+     "anim": "pop"
+    },
+    {
+     "text": "NHƯ CHATBOT",
+     "t": 20.3,
+     "style": "fire",
+     "size": 38,
+     "y": 872,
+     "anim": "pop"
+    }
+   ]
+  },
+  {
+   "type": "spotlight",
+   "t0": 25.45,
+   "t1": 26.95,
+   "lines": [
+    {
+     "text": "CỰC ĐỈNH",
+     "t": 25.5,
+     "style": "yellow",
+     "size": 84,
+     "y": 682,
+     "anim": "tumble",
+     "stagger": 0.05
+    },
+    {
+     "text": "BƯỚC CUỐI",
+     "t": 25.85,
+     "style": "white",
+     "size": 56,
+     "y": 606,
+     "anim": "slide_r"
+    }
+   ],
+   "sticker": {
+    "src": "work/sticker_win.png",
+    "t": 25.55,
+    "from": "up",
+    "size": 330,
+    "y": 960,
+    "outline": 0
+   }
+  },
+  {
+   "type": "bubble_screen",
+   "t0": 26.95,
+   "t1": 38.25,
+   "enter": "fade",
+   "screen": {
+    "chat": {
+     "font": 15,
+     "input": {
+      "text": "Hãy đóng gói toàn bộ workflow này thành một Skill tái sử dụng tên \"humanizer\"",
+      "t0": 27.2,
+      "t1": 29.7
+     },
+     "messages": [
+      {
+       "role": "user",
+       "t": 29.7,
+       "text": "Hãy đóng gói toàn bộ workflow này thành một Skill tái sử dụng tên \"humanizer\""
+      },
+      {
+       "role": "ai",
+       "t": 30.3,
+       "cps": 60,
+       "text": "Đã đóng gói workflow thành Skill `humanizer`, gồm:\n- Quy trình hiểu ý → giữ nguyên nghĩa → viết lại tự nhiên.\n- Checklist chống các pattern văn phong AI dựa trên tài liệu Wikipedia bạn đưa.\n- Kiểm tra riêng về từ ngữ, cách trình bày, gạch ngang, kết luận khuôn mẫu.\n- Nguyên tắc **không cố tình làm văn bản vụng về** để né AI detector.\n- Bước kiểm tra cuối trước khi xuất bản.\n📄 SKILL.md"
+      }
+     ]
+    },
+    "pan": [
+     {
+      "t": 26.95,
+      "s": 1
+     },
+     {
+      "t": 32.5,
+      "s": 1
+     },
+     {
+      "t": 33.3,
+      "s": 1.12,
+      "x": 30,
+      "y": 40
+     },
+     {
+      "t": 38.2,
+      "s": 1.12,
+      "x": 30,
+      "y": 40
+     }
+    ]
+   },
+   "lines": [
+    {
+     "text": "/humanizer",
+     "t": 33.95,
+     "style": "ink",
+     "size": 66,
+     "y": 730,
+     "anim": "pop",
+     "upper": false,
+     "weight": 800
+    },
+    {
+     "text": "Văn bản như người viết",
+     "t": 35.2,
+     "style": "ink",
+     "size": 46,
+     "y": 818,
+     "anim": "pop",
+     "upper": false,
+     "weight": 800
+    },
+    {
+     "text": "Hạn chế AI quét",
+     "t": 36.6,
+     "style": "ink",
+     "size": 46,
+     "y": 902,
+     "anim": "pop",
+     "upper": false,
+     "weight": 800
+    }
+   ]
+  },
+  {
+   "type": "text",
+   "t0": 39.6,
+   "t1": 42.15,
+   "lines": [
+    {
+     "text": "TRỌN BỘ HƯỚNG DẪN",
+     "t": 39.6,
+     "style": "glow",
+     "size": 44,
+     "y": 905,
+     "anim": "blur_zoom"
+    },
+    {
+     "text": "VIẾT NHƯ NGƯỜI THẬT",
+     "t": 39.6,
+     "style": "glow",
+     "size": 44,
+     "y": 972,
+     "anim": "blur_zoom"
+    }
+   ]
+  },
+  {
+   "type": "follow_cta",
+   "t0": 42.4,
+   "t1": 45.33,
+   "keep": true,
+   "label": "Follow",
+   "keyword": {
+    "text": "GPT",
+    "t": 43.55
+   }
+  }
+ ],
+ "fx": [
+  {
+   "t": 1.72,
+   "type": "punch",
+   "amp": 0.06
+  },
+  {
+   "t": 25.45,
+   "type": "punch",
+   "amp": 0.06
+  }
+ ],
+ "audio": {
+  "voice": "work/aroll.mp4",
+  "mix": "work/mix.wav",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 45.33,
+    "mood": "happy",
+    "gain": -12
+   }
+  ],
+  "sfx": []
+ }
+}

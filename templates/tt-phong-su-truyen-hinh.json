@@ -1,0 +1,166 @@
+{
+ "id": "tt-phong-su-truyen-hinh",
+ "name": "Phóng sự truyền hình",
+ "category": "tintuc",
+ "aspect": "9:16",
+ "pack": "broadcast",
+ "desc": "Người nói là người dẫn một bản tin một chủ đề: plate mở đầu bay thành logo góc, băng tên vàng chanh lật chữ, rundown các ý, bảng lật chữ, thẻ + ngoặc, tóm tắt đánh dấu ✓.",
+ "tags": [
+  "phóng sự",
+  "truyền hình",
+  "lower third",
+  "rundown",
+  "bảng lật"
+ ],
+ "title": "Chủ đề hôm nay",
+ "caption_style": "none",
+ "recipe_opts": {
+  "variant": "package"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "chủ đề bản tin (2–4 chữ)",
+  "3 ý chính theo thứ tự nói",
+  "tiêu đề ngắn cho từng ý (≤ 26 ký tự)",
+  "nguồn thật nếu có số liệu"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 4.4
+ },
+ "scenes": [
+  {
+   "type": "bc_pkg_sting",
+   "t0": 0,
+   "t1": 1.9,
+   "title": "CHỦ ĐỀ MẪU",
+   "dateline": "MỘT CHỦ ĐỀ · MỘT BẢN TIN"
+  },
+  {
+   "type": "bc_pkg_badge",
+   "t0": 1.6,
+   "t1": 20.2,
+   "keep": true
+  },
+  {
+   "type": "bc_pkg_rundown",
+   "t0": 2.3,
+   "t1": 5.6,
+   "cut": true,
+   "title": "Trong bản tin này (ví dụ)",
+   "mono": "MỘT CHỦ ĐỀ · BA Ý",
+   "items": [
+    {
+     "text": "Mất nhiều giờ",
+     "tc": "00:06"
+    },
+    {
+     "text": "Công cụ AI",
+     "tc": "00:10"
+    },
+    {
+     "text": "Kéo thả là xong",
+     "tc": "00:15"
+    }
+   ]
+  },
+  {
+   "type": "bc_pkg_flap",
+   "t0": 6.4,
+   "t1": 9.9,
+   "cut": true,
+   "eyebrow": "ĐIỂM 01",
+   "title": "Thời gian dựng một clip (ví dụ)",
+   "from": "VÀI GIỜ",
+   "to": "VÀI PHÚT",
+   "flip_t": 7.7,
+   "label": "Nhanh hơn nhiều"
+  },
+  {
+   "type": "bc_pkg_cards",
+   "t0": 10.6,
+   "t1": 14.6,
+   "cut": true,
+   "eyebrow": "ĐIỂM 02",
+   "title": "Ba bước (ví dụ)",
+   "items": [
+    {
+     "icon": "cursor",
+     "text": "Kéo thả video",
+     "t": 11.1
+    },
+    {
+     "icon": "spark",
+     "text": "Chọn hiệu ứng",
+     "t": 11.7
+    },
+    {
+     "icon": "video",
+     "text": "Xuất clip",
+     "t": 12.3
+    }
+   ],
+   "summary": "Không cần |biết edit|",
+   "summary_t": 12.8,
+   "stamp": "DỄ LÀM",
+   "stamp_sub": "ví dụ",
+   "stamp_t": 13.5
+  },
+  {
+   "type": "bc_pkg_strap",
+   "t0": 1.9,
+   "t1": 17.0,
+   "items": [
+    {
+     "t": 1.9,
+     "tab": "HÔM NAY",
+     "head": "AI dựng video tự động",
+     "sub": "Bản tin mẫu"
+    },
+    {
+     "t": 6.4,
+     "tab": "01 · THỜI GIAN",
+     "head": "Từ vài giờ còn vài phút",
+     "sub": "Ví dụ minh hoạ",
+     "source": "Nguồn mẫu"
+    },
+    {
+     "t": 10.6,
+     "tab": "02 · CÁCH LÀM",
+     "head": "Kéo thả, chọn, xuất",
+     "sub": "Ví dụ minh hoạ"
+    },
+    {
+     "t": 14.7,
+     "tab": "03 · KẾT QUẢ",
+     "head": "Clip sẵn sàng để đăng",
+     "sub": "Ví dụ minh hoạ"
+    }
+   ]
+  },
+  {
+   "type": "bc_pkg_rundown",
+   "t0": 17.0,
+   "t1": 20.2,
+   "keep": true,
+   "cut": true,
+   "recap": true,
+   "items": [
+    {
+     "text": "Mất nhiều giờ",
+     "t": 17.8
+    },
+    {
+     "text": "Công cụ AI",
+     "t": 18.4
+    },
+    {
+     "text": "Kéo thả là xong",
+     "t": 19.0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "id": "ai-tin-ai-slate",
+ "name": "Tin AI kiểu Claude edit",
+ "category": "ai",
+ "aspect": "9:16",
+ "pack": "slate",
+ "desc": "Tin tức / thủ thuật AI: nền lưới, thẻ video bo góc, hàng logo công cụ, chữ LED, sơ đồ, thẻ hỏi cuối.",
+ "tags": [
+  "tin AI",
+  "công cụ AI",
+  "logo",
+  "sơ đồ"
+ ],
+ "title": "Tin AI hôm nay",
+ "music": "tech",
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "logo các công cụ nhắc tới",
+  "ý chính"
+ ],
+ "preview": {
+  "from": 4.6,
+  "to": 10.6,
+  "still": 7.6
+ },
+ "scenes": [
+  {
+   "type": "logo_row",
+   "t0": 6.6,
+   "t1": 9.1,
+   "y": 300,
+   "icons": [
+    "si:openai",
+    "si:claude",
+    "si:googlegemini",
+    "si:perplexity"
+   ]
+  },
+  {
+   "type": "led_text",
+   "t0": 6.85,
+   "t1": 9.1,
+   "text": "CẬP NHẬT",
+   "y": 398,
+   "size": 74
+  },
+  {
+   "type": "neon_text",
+   "t0": 10.3,
+   "t1": 11.1,
+   "text": "quá nhanh",
+   "y": 390,
+   "size": 84
+  }
+ ]
+}

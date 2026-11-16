@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Staggered Fade Up - Demo</title>
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #demo {
+        width: 1920px;
+        height: 1080px;
+        display: grid;
+        place-items: center;
+        background: var(--bg, #f5f5f4);
+        font-family: var(--font-body, Inter, system-ui, sans-serif);
+      }
+      /* ponytail: zoom on .demo-frame (not a GSAP target) to fill ~65% of frame */
+      .demo-frame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        padding: 72px 96px;
+        zoom: 1.9;
+      }
+      .demo-label {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted, #71717a);
+      }
+      .hf-catalog-staggered-fade-up {
+        color: var(--fg, #18181b);
+        font-family: var(--font-display, Inter, system-ui, sans-serif);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+      }
+      .hf-catalog-staggered-fade-up {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 18px;
+        font-size: 72px;
+        line-height: 1.05;
+        max-width: 680px;
+        justify-content: center;
+      }
+      .hf-catalog-staggered-fade-up span {
+        display: inline-block;
+        transform: translate(var(--hf-word-x, 0px), var(--hf-word-y, 0px))
+          scale(var(--hf-word-scale, 1));
+        filter: blur(var(--hf-word-blur, 0px));
+        will-change: transform, filter, opacity;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo" data-composition-id="staggered-fade-up-demo" data-start="0" data-width="1920" data-height="1080" data-duration="5">
+      <div class="demo-frame">
+        <div class="demo-label" data-hft="0">staggered fade up</div>
+        <div class="hf-catalog-staggered-fade-up" data-composition-variables="[
+    { &quot;id&quot;: &quot;direction&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Direction&quot;, &quot;description&quot;: &quot;Where the offset the timeline drives points.&quot;, &quot;default&quot;: &quot;up&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }, { &quot;value&quot;: &quot;down&quot;, &quot;label&quot;: &quot;Down&quot; }, { &quot;value&quot;: &quot;left&quot;, &quot;label&quot;: &quot;Left&quot; }, { &quot;value&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Right&quot; }] },
+    { &quot;id&quot;: &quot;distance&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Distance&quot;, &quot;description&quot;: &quot;Scales the travel offset, so the words cover a shorter or longer run in the same time.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;close&quot;, &quot;label&quot;: &quot;Close&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;far&quot;, &quot;label&quot;: &quot;Far&quot; }] },
+    { &quot;id&quot;: &quot;tone&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Tone&quot;, &quot;description&quot;: &quot;Word colour: ink for light frames, paper for dark ones, accent rides --brand.&quot;, &quot;default&quot;: &quot;ink&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;ink&quot;, &quot;label&quot;: &quot;Ink&quot; }, { &quot;value&quot;: &quot;paper&quot;, &quot;label&quot;: &quot;Paper&quot; }, { &quot;value&quot;: &quot;accent&quot;, &quot;label&quot;: &quot;Accent&quot; }] },
+    { &quot;id&quot;: &quot;words&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Words&quot;, &quot;description&quot;: &quot;The words themselves, split on spaces, one span and one stagger step each.&quot;, &quot;default&quot;: &quot;Staggered fade up&quot; }
+  ]">
+          <span data-hft="1">Motion</span><span data-hft="2">that</span><span data-hft="3">tells</span><span>a</span><span data-hft="4">story</span><span data-hft="5">one</span><span data-hft="6">word</span><span data-hft="7">at</span><span>a</span><span data-hft="8">time</span>
+        </div>
+      </div>
+      <script>window.__hfApply&&window.__hfApply()</script><script>
+        (function () {
+          "use strict";
+
+          var vars =
+            window.__hyperframes && window.__hyperframes.getVariables
+              ? window.__hyperframes.getVariables()
+              : {};
+
+          // Unrecognised overrides return to their declared defaults.
+          var axes = {
+            up: { x: 0, y: 1 },
+            down: { x: 0, y: -1 },
+            left: { x: -1, y: 0 },
+            right: { x: 1, y: 0 },
+          };
+          var reaches = { close: 0.5, standard: 1, far: 1.85 };
+          var tones = {
+            ink: "var(--fg, #18181b)",
+            paper: "#fafafa",
+            accent: "var(--brand, #34d399)",
+          };
+
+          function pick(table, value, fallback) {
+            return Object.prototype.hasOwnProperty.call(table, value) ? value : fallback;
+          }
+
+          var axis = axes[pick(axes, vars.direction, "up")];
+          var reach = reaches[pick(reaches, vars.distance, "standard")];
+          var tone = tones[pick(tones, vars.tone, "ink")];
+          var words =
+            typeof vars.words === "string" && vars.words.trim()
+              ? vars.words.trim().split(/\s+/)
+              : null;
+
+          var roots = document.querySelectorAll(".hf-catalog-staggered-fade-up");
+          for (var i = 0; i < roots.length; i += 1) {
+            roots[i].style.setProperty("--hf-word-axis-x", String(axis.x * reach));
+            roots[i].style.setProperty("--hf-word-axis-y", String(axis.y * reach));
+            roots[i].style.setProperty("--hf-fade-word-color", tone);
+            if (words) {
+              roots[i].textContent = "";
+              for (var j = 0; j < words.length; j += 1) {
+                var span = document.createElement("span");
+                span.textContent = words[j];
+                roots[i].appendChild(span);
+              }
+            }
+          }
+        })();
+      </script>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        const startTime = 0.4;
+        tl.fromTo(
+          ".hf-catalog-staggered-fade-up span",
+          { opacity: 0, "--hf-word-y": "28px", "--hf-word-scale": 0.92, "--hf-word-blur": "6px" },
+          {
+            opacity: 1,
+            "--hf-word-y": "0px",
+            "--hf-word-scale": 1,
+            "--hf-word-blur": "0px",
+            duration: 0.4,
+            stagger: 0.18,
+            ease: "power3.out",
+          },
+          startTime,
+        );
+        tl.set({}, {}, 5);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["staggered-fade-up-demo"] = tl;
+      </script>
+    </div>
+    <style>
+      .hf-catalog-staggered-fade-up {
+        color: var(--hf-fade-word-color, var(--fg, #18181b));
+        font-family: var(--font-display, Inter, system-ui, sans-serif);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+      }
+      .hf-catalog-staggered-fade-up {
+        display: inline-flex;
+        gap: var(--space-1, 12px);
+        font-size: 56px;
+        line-height: 1;
+      }
+      .hf-catalog-staggered-fade-up span {
+        display: inline-block;
+        transform: translate(
+            calc(var(--hf-word-x, 0px) + var(--hf-word-y, 0px) * var(--hf-word-axis-x, 0)),
+            calc(var(--hf-word-y, 0px) * var(--hf-word-axis-y, 1))
+          )
+          scale(var(--hf-word-scale, 1));
+        filter: blur(var(--hf-word-blur, 0px));
+        will-change: transform, filter, opacity;
+      }
+    </style>
+  
+
+</body></html>

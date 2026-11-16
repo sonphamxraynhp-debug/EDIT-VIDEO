@@ -1,0 +1,151 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg",
+  "cutouts": "work/cutouts/%05d.png"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "captions": "work/captions.json",
+ "scenes": [
+  {
+   "type": "gs_backdrop",
+   "t0": 0,
+   "t1": 15.6,
+   "bg": "media/gs_bg_city.jpg",
+   "kb": 0.08,
+   "x": 360,
+   "y": 1280,
+   "size": 52
+  },
+  {
+   "type": "gs_article",
+   "t0": 0,
+   "t1": 6,
+   "source": "Tin Tức 24h",
+   "url": "tintuc24h.vn/cong-nghe/cuoc-dua-sieu-tri-tue",
+   "category": "Công nghệ",
+   "headline": "Cựu nhà nghiên cứu AI cảnh báo cuộc đua tới siêu trí tuệ",
+   "date": "31/10/2026",
+   "author": "Minh Anh",
+   "image": "media/gs_hero.jpg",
+   "lead": "Một nhà nghiên cứu từng làm việc ở hai phòng thí nghiệm AI lớn vừa lên tiếng sau khi nghỉ việc.",
+   "before": "Theo ông, các công ty đang chạy đua rất nhanh và",
+   "highlight": "AI có thể tự cải thiện mà con người không kịp kiểm soát.",
+   "after": "Nhiều chuyên gia đồng tình với nhận định này.",
+   "hl_t": 1.6
+  },
+  {
+   "type": "gs_zoomfocus",
+   "t0": 3.4,
+   "t1": 6,
+   "keys": [
+    {
+     "t": 3.4,
+     "x": 50,
+     "y": 33,
+     "s": 1
+    },
+    {
+     "t": 4.0,
+     "x": 50,
+     "y": 33,
+     "s": 1.45
+    },
+    {
+     "t": 5.4,
+     "x": 50,
+     "y": 33,
+     "s": 1.45
+    },
+    {
+     "t": 6,
+     "x": 50,
+     "y": 33,
+     "s": 1
+    }
+   ]
+  },
+  {
+   "type": "gs_screen",
+   "t0": 6,
+   "t1": 10.8,
+   "image": "media/gs_site.jpg",
+   "url": "aidaily.vn/sieu-tri-tue",
+   "from": 0,
+   "to": 0.75
+  },
+  {
+   "type": "gs_pointer",
+   "t0": 8.5,
+   "t1": 10.6,
+   "kind": "arrow",
+   "x": 360,
+   "y": 330,
+   "w": 560,
+   "h": 150,
+   "label": "ĐÂY NÈ!"
+  },
+  {
+   "type": "gs_tweet",
+   "t0": 11,
+   "t1": 15.5,
+   "name": "Minh Tech",
+   "handle": "@minhtech",
+   "time": "2 giờ",
+   "avatar": "media/gs_avatar.jpg",
+   "text": "Hai công ty AI lớn nhất đang chạy đua tới siêu trí tuệ có khả năng tự cải thiện. Chúng ta đã sẵn sàng chưa? 🤖",
+   "stats": {
+    "replies": 1280,
+    "reposts": 3400,
+    "likes": 25600,
+    "views": 1200000
+   },
+   "like_t": 12.4,
+   "x": 360,
+   "y": 360,
+   "size": 100
+  },
+  {
+   "type": "gs_pointer",
+   "t0": 13,
+   "t1": 15.4,
+   "kind": "circle",
+   "x": 360,
+   "y": 362,
+   "w": 560,
+   "h": 90,
+   "label": "TỰ CẢI THIỆN",
+   "label_y": 168
+  },
+  {
+   "type": "gs_backdrop",
+   "t0": 15.6,
+   "t1": 20.2,
+   "bg": {
+    "gradient": [
+     "#2A0B3A",
+     "#5B1450",
+     "#120818"
+    ],
+    "glow": "#FF4FA0",
+    "glow2": "#3FA7FF"
+   },
+   "size": 62,
+   "outline": 4,
+   "keep": true
+  }
+ ],
+ "audio": {
+  "voice": "work/voice.wav",
+  "mix": "work/mix.wav",
+  "music": [],
+  "sfx": []
+ },
+ "caption_style": "greenscreen"
+}

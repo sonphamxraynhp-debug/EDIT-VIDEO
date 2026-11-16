@@ -1,0 +1,128 @@
+{
+ "id": "khac-podcast-quanh-mat",
+ "name": "Podcast đạo cụ quanh mặt",
+ "category": "khac",
+ "aspect": "9:16",
+ "pack": "montage",
+ "desc": "Người nói chính diện, đạo cụ giấy (ghi chú, trích dẫn, biểu đồ, polaroid, băng nhãn) hiện cạnh mặt — không bao giờ che mặt; phụ đề hai tầng trên thẻ navy dưới cằm.",
+ "tags": [
+  "talking head",
+  "podcast",
+  "giấy",
+  "ghi chú",
+  "tâm lý"
+ ],
+ "title": "Hiệu ứng cánh cửa",
+ "caption_style": "mt_result",
+ "music": "lofi",
+ "recipe_opts": {
+  "variant": "face"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "video nói chính diện (đặt vị trí mặt)",
+  "3–5 ý ngắn để viết lên giấy",
+  "1 câu trích dẫn",
+  "1 ảnh cho polaroid"
+ ],
+ "preview": {
+  "from": 0.2,
+  "to": 6.2,
+  "still": 2.2
+ },
+ "scenes": [
+  {
+   "type": "mt_film",
+   "t0": 0,
+   "t1": 20.2,
+   "vignette": false
+  },
+  {
+   "type": "mt_prop_note",
+   "t0": 0.3,
+   "t1": 3.6,
+   "kind": "note",
+   "zone": "top",
+   "w": 390,
+   "h": 240,
+   "lines": [
+    "việc cần làm",
+    {
+     "text": "dậy lúc 5 giờ",
+     "at": 0.9
+    },
+    {
+     "text": "đọc 10 trang",
+     "at": 1.4,
+     "strike": 2.3
+    }
+   ],
+   "enter": "slap"
+  },
+  {
+   "type": "mt_quote_card",
+   "t0": 4.0,
+   "t1": 7.4,
+   "text": "Làm chậm mà chắc, còn hơn nhanh mà bỏ dở.",
+   "author": "lời bà dặn (ví dụ)",
+   "zone": "top"
+  },
+  {
+   "type": "mt_prop_bars",
+   "t0": 7.8,
+   "t1": 11.0,
+   "title": "ai làm xong hơn?",
+   "bars": [
+    {
+     "label": "có kế hoạch",
+     "value": 78
+    },
+    {
+     "label": "làm ngẫu hứng",
+     "value": 31
+    }
+   ],
+   "zone": "top"
+  },
+  {
+   "type": "mt_polaroid",
+   "t0": 11.4,
+   "t1": 14.4,
+   "src": "media/top_hoian.jpg",
+   "label": "góc làm việc",
+   "zone": "top",
+   "w": 240,
+   "enter": "drop",
+   "rot": 3
+  },
+  {
+   "type": "mt_prop_note",
+   "t0": 14.8,
+   "t1": 17.3,
+   "kind": "sticky",
+   "zone": "top",
+   "w": 270,
+   "h": 230,
+   "lines": [
+    "mỗi ngày",
+    {
+     "text": "tốt hơn 1%",
+     "at": 0.9
+    }
+   ],
+   "circle": {
+    "line": 1,
+    "at": 1.6
+   },
+   "enter": "swing"
+  },
+  {
+   "type": "mt_label_tape",
+   "t0": 17.6,
+   "t1": 20.2,
+   "text": "LƯU LẠI NHÉ",
+   "keep": true
+  }
+ ]
+}

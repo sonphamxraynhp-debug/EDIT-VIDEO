@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Pull Back Reveal Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0b0c0e;
+      }
+
+      #root {
+        --bg: #0b0c0e;
+        --fg: #f8fafc;
+        --muted: #a7b0c0;
+        --surface: #1b2230;
+        --border: #3b4558;
+        --radius: 2.4cqw;
+        --font-display: Inter, system-ui, sans-serif;
+        --font-body: Inter, system-ui, sans-serif;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 44%, #171c28 0%, #0b0c0e 72%);
+      }
+
+      .mount-card {
+        width: 78%;
+        height: 74%;
+        left: 11%;
+        top: 13%;
+        container-type: size;
+        overflow: hidden;
+        border: 0.1cqw solid rgba(148, 163, 184, 0.26);
+        border-radius: 2.2cqw;
+        background: var(--bg);
+        box-shadow: 0 5cqh 12cqh rgba(0, 0, 0, 0.56);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="pull-back-reveal-demo" data-start="0" data-width="1920" data-height="1080" data-duration="4.5" data-fps="30" data-hf-anc="">
+      <div id="pull-back-reveal-mount" class="mount-card clip" data-composition-id="pull-back-reveal" data-variable-values="{&quot;detail_text&quot;:&quot;+428%&quot;,&quot;headline&quot;:&quot;Momentum scales&quot;,&quot;accent&quot;:&quot;violet&quot;}" data-start="0" data-duration="4.5" data-track-index="0" data-width="1498" data-height="799" data-composition-variables="[
+    { &quot;id&quot;: &quot;detail_text&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Detail text&quot;, &quot;description&quot;: &quot;Stat shown in the detail chip at the center of the reveal.&quot;, &quot;default&quot;: &quot;+312%&quot; },
+    { &quot;id&quot;: &quot;headline&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Headline&quot;, &quot;description&quot;: &quot;Headline revealed around the focused detail.&quot;, &quot;default&quot;: &quot;Growth compounds&quot; },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Highlight color used across the composed scene.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="pull-back-reveal" data-duration="4.5" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            isolation: isolate;
+            background: var(--bg, #0b0c0e);
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-body, Inter, system-ui, sans-serif);
+            pointer-events: none;
+          }
+
+          .pbr-clip,
+          .pbr-world {
+            position: absolute;
+            inset: 0;
+          }
+
+          .pbr-clip {
+            overflow: hidden;
+            background: var(--bg, #0b0c0e);
+          }
+
+          .pbr-world {
+            overflow: hidden;
+            transform-origin: 50% 50%;
+            background:
+              radial-gradient(
+                circle at 48% 50%,
+                color-mix(in srgb, var(--pbr-accent) 19%, transparent),
+                transparent 27%
+              ),
+              linear-gradient(
+                145deg,
+                color-mix(in srgb, var(--surface, #18202d) 82%, var(--bg, #0b0c0e)),
+                var(--bg, #0b0c0e) 72%
+              );
+            will-change: transform;
+          }
+
+          .pbr-headline {
+            position: absolute;
+            z-index: 1;
+            top: 8cqh;
+            left: 8cqw;
+            width: 76cqw;
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            font-size: 7.6cqw;
+            font-weight: 780;
+            line-height: 0.92;
+            letter-spacing: -0.055em;
+            overflow-wrap: anywhere;
+            text-shadow: 0 1.8cqh 5cqh color-mix(in srgb, var(--bg, #0b0c0e) 72%, transparent);
+          }
+
+          .pbr-card {
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+            border: 0.11cqw solid color-mix(in srgb, var(--border, #334155) 78%, transparent);
+            border-radius: var(--radius, 2.4cqw);
+            background: color-mix(in srgb, var(--surface, #1e293b) 92%, transparent);
+            box-shadow:
+              0 2.2cqh 5.5cqh color-mix(in srgb, var(--bg, #0b0c0e) 54%, transparent),
+              inset 0 0.1cqh 0 color-mix(in srgb, var(--fg, #f8fafc) 9%, transparent);
+          }
+
+          .pbr-detail-card {
+            top: 31cqh;
+            left: 8cqw;
+            width: 56cqw;
+            height: 56cqh;
+            padding: 5cqh 4cqw;
+          }
+
+          .pbr-detail-label,
+          .pbr-support-label {
+            color: var(--muted, #94a3b8);
+            font-size: 1.35cqw;
+            font-weight: 680;
+            line-height: 1;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+          }
+
+          .pbr-detail-chip {
+            position: absolute;
+            top: 13cqh;
+            left: 31cqw;
+            width: 20cqw;
+            min-height: 12cqh;
+            display: grid;
+            place-items: center;
+            padding: 1.8cqh 1.5cqw;
+            border: 0.12cqw solid color-mix(in srgb, var(--pbr-accent) 72%, var(--fg, #f8fafc));
+            border-radius: calc(var(--radius, 2.4cqw) * 0.72);
+            background: color-mix(in srgb, var(--pbr-accent) 22%, var(--surface, #1e293b));
+            box-shadow: 0 1.8cqh 4.5cqh color-mix(in srgb, var(--pbr-accent) 28%, transparent);
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            font-size: 4.4cqw;
+            font-weight: 820;
+            line-height: 1;
+            letter-spacing: -0.055em;
+            overflow: hidden;
+            text-align: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .pbr-detail-context {
+            position: absolute;
+            bottom: 5cqh;
+            left: 4cqw;
+            color: var(--muted, #94a3b8);
+            font-size: 1.6cqw;
+            font-weight: 560;
+            line-height: 1.25;
+          }
+
+          .pbr-support-card {
+            left: 75cqw;
+            width: 17cqw;
+            height: 25cqh;
+            padding: 3.6cqh 2.2cqw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .pbr-support-card-a {
+            top: 31cqh;
+          }
+
+          .pbr-support-card-b {
+            top: 62cqh;
+          }
+
+          .pbr-support-value {
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            font-size: 3.7cqw;
+            font-weight: 780;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+          }
+
+          .pbr-support-rule {
+            width: 100%;
+            height: 0.5cqh;
+            border-radius: 999cqw;
+            background: color-mix(in srgb, var(--pbr-accent) 72%, var(--border, #334155));
+          }
+
+          .pbr-ground {
+            position: absolute;
+            z-index: 0;
+            left: 15cqw;
+            bottom: 2cqh;
+            width: 70cqw;
+            height: 10cqh;
+            border-radius: 50%;
+            background: color-mix(in srgb, var(--pbr-accent) 16%, var(--bg, #0b0c0e));
+            filter: blur(3.2cqh);
+            opacity: 0;
+            transform-origin: 50% 50%;
+            will-change: transform, opacity;
+          }
+        </style>
+
+        <div id="pull-back-reveal-clip" class="pbr-clip clip" data-start="0" data-duration="4.5" data-track-index="0">
+          <div class="pbr-world">
+            <div class="pbr-headline"></div>
+
+            <section class="pbr-card pbr-detail-card">
+              <div class="pbr-detail-label" data-hft="0">Net growth</div>
+              <div class="pbr-detail-chip"></div>
+              <div class="pbr-detail-context" data-hft="1">Across every active workspace</div>
+            </section>
+
+            <section class="pbr-card pbr-support-card pbr-support-card-a">
+              <div class="pbr-support-label" data-hft="2">Retention</div>
+              <div class="pbr-support-value" data-hft="3">94%</div>
+              <div class="pbr-support-rule"></div>
+            </section>
+
+            <section class="pbr-card pbr-support-card pbr-support-card-b">
+              <div class="pbr-support-label" data-hft="4">Teams</div>
+              <div class="pbr-support-value" data-hft="5">48</div>
+              <div class="pbr-support-rule"></div>
+            </section>
+
+            <div class="pbr-ground"></div>
+          </div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            var world = root.querySelector(".pbr-world");
+            var headline = root.querySelector(".pbr-headline");
+            var detail = root.querySelector(".pbr-detail-chip");
+            var ground = root.querySelector(".pbr-ground");
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            var detailText = vars.detail_text == null ? "+312%" : String(vars.detail_text);
+            var headlineText = vars.headline == null ? "Growth compounds" : String(vars.headline);
+            var accentColors = {
+              green: "var(--brand, #a1a1aa)",
+              blue: "var(--accent, #a1a1aa)",
+              violet: "var(--accent-2, #a1a1aa)",
+            };
+            var accentColor = accentColors[vars.accent] || accentColors.green;
+
+            detail.textContent = detailText;
+            headline.textContent = headlineText;
+            root.style.setProperty("--pbr-accent", accentColor);
+
+            // RETIME RANGE: IN owns the tight beat and complete camera move.
+            // HOLD is the only elastic phase. This reveal has no exit.
+            var IN_BASE = 2.4;
+            var TIGHT_HOLD_BASE = 0.55;
+            var WHIP_BASE = 1.2;
+            var DRIFT_BASE = 0.65;
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "4.5"));
+            var phaseScale = Math.min(1, duration / IN_BASE);
+            var TIGHT_HOLD = TIGHT_HOLD_BASE * phaseScale;
+            var WHIP = WHIP_BASE * phaseScale;
+            var DRIFT = DRIFT_BASE * phaseScale;
+            var IN = TIGHT_HOLD + WHIP + DRIFT;
+            var HOLD = Math.max(0, duration - IN);
+
+            var tl = gsap.timeline({ paused: true });
+
+            tl.fromTo(
+              world,
+              { scale: 2.2, y: 0 },
+              { scale: 1.055, y: "0.7cqh", duration: WHIP, ease: "power4.out" },
+              TIGHT_HOLD,
+            );
+            tl.to(
+              world,
+              { scale: 1, y: 0, duration: DRIFT, ease: "sine.inOut" },
+              TIGHT_HOLD + WHIP,
+            );
+            tl.fromTo(
+              ground,
+              { opacity: 0, scaleX: 0.72, scaleY: 0.72 },
+              { opacity: 0.78, scaleX: 1, scaleY: 1, duration: DRIFT, ease: "power2.out" },
+              TIGHT_HOLD + WHIP,
+            );
+
+            if (HOLD > 0) {
+              tl.to(
+                ground,
+                { opacity: 0.68, scaleX: 0.97, duration: HOLD * 0.5, ease: "sine.inOut" },
+                IN,
+              );
+              tl.to(
+                ground,
+                { opacity: 0.78, scaleX: 1, duration: HOLD * 0.5, ease: "sine.inOut" },
+                IN + HOLD * 0.5,
+              );
+            }
+
+            tl.seek(0);
+            window.__timelines = window.__timelines || {};
+            window.__timelines["pull-back-reveal"] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["pull-back-reveal-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

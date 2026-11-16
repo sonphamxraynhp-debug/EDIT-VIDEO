@@ -1,0 +1,109 @@
+{
+ "id": "bds-ban-tin-bds",
+ "name": "Bản tin BĐS",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "news",
+ "desc": "Bản tin thị trường nhà đất kiểu truyền hình: ident, TRỰC TIẾP, tiêu đề, bản đồ khu vực, ticker giá.",
+ "tags": [
+  "tin bđs",
+  "thị trường",
+  "bản tin",
+  "ticker"
+ ],
+ "title": "BẢN TIN NHÀ ĐẤT",
+ "caption_style": "news",
+ "music": "epic",
+ "brand": {
+  "primary": "#0A7C66",
+  "dark": "#06263A",
+  "accent": "#F2C14E",
+  "name": "TIN BĐS"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên kênh",
+  "tiêu đề tin",
+  "khu vực",
+  "các dòng tin ticker"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.5
+ },
+ "scenes": [
+  {
+   "type": "news_intro",
+   "t0": 0,
+   "t1": 2,
+   "channel": "TIN BĐS",
+   "name": "BẢN TIN NHÀ ĐẤT",
+   "sub": "Số mới nhất (ví dụ)"
+  },
+  {
+   "type": "news_live",
+   "t0": 2,
+   "t1": 20.2,
+   "label": "CẬP NHẬT",
+   "clock": "08:00:00",
+   "place": "TP.HCM",
+   "keep": true
+  },
+  {
+   "type": "news_ticker",
+   "t0": 2,
+   "t1": 20.2,
+   "label": "THỊ TRƯỜNG",
+   "keep": true,
+   "speed": 100,
+   "items": [
+    "Dòng tin mẫu 1: nguồn cung căn hộ khu Đông",
+    "Dòng tin mẫu 2: lãi suất vay mua nhà",
+    "Dòng tin mẫu 3: hạ tầng mới khởi công"
+   ]
+  },
+  {
+   "type": "news_lowerthird",
+   "t0": 2.2,
+   "t1": 5.8,
+   "name": "Tên của bạn",
+   "title": "Chuyên viên tư vấn BĐS",
+   "tag": "Phân tích"
+  },
+  {
+   "type": "news_headline",
+   "t0": 6.2,
+   "t1": 10.2,
+   "tag": "Thị trường",
+   "text": "Tiêu đề tin: khu vực nào đang được quan tâm? (mẫu)",
+   "sub": "Số liệu cần dẫn nguồn"
+  },
+  {
+   "type": "news_map",
+   "t0": 10.6,
+   "t1": 14.4,
+   "place": "Thủ Đức",
+   "sub": "TP. Hồ Chí Minh",
+   "coord": "10.85°N · 106.77°E"
+  },
+  {
+   "type": "news_breaking",
+   "t0": 14.6,
+   "t1": 17.2,
+   "label": "ĐIỂM NÓNG",
+   "sub": "CẬP NHẬT",
+   "text": "Nội dung điểm nóng (ví dụ)"
+  },
+  {
+   "type": "news_lowerthird",
+   "t0": 17.4,
+   "t1": 20.2,
+   "name": "Đăng ký kênh",
+   "title": "Nhận bản tin mỗi sáng",
+   "tag": "Theo dõi",
+   "keep": true
+  }
+ ]
+}

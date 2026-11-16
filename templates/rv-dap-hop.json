@@ -1,0 +1,140 @@
+{
+ "id": "rv-dap-hop",
+ "name": "Đập hộp trải nghiệm",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "review",
+ "desc": "Unbox: trong hộp có gì, chú thích chỉ điểm chi tiết, so giá tham khảo và điểm tổng cuối video.",
+ "tags": [
+  "unbox",
+  "đập hộp",
+  "trải nghiệm",
+  "phụ kiện"
+ ],
+ "title": "Đập hộp sản phẩm",
+ "caption_style": "review",
+ "music": "happy_2",
+ "brand": {
+  "primary": "#FF8A00",
+  "accent": "#FFE14D",
+  "dark": "#16110A"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh sản phẩm",
+  "danh sách phụ kiện",
+  "giá tham khảo"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.6
+ },
+ "scenes": [
+  {
+   "type": "rv_unbox",
+   "t0": 0.2,
+   "t1": 4.2,
+   "x": 360,
+   "y": 460,
+   "size": 100,
+   "stagger": 0.25,
+   "items": [
+    {
+     "icon": "📦",
+     "text": "Thân máy"
+    },
+    {
+     "icon": "🔌",
+     "text": "Cáp sạc"
+    },
+    {
+     "icon": "🎧",
+     "text": "Tai nghe"
+    },
+    {
+     "icon": "📄",
+     "text": "Sách hướng dẫn"
+    }
+   ]
+  },
+  {
+   "type": "rv_product",
+   "t0": 4.4,
+   "t1": 7.6,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "image": "media/phone_b.png",
+   "name": "Tên sản phẩm",
+   "brand": "Thương hiệu",
+   "price": "Giá (ví dụ)",
+   "badge": "UNBOX"
+  },
+  {
+   "type": "rv_callout",
+   "t0": 5.4,
+   "t1": 7.6,
+   "px": 400,
+   "py": 300,
+   "x": 560,
+   "y": 190,
+   "size": 100,
+   "text": "Chi tiết 1",
+   "sub": "chú thích ngắn",
+   "w": 230
+  },
+  {
+   "type": "rv_price_compare",
+   "t0": 8.0,
+   "t1": 11.6,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "stagger": 0.2,
+   "shops": [
+    {
+     "shop": "Cửa hàng A",
+     "icon": "🏬",
+     "price": "giá (ví dụ)",
+     "note": "Freeship"
+    },
+    {
+     "shop": "Cửa hàng B",
+     "icon": "🛒",
+     "price": "giá (ví dụ)",
+     "note": "Quà tặng"
+    },
+    {
+     "shop": "Cửa hàng C",
+     "icon": "📱",
+     "price": "giá (ví dụ)",
+     "note": "Voucher"
+    }
+   ]
+  },
+  {
+   "type": "rv_score",
+   "t0": 16.4,
+   "t1": 20.2,
+   "x": 360,
+   "y": 378,
+   "size": 88,
+   "score": 8.2,
+   "label": "Điểm của mình",
+   "keep": true
+  },
+  {
+   "type": "rv_verdict",
+   "t0": 18.2,
+   "t1": 20.2,
+   "x": 360,
+   "y": 748,
+   "size": 96,
+   "verdict": "consider",
+   "sub": "Hợp với ai cần …",
+   "keep": true
+  }
+ ]
+}

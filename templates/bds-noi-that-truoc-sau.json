@@ -1,0 +1,113 @@
+{
+ "id": "bds-noi-that-truoc-sau",
+ "name": "Nội thất trước – sau",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "transform",
+ "desc": "Cải tạo / hoàn thiện nội thất: thanh trượt thô → hoàn thiện, loé sáng lộ kết quả, lưới tiến độ thi công.",
+ "tags": [
+  "nội thất",
+  "cải tạo",
+  "trước sau",
+  "thi công"
+ ],
+ "title": "Cải tạo căn hộ 30 ngày",
+ "caption_style": "transform",
+ "music": "inspire",
+ "brand": {
+  "primary": "#E9A23B",
+  "accent": "#FFE08A",
+  "dark": "#1B1410"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh trước (thô)",
+  "ảnh sau (hoàn thiện)",
+  "2–4 ảnh giữa quá trình"
+ ],
+ "preview": {
+  "from": 2.8,
+  "to": 8.8,
+  "still": 5.6
+ },
+ "scenes": [
+  {
+   "type": "tf_timer",
+   "t0": 0.2,
+   "t1": 2.8,
+   "x": 360,
+   "y": 700,
+   "size": 82,
+   "from": 1,
+   "to": 30,
+   "unit": "Ngày",
+   "title": "Thi công 30 ngày (ví dụ)",
+   "count": 1.6
+  },
+  {
+   "type": "tf_slider",
+   "t0": 3.0,
+   "t1": 7.2,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "frame": "card",
+   "before": "media/raw.jpg",
+   "after": "media/living.jpg",
+   "before_label": "BÀN GIAO THÔ",
+   "after_label": "HOÀN THIỆN"
+  },
+  {
+   "type": "tf_grid",
+   "t0": 7.4,
+   "t1": 11.4,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "title": "Từng hạng mục",
+   "items": [
+    {
+     "media": "media/raw.jpg",
+     "label": "Hiện trạng"
+    },
+    {
+     "media": "media/kitchen.jpg",
+     "label": "Bếp"
+    },
+    {
+     "media": "media/bedroom.jpg",
+     "label": "Phòng ngủ"
+    },
+    {
+     "media": "media/living.jpg",
+     "label": "Phòng khách"
+    }
+   ]
+  },
+  {
+   "type": "tf_flash_reveal",
+   "t0": 11.6,
+   "t1": 15.6,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "frame": "full",
+   "flash": 12.9,
+   "before": "media/raw.jpg",
+   "after": "media/living.jpg"
+  },
+  {
+   "type": "tf_stamp",
+   "t0": 17.8,
+   "t1": 20.2,
+   "x": 360,
+   "y": 520,
+   "size": 100,
+   "text": "HOÀN THIỆN",
+   "style": "stamp",
+   "sub": "Ảnh minh hoạ",
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Line Swap Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg, #0b0c0e);
+      }
+
+      #root {
+        --bg: #0b0c0e;
+        --fg: #f8fafc;
+        --brand: #71f5a7;
+        --accent: #61a8ff;
+        --accent-2: #c5a3ff;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+
+      .mount-box {
+        position: absolute;
+        width: 80%;
+        height: 52%;
+        left: 10%;
+        top: 24%;
+        container-type: size;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="line-swap-demo" data-start="0" data-width="1920" data-height="1080" data-duration="3.5" data-fps="30" data-hf-anc="">
+      <div id="line-swap-mount" class="mount-box clip" data-composition-id="line-swap" data-variable-values="{&quot;line_a&quot;:&quot;Everyone ships demos.&quot;,&quot;line_b&quot;:&quot;Almost nobody ships proof.&quot;,&quot;underline_word&quot;:&quot;proof&quot;,&quot;swap_at&quot;:1.3,&quot;accent&quot;:&quot;blue&quot;}" data-start="0" data-duration="3.5" data-track-index="0" data-width="1536" data-height="562" data-composition-variables="[
+    { &quot;id&quot;: &quot;line_a&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Line A&quot;, &quot;description&quot;: &quot;First line; holds center inside the mask, then exits up on the swap beat.&quot;, &quot;default&quot;: &quot;Everyone promised you AI.&quot; },
+    { &quot;id&quot;: &quot;line_b&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Line B&quot;, &quot;description&quot;: &quot;Replacement line; enters bottom-up on the swap beat and holds.&quot;, &quot;default&quot;: &quot;Almost nobody promised you control.&quot; },
+    { &quot;id&quot;: &quot;swap_at&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Swap at&quot;, &quot;description&quot;: &quot;Second (from mount start) of the beat replacement. Clamped so the swap and underline complete before any exit.&quot;, &quot;default&quot;: 1.5, &quot;min&quot;: 0, &quot;step&quot;: 0.1, &quot;unit&quot;: &quot;s&quot; },
+    { &quot;id&quot;: &quot;underline_word&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Underline word&quot;, &quot;description&quot;: &quot;First case-insensitive substring match in line B gets the accent underline after landing. Empty disables it.&quot;, &quot;default&quot;: &quot;control&quot; },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Underline color from the contract token map.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;exit&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Exit&quot;, &quot;description&quot;: &quot;Optional departure. Default none: the landed line holds until the frame cuts.&quot;, &quot;default&quot;: &quot;none&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;none&quot;, &quot;label&quot;: &quot;None&quot; }, { &quot;value&quot;: &quot;fade&quot;, &quot;label&quot;: &quot;Fade&quot; }, { &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="line-swap" data-duration="3.5" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            isolation: isolate;
+            background: var(--bg, #0b0c0e);
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            pointer-events: none;
+          }
+
+          .ls-clip {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+          }
+
+          .ls-stage {
+            width: 94cqw;
+            will-change: transform, opacity;
+          }
+
+          /* Beat mask: both lines live inside; the swap slides through it. */
+          .ls-mask {
+            position: relative;
+            width: 100%;
+            height: calc(var(--ls-font-size, min(7cqw, 16cqh)) * 1.42);
+            overflow: hidden;
+          }
+
+          .ls-line {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--ls-font-size, min(7cqw, 16cqh));
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            will-change: transform;
+          }
+
+          /* One inline wrapper per line: a bare text node next to the
+             underline span would become separate flex items and the boundary
+             space would collapse ("youcontrol."). */
+          .ls-line-inner {
+            display: inline;
+          }
+
+          .ls-ul-wrap {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+          }
+
+          .ls-underline {
+            position: absolute;
+            left: 0.02em;
+            right: 0.02em;
+            bottom: -0.14em;
+            height: 0.055em;
+            border-radius: 0.03em;
+            transform-origin: left center;
+          }
+        </style>
+
+        <div id="line-swap-clip" class="ls-clip clip" data-start="0" data-duration="3.5" data-track-index="0">
+          <div class="ls-stage" role="img">
+            <div class="ls-mask">
+              <div class="ls-line ls-line-a"><span class="ls-line-inner"></span></div>
+              <div class="ls-line ls-line-b"><span class="ls-line-inner"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            // Literal key: the flattening step strips data-composition-id off
+            // the mounted root, so reading it back would register "null".
+            var compositionId = "line-swap";
+            var stage = root.querySelector(".ls-stage");
+            var lineAEl = root.querySelector(".ls-line-a");
+            var lineBEl = root.querySelector(".ls-line-b");
+            var lineAInner = lineAEl.querySelector(".ls-line-inner");
+            var lineBInner = lineBEl.querySelector(".ls-line-inner");
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            function asLine(value, fallback) {
+              return value == null ? fallback : String(value).trim().replace(/\s+/g, " ");
+            }
+            var lineA = asLine(vars.line_a, "Everyone promised you AI.");
+            var lineB = asLine(vars.line_b, "Almost nobody promised you control.");
+            var underlineWord = asLine(vars.underline_word, "control");
+            var accentColors = {
+              green: "var(--brand, #71f5a7)",
+              blue: "var(--accent, #61a8ff)",
+              violet: "var(--accent-2, #c5a3ff)",
+            };
+            var accent = Object.prototype.hasOwnProperty.call(accentColors, vars.accent)
+              ? vars.accent
+              : "green";
+            var exit = vars.exit === "fade" || vars.exit === "up" ? vars.exit : "none";
+
+            lineAInner.textContent = lineA;
+
+            // Split line_b around the first case-insensitive underline match.
+            // textContent nodes only, never innerHTML.
+            var matchIndex =
+              underlineWord.length > 0
+                ? lineB.toLowerCase().indexOf(underlineWord.toLowerCase())
+                : -1;
+            var underlineEl = null;
+            if (matchIndex >= 0) {
+              var before = lineB.slice(0, matchIndex);
+              var matched = lineB.slice(matchIndex, matchIndex + underlineWord.length);
+              var after = lineB.slice(matchIndex + underlineWord.length);
+              if (before) lineBInner.appendChild(document.createTextNode(before));
+
+              var wrap = document.createElement("span");
+              wrap.className = "ls-ul-wrap";
+              wrap.appendChild(document.createTextNode(matched));
+              underlineEl = document.createElement("span");
+              underlineEl.className = "ls-underline";
+              underlineEl.setAttribute("aria-hidden", "true");
+              // style.background, not a class: var() resolves at point of use.
+              underlineEl.style.background = accentColors[accent];
+              wrap.appendChild(underlineEl);
+              lineBInner.appendChild(wrap);
+              if (after) lineBInner.appendChild(document.createTextNode(after));
+            } else {
+              lineBInner.textContent = lineB;
+            }
+            stage.setAttribute("aria-label", lineA + " " + lineB);
+
+            // Deterministic character-count fit against the longer line; both
+            // lines are nowrap, so the fit keeps them inside the stage.
+            var characters = Math.max(1, Array.from(lineA).length, Array.from(lineB).length);
+            var fitted = Math.max(3.4, Math.min(9, 168 / characters));
+            root.style.setProperty("--ls-font-size", "min(" + fitted.toFixed(3) + "cqw, 16cqh)");
+
+            // RETIME RANGE: fixed phases; HOLD is the only elastic span.
+            var IN_A_BASE = 0.5;
+            var EXIT_A_BASE = 0.35;
+            var LAG_BASE = 0.22; // line_b starts this long after the beat
+            var IN_B_BASE = 0.5;
+            var UL_BEAT_BASE = 0.15;
+            var UL_BASE = underlineEl ? 0.45 : 0;
+            var OUT_BASE = exit === "none" ? 0 : 0.45;
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "3.5"));
+            var swapSpanBase = LAG_BASE + IN_B_BASE;
+            var ulSpanBase = underlineEl ? UL_BEAT_BASE + UL_BASE : 0;
+            var totalBase = IN_A_BASE + swapSpanBase + ulSpanBase + OUT_BASE;
+            var scale = duration < totalBase ? duration / totalBase : 1;
+            var IN_A = IN_A_BASE * scale;
+            var EXIT_A = EXIT_A_BASE * scale;
+            var LAG = LAG_BASE * scale;
+            var IN_B = IN_B_BASE * scale;
+            var UL_BEAT = UL_BEAT_BASE * scale;
+            var UL = UL_BASE * scale;
+            var OUT = OUT_BASE * scale;
+            var OUT_START = duration - OUT;
+
+            var swapAtRaw = Number(vars.swap_at);
+            var swapAt = Number.isFinite(swapAtRaw) ? Math.max(0, swapAtRaw) : 1.5;
+            // line_a fully arrives before the beat; the swap and the
+            // underline always complete before the exit begins.
+            swapAt = Math.min(swapAt, Math.max(IN_A, OUT_START - (LAG + IN_B + UL_BEAT + UL)));
+            swapAt = Math.max(swapAt, IN_A);
+            var landB = swapAt + LAG + IN_B;
+
+            gsap.set(lineBEl, { yPercent: 115 });
+            if (underlineEl) gsap.set(underlineEl, { scaleX: 0 });
+
+            var tl = gsap.timeline({ paused: true });
+
+            // IN: line_a enters bottom-up through the mask. One move.
+            tl.fromTo(
+              lineAEl,
+              { yPercent: 115 },
+              { yPercent: 0, duration: IN_A, ease: "power4.out" },
+              0,
+            );
+
+            // SWAP: the beat replacement. line_a exits up through the mask as
+            // line_b slides in bottom-up. Single restrained slam, smooth ease.
+            tl.fromTo(
+              lineAEl,
+              { yPercent: 0 },
+              { yPercent: -115, duration: EXIT_A, ease: "power2.in", immediateRender: false },
+              swapAt,
+            );
+            tl.fromTo(
+              lineBEl,
+              { yPercent: 115 },
+              { yPercent: 0, duration: IN_B, ease: "power4.out" },
+              swapAt + LAG,
+            );
+
+            // UNDERLINE: accent bar draws left to right after line_b lands.
+            if (underlineEl) {
+              tl.fromTo(
+                underlineEl,
+                { scaleX: 0 },
+                { scaleX: 1, duration: UL, ease: "power2.out" },
+                landB + UL_BEAT,
+              );
+            }
+
+            // HOLD: completely still.
+
+            // OUT: optional departure; exit none holds until the frame cuts.
+            if (exit === "fade") {
+              tl.to(stage, { opacity: 0, duration: OUT, ease: "power2.in" }, OUT_START);
+            } else if (exit === "up") {
+              tl.to(stage, { opacity: 0, y: "-7cqh", duration: OUT, ease: "power2.in" }, OUT_START);
+            }
+
+            tl.seek(0);
+            window.__timelines = window.__timelines || {};
+            window.__timelines[compositionId] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["line-swap-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

@@ -1,0 +1,67 @@
+{
+ "id": "khac-podcast-2-nguoi-ngang",
+ "name": "Podcast 2 người ngang",
+ "category": "khac",
+ "aspect": "16:9",
+ "pack": "multicam",
+ "desc": "Podcast / phỏng vấn 16:9: tự cắt sang người đang nói, khung 2-up, tên lower-third, thanh tập và chủ đề.",
+ "tags": [
+  "podcast",
+  "phỏng vấn",
+  "multicam",
+  "youtube"
+ ],
+ "title": "Podcast hôm nay",
+ "caption_style": "multicam",
+ "music": "corporate",
+ "recipe_opts": {
+  "episode": "TẬP 01",
+  "chapters": [
+   {
+    "t": 0,
+    "title": "Chủ đề chính của tập"
+   },
+   {
+    "t": 10.3,
+    "title": "Lời khuyên cho người mới"
+   }
+  ],
+  "cams": [
+   {
+    "media": "aroll",
+    "name": "Tên host",
+    "title": "Host",
+    "face": {
+     "x": 50,
+     "y": 40
+    },
+    "fit": "blurfill"
+   },
+   {
+    "media": "aroll",
+    "name": "Tên khách mời",
+    "title": "Khách mời",
+    "face": {
+     "x": 50,
+     "y": 36
+    },
+    "zoom": 1.12,
+    "flip": true,
+    "fit": "blurfill"
+   }
+  ]
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "video cam 1 + cam 2 (multicam.py)",
+  "tên host / khách",
+  "số tập + chủ đề"
+ ],
+ "preview": {
+  "from": 2.0,
+  "to": 8.0,
+  "still": 6.4
+ },
+ "scenes": []
+}

@@ -1,0 +1,76 @@
+{
+ "id": "cs-toi-gian-sang-trong",
+ "name": "Tối giản sang trọng",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "luxury",
+ "desc": "Chia sẻ quan điểm / thương hiệu cá nhân tối giản: grade ấm, zoom-blur, nền đen chỉ chữ, chân dung cắt nền.",
+ "tags": [
+  "tối giản",
+  "thương hiệu cá nhân",
+  "quan điểm",
+  "sang"
+ ],
+ "title": "Sống tối giản",
+ "caption_style": "luxury",
+ "music": "corporate_2",
+ "brand": {
+  "name": "TÊN BẠN",
+  "handle": "@ten.cua.ban"
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "2 từ khoá chính",
+  "tên + 1 dòng giới thiệu"
+ ],
+ "preview": {
+  "from": 5.8,
+  "to": 11.8,
+  "still": 8.2
+ },
+ "scenes": [
+  {
+   "type": "luxury_callout",
+   "t0": 6.6,
+   "t1": 9.05,
+   "icon": "warn",
+   "l1": "ít hơn",
+   "l2": "nhưng tốt hơn",
+   "l1_at": 0.55,
+   "l2_at": 1.1
+  },
+  {
+   "type": "luxury_diamonds",
+   "t0": 12.85,
+   "t1": 14.8,
+   "items": [
+    {
+     "text": "tập trung",
+     "t": 12.92
+    },
+    {
+     "text": "bền vững",
+     "t": 13.64
+    }
+   ]
+  },
+  {
+   "type": "luxury_cutout",
+   "t0": 14.9,
+   "t1": 17.8,
+   "bullets": [
+    "tối giản",
+    "chủ động"
+   ],
+   "circle_at": 0.3,
+   "bullets_at": 0.6,
+   "shrink_at": 1.2,
+   "shrink_to": 0.7,
+   "title": "Tên của bạn",
+   "title_at": 1.4,
+   "subtitle": "một dòng giới thiệu",
+   "subtitle_at": 1.9
+  }
+ ]
+}

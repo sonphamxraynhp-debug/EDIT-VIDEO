@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Matrix Decode - Demo</title>
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #demo {
+        width: 1920px;
+        height: 1080px;
+        display: grid;
+        place-items: center;
+        background: #f4f4f5;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      /* ponytail: scale on wrapper (not a GSAP target), zooms content ~3× for thumbnail legibility */
+      .demo-frame {
+        display: grid;
+        place-items: center;
+        gap: 32px;
+        padding: 72px 96px;
+        background: #18181b;
+        border-radius: 20px;
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.22);
+        transform: scale(3.2);
+        transform-origin: center center;
+      }
+      .demo-label {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #71717a;
+      }
+      .hf-catalog-matrix-decode {
+        display: inline-flex;
+        gap: 4px;
+        font:
+          700 52px/1 ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          monospace;
+        color: #4ade80;
+        text-shadow: 0 0 24px rgba(74, 222, 128, 0.45);
+      }
+      .hf-catalog-matrix-decode span {
+        display: inline-block;
+        min-width: 0.64em;
+        opacity: var(--hf-matrix-opacity, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo" data-composition-id="matrix-decode-demo" data-start="0" data-width="1920" data-height="1080" data-duration="5">
+      <div class="demo-frame">
+        <div class="demo-label" data-hft="0">Matrix Decode</div>
+        <div class="hf-catalog-matrix-decode" data-final="HYPERFRAMES" data-composition-variables="[
+    { &quot;id&quot;: &quot;text&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Target text&quot;, &quot;description&quot;: &quot;Word the scramble resolves into. One scrambling cell per character, up to 32.&quot;, &quot;default&quot;: &quot;HYPERFRAMES&quot; },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Colour family of the cells and their glow.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;size&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Size&quot;, &quot;description&quot;: &quot;Type size of the cells in pixels. Cell width follows it.&quot;, &quot;default&quot;: 64, &quot;min&quot;: 24, &quot;max&quot;: 160, &quot;step&quot;: 4, &quot;unit&quot;: &quot;px&quot; },
+    { &quot;id&quot;: &quot;glow&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Glow&quot;, &quot;description&quot;: &quot;Strength of the halo behind the cells, from none to a heavy bloom.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;none&quot;, &quot;label&quot;: &quot;None&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;strong&quot;, &quot;label&quot;: &quot;Strong&quot; }] }
+  ]">
+          <span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span>
+        </div>
+      </div>
+      <script>window.__hfApply&&window.__hfApply()</script><script>
+        (function () {
+          "use strict";
+
+          var vars =
+            window.__hyperframes && window.__hyperframes.getVariables
+              ? window.__hyperframes.getVariables()
+              : {};
+
+          // Anything missing or invalid returns to its declared default.
+          var accents = {
+            green: { color: "#16a34a", rgb: "22, 163, 74" },
+            blue: { color: "#2563eb", rgb: "37, 99, 235" },
+            violet: { color: "#7c3aed", rgb: "124, 58, 237" },
+          };
+          var glows = {
+            none: { radius: "0px", alpha: "0" },
+            standard: { radius: "18px", alpha: "0.28" },
+            strong: { radius: "34px", alpha: "0.55" },
+          };
+
+          function pick(table, value, fallback) {
+            return Object.prototype.hasOwnProperty.call(table, value) ? value : fallback;
+          }
+
+          var text = typeof vars.text === "string" ? vars.text.trim().slice(0, 32) : "";
+          if (!text) {
+            text = "HYPERFRAMES";
+          }
+
+          var size =
+            typeof vars.size === "number" || typeof vars.size === "string"
+              ? Number(vars.size)
+              : NaN;
+          size = isFinite(size) && size > 0 ? Math.min(160, Math.max(24, size)) : 64;
+
+          var accent = accents[pick(accents, vars.accent, "green")];
+          var glow = glows[pick(glows, vars.glow, "standard")];
+
+          var roots = document.querySelectorAll(".hf-catalog-matrix-decode");
+          for (var i = 0; i < roots.length; i += 1) {
+            roots[i].style.setProperty("--hf-matrix-size", size + "px");
+            roots[i].style.setProperty("--hf-matrix-color", accent.color);
+            roots[i].style.setProperty("--hf-matrix-glow-rgb", accent.rgb);
+            roots[i].style.setProperty("--hf-matrix-glow-radius", glow.radius);
+            roots[i].style.setProperty("--hf-matrix-glow-alpha", glow.alpha);
+            roots[i].setAttribute("data-final", text);
+            while (roots[i].firstChild) {
+              roots[i].removeChild(roots[i].firstChild);
+            }
+            for (var j = 0; j < text.length; j += 1) {
+              var cell = document.createElement("span");
+              cell.textContent = text.charAt(j) === " " ? "\u00a0" : "0";
+              roots[i].appendChild(cell);
+            }
+          }
+        })();
+      </script>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        const startTime = 0.5;
+        tl.fromTo(
+          ".hf-catalog-matrix-decode span",
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.18, stagger: 0.035, ease: "power2.out" },
+          startTime,
+        );
+        tl.set({}, {}, 5);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["matrix-decode-demo"] = tl;
+      </script>
+    </div>
+    <style>
+      .hf-catalog-matrix-decode {
+        color: #18181b;
+        font-family: Inter, system-ui, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+      }
+      .hf-catalog-matrix-decode {
+        display: inline-flex;
+        gap: 3px;
+        font:
+          900 64px/1 ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          monospace;
+        font-size: var(--hf-matrix-size, 64px);
+        color: var(--hf-matrix-color, #16a34a);
+        text-shadow: 0 0 var(--hf-matrix-glow-radius, 18px)
+          rgba(var(--hf-matrix-glow-rgb, 22, 163, 74), var(--hf-matrix-glow-alpha, 0.28));
+      }
+      .hf-catalog-matrix-decode span {
+        display: inline-block;
+        min-width: 0.64em;
+        opacity: var(--hf-matrix-opacity, 1);
+      }
+    </style>
+  
+
+</body></html>

@@ -1,0 +1,88 @@
+{
+ "id": "khac-meme-vui-nhon",
+ "name": "Meme vui nhộn",
+ "category": "khac",
+ "aspect": "9:16",
+ "pack": "kinetic",
+ "desc": "Năng lượng meme: phụ đề viền emoji nảy, emoji phản ứng cạnh đầu, chữ to đập vào, rung khung, không nhạc.",
+ "tags": [
+  "meme",
+  "hài",
+  "emoji",
+  "preset"
+ ],
+ "title": "Sự thật phũ phàng",
+ "caption_style": "hf_emoji_pop",
+ "brand": {
+  "primary": "#FFD166",
+  "accent": "#E0A800",
+  "dark": "#111111"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "khoảnh khắc hài để chèn emoji"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.2
+ },
+ "fx": [
+  {
+   "t": 2.2,
+   "type": "shake"
+  },
+  {
+   "t": 9.6,
+   "type": "shake"
+  },
+  {
+   "t": 14.8,
+   "type": "punch"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "kinetic_hook",
+   "t0": 0,
+   "t1": 2.2,
+   "text": "SỰ THẬT",
+   "text2": "PHŨ PHÀNG"
+  },
+  {
+   "type": "kinetic_emoji",
+   "t0": 2.2,
+   "t1": 3.6,
+   "emojis": [
+    "😂",
+    "💀",
+    "🤡"
+   ]
+  },
+  {
+   "type": "kinetic_zoomcut",
+   "t0": 9.6,
+   "t1": 10.6,
+   "word": "TOANG!",
+   "grade": "bw"
+  },
+  {
+   "type": "kinetic_emoji",
+   "t0": 14.8,
+   "t1": 16.2,
+   "emojis": [
+    "😭",
+    "🔥",
+    "👀"
+   ]
+  },
+  {
+   "type": "kinetic_cta",
+   "t0": 17.8,
+   "t1": 20.2,
+   "text": "Tag đứa bạn",
+   "keep": true
+  }
+ ]
+}

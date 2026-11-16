@@ -1,0 +1,93 @@
+{
+ "id": "rv-trang-san-pham",
+ "name": "Trang sản phẩm nét mảnh",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "explain",
+ "desc": "Trang trắng kiểu trang sản phẩm: thẻ mở đầu, hình vẽ nét mảnh được máy quay đẩy vào, tiêu đề 2 tầng chữ nghiêng, chia đôi giao diện, bộ sưu tập hình vẽ.",
+ "tags": [
+  "sản phẩm",
+  "tối giản",
+  "review",
+  "trang trắng"
+ ],
+ "title": "Tên sản phẩm (ví dụ)",
+ "caption_style": "ex_pp",
+ "music": "tech",
+ "brand": {
+  "primary": "#D94C5F"
+ },
+ "recipe_opts": {
+  "variant": "product"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên + ảnh sản phẩm",
+  "2–3 tính năng"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.6
+ },
+ "scenes": [
+  {
+   "type": "ex_pp_hook",
+   "t0": 0,
+   "t1": 3.0,
+   "name": "Tên sản phẩm (ví dụ)",
+   "sub": "Thương hiệu · 2026",
+   "icon": "book",
+   "lines": [
+    "Một thói quen",
+    "đổi cách tôi",
+    "*dùng điện thoại*"
+   ]
+  },
+  {
+   "type": "ex_pp_page",
+   "t0": 3.0,
+   "t1": 6.8,
+   "art": "phone",
+   "title": "Điện thoại",
+   "title_b": "của bạn",
+   "title_t": 4.6
+  },
+  {
+   "type": "ex_pp_split",
+   "t0": 9.0,
+   "t1": 12.6,
+   "ui": {
+    "kind": "alert",
+    "title": "Cho phép gửi thông báo?",
+    "text": "Thông báo có thể gồm âm thanh và biểu tượng.",
+    "buttons": [
+     "Không cho phép",
+     "Cho phép"
+    ],
+    "press": 0,
+    "press_t": 10.8
+   }
+  },
+  {
+   "type": "ex_pp_page",
+   "t0": 13.2,
+   "t1": 16.2,
+   "art": "cup",
+   "title": "Buổi sáng",
+   "title_b": "chậm lại",
+   "title_t": 14.6
+  },
+  {
+   "type": "ex_pp_gallery",
+   "t0": 16.4,
+   "t1": 20.2,
+   "hl": 0,
+   "hl_t": 18.2,
+   "title_t": 18.6,
+   "title": "Bớt một chút",
+   "title_b": "sống nhiều hơn"
+  }
+ ]
+}

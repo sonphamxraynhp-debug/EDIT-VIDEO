@@ -1,0 +1,242 @@
+[
+ {
+  "name": "hype",
+  "file": "hype.mp3",
+  "mood": "hype",
+  "bpm": 128,
+  "dur": 60.0,
+  "use": "năng lượng cao, EDM 128bpm — hook, tuyên bố, recap, chốt"
+ },
+ {
+  "name": "hype_2",
+  "file": "hype_2.mp3",
+  "mood": "hype",
+  "bpm": 124,
+  "dur": 61.94,
+  "use": "năng lượng cao, EDM 128bpm — hook, tuyên bố, recap, chốt"
+ },
+ {
+  "name": "tech",
+  "file": "tech.mp3",
+  "mood": "tech",
+  "bpm": 110,
+  "dur": 61.09,
+  "use": "arp điện tử 110bpm — hậu trường, công cụ, AI, dashboard"
+ },
+ {
+  "name": "tech_2",
+  "file": "tech_2.mp3",
+  "mood": "tech",
+  "bpm": 116,
+  "dur": 57.93,
+  "use": "arp điện tử 110bpm — hậu trường, công cụ, AI, dashboard"
+ },
+ {
+  "name": "sad",
+  "file": "sad.mp3",
+  "mood": "sad",
+  "bpm": 70,
+  "dur": 61.71,
+  "use": "piano buồn 70bpm — nỗi đau, quá khứ, thất bại"
+ },
+ {
+  "name": "sad_2",
+  "file": "sad_2.mp3",
+  "mood": "sad",
+  "bpm": 66,
+  "dur": 58.18,
+  "use": "piano buồn 70bpm — nỗi đau, quá khứ, thất bại"
+ },
+ {
+  "name": "happy",
+  "file": "happy.mp3",
+  "mood": "happy",
+  "bpm": 118,
+  "dur": 56.95,
+  "use": "ukulele + clap 118bpm — vui, kết quả tốt, đời thường"
+ },
+ {
+  "name": "happy_2",
+  "file": "happy_2.mp3",
+  "mood": "happy",
+  "bpm": 122,
+  "dur": 62.95,
+  "use": "ukulele + clap 118bpm — vui, kết quả tốt, đời thường"
+ },
+ {
+  "name": "mellow",
+  "file": "mellow.mp3",
+  "mood": "mellow",
+  "bpm": 80,
+  "dur": 60.0,
+  "use": "lofi electric piano 80bpm — du dương, thư giãn, kể chuyện"
+ },
+ {
+  "name": "mellow_2",
+  "file": "mellow_2.mp3",
+  "mood": "mellow",
+  "bpm": 76,
+  "dur": 63.16,
+  "use": "lofi electric piano 80bpm — du dương, thư giãn, kể chuyện"
+ },
+ {
+  "name": "lofi",
+  "file": "lofi.mp3",
+  "mood": "lofi",
+  "bpm": 84,
+  "dur": 57.14,
+  "use": "lofi biến thể — hoài niệm, chill"
+ },
+ {
+  "name": "lofi_2",
+  "file": "lofi_2.mp3",
+  "mood": "lofi",
+  "bpm": 72,
+  "dur": 53.33,
+  "use": "lofi biến thể — hoài niệm, chill"
+ },
+ {
+  "name": "epic",
+  "file": "epic.mp3",
+  "mood": "epic",
+  "bpm": 90,
+  "dur": 64.0,
+  "use": "dây + trống trận 90bpm — tầm nhìn, tuyên bố lớn"
+ },
+ {
+  "name": "epic_2",
+  "file": "epic_2.mp3",
+  "mood": "epic",
+  "bpm": 90,
+  "dur": 64.0,
+  "use": "dây + trống trận 90bpm — tầm nhìn, tuyên bố lớn"
+ },
+ {
+  "name": "suspense",
+  "file": "suspense.mp3",
+  "mood": "suspense",
+  "bpm": 100,
+  "dur": 57.6,
+  "use": "ostinato căng 100bpm — vấn đề, rủi ro, bí mật"
+ },
+ {
+  "name": "suspense_2",
+  "file": "suspense_2.mp3",
+  "mood": "suspense",
+  "bpm": 100,
+  "dur": 57.6,
+  "use": "ostinato căng 100bpm — vấn đề, rủi ro, bí mật"
+ },
+ {
+  "name": "corporate",
+  "file": "corporate.mp3",
+  "mood": "corporate",
+  "bpm": 112,
+  "dur": 60.0,
+  "use": "piano + guitar sáng 112bpm — doanh nghiệp, giới thiệu, hướng dẫn"
+ },
+ {
+  "name": "corporate_2",
+  "file": "corporate_2.mp3",
+  "mood": "corporate",
+  "bpm": 112,
+  "dur": 60.0,
+  "use": "piano + guitar sáng 112bpm — doanh nghiệp, giới thiệu, hướng dẫn"
+ },
+ {
+  "name": "inspire",
+  "file": "inspire.mp3",
+  "mood": "inspire",
+  "bpm": 96,
+  "dur": 60.0,
+  "use": "piano + strings 96bpm — truyền cảm hứng, câu chuyện vượt khó"
+ },
+ {
+  "name": "inspire_2",
+  "file": "inspire_2.mp3",
+  "mood": "inspire",
+  "bpm": 96,
+  "dur": 60.0,
+  "use": "piano + strings 96bpm — truyền cảm hứng, câu chuyện vượt khó"
+ },
+ {
+  "name": "lofi_hiphop",
+  "file": "lofi_hiphop.mp3",
+  "mood": "lofi_hiphop",
+  "bpm": 84,
+  "dur": 57.14,
+  "use": "lofi hip-hop 84bpm, trống boom-bap + vinyl — chill, học tập, vlog đời thường"
+ },
+ {
+  "name": "cinematic_epic",
+  "file": "cinematic_epic.mp3",
+  "mood": "cinematic_epic",
+  "bpm": 80,
+  "dur": 60.0,
+  "use": "dây + kèn + trống taiko 80bpm — tuyên bố lớn, hành trình, trailer"
+ },
+ {
+  "name": "corporate_upbeat",
+  "file": "corporate_upbeat.mp3",
+  "mood": "corporate_upbeat",
+  "bpm": 120,
+  "dur": 64.0,
+  "use": "pop doanh nghiệp tươi 120bpm — giới thiệu công ty, sản phẩm, khoá học"
+ },
+ {
+  "name": "real_estate_luxury",
+  "file": "real_estate_luxury.mp3",
+  "mood": "real_estate_luxury",
+  "bpm": 100,
+  "dur": 57.6,
+  "use": "deep house sang trọng 100bpm — bất động sản, nội thất, khách sạn"
+ },
+ {
+  "name": "tiktok_trap",
+  "file": "tiktok_trap.mp3",
+  "mood": "tiktok_trap",
+  "bpm": 140,
+  "dur": 61.71,
+  "use": "trap 140bpm, 808 + hi-hat roll — TikTok, hook nhanh, giới trẻ"
+ },
+ {
+  "name": "acoustic_warm",
+  "file": "acoustic_warm.mp3",
+  "mood": "acoustic_warm",
+  "bpm": 100,
+  "dur": 57.6,
+  "use": "guitar mộc ấm 100bpm — câu chuyện, gia đình, ẩm thực"
+ },
+ {
+  "name": "ambient_calm",
+  "file": "ambient_calm.mp3",
+  "mood": "ambient_calm",
+  "bpm": 60,
+  "dur": 64.0,
+  "use": "ambient pad + chuông 60bpm, không trống — thiền, sức khoẻ, spa"
+ },
+ {
+  "name": "news_bg",
+  "file": "news_bg.mp3",
+  "mood": "news_bg",
+  "bpm": 120,
+  "dur": 64.0,
+  "use": "nền bản tin 120bpm, nhịp xung + timpani — tin tức, cập nhật, phân tích"
+ },
+ {
+  "name": "kids_playful",
+  "file": "kids_playful.mp3",
+  "mood": "kids_playful",
+  "bpm": 126,
+  "dur": 60.95,
+  "use": "pizzicato + glockenspiel 126bpm — vui nhộn, trẻ em, mẹo hay"
+ },
+ {
+  "name": "piano_minimal",
+  "file": "piano_minimal.mp3",
+  "mood": "piano_minimal",
+  "bpm": 90,
+  "dur": 64.0,
+  "use": "piano tối giản 90bpm — tâm sự, cảm xúc, chiêm nghiệm"
+ }
+]

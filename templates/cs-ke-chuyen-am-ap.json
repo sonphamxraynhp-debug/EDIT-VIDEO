@@ -1,0 +1,61 @@
+{
+ "id": "cs-ke-chuyen-am-ap",
+ "name": "Kể chuyện ấm áp",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "share",
+ "desc": "Kể chuyện / chia sẻ kinh nghiệm: màu phim ấm, thẻ chương, trích dẫn, danh sách bài học, lưu & chia sẻ.",
+ "tags": [
+  "kể chuyện",
+  "kinh nghiệm",
+  "trích dẫn",
+  "bài học"
+ ],
+ "title": "Ngày mình *bắt đầu*",
+ "music": "mellow",
+ "brand": {
+  "handle": "@kenh.cua.ban"
+ },
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "tiêu đề câu chuyện",
+  "câu trích dẫn",
+  "3 bài học"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 4.6
+ },
+ "scenes": [
+  {
+   "type": "sh_quote",
+   "t0": 3.0,
+   "t1": 6.4,
+   "text": "Đi chậm cũng được, miễn là *đừng dừng lại*.",
+   "author": "Câu mình hay tự nhắc",
+   "wps": 8
+  },
+  {
+   "type": "sh_list",
+   "t0": 6.6,
+   "t1": 10.6,
+   "title": "3 điều mình *ước biết sớm hơn*",
+   "items": [
+    {
+     "text": "Bài học thứ nhất",
+     "t": 7.0
+    },
+    {
+     "text": "Bài học thứ hai",
+     "t": 7.8
+    },
+    {
+     "text": "Bài học thứ ba",
+     "t": 8.6
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Vox Annotate Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg, #0b0c0e);
+      }
+
+      #root {
+        --bg: #0b0c0e;
+        --fg: #f8fafc;
+        --muted: #94a3b8;
+        --surface: #14171c;
+        --border: #343a46;
+        --brand: #71f5a7;
+        --accent: #61a8ff;
+        --accent-2: #c5a3ff;
+        --font-display: Inter, system-ui, sans-serif;
+        --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 44%, #12151b 0%, var(--bg, #0b0c0e) 74%);
+      }
+
+      .mount-card {
+        position: absolute;
+        width: 78%;
+        height: 62%;
+        left: 11%;
+        top: 19%;
+        container-type: size;
+        overflow: hidden;
+        border-radius: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="vox-annotate-demo" data-start="0" data-width="1920" data-height="1080" data-duration="4" data-fps="30" data-hf-anc="">
+      <div id="vox-annotate-mount" class="mount-card clip" data-composition-id="vox-annotate" data-variable-values="{&quot;text&quot;:&quot;Numbers need context to land&quot;,&quot;keyword&quot;:&quot;context&quot;,&quot;note&quot;:&quot;this is the point&quot;,&quot;style&quot;:&quot;circle&quot;,&quot;accent&quot;:&quot;violet&quot;,&quot;draw_at&quot;:1.2}" data-start="0" data-duration="4" data-track-index="0" data-width="1497" data-height="670" data-composition-variables="[
+    { &quot;id&quot;: &quot;text&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Text&quot;, &quot;description&quot;: &quot;Full line of display text.&quot;, &quot;default&quot;: &quot;Ship the story, not the spec&quot; },
+    { &quot;id&quot;: &quot;keyword&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Keyword&quot;, &quot;description&quot;: &quot;First case-insensitive substring match in text receives the marker and annotation. Empty or unmatched draws nothing.&quot;, &quot;default&quot;: &quot;story&quot; },
+    { &quot;id&quot;: &quot;note&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Note&quot;, &quot;description&quot;: &quot;Mono callout label at the end of the connector. Empty draws the marker only.&quot;, &quot;default&quot;: &quot;the annotate beat&quot; },
+    { &quot;id&quot;: &quot;style&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Marker style&quot;, &quot;description&quot;: &quot;Shape of the hand-drawn marker stroke.&quot;, &quot;default&quot;: &quot;highlight&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;highlight&quot;, &quot;label&quot;: &quot;Highlight&quot; }, { &quot;value&quot;: &quot;circle&quot;, &quot;label&quot;: &quot;Circle&quot; }, { &quot;value&quot;: &quot;underline&quot;, &quot;label&quot;: &quot;Underline&quot; }, { &quot;value&quot;: &quot;scribble&quot;, &quot;label&quot;: &quot;Scribble&quot; }] },
+    { &quot;id&quot;: &quot;draw_at&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Draw at&quot;, &quot;description&quot;: &quot;Second (from mount start) the annotate gesture starts. Clamped so the gesture completes before any exit.&quot;, &quot;default&quot;: 0.9, &quot;min&quot;: 0, &quot;step&quot;: 0.1, &quot;unit&quot;: &quot;s&quot; },
+    { &quot;id&quot;: &quot;accent&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Accent&quot;, &quot;description&quot;: &quot;Annotation ink color from the contract token map.&quot;, &quot;default&quot;: &quot;green&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;exit&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Exit&quot;, &quot;description&quot;: &quot;Optional departure. Default none: the lockup holds until the frame cuts.&quot;, &quot;default&quot;: &quot;none&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;none&quot;, &quot;label&quot;: &quot;None&quot; }, { &quot;value&quot;: &quot;fade&quot;, &quot;label&quot;: &quot;Fade&quot; }, { &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }] }
+  ]" data-hf-host="">
+      <div id="root" data-composition-id="vox-annotate" data-duration="4" data-fps="30">
+        <style>
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            container-type: size;
+            isolation: isolate;
+            background: var(--bg, #0b0c0e);
+            color: var(--fg, #f8fafc);
+            font-family: var(--font-display, Inter, system-ui, sans-serif);
+            pointer-events: none;
+          }
+
+          .va-clip {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+          }
+
+          .va-stage {
+            max-width: 84cqw;
+            text-align: center;
+            will-change: transform, opacity;
+          }
+
+          .va-text {
+            margin: 0;
+            font-size: var(--va-font-size, min(8cqw, 15cqh));
+            font-weight: 600;
+            line-height: 1.16;
+            letter-spacing: -0.03em;
+          }
+
+          .va-em {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform;
+          }
+
+          .va-em-text {
+            position: relative;
+            z-index: 1;
+          }
+
+          .va-mark {
+            position: absolute;
+            z-index: 0;
+            overflow: visible;
+          }
+
+          /* Per-style marker box around the keyword. Explicit width/height
+             (svg is a replaced element: inset-stretching would fall back to
+             its intrinsic viewBox ratio); then preserveAspectRatio="none"
+             stretches the authored path (and its stroke) into the box, which
+             is exactly the marker-nib distortion we want on a dashed path. */
+          .va-em[data-marker-style="highlight"] .va-mark {
+            left: -3%;
+            top: 14%;
+            width: 106%;
+            height: 76%;
+          }
+
+          .va-em[data-marker-style="underline"] .va-mark {
+            left: -2%;
+            bottom: -14%;
+            width: 105%;
+            height: 22%;
+            z-index: 2;
+          }
+
+          .va-em[data-marker-style="circle"] .va-mark {
+            left: -13%;
+            top: -26%;
+            width: 126%;
+            height: 152%;
+            z-index: 2;
+          }
+
+          .va-em[data-marker-style="scribble"] .va-mark {
+            left: -2%;
+            top: 12%;
+            width: 104%;
+            height: 76%;
+            z-index: 2;
+          }
+
+          /* Annotation rig: connector + callout live in one box anchored
+             above the keyword, so the whole gesture shares the pop. */
+          .va-anno {
+            position: absolute;
+            left: 55%;
+            bottom: calc(100% + 1.6cqh);
+            width: 26cqw;
+            height: 19cqh;
+            z-index: 3;
+          }
+
+          .va-conn {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+          }
+
+          .va-note {
+            position: absolute;
+            top: -1.2cqh;
+            right: -2cqw;
+            max-width: 30cqw;
+            font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, Consolas, monospace);
+            font-size: min(2.4cqw, 4.4cqh);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            line-height: 1.25;
+            text-align: left;
+            white-space: nowrap;
+            will-change: transform, opacity;
+          }
+        </style>
+
+        <div id="vox-annotate-clip" class="va-clip clip" data-start="0" data-duration="4" data-track-index="0">
+          <div class="va-stage">
+            <p class="va-text"></p>
+          </div>
+        </div>
+
+        <script>window.__hfApply&&window.__hfApply()</script><script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+        <script>
+          (function () {
+            "use strict";
+
+            var root = document.getElementById("root");
+            // Literal key: the flattening step strips data-composition-id off
+            // the mounted root, so reading it back would register "null".
+            var compositionId = "vox-annotate";
+            var stage = root.querySelector(".va-stage");
+            var textEl = root.querySelector(".va-text");
+            var vars =
+              window.__hyperframes && window.__hyperframes.getVariables
+                ? window.__hyperframes.getVariables()
+                : {};
+
+            var text =
+              vars.text == null
+                ? "Ship the story, not the spec"
+                : String(vars.text).trim().replace(/\s+/g, " ");
+            var keyword =
+              vars.keyword == null ? "story" : String(vars.keyword).trim().replace(/\s+/g, " ");
+            var note =
+              vars.note == null
+                ? "the annotate beat"
+                : String(vars.note).trim().replace(/\s+/g, " ");
+            var accentColors = {
+              green: "var(--brand, #71f5a7)",
+              blue: "var(--accent, #61a8ff)",
+              violet: "var(--accent-2, #c5a3ff)",
+            };
+            var accent = Object.prototype.hasOwnProperty.call(accentColors, vars.accent)
+              ? vars.accent
+              : "green";
+            var exit = vars.exit === "fade" || vars.exit === "up" ? vars.exit : "none";
+
+            // Hand-drawn stroke library, inherited from marker-highlight.
+            // Paths are authored in a fixed viewBox and stretched into the
+            // word box; wobble is baked into control points, never randomized.
+            var markerStyles = {
+              highlight: {
+                viewBox: "0 0 100 40",
+                d: "M 3 24 C 22 20.5, 47 25.5, 68 22.5 C 79 21, 90 23, 97 21.5",
+                strokeWidth: 26,
+                opacity: 0.5,
+              },
+              circle: {
+                viewBox: "0 0 100 40",
+                d: "M 22 7 C 58 1, 95 8, 97 20 C 99 31, 74 38, 44 37 C 16 36, 2 29, 3 19 C 4 10, 22 4, 52 4.5",
+                strokeWidth: 2.8,
+                opacity: 1,
+              },
+              underline: {
+                viewBox: "0 0 100 12",
+                d: "M 2 7 C 20 4.5, 46 8.5, 66 6 C 80 4.5, 92 7.5, 98 5.5",
+                strokeWidth: 4.5,
+                opacity: 1,
+              },
+              scribble: {
+                viewBox: "0 0 100 40",
+                d: "M 6 13 C 34 9.5, 66 11, 94 9 C 60 15, 26 16, 7 20 C 36 18, 68 21, 93 18 C 62 25, 28 27, 8 29",
+                strokeWidth: 5,
+                opacity: 0.65,
+              },
+            };
+            var styleName = Object.prototype.hasOwnProperty.call(markerStyles, vars.style)
+              ? vars.style
+              : "highlight";
+            var marker = markerStyles[styleName];
+            var svgNS = "http://www.w3.org/2000/svg";
+
+            // Split text around the first case-insensitive keyword match.
+            // textContent nodes only, never innerHTML.
+            var matchIndex =
+              keyword.length > 0 ? text.toLowerCase().indexOf(keyword.toLowerCase()) : -1;
+            var emEl = null;
+            var markPath = null;
+            var connPath = null;
+            var noteEl = null;
+            if (matchIndex >= 0) {
+              var before = text.slice(0, matchIndex);
+              var matched = text.slice(matchIndex, matchIndex + keyword.length);
+              var after = text.slice(matchIndex + keyword.length);
+              if (before) textEl.appendChild(document.createTextNode(before));
+
+              emEl = document.createElement("span");
+              emEl.className = "va-em";
+              emEl.setAttribute("data-marker-style", styleName);
+
+              var markSvg = document.createElementNS(svgNS, "svg");
+              markSvg.setAttribute("class", "va-mark");
+              markSvg.setAttribute("viewBox", marker.viewBox);
+              markSvg.setAttribute("preserveAspectRatio", "none");
+              markSvg.setAttribute("aria-hidden", "true");
+              markPath = document.createElementNS(svgNS, "path");
+              markPath.setAttribute("d", marker.d);
+              markPath.setAttribute("fill", "none");
+              markPath.setAttribute("stroke-width", String(marker.strokeWidth));
+              markPath.setAttribute("stroke-linecap", "round");
+              markPath.setAttribute("stroke-linejoin", "round");
+              // style.stroke, not the presentation attribute: var() only
+              // resolves as a CSS value.
+              markPath.style.stroke = accentColors[accent];
+              markSvg.appendChild(markPath);
+
+              var emText = document.createElement("span");
+              emText.className = "va-em-text";
+              emText.textContent = matched;
+
+              emEl.appendChild(markSvg);
+              emEl.appendChild(emText);
+
+              // Annotation rig: connector path curving up from the marker to
+              // the callout. The viewBox aspect roughly matches the anno box
+              // at 16:9 so the hand-drawn stroke stays near-even.
+              if (note.length > 0) {
+                var anno = document.createElement("span");
+                anno.className = "va-anno";
+                anno.setAttribute("aria-hidden", "true");
+
+                var connSvg = document.createElementNS(svgNS, "svg");
+                connSvg.setAttribute("class", "va-conn");
+                connSvg.setAttribute("viewBox", "0 0 240 100");
+                connSvg.setAttribute("preserveAspectRatio", "none");
+                connPath = document.createElementNS(svgNS, "path");
+                connPath.setAttribute(
+                  "d",
+                  "M 10 94 C 52 82, 96 52, 148 32 C 176 21, 200 16, 218 14",
+                );
+                connPath.setAttribute("fill", "none");
+                connPath.setAttribute("stroke-width", "2.6");
+                connPath.setAttribute("stroke-linecap", "round");
+                connPath.style.stroke = accentColors[accent];
+                connSvg.appendChild(connPath);
+
+                noteEl = document.createElement("span");
+                noteEl.className = "va-note";
+                noteEl.textContent = note;
+                noteEl.style.color = accentColors[accent];
+
+                anno.appendChild(connSvg);
+                anno.appendChild(noteEl);
+                emEl.appendChild(anno);
+              }
+
+              textEl.appendChild(emEl);
+              if (after) textEl.appendChild(document.createTextNode(after));
+            } else {
+              textEl.textContent = text;
+            }
+            textEl.setAttribute("aria-label", text);
+
+            // Deterministic character-count fit; the line may wrap, the
+            // keyword never wraps internally.
+            var characters = Math.max(1, Array.from(text).length);
+            var fitted = Math.max(4.2, Math.min(9, 175 / characters));
+            root.style.setProperty("--va-font-size", "min(" + fitted.toFixed(3) + "cqw, 15cqh)");
+
+            // RETIME RANGE: fixed phases; HOLD is the only elastic span.
+            var IN_BASE = 0.55;
+            var DRAW_BASE = 0.6;
+            var CONN_BASE = 0.45;
+            var NOTE_BASE = 0.3;
+            var POP_BASE = 0.32;
+            var GESTURE_BASE = 0.96; // marker + connector + label span
+            var OUT_BASE = exit === "none" ? 0 : 0.45;
+            var duration = Math.max(0.001, parseFloat(root.dataset.duration || "4"));
+            var totalBase = IN_BASE + GESTURE_BASE + OUT_BASE;
+            var scale = duration < totalBase ? duration / totalBase : 1;
+            var IN = IN_BASE * scale;
+            var DRAW = DRAW_BASE * scale;
+            var CONN = CONN_BASE * scale;
+            var NOTE = NOTE_BASE * scale;
+            var POP = POP_BASE * scale;
+            var GESTURE = GESTURE_BASE * scale;
+            var OUT = OUT_BASE * scale;
+            var OUT_START = duration - OUT;
+
+            var drawAtRaw = Number(vars.draw_at);
+            var drawAt = Number.isFinite(drawAtRaw) ? Math.max(0, drawAtRaw) : 0.9;
+            // The whole gesture always lands before the exit.
+            drawAt = Math.min(drawAt, Math.max(0, OUT_START - GESTURE));
+
+            gsap.set(stage, { opacity: 0, y: "6cqh" });
+
+            var tl = gsap.timeline({ paused: true });
+
+            // IN: the line rises into place.
+            tl.fromTo(
+              stage,
+              { opacity: 0, y: "6cqh" },
+              { opacity: 1, y: "0cqh", duration: IN, ease: "power3.out" },
+              0,
+            );
+
+            // GESTURE: marker, connector, and label as one beat on the cue.
+            // Dash reveals from measured lengths; both endpoints explicit so
+            // any seek in either direction is correct without playing through.
+            if (markPath) {
+              var markLength = markPath.getTotalLength();
+              markPath.style.strokeDasharray = String(markLength);
+              // Hidden until the cue: at dashoffset == length the round cap
+              // still paints a dot at the path start, so the ink is opacity 0
+              // until the exact frame the draw begins.
+              gsap.set(markPath, { strokeDashoffset: markLength, opacity: 0 });
+              tl.set(markPath, { opacity: marker.opacity }, drawAt);
+              tl.fromTo(
+                markPath,
+                { strokeDashoffset: markLength },
+                { strokeDashoffset: 0, duration: DRAW, ease: "power2.inOut" },
+                drawAt,
+              );
+              // Settle pop on the keyword as the ink lands. The annotation
+              // rig rides the same span, so the whole gesture breathes once.
+              tl.fromTo(
+                emEl,
+                { scale: 1 },
+                {
+                  scale: 1.045,
+                  duration: POP / 2,
+                  ease: "power1.out",
+                  yoyo: true,
+                  repeat: 1,
+                },
+                drawAt + DRAW * 0.7,
+              );
+            }
+
+            if (connPath) {
+              var connAt = drawAt + DRAW * 0.6;
+              var connLength = connPath.getTotalLength();
+              connPath.style.strokeDasharray = String(connLength);
+              gsap.set(connPath, { strokeDashoffset: connLength, opacity: 0 });
+              tl.set(connPath, { opacity: 0.9 }, connAt);
+              tl.fromTo(
+                connPath,
+                { strokeDashoffset: connLength },
+                { strokeDashoffset: 0, duration: CONN, ease: "power2.out" },
+                connAt,
+              );
+            }
+
+            if (noteEl) {
+              var noteAt = drawAt + DRAW * 0.6 + CONN * 0.65;
+              tl.fromTo(
+                noteEl,
+                { opacity: 0, y: "1.6cqh" },
+                { opacity: 1, y: "0cqh", duration: NOTE, ease: "power2.out" },
+                noteAt,
+              );
+            }
+
+            // HOLD: completely still.
+
+            // OUT: optional departure; exit none holds until the frame cuts.
+            if (exit === "fade") {
+              tl.to(stage, { opacity: 0, duration: OUT, ease: "power2.in" }, OUT_START);
+            } else if (exit === "up") {
+              tl.to(stage, { opacity: 0, y: "-7cqh", duration: OUT, ease: "power2.in" }, OUT_START);
+            }
+
+            tl.seek(0);
+            window.__timelines = window.__timelines || {};
+            window.__timelines[compositionId] = tl;
+          })();
+        </script>
+      </div>
+    </div>
+    </div>
+
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["vox-annotate-demo"] = gsap.timeline({ paused: true });
+    </script>
+  
+
+</body></html>

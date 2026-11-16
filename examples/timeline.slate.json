@@ -1,0 +1,435 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 22.7,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "caption_style": "slate",
+ "captions": "work/captions.json",
+ "scenes": [
+  {
+   "type": "frame_grid",
+   "t0": 0,
+   "t1": 5.1,
+   "blur": [
+    {
+     "t": 0,
+     "v": 14
+    }
+   ],
+   "dim": 0.25,
+   "badge": {
+    "icon": "si:claude"
+   }
+  },
+  {
+   "type": "media_card",
+   "t0": 0.9,
+   "t1": 5.1,
+   "card": {
+    "x": 120,
+    "y": 372,
+    "w": 480,
+    "h": 270,
+    "r": 16
+   },
+   "screen": {
+    "broll": {
+     "id": "cong-nghe-moi--neural--ember"
+    }
+   },
+   "lines": [
+    {
+     "text": "viễn cảnh phim",
+     "t": 0.9,
+     "style": "clean",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 700,
+     "size": 24,
+     "y": 292
+    },
+    {
+     "text": "iRobot",
+     "t": 1.4,
+     "style": "grad_blue",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 900,
+     "size": 66,
+     "y": 336,
+     "anim": "pop"
+    },
+    {
+     "text": "trong vài năm tới",
+     "t": 2.6,
+     "out": 3.6,
+     "style": "hl",
+     "font": "'Playfair Display',serif",
+     "italic": false,
+     "weight": 800,
+     "size": 34,
+     "y": 700,
+     "anim": "pop"
+    },
+    {
+     "text": "thậm chí còn",
+     "t": 3.7,
+     "style": "clean",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 800,
+     "size": 30,
+     "y": 694,
+     "anim": "fade"
+    },
+    {
+     "text": "khủng khiếp hơn",
+     "t": 4.3,
+     "style": "yellow",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 900,
+     "size": 46,
+     "y": 744,
+     "anim": "pop"
+    }
+   ]
+  },
+  {
+   "type": "frame_grid",
+   "t0": 5.1,
+   "t1": 11.1,
+   "enter": "blur",
+   "zoom": [
+    {
+     "t": 5.1,
+     "s": 1
+    },
+    {
+     "t": 6.7,
+     "s": 1.06,
+     "x": 50,
+     "y": 35
+    },
+    {
+     "t": 9.1,
+     "s": 1
+    }
+   ]
+  },
+  {
+   "type": "logo_row",
+   "t0": 6.6,
+   "t1": 9.1,
+   "y": 300,
+   "icons": [
+    "si:openai",
+    "si:claude",
+    "si:googlegemini",
+    "si:perplexity",
+    "si:x"
+   ]
+  },
+  {
+   "type": "led_text",
+   "t0": 6.85,
+   "t1": 9.1,
+   "text": "TIN SHOCK",
+   "y": 398,
+   "size": 74
+  },
+  {
+   "type": "neon_text",
+   "t0": 10.3,
+   "t1": 11.1,
+   "text": "đáng sợ",
+   "y": 390,
+   "size": 84
+  },
+  {
+   "type": "frame_grid",
+   "t0": 11.1,
+   "t1": 18.3,
+   "blur": [
+    {
+     "t": 11.1,
+     "v": 0
+    },
+    {
+     "t": 11.45,
+     "v": 18,
+     "dur": 0.35
+    }
+   ],
+   "dim": [
+    {
+     "t": 11.1,
+     "v": 0
+    },
+    {
+     "t": 11.45,
+     "v": 0.38,
+     "dur": 0.35
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "t0": 11.1,
+   "t1": 18.3,
+   "lines": [
+    {
+     "text": "mấy ngày trước",
+     "t": 11.2,
+     "style": "clean",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 700,
+     "size": 22,
+     "y": 272,
+     "anim": "fade"
+    },
+    {
+     "text": "hai công ty đang chạy đua",
+     "t": 15.3,
+     "style": "clean",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 800,
+     "size": 31,
+     "y": 310,
+     "anim": "pop"
+    }
+   ],
+   "nodes": [
+    {
+     "id": "r",
+     "kind": "person",
+     "text": "nhà nghiên cứu",
+     "x": 360,
+     "y": 470,
+     "t": 11.7,
+     "out": 12.95
+    },
+    {
+     "id": "o",
+     "kind": "chip",
+     "text": "OpenAI",
+     "icon": "si:openai",
+     "t": 12.95,
+     "keys": [
+      {
+       "t": 12.95,
+       "x": 272,
+       "y": 590
+      },
+      {
+       "t": 15.4,
+       "x": 262,
+       "y": 790
+      },
+      {
+       "t": 16.8,
+       "x": 278,
+       "y": 690
+      }
+     ]
+    },
+    {
+     "id": "a",
+     "kind": "chip",
+     "text": "Anthropic",
+     "icon": "si:anthropic",
+     "t": 13.7,
+     "keys": [
+      {
+       "t": 13.7,
+       "x": 452,
+       "y": 590
+      },
+      {
+       "t": 15.4,
+       "x": 462,
+       "y": 790
+      },
+      {
+       "t": 16.8,
+       "x": 448,
+       "y": 690
+      }
+     ]
+    },
+    {
+     "id": "p",
+     "kind": "pill",
+     "text": "siêu trí tuệ",
+     "x": 360,
+     "y": 560,
+     "t": 16.6,
+     "ring": true
+    },
+    {
+     "id": "ai",
+     "kind": "big",
+     "text": "AI",
+     "x": 360,
+     "y": 420,
+     "t": 17,
+     "size": 120
+    },
+    {
+     "id": "c",
+     "kind": "pill_outline",
+     "text": "tự cải thiện",
+     "x": 360,
+     "y": 840,
+     "t": 17.55
+    }
+   ],
+   "edges": [
+    {
+     "from": "o",
+     "to": "p",
+     "t": 15.4,
+     "dur": 0.6
+    },
+    {
+     "from": "a",
+     "to": "p",
+     "t": 15.5,
+     "dur": 0.6
+    }
+   ]
+  },
+  {
+   "type": "frame_grid",
+   "t0": 18.3,
+   "t1": 20.2,
+   "enter": "blur"
+  },
+  {
+   "type": "title_card",
+   "t0": 20.2,
+   "t1": 22.7,
+   "question": "Bạn thấy sao?"
+  }
+ ],
+ "fx": [
+  {
+   "t": 5.1,
+   "type": "punch",
+   "amp": 0.04
+  },
+  {
+   "t": 18.3,
+   "type": "punch",
+   "amp": 0.04
+  }
+ ],
+ "audio": {
+  "voice": "work/aroll.mp4",
+  "mix": "work/mix.wav",
+  "music": [
+   {
+    "t0": 20.2,
+    "t1": 22.7,
+    "mood": "tech",
+    "gain": -14
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.4,
+    "name": "pop",
+    "gain": -14
+   },
+   {
+    "t": 2.6,
+    "name": "pop_2",
+    "gain": -16
+   },
+   {
+    "t": 4.3,
+    "name": "pop_3",
+    "gain": -14
+   },
+   {
+    "t": 5.1,
+    "name": "whoosh_2",
+    "gain": -18
+   },
+   {
+    "t": 6.6,
+    "name": "blip",
+    "gain": -16
+   },
+   {
+    "t": 6.85,
+    "name": "beep_computer",
+    "gain": -20
+   },
+   {
+    "t": 7.3,
+    "name": "ding",
+    "gain": -18
+   },
+   {
+    "t": 10.3,
+    "name": "static_burst",
+    "gain": -20
+   },
+   {
+    "t": 11.1,
+    "name": "whoosh_slow",
+    "gain": -18
+   },
+   {
+    "t": 12.95,
+    "name": "pop",
+    "gain": -18
+   },
+   {
+    "t": 13.7,
+    "name": "pop_2",
+    "gain": -18
+   },
+   {
+    "t": 15.4,
+    "name": "swoosh_up",
+    "gain": -20
+   },
+   {
+    "t": 16.6,
+    "name": "sparkle",
+    "gain": -16
+   },
+   {
+    "t": 17,
+    "name": "shimmer",
+    "gain": -18
+   },
+   {
+    "t": 17.55,
+    "name": "pop_4",
+    "gain": -16
+   },
+   {
+    "t": 18.3,
+    "name": "whoosh_3",
+    "gain": -18
+   },
+   {
+    "t": 20.2,
+    "name": "stinger_happy",
+    "gain": -16
+   }
+  ]
+ }
+}

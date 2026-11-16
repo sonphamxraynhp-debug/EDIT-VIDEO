@@ -1,0 +1,229 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 20.2,
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 360,
+  "y": 520
+ },
+ "caption_style": "topn",
+ "captions": "work/captions.json",
+ "scenes": [
+  {
+   "type": "top_title",
+   "t0": 0,
+   "t1": 2.5,
+   "count": 5,
+   "title": "Điểm đến Việt Nam",
+   "sub": "Đáng đi nhất năm 2026"
+  },
+  {
+   "type": "top_badge",
+   "t0": 2.5,
+   "t1": 14.1,
+   "label": "TOP 5",
+   "title": "Điểm đến Việt Nam",
+   "marks": [
+    {
+     "rank": 5,
+     "t": 2.5
+    },
+    {
+     "rank": 4,
+     "t": 5.4
+    },
+    {
+     "rank": 3,
+     "t": 8.3
+    },
+    {
+     "rank": 2,
+     "t": 11.2
+    },
+    {
+     "rank": 1,
+     "t": 14.1
+    }
+   ]
+  },
+  {
+   "type": "top_progress",
+   "t0": 2.5,
+   "t1": 14.1,
+   "count": 5,
+   "marks": [
+    {
+     "rank": 5,
+     "t": 2.5
+    },
+    {
+     "rank": 4,
+     "t": 5.4
+    },
+    {
+     "rank": 3,
+     "t": 8.3
+    },
+    {
+     "rank": 2,
+     "t": 11.2
+    },
+    {
+     "rank": 1,
+     "t": 14.1
+    }
+   ],
+   "names": {
+    "5": "Phú Quốc",
+    "4": "Sa Pa",
+    "3": "Hội An",
+    "2": "Đà Lạt",
+    "1": "Vịnh Hạ Long"
+   }
+  },
+  {
+   "type": "top_number",
+   "t0": 2.5,
+   "t1": 5.4,
+   "rank": 5,
+   "name": "Phú Quốc",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 3.8,
+   "t1": 5.4,
+   "rank": 5,
+   "name": "Phú Quốc",
+   "reason": "Biển xanh, hoàng hôn đẹp nhất miền Nam",
+   "image": "media/top_phuquoc.jpg",
+   "price": "từ 3,5 triệu"
+  },
+  {
+   "type": "top_number",
+   "t0": 5.4,
+   "t1": 8.3,
+   "rank": 4,
+   "name": "Sa Pa",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 6.7,
+   "t1": 8.3,
+   "rank": 4,
+   "name": "Sa Pa",
+   "reason": "Ruộng bậc thang mùa lúa chín vàng",
+   "image": "media/top_sapa.jpg",
+   "score": 8.6,
+   "compact": true
+  },
+  {
+   "type": "top_number",
+   "t0": 8.3,
+   "t1": 11.2,
+   "rank": 3,
+   "name": "Hội An",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 9.6,
+   "t1": 11.2,
+   "rank": 3,
+   "name": "Hội An",
+   "reason": "Phố cổ đèn lồng lung linh về đêm",
+   "image": "media/top_hoian.jpg",
+   "score": 9.1,
+   "price": "Miễn phí vé"
+  },
+  {
+   "type": "top_number",
+   "t0": 11.2,
+   "t1": 14.1,
+   "rank": 2,
+   "name": "Đà Lạt",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 12.5,
+   "t1": 14.1,
+   "rank": 2,
+   "name": "Đà Lạt",
+   "reason": "Se lạnh quanh năm, rừng thông, cà phê",
+   "image": "media/top_dalat.jpg",
+   "score": 9.3,
+   "compact": true
+  },
+  {
+   "type": "top_podium",
+   "t0": 14.1,
+   "t1": 17.2,
+   "name": "Vịnh Hạ Long",
+   "reason": "Kỳ quan thiên nhiên thế giới",
+   "image": "media/top_halong.jpg",
+   "second": "Đà Lạt",
+   "third": "Hội An",
+   "kicker": "TOP 1 · QUÁN QUÂN"
+  },
+  {
+   "type": "top_recap",
+   "t0": 17.2,
+   "t1": 20.2,
+   "title": "Top 5 điểm đến",
+   "items": [
+    {
+     "rank": 5,
+     "name": "Phú Quốc",
+     "image": "media/top_phuquoc.jpg",
+     "note": ""
+    },
+    {
+     "rank": 4,
+     "name": "Sa Pa",
+     "image": "media/top_sapa.jpg",
+     "note": "8.6/10"
+    },
+    {
+     "rank": 3,
+     "name": "Hội An",
+     "image": "media/top_hoian.jpg",
+     "note": "9.1/10"
+    },
+    {
+     "rank": 2,
+     "name": "Đà Lạt",
+     "image": "media/top_dalat.jpg",
+     "note": "9.3/10"
+    },
+    {
+     "rank": 1,
+     "name": "Vịnh Hạ Long",
+     "image": "media/top_halong.jpg",
+     "note": "9.8/10"
+    }
+   ]
+  }
+ ],
+ "audio": {
+  "voice": "work/voice.wav",
+  "mix": "work/mix.wav",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 20.2,
+    "mood": "hype",
+    "gain": -10
+   }
+  ],
+  "sfx": []
+ },
+ "brand": {
+  "handle": "@kiem.dulich"
+ }
+}

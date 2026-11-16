@@ -1,0 +1,72 @@
+{
+ "id": "cs-tap-chi-editorial",
+ "name": "Tạp chí editorial",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "share",
+ "desc": "Kiểu tạp chí Gen Z: phụ đề nhấn chữ nghiêng, thẻ chương toàn màn, con số, trích dẫn, nhạc nền tối.",
+ "tags": [
+  "editorial",
+  "tạp chí",
+  "gen z",
+  "preset"
+ ],
+ "title": "Điều mình học được",
+ "caption_style": "hf_editorial_emphasis",
+ "music": "mellow",
+ "music_gain": -21,
+ "brand": {
+  "primary": "#D13F34",
+  "accent": "#B93026",
+  "dark": "#262626",
+  "font": "'Montserrat',var(--sans)"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên chương",
+  "câu trích dẫn"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.2
+ },
+ "scenes": [
+  {
+   "type": "sh_chapter",
+   "t0": 0,
+   "t1": 2.4,
+   "num": "PHẦN 1",
+   "title": "Điều *không ai nói*",
+   "mode": "full"
+  },
+  {
+   "type": "sh_stat",
+   "t0": 5.2,
+   "t1": 8,
+   "value": "80%",
+   "label": "người bỏ cuộc ở tháng đầu (ví dụ)"
+  },
+  {
+   "type": "sh_quote",
+   "t0": 10.4,
+   "t1": 14.4,
+   "text": "Kỷ luật là *chọn điều mình muốn nhất* thay vì điều mình muốn ngay.",
+   "author": "Câu nói mẫu"
+  },
+  {
+   "type": "sh_chapter",
+   "t0": 15.4,
+   "t1": 17.4,
+   "num": "PHẦN 2",
+   "title": "Làm *ngay hôm nay*"
+  },
+  {
+   "type": "sh_cta",
+   "t0": 17.8,
+   "t1": 20.2,
+   "keep": true
+  }
+ ]
+}

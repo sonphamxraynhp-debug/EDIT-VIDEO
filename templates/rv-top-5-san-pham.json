@@ -1,0 +1,198 @@
+{
+ "id": "rv-top-5-san-pham",
+ "name": "Top 5 đáng mua",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "topn",
+ "desc": "Xếp hạng Top 5 sản phẩm: ảnh từng món, điểm, giá tham khảo, bục quán quân và bảng tổng kết.",
+ "tags": [
+  "top 5",
+  "xếp hạng",
+  "gợi ý mua",
+  "list"
+ ],
+ "title": "Đáng mua nhất",
+ "caption_style": "topn",
+ "music": "hype_2",
+ "brand": {
+  "primary": "#FF3D7F",
+  "accent": "#FFE14D",
+  "dark": "#120A12"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh 5 sản phẩm",
+  "tên + lý do",
+  "giá / điểm"
+ ],
+ "preview": {
+  "from": 2.0,
+  "to": 8.0,
+  "still": 4.6
+ },
+ "scenes": [
+  {
+   "type": "top_title",
+   "t0": 0,
+   "t1": 2.5,
+   "count": 5,
+   "title": "Đáng mua nhất",
+   "sub": "Danh sách mẫu, thay bằng sản phẩm của bạn"
+  },
+  {
+   "type": "top_progress",
+   "t0": 2.5,
+   "t1": 14.1,
+   "count": 5,
+   "marks": [
+    {
+     "rank": 5,
+     "t": 2.5
+    },
+    {
+     "rank": 4,
+     "t": 5.4
+    },
+    {
+     "rank": 3,
+     "t": 8.3
+    },
+    {
+     "rank": 2,
+     "t": 11.2
+    },
+    {
+     "rank": 1,
+     "t": 14.1
+    }
+   ],
+   "names": {
+    "5": "Món E",
+    "4": "Món D",
+    "3": "Món C",
+    "2": "Món B",
+    "1": "Món A"
+   }
+  },
+  {
+   "type": "top_number",
+   "t0": 2.5,
+   "t1": 5.4,
+   "rank": 5,
+   "name": "Món E",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 3.7,
+   "t1": 5.4,
+   "rank": 5,
+   "name": "Món E",
+   "reason": "Lý do ngắn gọn",
+   "image": "media/serum.png",
+   "price": "~ 390K (ví dụ)"
+  },
+  {
+   "type": "top_number",
+   "t0": 5.4,
+   "t1": 8.3,
+   "rank": 4,
+   "name": "Món D",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 6.6,
+   "t1": 8.3,
+   "rank": 4,
+   "name": "Món D",
+   "reason": "Lý do ngắn gọn",
+   "image": "media/phone_b.png",
+   "score": 8.4,
+   "compact": true
+  },
+  {
+   "type": "top_number",
+   "t0": 8.3,
+   "t1": 11.2,
+   "rank": 3,
+   "name": "Món C",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 9.5,
+   "t1": 11.2,
+   "rank": 3,
+   "name": "Món C",
+   "reason": "Lý do ngắn gọn",
+   "emoji": "🎧",
+   "score": 8.8
+  },
+  {
+   "type": "top_number",
+   "t0": 11.2,
+   "t1": 14.1,
+   "rank": 2,
+   "name": "Món B",
+   "badge_name": false
+  },
+  {
+   "type": "top_item",
+   "t0": 12.4,
+   "t1": 14.1,
+   "rank": 2,
+   "name": "Món B",
+   "reason": "Lý do ngắn gọn",
+   "emoji": "⌚",
+   "score": 9.0,
+   "compact": true
+  },
+  {
+   "type": "top_podium",
+   "t0": 14.1,
+   "t1": 17.2,
+   "name": "Món A",
+   "reason": "Đáng tiền nhất (ví dụ)",
+   "image": "media/phone_a.png",
+   "second": "Món B",
+   "third": "Món C",
+   "kicker": "TOP 1 · ĐÁNG MUA"
+  },
+  {
+   "type": "top_recap",
+   "t0": 17.2,
+   "t1": 20.2,
+   "title": "Top 5 đáng mua",
+   "keep": true,
+   "items": [
+    {
+     "rank": 5,
+     "name": "Món E",
+     "image": "media/serum.png"
+    },
+    {
+     "rank": 4,
+     "name": "Món D",
+     "image": "media/phone_b.png"
+    },
+    {
+     "rank": 3,
+     "name": "Món C",
+     "emoji": "🎧"
+    },
+    {
+     "rank": 2,
+     "name": "Món B",
+     "emoji": "⌚"
+    },
+    {
+     "rank": 1,
+     "name": "Món A",
+     "image": "media/phone_a.png"
+    }
+   ]
+  }
+ ]
+}

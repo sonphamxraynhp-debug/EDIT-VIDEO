@@ -1,0 +1,71 @@
+{
+ "id": "dn-saas-ngang",
+ "name": "Giới thiệu phần mềm (ngang)",
+ "category": "doanhnghiep",
+ "aspect": "16:9",
+ "pack": "hf_tin",
+ "desc": "Video ngang: giao diện lật 3D, khung trình duyệt, bật tắt cài đặt, con trỏ bấm và thẻ 5 sao cuối video.",
+ "tags": [
+  "phần mềm",
+  "SaaS",
+  "demo",
+  "ngang"
+ ],
+ "title": "Phần mềm quản lý",
+ "caption_style": "hf_pill_karaoke",
+ "music": "tech_2",
+ "brand": {
+  "primary": "#00C2A8",
+  "accent": "#B4FFF2",
+  "dark": "#04110F"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên phần mềm",
+  "tính năng",
+  "số khách hàng"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.6
+ },
+ "fx": [],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "browser-device-stage",
+   "t0": 0,
+   "t1": 4.4,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "lt-dark-card",
+   "t0": 4.6,
+   "t1": 9
+  },
+  {
+   "type": "hf",
+   "block": "settings-toggle-flow",
+   "t0": 9.4,
+   "t1": 14,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "press-ripple",
+   "t0": 14.2,
+   "t1": 16.6,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "social-proof-card",
+   "t0": 16.8,
+   "t1": 20.2,
+   "hideCaptions": true
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "id": "dn-keynote-ngang",
+ "name": "Keynote doanh nghiệp",
+ "category": "doanhnghiep",
+ "aspect": "16:9",
+ "pack": "hf_tin",
+ "desc": "Video ngang: thẻ tiêu đề, tên người nói, lưới thẻ tính năng, biểu đồ doanh thu và logo kết toàn khung.",
+ "tags": [
+  "keynote",
+  "thuyết trình",
+  "ngang",
+  "YouTube"
+ ],
+ "title": "Keynote doanh nghiệp",
+ "caption_style": "hf_editorial_emphasis",
+ "music": "corporate",
+ "brand": {
+  "primary": "#3E7BFA",
+  "accent": "#9CC2FF",
+  "dark": "#0B1220"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên công ty",
+  "tính năng",
+  "số liệu"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2
+ },
+ "fx": [],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "titlecard-lockup",
+   "t0": 0,
+   "t1": 3.2,
+   "hideCaptions": true,
+   "vars": {
+    "wordmark": "CÔNG TY ABC",
+    "label": "KẾ HOẠCH 2026",
+    "kicker": "KEYNOTE"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "lt-clean-bar",
+   "t0": 3.4,
+   "t1": 8
+  },
+  {
+   "type": "hf",
+   "block": "grid-card-assemble",
+   "t0": 8.4,
+   "t1": 12.8,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "data-chart",
+   "t0": 13.2,
+   "t1": 18,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "logo-brand-close",
+   "t0": 18,
+   "t1": 20.2,
+   "hideCaptions": true,
+   "vars": {
+    "wordmark": "CÔNG TY ABC",
+    "tagline": "Cùng nhau đi xa",
+    "url": "congtyabc.vn"
+   }
+  }
+ ]
+}

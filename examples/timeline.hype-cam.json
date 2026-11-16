@@ -1,0 +1,145 @@
+{
+  "_comment": "Tái tạo video mẫu 74.6 s. Đường dẫn tương đối với file timeline. broll/*.jpg, ui/*.png là ảnh bạn cung cấp.",
+  "width": 1280, "height": 720, "fps": 30, "duration": 74.6,
+  "aroll": { "frames": "work/frames/%05d.jpg", "cutouts": "work/cutouts/%05d.png" },
+  "person": { "x": 62, "y": 62, "rx": 26, "ry": 62 },
+  "captions": "work/captions.json",
+  "captionsHide": [{ "t0": 0, "t1": 5.5 }, { "t0": 19.6, "t1": 20.4 }, { "t0": 69.0, "t1": 74.6 }],
+  "grade": [
+    { "t0": 19.6, "t1": 22.1, "mode": "bw" }
+  ],
+  "zoom": [
+    { "t0": 7.6, "t1": 10.0, "scale": 1.06 },
+    { "t0": 17.6, "t1": 19.6, "scale": 1.05 },
+    { "t0": 23.0, "t1": 24.4, "scale": 1.06 },
+    { "t0": 39.0, "t1": 43.0, "from": 1.0, "scale": 1.06, "ramp": true },
+    { "t0": 66.5, "t1": 69.0, "scale": 1.05 }
+  ],
+  "scenes": [
+    { "t0": 0.0, "t1": 2.6, "type": "slam_bg", "tiles": ["broll/01.jpg", "broll/02.jpg", "broll/03.jpg", "broll/04.jpg", "broll/05.jpg", "broll/06.jpg"], "cx": 700, "cy": 280 },
+    { "t0": 0.0, "t1": 2.6, "type": "hud", "face_out": 1.0 },
+    { "t0": 0.0, "t1": 2.6, "type": "kinetic", "y": 430, "label": "Video này được edit",
+      "label_words": [{ "w": "Video", "t": 0.0 }, { "w": "này", "t": 0.38 }, { "w": "được", "t": 0.6 }, { "w": "edit", "t": 0.78 }],
+      "hero": "BỞI AI", "hero_t": 1.8, "hero_size": 84 },
+    { "t0": 0.96, "t1": 2.6, "type": "counter", "from": 1, "to": 100, "t_a": 0.96, "t_b": 1.38, "x": 34, "y": 22, "size": 200 },
+    { "t0": 1.0, "t1": 2.6, "type": "stickers", "items": [{ "e": "💯", "x": 1070, "y": 40, "size": 90, "t": 1.5 }, { "e": "🤖", "x": 965, "y": 430, "size": 95, "t": 1.6 }, { "e": "🎞️", "x": 1120, "y": 300, "size": 100, "t": 1.7 }, { "e": "🎬", "x": 1205, "y": 250, "size": 80, "t": 1.75 }] },
+    { "t0": 1.3, "t1": 2.6, "type": "waveform_strip" },
+    { "t0": 0.0, "t1": 0.35, "type": "flash_ring", "cx": 700, "cy": 270 },
+    { "t0": 1.36, "t1": 1.7, "type": "flash_ring", "cx": 700, "cy": 270, "flash": 0.6 },
+
+    { "t0": 2.6, "t1": 8.9, "type": "kinetic", "y": 205, "label": "Nhiều anh chị em", "label_t": 2.7, "hero": "CHƯA BIẾT", "hero_t": 3.3, "sub": "về khả năng edit video của AI", "sub_t": 3.7 },
+    { "t0": 8.9, "t1": 10.0, "type": "mega", "text": "HOÀI NGH<em>I?</em>", "align": "center", "y": 42, "size": 128 },
+    { "t0": 8.95, "t1": 10.0, "type": "question_marks" },
+    { "t0": 9.3, "t1": 10.0, "type": "pill", "text": "Có đáng ổn hay không?", "x": 75, "y": 374 },
+
+    { "t0": 10.0, "t1": 14.3, "type": "ui_showcase", "image": "ui/claude_plan.png", "chip": "ĐANG DỰNG", "chip_t": 10.5, "label": "Claude đang edit", "label_t": 10.7, "hero": "100% VIDEO", "hero_t": 11.1, "sub": "này", "sub_t": 11.4, "pip": true, "pip_t": 11.6 },
+
+    { "t0": 14.3, "t1": 19.3, "type": "kinetic", "emoji": ["⏰", "⌛"], "emoji_t": 14.6, "label": "Thay vì trước đây", "label_t": 14.35, "hero": "RẤT NHIỀU\nTHỜI GIAN", "hero_t": 15.4, "sub": "1 video ngắn", "sub_t": 17.1, "sub2": "1 – 1,5 PHÚT", "sub2_t": 18.5 },
+    { "t0": 19.25, "t1": 19.7, "type": "light_leak", "side": "left" },
+    { "t0": 19.6, "t1": 22.1, "type": "counter", "format": "clock", "from": 44, "to": 14400, "t_a": 19.6, "t_b": 21.6, "x": 75, "y": 280, "size": 40, "style": "white" },
+    { "t0": 20.3, "t1": 22.1, "type": "mega", "text": "3–4 TIẾNG", "x": 75, "y": 190, "size": 66, "style": "white" },
+    { "t0": 21.9, "t1": 22.4, "type": "light_leak", "side": "right" },
+
+    { "t0": 22.8, "t1": 27.3, "type": "kinetic", "label": "Bây giờ AI", "label_t": 22.85, "hero": "TỰ ĐỘNG EDIT", "hero_t": 23.9 },
+    { "t0": 24.3, "t1": 25.9, "type": "ring", "from": 6, "to": 100, "t_a": 24.4, "t_b": 25.3, "x": 75, "y": 330 },
+    { "t0": 25.9, "t1": 27.3, "type": "compare_bar", "top": "Trước đây · 3–4 tiếng", "bottom": "30–40 phút", "bottom_t": 26.1 },
+    { "t0": 27.3, "t1": 27.75, "type": "slam_bg", "tiles": ["broll/01.jpg", "broll/02.jpg", "broll/03.jpg", "broll/04.jpg"] },
+    { "t0": 27.3, "t1": 27.95, "type": "mega", "text": "30–40 PHÚT", "x": 30, "y": 22, "size": 92, "style": "glow", "dim_t": 27.75, "dim_to": 0.4, "behind": true },
+    { "t0": 27.85, "t1": 28.4, "type": "iris", "cx": 735, "cy": 290 },
+
+    { "t0": 28.3, "t1": 37.2, "type": "checklist_panel", "label": "Ngày xưa phải chọn", "hero": "RẤT NHIỀU",
+      "items": [
+        { "text": "Nhạc", "t": 31.1, "win": { "type": "waves" } },
+        { "text": "Hiệu ứng", "t": 31.8, "win": { "type": "emoji" } },
+        { "text": "Cắt cảnh thừa", "t": 32.5, "win": { "type": "trim", "from": 125, "to": 71 } },
+        { "text": "Phần nói lặp", "t": 33.7, "win": { "type": "strike", "lines": ["nhiều anh chị em có thể chưa biết", "thay vì trước đây chúng ta sẽ mất", "tuy nhiên là bây giờ tất cả mọi video", "hay là rất là nhiều những cái cảnh trám"], "result": "giữ lại lần nói ổn nhất" } },
+        { "text": "Sound effect", "t": 35.4, "win": { "type": "sfx" } }
+      ] },
+
+    { "t0": 37.2, "t1": 43.0, "type": "kinetic", "label": "Tại thời điểm này", "label_t": 37.3, "hero": "CHỈ CẦN\nRA LỆNH", "hero_t": 40.0 },
+    { "t0": 39.4, "t1": 43.0, "type": "prompt_box", "x": 22, "y": 286, "text": "Edit video này một cách xuất sắc nhất", "type_a": 39.6, "type_b": 41.0, "progress_a": 41.3, "progress_b": 42.4 },
+    { "t0": 42.2, "t1": 43.0, "type": "stamp", "text": "TỰ ĐỘNG 100%", "x": 26, "y": 420, "rot": -8 },
+
+    { "t0": 43.0, "t1": 45.8, "type": "orbit", "cards": ["broll/01.jpg", "broll/02.jpg", "broll/03.jpg", "broll/04.jpg", "broll/05.jpg"], "outline": "HIỆU ỨNG", "fill": "BAY QUANH ĐẦU", "fill_t": 44.25 },
+
+    { "t0": 46.9, "t1": 48.9, "type": "mood", "mode": "sad", "text": "buồn…", "text_t": 47.6, "x": 410, "y": 290 },
+    { "t0": 48.9, "t1": 49.9, "type": "mood", "mode": "happy", "text": "VUI!", "x": 30, "y": 240 },
+    { "t0": 52.0, "t1": 53.5, "type": "mood", "mode": "mellow", "text": "du dương", "text_t": 52.6, "x": 410, "y": 330 },
+
+    { "t0": 53.9, "t1": 56.0, "type": "mosaic", "step": 0.7, "columns": [["broll/01.jpg", "broll/04.jpg", "broll/07.jpg"], ["broll/02.jpg", "broll/05.jpg", "broll/08.jpg"], ["broll/03.jpg", "broll/06.jpg", "broll/09.jpg"]] },
+    { "t0": 56.0, "t1": 57.6, "type": "mosaic_wall", "tiles": ["broll/01.jpg", "broll/02.jpg", "broll/03.jpg", "broll/04.jpg", "broll/05.jpg", "broll/06.jpg", "broll/07.jpg", "broll/08.jpg", "broll/09.jpg"], "text": "SINH ĐỘNG", "text_t": 56.7 },
+
+    { "t0": 57.6, "t1": 62.9, "type": "step_cards", "compact": false, "highlight_t": 62.4, "hero": "RÕ NHẤT",
+      "cards": [
+        { "title": "Hình ảnh\nminh hoạ", "images": ["broll/09.jpg", "broll/02.jpg"], "t": 58.3 },
+        { "title": "Người xem\nnhìn nhận", "emoji": "👀", "t": 60.2 },
+        { "title": "Giá trị\nvideo", "emoji": "⭐", "t": 61.4 }
+      ] },
+
+    { "t0": 62.9, "t1": 67.2, "type": "ui_showcase", "image": "ui/claude_progress.png", "label": "Tất cả hiệu ứng", "label_t": 63.2, "hero": "TẤT CẢ PHẦN EDIT", "hero_size": 34, "hero_t": 64.9, "card_y": 50,
+      "tags": [{ "text": "Cắt lặng", "t": 63.6 }, { "text": "Bỏ câu lặp", "t": 63.8 }, { "text": "Chữ sau đầu", "t": 64.0 }, { "text": "Bay quanh đầu", "t": 64.2 }, { "text": "Đổi nhạc", "t": 64.5 }, { "text": "Cảnh trám", "t": 64.7 }, { "text": "Minh hoạ", "t": 65.2 }] },
+
+    { "t0": 67.2, "t1": 69.0, "type": "slam_bg", "tiles": ["broll/01.jpg", "broll/02.jpg", "broll/03.jpg", "broll/04.jpg", "broll/05.jpg", "broll/06.jpg"] },
+    { "t0": 67.2, "t1": 69.0, "type": "mega", "text": "100%", "x": 130, "y": 60, "size": 200, "style": "glow", "behind": true },
+    { "t0": 67.2, "t1": 69.0, "type": "kinetic", "y": 405, "label": "Mình làm bằng", "label_t": 67.9, "hero": "AI", "hero_t": 68.6, "hero_size": 84 },
+    { "t0": 68.75, "t1": 69.0, "type": "stamp", "text": "TỰ ĐỘNG 100%", "x": 235, "y": 470, "rot": -8 },
+    { "t0": 68.8, "t1": 69.4, "type": "black", "fade_in": 0.4 },
+    { "t0": 69.4, "t1": 74.6, "type": "end_card", "label": "Video này được edit", "text": "100% BỞI AI", "fade_out": 0.7 }
+  ],
+  "audio": {
+    "voice": "work/aroll.mp4",
+    "mix": "work/mix.wav",
+    "music": [
+      { "t0": 0.0, "t1": 28.3, "mood": "hype", "gain": -9 },
+      { "t0": 28.3, "t1": 43.0, "mood": "tech", "gain": -11 },
+      { "t0": 43.0, "t1": 46.9, "mood": "hype", "gain": -9, "offset": 30 },
+      { "t0": 46.9, "t1": 48.9, "mood": "sad", "gain": -7 },
+      { "t0": 48.9, "t1": 51.5, "mood": "happy", "gain": -7 },
+      { "t0": 51.5, "t1": 53.9, "mood": "mellow", "gain": -7 },
+      { "t0": 53.9, "t1": 69.4, "mood": "hype", "gain": -9, "offset": 45 },
+      { "t0": 69.4, "t1": 74.6, "mood": "hype", "gain": -9, "offset": 60 }
+    ],
+    "sfx": [
+      { "t": -0.0, "name": "whoosh", "gain": -12 },
+      { "t": 0.6, "name": "riser", "gain": -16 },
+      { "t": 0.96, "name": "tick", "gain": -20 }, { "t": 1.08, "name": "tick", "gain": -20 }, { "t": 1.2, "name": "tick", "gain": -20 },
+      { "t": 1.34, "name": "impact", "gain": -9 },
+      { "t": 1.76, "name": "whoosh", "gain": -14 },
+      { "t": 3.25, "name": "whoosh", "gain": -16 },
+      { "t": 8.85, "name": "impact", "gain": -12 },
+      { "t": 9.0, "name": "pop", "gain": -16 }, { "t": 9.25, "name": "pop", "gain": -16 },
+      { "t": 9.95, "name": "whoosh", "gain": -13 },
+      { "t": 10.5, "name": "pop", "gain": -16 }, { "t": 11.1, "name": "whoosh", "gain": -16 },
+      { "t": 14.55, "name": "pop", "gain": -16 }, { "t": 15.35, "name": "whoosh", "gain": -15 },
+      { "t": 18.45, "name": "whoosh", "gain": -16 },
+      { "t": 19.2, "name": "whoosh", "gain": -12 },
+      { "t": 19.7, "name": "tick", "gain": -18 }, { "t": 20.1, "name": "tick", "gain": -18 }, { "t": 20.5, "name": "tick", "gain": -18 }, { "t": 20.9, "name": "tick", "gain": -18 }, { "t": 21.3, "name": "tick", "gain": -18 },
+      { "t": 21.85, "name": "whoosh", "gain": -11 },
+      { "t": 23.85, "name": "whoosh", "gain": -15 },
+      { "t": 25.3, "name": "ding", "gain": -18 },
+      { "t": 26.05, "name": "pop", "gain": -16 },
+      { "t": 27.25, "name": "boom", "gain": -10 }, { "t": 27.27, "name": "whoosh", "gain": -12 },
+      { "t": 27.85, "name": "whoosh", "gain": -14 },
+      { "t": 31.75, "name": "pop", "gain": -18 }, { "t": 31.85, "name": "pop", "gain": -18 }, { "t": 31.95, "name": "pop", "gain": -18 },
+      { "t": 32.8, "name": "tick", "gain": -20 },
+      { "t": 35.4, "name": "whoosh", "gain": -16 }, { "t": 35.55, "name": "impact", "gain": -16 }, { "t": 35.7, "name": "pop", "gain": -16 }, { "t": 35.85, "name": "riser", "gain": -20 },
+      { "t": 39.95, "name": "whoosh", "gain": -15 },
+      { "t": 39.7, "name": "click", "gain": -22 }, { "t": 39.9, "name": "click", "gain": -22 }, { "t": 40.1, "name": "click", "gain": -22 }, { "t": 40.3, "name": "click", "gain": -22 }, { "t": 40.5, "name": "click", "gain": -22 }, { "t": 40.7, "name": "click", "gain": -22 },
+      { "t": 42.15, "name": "impact", "gain": -10 },
+      { "t": 42.95, "name": "boom", "gain": -8 }, { "t": 43.0, "name": "whoosh", "gain": -12 },
+      { "t": 44.2, "name": "whoosh", "gain": -14 },
+      { "t": 48.85, "name": "impact", "gain": -12 },
+      { "t": 52.55, "name": "shimmer", "gain": -18 },
+      { "t": 53.85, "name": "whoosh", "gain": -14 }, { "t": 54.6, "name": "whoosh", "gain": -16 }, { "t": 55.3, "name": "whoosh", "gain": -16 },
+      { "t": 55.95, "name": "whoosh", "gain": -12 }, { "t": 56.65, "name": "impact", "gain": -14 },
+      { "t": 58.25, "name": "pop", "gain": -16 }, { "t": 60.15, "name": "pop", "gain": -16 }, { "t": 61.35, "name": "pop", "gain": -16 },
+      { "t": 62.35, "name": "ding", "gain": -13 },
+      { "t": 62.85, "name": "whoosh", "gain": -13 },
+      { "t": 63.6, "name": "pop", "gain": -18 }, { "t": 63.8, "name": "pop", "gain": -18 }, { "t": 64.0, "name": "pop", "gain": -18 }, { "t": 64.2, "name": "pop", "gain": -18 }, { "t": 64.5, "name": "pop", "gain": -18 }, { "t": 64.7, "name": "pop", "gain": -18 }, { "t": 65.2, "name": "pop", "gain": -18 },
+      { "t": 66.6, "name": "riser", "gain": -15 },
+      { "t": 67.15, "name": "impact", "gain": -9 }, { "t": 67.17, "name": "whoosh", "gain": -12 },
+      { "t": 68.7, "name": "impact", "gain": -11 },
+      { "t": 69.6, "name": "shimmer", "gain": -15 }
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+{
+ "id": "cs-pov-hanh-trinh",
+ "name": "POV hành trình",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "montage",
+ "desc": "Clip góc nhìn thứ nhất (kính, GoPro, điện thoại) dựng thành chuyện: khung HUD, mở đầu chữ động, tua lại \"15 phút trước\", số liệu, khoảnh khắc đóng băng.",
+ "tags": [
+  "pov",
+  "vlog",
+  "du lịch",
+  "gopro",
+  "hành trình"
+ ],
+ "title": "Một buổi chiều trễ hẹn",
+ "caption_style": "mt_pov",
+ "music": "happy",
+ "recipe_opts": {
+  "variant": "pov"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "các clip POV của chuyến đi",
+  "giờ + địa điểm",
+  "1 khoảnh khắc đáng nhớ (thời điểm)",
+  "2–4 ảnh/clip phụ"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.2
+ },
+ "fx": [
+  {
+   "t": 12.0,
+   "type": "punch"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "mt_pov_hud",
+   "t0": 0,
+   "t1": 20.2,
+   "place": "Bến Ninh Kiều (ví dụ)",
+   "clock": "13:24",
+   "tick": true,
+   "tc_start": 754
+  },
+  {
+   "type": "mt_pov_kinetic",
+   "t0": 0,
+   "t1": 2.4,
+   "kicker": "POV",
+   "lines": [
+    {
+     "text": "39 phút nữa",
+     "at": 0.15
+    },
+    {
+     "text": "mà mình *vẫn trễ*",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "type": "mt_pov_rewind",
+   "t0": 2.4,
+   "t1": 4.2,
+   "kicker": "15 PHÚT TRƯỚC",
+   "time": "13:09",
+   "place": "Điểm xuất phát (ví dụ)"
+  },
+  {
+   "type": "mt_pov_stats",
+   "t0": 5.0,
+   "t1": 8.0,
+   "items": [
+    {
+     "icon": "route",
+     "text": "12,4 km"
+    },
+    {
+     "icon": "clock",
+     "text": "còn 24 phút"
+    },
+    {
+     "icon": "bolt",
+     "text": "2 lần suýt ngã"
+    }
+   ]
+  },
+  {
+   "type": "mt_pov_clips",
+   "t0": 8.6,
+   "t1": 11.0,
+   "images": [
+    "media/top_halong.jpg",
+    "media/top_phuquoc.jpg",
+    "media/gs_bg_city.jpg"
+   ],
+   "every": 0.8,
+   "speed": "x2",
+   "label": "trên đường"
+  },
+  {
+   "type": "mt_pov_freeze",
+   "t0": 12.0,
+   "t1": 13.4,
+   "emoji": "😱",
+   "label": "KHOẢNH KHẮC ĐÓ",
+   "ex": 560,
+   "ey": 330
+  },
+  {
+   "type": "mt_pov_kinetic",
+   "t0": 17.6,
+   "t1": 20.2,
+   "kicker": "còn bạn?",
+   "lines": [
+    {
+     "text": "Bạn sẽ làm gì",
+     "at": 0.1
+    },
+    {
+     "text": "*nếu là mình?*",
+     "at": 0.55
+    }
+   ],
+   "keep": true
+  }
+ ]
+}

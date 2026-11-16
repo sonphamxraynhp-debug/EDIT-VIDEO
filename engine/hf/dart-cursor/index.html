@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Dart Cursor, Demo</title>
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #111318;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .dialog {
+        position: absolute;
+        left: 460px;
+        top: 250px;
+        width: 1000px;
+        height: 580px;
+        border-radius: 28px;
+        background: #ffffff;
+        box-shadow:
+          0 40px 120px rgba(4, 6, 20, 0.55),
+          0 0 0 1px rgba(255, 255, 255, 0.4);
+      }
+      .title {
+        position: absolute;
+        left: 48px;
+        top: 40px;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #111320;
+      }
+      .thumb {
+        position: absolute;
+        left: 48px;
+        top: 110px;
+        width: 420px;
+        height: 236px;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #23262d;
+      }
+      .thumb svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .thumb-time {
+        position: absolute;
+        right: 14px;
+        bottom: 12px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        background: rgba(10, 12, 24, 0.6);
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .file {
+        position: absolute;
+        left: 48px;
+        top: 368px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #111320;
+      }
+      .file-meta {
+        position: absolute;
+        left: 48px;
+        top: 402px;
+        font-size: 18px;
+        color: #6b6f85;
+      }
+      .label {
+        position: absolute;
+        left: 520px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #6b6f85;
+      }
+      .seg {
+        position: absolute;
+        left: 520px;
+        width: 432px;
+        height: 60px;
+        border-radius: 16px;
+        background: #eef0f6;
+      }
+      .seg-thumb {
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        width: 136px;
+        height: 52px;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 2px 8px rgba(17, 19, 32, 0.14);
+      }
+      .seg-opt {
+        position: absolute;
+        top: 0;
+        width: 144px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 21px;
+        font-weight: 600;
+        color: #6b6f85;
+      }
+      .seg-opt.on {
+        color: #111320;
+      }
+      .button {
+        position: absolute;
+        left: 712px;
+        top: 496px;
+        width: 240px;
+        height: 60px;
+        border-radius: 16px;
+        background: #18181b;
+        color: #ffffff;
+        font-size: 21px;
+        font-weight: 700;
+        overflow: hidden;
+      }
+      .button span {
+        position: absolute;
+        inset: 0;
+        line-height: 60px;
+        text-align: center;
+      }
+      .check {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        margin-right: 8px;
+        vertical-align: -4px;
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .progress {
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.22);
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+      }
+      .cancel {
+        position: absolute;
+        left: 520px;
+        top: 496px;
+        width: 172px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        border-radius: 16px;
+        font-size: 21px;
+        font-weight: 600;
+        color: #111320;
+        background: #eef0f6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="dart-cursor-demo" data-start="0" data-width="1920" data-height="1080" data-duration="3.6" data-hf-anc="">
+      <div class="dialog clip" id="dialog" data-start="0" data-duration="3.6" data-track-index="0" data-hf-demo="">
+        <div class="title" data-hf-demo="" data-hft="0">Export</div>
+        <div class="thumb" data-hf-demo="">
+          <svg viewBox="0 0 420 236" aria-hidden="true" data-hf-demo="">
+            <rect x="40" y="26" width="340" height="230" rx="8" fill="#f4f4f5" data-hf-demo=""></rect>
+            <rect x="122" y="46" width="258" height="190" fill="#ffffff" data-hf-demo=""></rect>
+            <circle cx="52" cy="36" r="3.2" fill="#ff5f57" data-hf-demo=""></circle>
+            <circle cx="62" cy="36" r="3.2" fill="#febc2e" data-hf-demo=""></circle>
+            <circle cx="72" cy="36" r="3.2" fill="#28c840" data-hf-demo=""></circle>
+            <rect x="46" y="71" width="70" height="13" rx="3" fill="#e4e4e7" data-hf-demo=""></rect>
+            <g font-size="8" fill="#52525b" data-hf-demo="">
+              <text x="54" y="64" data-hf-demo="" data-hft="1">Home</text>
+              <text x="54" y="80" fill="#18181b" font-weight="600" data-hf-demo="" data-hft="2">Reports</text>
+              <text x="54" y="96" data-hf-demo="" data-hft="3">Customers</text>
+              <text x="54" y="112" data-hf-demo="" data-hft="4">Billing</text>
+              <text x="54" y="128" data-hf-demo="" data-hft="5">Settings</text>
+            </g>
+            <text x="136" y="66" font-size="8" fill="#71717a" data-hf-demo="" data-hft="6">Monthly revenue</text>
+            <text x="136" y="87" font-size="17" font-weight="700" fill="#18181b" data-hf-demo="" data-hft="7">$48,210</text>
+            <text x="206" y="86" font-size="7.5" font-weight="600" fill="#16a34a" data-hf-demo="" data-hft="8">
+              +12.4% vs Aug
+            </text>
+            <path d="M136 120H366M136 150H366M136 180H366" stroke="#f0f0f1" data-hf-demo=""></path>
+            <path d="M136 186L159 180L182 183L205 172L228 175L251 164L274 166L297 152L320 146L343 138L366 126V200H136Z" fill="#0a84ff" fill-opacity="0.1" data-hf-demo=""></path>
+            <path d="M136 186L159 180L182 183L205 172L228 175L251 164L274 166L297 152L320 146L343 138L366 126" fill="none" stroke="#0a84ff" stroke-width="1.8" stroke-linejoin="round" data-hf-demo=""></path>
+            <circle cx="210" cy="118" r="24" fill="#000000" fill-opacity="0.55" data-hf-demo=""></circle>
+            <path d="M203 106L203 130L223 118Z" fill="#ffffff" data-hf-demo=""></path>
+          </svg>
+          <div class="thumb-time" data-hf-demo="" data-hft="9">0:42</div>
+        </div>
+        <div class="file" data-hf-demo="" data-hft="10">product-tour.mp4</div>
+        <div class="file-meta" data-hf-demo="" data-hft="11">42 seconds, 30 fps, stereo audio</div>
+
+        <div class="label" style="top: 110px" data-hf-demo="" data-hft="12">Resolution</div>
+        <div class="seg" style="top: 142px" data-hf-demo="">
+          <div class="seg-thumb" id="res-thumb" style="left: 148px" data-hf-demo=""></div>
+          <div class="seg-opt" style="left: 0" data-hf-demo="" data-hft="13">720p</div>
+          <div class="seg-opt on" id="res-1080" style="left: 144px" data-hf-demo="" data-hft="14">1080p</div>
+          <div class="seg-opt" id="res-4k" style="left: 288px" data-hf-demo="" data-hft="15">4K</div>
+        </div>
+
+        <div class="label" style="top: 236px" data-hf-demo="">Format</div>
+        <div class="seg" style="top: 268px" data-hf-demo="">
+          <div class="seg-thumb" data-hf-demo=""></div>
+          <div class="seg-opt on" style="left: 0" data-hf-demo="">MP4</div>
+          <div class="seg-opt" style="left: 144px" data-hf-demo="">MOV</div>
+          <div class="seg-opt" style="left: 288px" data-hf-demo="">GIF</div>
+        </div>
+
+        <div class="cancel" data-hf-demo="">Cancel</div>
+        <div class="button" id="export" data-hf-demo="">
+          <span id="export-idle" data-hf-demo="">Export video</span>
+          <span id="export-busy" style="opacity: 0" data-hf-demo="">Exporting…</span>
+          <div class="progress" id="progress" data-hf-demo=""></div>
+          <span data-hf-demo=""><svg class="check" id="export-check" viewBox="0 0 24 24" style="opacity: 0" data-hf-demo="">
+              <path d="M5 12.5l4.5 4.5L19 7.5" data-hf-demo=""></path></svg><b id="export-done" style="opacity: 0; display: inline-block" data-hf-demo="">Exported</b></span>
+        </div>
+      </div>
+
+      <div class="clip" id="dart-cursor" data-composition-id="dart-cursor" data-variable-values="{&quot;tone&quot;:&quot;dark&quot;,&quot;target_x&quot;:67.9,&quot;target_y&quot;:40.5,&quot;target2_x&quot;:63.3,&quot;target2_y&quot;:73.7,&quot;enter_from&quot;:&quot;right&quot;,&quot;exit_to&quot;:&quot;right&quot;}" data-start="0" data-duration="3.6" data-track-index="1" data-width="1920" data-height="1080" style="position: absolute; inset: 0; width: 1920px; height: 1080px" data-composition-variables="[
+    { &quot;id&quot;: &quot;tone&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Tone&quot;, &quot;default&quot;: &quot;dark&quot;, &quot;options&quot;: [ { &quot;value&quot;: &quot;dark&quot;, &quot;label&quot;: &quot;Dark body, white outline&quot; }, { &quot;value&quot;: &quot;light&quot;, &quot;label&quot;: &quot;Light body, dark outline&quot; } ] },
+    { &quot;id&quot;: &quot;target_x&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;layout&quot;, &quot;label&quot;: &quot;First click X&quot;, &quot;default&quot;: 34, &quot;min&quot;: 5, &quot;max&quot;: 95, &quot;step&quot;: 1, &quot;unit&quot;: &quot;%&quot; },
+    { &quot;id&quot;: &quot;target_y&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;layout&quot;, &quot;label&quot;: &quot;First click Y&quot;, &quot;default&quot;: 58, &quot;min&quot;: 5, &quot;max&quot;: 95, &quot;step&quot;: 1, &quot;unit&quot;: &quot;%&quot; },
+    { &quot;id&quot;: &quot;target2_x&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;layout&quot;, &quot;label&quot;: &quot;Second click X&quot;, &quot;default&quot;: 64, &quot;min&quot;: 5, &quot;max&quot;: 95, &quot;step&quot;: 1, &quot;unit&quot;: &quot;%&quot; },
+    { &quot;id&quot;: &quot;target2_y&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;layout&quot;, &quot;label&quot;: &quot;Second click Y&quot;, &quot;default&quot;: 46, &quot;min&quot;: 5, &quot;max&quot;: 95, &quot;step&quot;: 1, &quot;unit&quot;: &quot;%&quot; },
+    { &quot;id&quot;: &quot;enter_from&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Enter from&quot;, &quot;default&quot;: &quot;right&quot;, &quot;options&quot;: [ { &quot;value&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Right&quot; }, { &quot;value&quot;: &quot;left&quot;, &quot;label&quot;: &quot;Left&quot; }, { &quot;value&quot;: &quot;top&quot;, &quot;label&quot;: &quot;Top&quot; }, { &quot;value&quot;: &quot;bottom&quot;, &quot;label&quot;: &quot;Bottom&quot; } ] },
+    { &quot;id&quot;: &quot;exit_to&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Exit to&quot;, &quot;default&quot;: &quot;right&quot;, &quot;options&quot;: [ { &quot;value&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Right&quot; }, { &quot;value&quot;: &quot;left&quot;, &quot;label&quot;: &quot;Left&quot; }, { &quot;value&quot;: &quot;top&quot;, &quot;label&quot;: &quot;Top&quot; }, { &quot;value&quot;: &quot;bottom&quot;, &quot;label&quot;: &quot;Bottom&quot; } ] },
+    { &quot;id&quot;: &quot;blur&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Motion blur&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0, &quot;max&quot;: 1.5, &quot;step&quot;: 0.1 }
+  ]" data-hf-host="">
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          pointer-events: none;
+        }
+
+        .dc-cursor {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 0;
+          height: 0;
+          will-change: transform, filter;
+        }
+
+        /* The tip sits at the svg origin, so the wrapper's translate places the tip. */
+        .dc-svg {
+          position: absolute;
+          left: -120px;
+          top: -120px;
+          width: 240px;
+          height: 240px;
+          overflow: visible;
+        }
+
+        .dc-outline {
+          stroke-width: 22;
+          stroke-linejoin: round;
+        }
+        .dc-body {
+          stroke-width: 3;
+          stroke-linejoin: round;
+        }
+        .dc-cursor[data-tone="dark"] .dc-outline {
+          fill: #ffffff;
+          stroke: #ffffff;
+        }
+        .dc-cursor[data-tone="dark"] .dc-body {
+          fill: #0b0b0c;
+          stroke: #0b0b0c;
+        }
+        .dc-cursor[data-tone="light"] .dc-outline {
+          fill: #111113;
+          stroke: #111113;
+        }
+        .dc-cursor[data-tone="light"] .dc-body {
+          fill: #ffffff;
+          stroke: #ffffff;
+        }
+      </style>
+
+      <div id="root" data-composition-id="dart-cursor" data-duration="3.6">
+        <div class="dc-cursor" id="dc-cursor" data-tone="dark" aria-hidden="true">
+          <svg class="dc-svg" viewBox="-120 -120 240 240" aria-hidden="true">
+            <defs>
+              <filter id="dc-smear" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB">
+                <feGaussianBlur id="dc-smear-fe" stdDeviation="0 0"></feGaussianBlur>
+              </filter>
+            </defs>
+            <g id="dc-spin">
+              <g id="dc-heading" filter="url(#dc-smear)">
+                <g id="dc-unheading">
+                  <g id="dc-shape">
+                    <polygon class="dc-outline" points="-5,1 -14,82 -11,83 6,64 20,58 34,57 53,62 49,52 0,0"></polygon>
+                    <polygon class="dc-body" points="-5,1 -14,82 -11,83 6,64 20,58 34,57 53,62 49,52 0,0"></polygon>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <script>window.__hfApply&&window.__hfApply()</script><script>
+        (function () {
+          "use strict";
+
+          var html = document.documentElement;
+          var root = document.getElementById("root");
+          var cursor = document.getElementById("dc-cursor");
+          var svg = cursor.querySelector(".dc-svg");
+          var spin = document.getElementById("dc-spin");
+          var heading = document.getElementById("dc-heading");
+          var unheading = document.getElementById("dc-unheading");
+          var shape = document.getElementById("dc-shape");
+          var smear = document.getElementById("dc-smear-fe");
+
+          var DEFAULTS = {};
+          try {
+            JSON.parse(html.getAttribute("data-composition-variables") || "[]").forEach(
+              function (variable) {
+                DEFAULTS[variable.id] = variable.default;
+              },
+            );
+          } catch (error) {
+            /* malformed declaration falls back to the inline defaults below */
+          }
+          var scopedVariables = {};
+          try {
+            if (window.__hyperframes && typeof window.__hyperframes.getVariables === "function") {
+              scopedVariables = window.__hyperframes.getVariables() || {};
+            }
+          } catch (error) {
+            /* no scoped variables API in this context */
+          }
+          var vars = Object.assign({}, DEFAULTS, window.__hfVariables || {}, scopedVariables);
+
+          function num(value, fallback, lo, hi) {
+            var n = Number(value);
+            if (!isFinite(n)) n = fallback;
+            return Math.max(lo, Math.min(hi, n));
+          }
+          function side(value, fallback) {
+            return ["left", "right", "top", "bottom"].indexOf(value) >= 0 ? value : fallback;
+          }
+
+          // Hardcoded: the compositor rewrites the wrapper's attributes on mount.
+          var compositionId = "dart-cursor";
+          var duration = Math.max(
+            0.001,
+            parseFloat(
+              root.dataset.duration || html.getAttribute("data-composition-duration") || "3.6",
+            ),
+          );
+          var tone = vars.tone === "light" ? "light" : "dark";
+          var blurAmount = num(vars.blur, 1, 0, 1.5);
+          var W = root.clientWidth || 1920;
+          var H = root.clientHeight || 1080;
+          var unit = W / 1920;
+          // The glyph is 105 units tall with its outline: 80 px at 1920 wide.
+          var PX_PER_SVG_UNIT = (80 / 105) * unit;
+
+          function stagePoint(xPercent, yPercent) {
+            return { x: (xPercent / 100) * W, y: (yPercent / 100) * H };
+          }
+          var A = stagePoint(num(vars.target_x, 34, 0, 100), num(vars.target_y, 58, 0, 100));
+          var B = stagePoint(num(vars.target2_x, 64, 0, 100), num(vars.target2_y, 46, 0, 100));
+          function offStage(edge, near) {
+            if (edge === "left") return { x: -0.14 * W, y: near.y - 0.18 * H };
+            if (edge === "top") return { x: near.x + 0.16 * W, y: -0.2 * H };
+            if (edge === "bottom") return { x: near.x - 0.12 * W, y: 1.22 * H };
+            return { x: 1.14 * W, y: near.y - 0.22 * H };
+          }
+          var START = offStage(side(vars.enter_from, "right"), A);
+          var END = offStage(side(vars.exit_to, "right"), B);
+
+          // Beats at the default 3.6s; a shorter composition compresses them evenly.
+          var FIXED_TAIL = 0.55 + 0.35;
+          var squeeze = Math.min(1, duration / (1.7 + FIXED_TAIL));
+          var T_LAND1 = 0.6 * squeeze;
+          var T_CLICK1 = 0.7 * squeeze;
+          var T_MOVE = 1.0 * squeeze;
+          var T_LAND2 = 1.55 * squeeze;
+          var T_CLICK2 = 1.7 * squeeze;
+          var T_EXIT = Math.max(T_CLICK2 + 0.3 * squeeze, duration - 0.55 * squeeze);
+
+          function clamp01(u) {
+            return u < 0 ? 0 : u > 1 ? 1 : u;
+          }
+          function smooth(u) {
+            u = clamp01(u);
+            return u * u * (3 - 2 * u);
+          }
+          var easeOut = gsap.parseEase("power3.out");
+          var easeInOut = gsap.parseEase("power2.inOut");
+          var easeIn = gsap.parseEase("power3.in");
+
+          // A quadratic arc bent to one side of the chord.
+          function arc(p0, p1, bend, u) {
+            var cx = (p0.x + p1.x) / 2 - (p1.y - p0.y) * bend;
+            var cy = (p0.y + p1.y) / 2 + (p1.x - p0.x) * bend;
+            var v = 1 - u;
+            return {
+              x: v * v * p0.x + 2 * v * u * cx + u * u * p1.x,
+              y: v * v * p0.y + 2 * v * u * cy + u * u * p1.y,
+            };
+          }
+
+          function positionAt(t) {
+            if (t <= T_LAND1) return arc(START, A, 0.22, easeOut(clamp01(t / T_LAND1)));
+            if (t <= T_MOVE) return A;
+            if (t <= T_LAND2) {
+              return arc(A, B, -0.18, easeInOut(clamp01((t - T_MOVE) / (T_LAND2 - T_MOVE))));
+            }
+            if (t <= T_EXIT) return B;
+            return arc(B, END, 0.12, easeIn(clamp01((t - T_EXIT) / (duration - T_EXIT))));
+          }
+
+          function keyed(keys, u) {
+            if (u <= keys[0][0]) return keys[0][1];
+            for (var i = 1; i < keys.length; i++) {
+              if (u <= keys[i][0]) {
+                var a = keys[i - 1];
+                var b = keys[i];
+                return a[1] + (b[1] - a[1]) * smooth((u - a[0]) / (b[0] - a[0]));
+              }
+            }
+            return keys[keys.length - 1][1];
+          }
+          var DIVE = [
+            [0, 1.3],
+            [0.4, 1.8],
+            [0.78, 1.06],
+            [1, 1],
+          ];
+          function press(t, at) {
+            var down = 0.08 * squeeze;
+            var up = 0.2 * squeeze;
+            if (t < at) return 0;
+            if (t < at + down) return 0.2 * gsap.parseEase("power2.in")((t - at) / down);
+            return 0.2 - 0.1 * gsap.parseEase("power2.out")(clamp01((t - at - down) / up));
+          }
+
+          // Depth is scale: above 1 is lifted toward camera, below 1 is pressed into the screen.
+          function depthAt(t) {
+            if (t <= T_LAND1) return keyed(DIVE, t / T_LAND1);
+            if (t <= T_MOVE) return 1 - press(t, T_CLICK1);
+            if (t <= T_LAND2) {
+              var u = (t - T_MOVE) / (T_LAND2 - T_MOVE);
+              return 0.9 + 0.1 * smooth(u / 0.3) + 0.07 * Math.sin(Math.PI * u);
+            }
+            return 1 - press(t, T_CLICK2);
+          }
+
+          // Local-frame nose angle of the arrowhead (tip minus the shape's centroid).
+          var NOSE_DEG = -106;
+          var H_STEP = 1 / 120;
+          function wrap(deg) {
+            return ((((deg + 180) % 360) + 360) % 360) - 180;
+          }
+
+          function render(t) {
+            var p = positionAt(t);
+            var before = positionAt(Math.max(0, t - H_STEP));
+            var after = positionAt(Math.min(duration, t + H_STEP));
+            var vx = (after.x - before.x) / (2 * H_STEP);
+            var vy = (after.y - before.y) / (2 * H_STEP);
+            var speed = Math.hypot(vx, vy) / unit;
+            var travelDeg = (Math.atan2(vy, vx) * 180) / Math.PI;
+            var steer = smooth((speed - 150) / 950);
+            var rotation = steer * wrap(travelDeg - NOSE_DEG);
+            var depth = depthAt(t);
+            var exiting = t > T_EXIT;
+            var perFrame = speed / 60;
+            var smearUnits =
+              blurAmount * Math.min(exiting ? 36 : 12, (exiting ? 0.28 : 0.16) * perFrame);
+            var lift = Math.max(0, depth - 0.9);
+
+            cursor.style.transform = "translate(" + p.x.toFixed(2) + "px," + p.y.toFixed(2) + "px)";
+            svg.style.filter =
+              "drop-shadow(0 " +
+              (3 + 22 * lift).toFixed(1) +
+              "px " +
+              (4 + 26 * lift).toFixed(1) +
+              "px rgba(0,0,0," +
+              (0.34 - 0.12 * Math.min(1, lift)).toFixed(3) +
+              "))";
+            spin.setAttribute(
+              "transform",
+              "rotate(" +
+                rotation.toFixed(2) +
+                ") scale(" +
+                (depth * PX_PER_SVG_UNIT).toFixed(4) +
+                ")",
+            );
+            // The blur's x axis is turned onto the travel direction, then the shape turned back.
+            var local = wrap(travelDeg - rotation);
+            heading.setAttribute("transform", "rotate(" + local.toFixed(2) + ")");
+            unheading.setAttribute("transform", "rotate(" + (-local).toFixed(2) + ")");
+            smear.setAttribute("stdDeviation", smearUnits.toFixed(3) + " 0");
+            cursor.style.opacity = t >= duration ? "0" : "1";
+          }
+
+          cursor.setAttribute("data-tone", tone);
+          shape.setAttribute("transform", "scale(1.09 1)");
+
+          var clock = { t: 0 };
+          var tl = gsap.timeline({ paused: true });
+          tl.to(
+            clock,
+            {
+              t: duration,
+              duration: duration,
+              ease: "none",
+              onUpdate: function () {
+                render(clock.t);
+              },
+            },
+            0,
+          );
+          render(0);
+          tl.seek(0);
+          window.__timelines = window.__timelines || {};
+          window.__timelines[compositionId] = tl;
+        })();
+      </script>
+    </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      // First click (0.7s): the resolution thumb slides onto 4K.
+      tl.to("#res-thumb", { x: 144, duration: 0.34, ease: "power3.out" }, 0.78);
+      tl.to("#res-1080", { color: "#6b6f85", duration: 0.2 }, 0.78);
+      tl.to("#res-4k", { color: "#111320", duration: 0.2 }, 0.78);
+
+      // Second click (1.7s): the button presses, relabels and fills over 1s.
+      tl.to("#export", { scale: 0.96, duration: 0.08, ease: "power2.in" }, 1.7);
+      tl.to("#export", { scale: 1, duration: 0.22, ease: "power2.out" }, 1.78);
+      tl.to("#export-idle", { opacity: 0, y: -14, duration: 0.2, ease: "power2.in" }, 1.78);
+      tl.fromTo(
+        "#export-busy",
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.26, ease: "power3.out" },
+        1.86,
+      );
+      tl.to("#progress", { scaleX: 1, duration: 1.0, ease: "none" }, 1.8);
+
+      // Done (2.8s): the fill clears and a check swaps in with "Exported".
+      tl.to("#export-busy", { opacity: 0, y: -14, duration: 0.12, ease: "power2.in" }, 2.8);
+      tl.to("#progress", { opacity: 0, duration: 0.2, ease: "power2.out" }, 2.8);
+      tl.fromTo(
+        "#export-check",
+        { opacity: 0, scale: 0.3, filter: "blur(3px)" },
+        { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" },
+        2.88,
+      );
+      tl.fromTo(
+        "#export-done",
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.26, ease: "power3.out" },
+        2.88,
+      );
+
+      window.__timelines["dart-cursor-demo"] = tl;
+    </script>
+  
+
+</body></html>

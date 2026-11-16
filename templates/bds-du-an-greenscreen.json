@@ -1,0 +1,151 @@
+{
+ "id": "bds-du-an-greenscreen",
+ "name": "Review dự án qua web",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "greenscreen",
+ "desc": "Đứng trước ảnh dự án như phóng viên: bài viết, trang web dự án cuộn và mũi tên chỉ điểm, người nói tách nền.",
+ "tags": [
+  "dự án",
+  "phân tích",
+  "greenscreen",
+  "tin bđs"
+ ],
+ "title": "Dự án mới mở bán",
+ "caption_style": "greenscreen",
+ "music": "corporate",
+ "brand": {
+  "primary": "#1F8A70",
+  "accent": "#FFD166",
+  "dark": "#0B1B17"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh phối cảnh dự án",
+  "ảnh chụp trang web/bài viết",
+  "tiêu đề, nguồn"
+ ],
+ "preview": {
+  "from": 0.5,
+  "to": 6.5,
+  "still": 2.0
+ },
+ "scenes": [
+  {
+   "type": "gs_backdrop",
+   "t0": 0,
+   "t1": 15.6,
+   "bg": "media/facade.jpg",
+   "kb": 0.08,
+   "x": 360,
+   "y": 1280,
+   "size": 52
+  },
+  {
+   "type": "gs_article",
+   "t0": 0,
+   "t1": 6,
+   "source": "Báo mẫu",
+   "url": "baomau.vn/bat-dong-san/du-an-moi",
+   "category": "Bất động sản",
+   "headline": "Tiêu đề bài viết về dự án (văn bản mẫu)",
+   "date": "01/11/2026",
+   "author": "Phóng viên",
+   "image": "media/living.jpg",
+   "lead": "Đoạn mở đầu bài viết, thay bằng nội dung thật và ghi rõ nguồn.",
+   "before": "Theo bài viết, dự án có",
+   "highlight": "tiến độ bàn giao quý 4",
+   "after": "(ví dụ)."
+  },
+  {
+   "type": "gs_zoomfocus",
+   "t0": 3.4,
+   "t1": 6,
+   "keys": [
+    {
+     "t": 3.4,
+     "x": 50,
+     "y": 33,
+     "s": 1
+    },
+    {
+     "t": 4.0,
+     "x": 50,
+     "y": 33,
+     "s": 1.45
+    },
+    {
+     "t": 5.4,
+     "x": 50,
+     "y": 33,
+     "s": 1.45
+    },
+    {
+     "t": 6,
+     "x": 50,
+     "y": 33,
+     "s": 1
+    }
+   ]
+  },
+  {
+   "type": "gs_screen",
+   "t0": 6,
+   "t1": 10.8,
+   "image": "media/gs_site.jpg",
+   "url": "duan-vidu.vn",
+   "from": 0,
+   "to": 0.75
+  },
+  {
+   "type": "gs_pointer",
+   "t0": 8.5,
+   "t1": 10.6,
+   "kind": "arrow",
+   "x": 360,
+   "y": 330,
+   "w": 560,
+   "h": 150,
+   "label": "XEM KỸ CHỖ NÀY"
+  },
+  {
+   "type": "gs_backdrop",
+   "t0": 10.8,
+   "t1": 15.6,
+   "bg": "media/kitchen.jpg",
+   "kb": 0.1,
+   "x": 360,
+   "y": 1280,
+   "size": 56
+  },
+  {
+   "type": "gs_pointer",
+   "t0": 11.4,
+   "t1": 14.0,
+   "kind": "circle",
+   "x": 360,
+   "y": 330,
+   "w": 520,
+   "h": 220,
+   "label": "BẾP MỞ"
+  },
+  {
+   "type": "gs_backdrop",
+   "t0": 15.6,
+   "t1": 20.2,
+   "bg": {
+    "gradient": [
+     "#0B2A22",
+     "#14513F",
+     "#08130F"
+    ],
+    "glow": "#FFD166",
+    "glow2": "#1F8A70"
+   },
+   "size": 62,
+   "outline": 4,
+   "keep": true
+  }
+ ]
+}

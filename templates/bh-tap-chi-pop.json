@@ -1,0 +1,81 @@
+{
+ "id": "bh-tap-chi-pop",
+ "name": "Tạp chí pop hồng",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "kinetic",
+ "desc": "Pop magazine: chữ khổng lồ đậm, phụ đề in hoa ô màu hồng ở từ khoá, khối màu mạnh, nhạc pop sôi động.",
+ "tags": [
+  "pop",
+  "tạp chí",
+  "màu mạnh",
+  "preset"
+ ],
+ "title": "Xu hướng mùa này",
+ "caption_style": "hf_pill_karaoke",
+ "music": "happy",
+ "brand": {
+  "primary": "#FF2E88",
+  "accent": "#D1106A",
+  "dark": "#111111",
+  "font": "'Unbounded',var(--sans)",
+  "disp": "'Unbounded',var(--sans)"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên sản phẩm / xu hướng"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.4
+ },
+ "fx": [
+  {
+   "t": 2.4,
+   "type": "flash"
+  },
+  {
+   "t": 12.4,
+   "type": "punch"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "mega",
+   "t0": 0.2,
+   "t1": 2.4,
+   "text": "HOT<br><em>TREND</em>",
+   "align": "center",
+   "y": 16,
+   "size": 130
+  },
+  {
+   "type": "kinetic_broll",
+   "t0": 6,
+   "t1": 7.8,
+   "layout": "split",
+   "broll": {
+    "id": "ai--neural--ember"
+   },
+   "keyword": "MỚI"
+  },
+  {
+   "type": "mega",
+   "t0": 12.4,
+   "t1": 14,
+   "text": "<em>-30%</em>",
+   "align": "center",
+   "y": 18,
+   "size": 150
+  },
+  {
+   "type": "kinetic_cta",
+   "t0": 17.8,
+   "t1": 20.2,
+   "text": "Mua ngay",
+   "keep": true
+  }
+ ]
+}

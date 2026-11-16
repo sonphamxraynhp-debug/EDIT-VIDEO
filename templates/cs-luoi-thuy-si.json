@@ -1,0 +1,98 @@
+{
+ "id": "cs-luoi-thuy-si",
+ "name": "Lưới Thuỵ Sĩ",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "print",
+ "desc": "Chia sẻ quan điểm kiểu poster Thuỵ Sĩ: lưới 6 cột, chữ Inter căn trái hiện theo lời, số chương khổng lồ, một màu đỏ duy nhất.",
+ "tags": [
+  "thuỵ sĩ",
+  "swiss",
+  "tối giản",
+  "poster",
+  "typography"
+ ],
+ "title": "Ba quy tắc tối giản",
+ "caption_style": "print_swiss",
+ "recipe_opts": {
+  "variant": "swiss"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tiêu đề video",
+  "2–3 ý chính (chương)",
+  "1 con số cho lưới ô",
+  "tên 'nhân vật chính' của video"
+ ],
+ "preview": {
+  "from": 1.6,
+  "to": 7.6,
+  "still": 3.4
+ },
+ "scenes": [
+  {
+   "type": "print_swiss_frame",
+   "t0": 0,
+   "t1": 20.2,
+   "title": "Ba quy tắc tối giản (ví dụ)",
+   "total": 3,
+   "chapters": [
+    {
+     "t": 4.7,
+     "num": 1
+    },
+    {
+     "t": 10.0,
+     "num": 2
+    },
+    {
+     "t": 15.1,
+     "num": 3
+    }
+   ]
+  },
+  {
+   "type": "print_swiss_numeral",
+   "t0": 2.3,
+   "t1": 4.7,
+   "num": 1,
+   "text": "Bỏ bớt thứ không cần (ví dụ)",
+   "note": "Chương một"
+  },
+  {
+   "type": "print_swiss_rows",
+   "t0": 7.4,
+   "t1": 9.9,
+   "title": "Việc nên bỏ (ví dụ)",
+   "items": [
+    "Lướt mạng lúc nửa đêm",
+    "Họp không mục tiêu",
+    "Mua đồ vì giảm giá"
+   ],
+   "stagger": 0.22,
+   "cut": 0,
+   "cut_at": 1.45
+  },
+  {
+   "type": "print_swiss_cells",
+   "t0": 12.6,
+   "t1": 15.0,
+   "text": "Một ngày có 24 giờ",
+   "cols": 6,
+   "rows": 4,
+   "fill": 6,
+   "rate": 8,
+   "fill_at": 0.9,
+   "from_end": true,
+   "label": "24 ô = 24 giờ (ví dụ)"
+  },
+  {
+   "type": "print_swiss_slab",
+   "t0": 16.4,
+   "t1": 18.8,
+   "text": "Chiếc điện thoại của bạn (ví dụ)",
+   "off_at": 1.25
+  }
+ ]
+}

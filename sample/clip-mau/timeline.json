@@ -1,0 +1,42 @@
+{
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 31.57,
+ "pack": "slate",
+ "aroll": {
+  "frames": "work/frames/%05d.jpg"
+ },
+ "face": {
+  "x": 318,
+  "y": 602
+ },
+ "caption_style": "slate",
+ "captions": "work/captions.json",
+ "scenes": [],
+ "audio": {
+  "voice": "work/aroll.mp4",
+  "music": [
+   {
+    "t0": 0,
+    "t1": 31.57,
+    "mood": "tech",
+    "gain": -20
+   }
+  ],
+  "sfx": [],
+  "mix": "work/mix.wav"
+ },
+ "clips": [
+  {
+   "src": {
+    "seq": "work/frames/%05d.jpg",
+    "fps": 30,
+    "count": 872
+   },
+   "audio": "work/aroll.mp4",
+   "in": 0,
+   "out": 29.067
+  }
+ ]
+}

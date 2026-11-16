@@ -1,0 +1,131 @@
+{
+ "id": "dn-ra-mat-tim",
+ "name": "Ra mắt sản phẩm tím",
+ "category": "ai",
+ "aspect": "9:16",
+ "pack": "screencast",
+ "desc": "Ra mắt phần mềm: cửa sổ UI tối, zoom theo thao tác, phím tắt, chú thích bước, glitch chuyển cảnh, tông tím.",
+ "tags": [
+  "ra mắt",
+  "phần mềm",
+  "launch",
+  "preset"
+ ],
+ "title": "Ra mắt tính năng mới",
+ "caption_style": "hf_glitch_rgb",
+ "music": "tech",
+ "brand": {
+  "primary": "#7C5CFF",
+  "accent": "#5B3EE6",
+  "dark": "#0E0E12",
+  "font": "'Montserrat',var(--sans)",
+  "mono": "'JetBrains Mono',monospace"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh/clip quay màn hình sản phẩm",
+  "tên tính năng"
+ ],
+ "preview": {
+  "from": 2.6,
+  "to": 8.6,
+  "still": 4.2
+ },
+ "fx": [
+  {
+   "t": 2.6,
+   "type": "glitch"
+  },
+  {
+   "t": 10.6,
+   "type": "glitch"
+  },
+  {
+   "t": 15.4,
+   "type": "glitch"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "sc_screen",
+   "t0": 2.6,
+   "t1": 10.4,
+   "frame": "browser",
+   "url": "app.example.com",
+   "bg": "aurora",
+   "focus": [
+    {
+     "t": 3.8,
+     "x": 420,
+     "y": 200,
+     "s": 1.8
+    },
+    {
+     "t": 6.4,
+     "x": 760,
+     "y": 420,
+     "s": 1.5
+    },
+    {
+     "t": 9.4,
+     "x": 640,
+     "y": 400,
+     "s": 1
+    }
+   ]
+  },
+  {
+   "type": "sc_facecam",
+   "t0": 2.6,
+   "t1": 10.4,
+   "shape": "circle"
+  },
+  {
+   "type": "sc_click",
+   "t0": 3.4,
+   "t1": 7.2,
+   "clicks": [
+    {
+     "t": 3.7,
+     "x": 420,
+     "y": 200
+    },
+    {
+     "t": 6.3,
+     "x": 760,
+     "y": 420
+    }
+   ]
+  },
+  {
+   "type": "sc_callout",
+   "t0": 4.2,
+   "t1": 6.2,
+   "num": 1,
+   "text": "Bấm Tạo mới",
+   "at": {
+    "x": 360,
+    "y": 380
+   }
+  },
+  {
+   "type": "sc_keys",
+   "t0": 11,
+   "t1": 13.4,
+   "keys": "⌘ + K",
+   "label": "Mở bảng lệnh"
+  },
+  {
+   "type": "sc_callout",
+   "t0": 15.6,
+   "t1": 17.6,
+   "num": 2,
+   "text": "Xong trong 1 phút (ví dụ)",
+   "at": {
+    "x": 540,
+    "y": 900
+   }
+  }
+ ]
+}

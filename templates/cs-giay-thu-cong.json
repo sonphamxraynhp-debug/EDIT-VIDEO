@@ -1,0 +1,92 @@
+{
+ "id": "cs-giay-thu-cong",
+ "name": "Giấy thủ công",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "print",
+ "desc": "Kể chuyện trên giấy in chuyển động stop-motion: trang báo mở góc, lật trang về mặt người, ảnh in cuộn lên, nét tay đỏ, chữ trồi sau mép giấy.",
+ "tags": [
+  "giấy",
+  "stop-motion",
+  "kể chuyện",
+  "thủ công",
+  "tactile"
+ ],
+ "title": "Thành phố đông người",
+ "caption_style": "print_paper",
+ "music": "mellow",
+ "recipe_opts": {
+  "variant": "paper"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "câu mở đầu",
+  "tiêu đề + 2–3 dòng cho trang báo",
+  "1 ảnh / biểu tượng + nhãn (tên, năm)",
+  "1 từ khoá cho chữ trồi"
+ ],
+ "preview": {
+  "from": 0.0,
+  "to": 6.0,
+  "still": 1.6
+ },
+ "scenes": [
+  {
+   "type": "print_paper_sheet",
+   "t0": 0,
+   "t1": 3.3,
+   "title": "Thành phố đông người",
+   "head": "Sống giữa đám đông (ví dụ)",
+   "body": [
+    "Thành phố ngày càng đông đúc,",
+    "nhưng con người lại thấy",
+    "cô đơn hơn bao giờ hết."
+   ],
+   "marks": [
+    1
+   ],
+   "mark_at": 1.6,
+   "turn_out": true
+  },
+  {
+   "type": "print_paper_card",
+   "t0": 6.0,
+   "t1": 8.6,
+   "icon": "🏙️",
+   "label": "Hà Nội, 2026 (ví dụ)",
+   "ellipse": true
+  },
+  {
+   "type": "print_paper_marks",
+   "t0": 6.4,
+   "t1": 8.6,
+   "kind": "arrow",
+   "x": 640,
+   "y": 690,
+   "x2": 590,
+   "y2": 840
+  },
+  {
+   "type": "print_paper_rise",
+   "t0": 10.4,
+   "t1": 12.4,
+   "text": "Cô đơn",
+   "sub": "giữa hàng triệu người (ví dụ)"
+  },
+  {
+   "type": "print_paper_sheet",
+   "t0": 16.4,
+   "t1": 19.0,
+   "title": "",
+   "head": "Trang giấy mới (ví dụ)",
+   "paper": "letter",
+   "body": [
+    "Bắt đầu lại từ một",
+    "trang giấy trắng."
+   ],
+   "turn_out": true,
+   "slow": true
+  }
+ ]
+}

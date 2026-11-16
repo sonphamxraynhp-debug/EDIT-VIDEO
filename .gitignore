@@ -1,0 +1,8 @@
+scripts/.venv
+scripts/node_modules
+__pycache__/
+*.pyc
+.DS_Store
+.export_*
+*.bak
+*.log

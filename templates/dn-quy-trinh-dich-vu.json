@@ -1,0 +1,71 @@
+{
+ "id": "dn-quy-trinh-dich-vu",
+ "name": "Quy trình dịch vụ",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Sơ đồ quyết định dọc toàn màn hình, quy trình vẽ tay, gạch chân ý chính và dấu tích hoàn thành.",
+ "tags": [
+  "quy trình",
+  "dịch vụ",
+  "các bước",
+  "tư vấn"
+ ],
+ "title": "Quy trình 4 bước",
+ "caption_style": "hf_weight_shift",
+ "music": "corporate",
+ "brand": {
+  "primary": "#14B8A6",
+  "accent": "#CCFBF1",
+  "dark": "#04120F"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "các bước làm việc",
+  "câu hỏi khách hay gặp"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3
+ },
+ "fx": [
+  {
+   "t": 8.6,
+   "type": "whip"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "flowchart-vertical",
+   "t0": 0.3,
+   "t1": 8.2,
+   "fit": "cover",
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "hw-pipeline",
+   "t0": 8.6,
+   "t1": 14.4
+  },
+  {
+   "type": "hf",
+   "block": "hw-underline",
+   "t0": 14.8,
+   "t1": 17.4,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "success-check",
+   "t0": 17.6,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true
+  }
+ ]
+}

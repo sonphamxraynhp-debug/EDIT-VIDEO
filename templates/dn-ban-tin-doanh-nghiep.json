@@ -1,0 +1,62 @@
+{
+ "id": "dn-ban-tin-doanh-nghiep",
+ "name": "Bản tin doanh nghiệp",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Thanh tin tức + dải tin chạy kiểu truyền hình, bản đồ thị trường, chữ AI trả lời và logo kết.",
+ "tags": [
+  "bản tin",
+  "tin tức",
+  "thông báo",
+  "doanh nghiệp"
+ ],
+ "title": "Bản tin tuần này",
+ "caption_style": "hf_glitch_rgb",
+ "music": "corporate_2",
+ "brand": {
+  "primary": "#DC2626",
+  "accent": "#FECACA",
+  "dark": "#120303"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tiêu đề tin",
+  "nội dung chính"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.5
+ },
+ "fx": [
+  {
+   "t": 8,
+   "type": "glitch"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "lower-third-bild",
+   "t0": 0.3,
+   "t1": 7.6,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "world-map",
+   "t0": 8,
+   "t1": 14.2,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "news-ticker",
+   "t0": 14.4,
+   "t1": 20.2
+  }
+ ]
+}

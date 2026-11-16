@@ -1,0 +1,3304 @@
+[
+ {
+  "name": "whoosh",
+  "cat": "transition",
+  "dur": 0.55,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_2",
+  "cat": "transition",
+  "dur": 0.35,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_3",
+  "cat": "transition",
+  "dur": 0.8,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_4",
+  "cat": "transition",
+  "dur": 0.45,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_5",
+  "cat": "transition",
+  "dur": 1.1,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_6",
+  "cat": "transition",
+  "dur": 0.6,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_7",
+  "cat": "transition",
+  "dur": 0.25,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_8",
+  "cat": "transition",
+  "dur": 0.7,
+  "tags": [
+   "whoosh",
+   "vút",
+   "chuyển cảnh",
+   "chữ bay vào"
+  ],
+  "use": "chữ hero/mega vào, đổi cảnh, card trượt"
+ },
+ {
+  "name": "whoosh_fast",
+  "cat": "transition",
+  "dur": 0.18,
+  "tags": [
+   "whoosh",
+   "nhanh",
+   "cut"
+  ],
+  "use": "jump cut nhanh, pill bật"
+ },
+ {
+  "name": "whoosh_slow",
+  "cat": "transition",
+  "dur": 1.6,
+  "tags": [
+   "whoosh",
+   "chậm",
+   "fade"
+  ],
+  "use": "light leak, chuyển mood chậm"
+ },
+ {
+  "name": "whoosh_deep",
+  "cat": "transition",
+  "dur": 0.9,
+  "tags": [
+   "whoosh",
+   "trầm"
+  ],
+  "use": "iris tối mở ra, vào panel"
+ },
+ {
+  "name": "whoosh_reverse",
+  "cat": "transition",
+  "dur": 0.7,
+  "tags": [
+   "reverse",
+   "hút vào"
+  ],
+  "use": "trước khi chữ lớn đập vào (đặt kết thúc đúng frame)"
+ },
+ {
+  "name": "swoosh_up",
+  "cat": "transition",
+  "dur": 0.3,
+  "tags": [
+   "swoosh",
+   "lên",
+   "bay lên"
+  ],
+  "use": "chữ/thẻ bay lên, số tăng"
+ },
+ {
+  "name": "swoosh_down",
+  "cat": "transition",
+  "dur": 0.3,
+  "tags": [
+   "swoosh",
+   "xuống",
+   "rơi"
+  ],
+  "use": "chữ rơi xuống, rời cảnh"
+ },
+ {
+  "name": "swoosh_up_2",
+  "cat": "transition",
+  "dur": 0.5,
+  "tags": [
+   "swoosh",
+   "lên",
+   "bay lên"
+  ],
+  "use": "chữ/thẻ bay lên, số tăng"
+ },
+ {
+  "name": "swoosh_down_2",
+  "cat": "transition",
+  "dur": 0.5,
+  "tags": [
+   "swoosh",
+   "xuống",
+   "rơi"
+  ],
+  "use": "chữ rơi xuống, rời cảnh"
+ },
+ {
+  "name": "swipe",
+  "cat": "ui",
+  "dur": 0.22,
+  "tags": [
+   "vuốt",
+   "swipe",
+   "lướt"
+  ],
+  "use": "vuốt màn hình điện thoại, lật thẻ"
+ },
+ {
+  "name": "swipe_2",
+  "cat": "ui",
+  "dur": 0.16,
+  "tags": [
+   "vuốt",
+   "swipe",
+   "lướt"
+  ],
+  "use": "vuốt màn hình điện thoại, lật thẻ"
+ },
+ {
+  "name": "swipe_3",
+  "cat": "ui",
+  "dur": 0.3,
+  "tags": [
+   "vuốt",
+   "swipe",
+   "lướt"
+  ],
+  "use": "vuốt màn hình điện thoại, lật thẻ"
+ },
+ {
+  "name": "swipe_4",
+  "cat": "ui",
+  "dur": 0.2,
+  "tags": [
+   "vuốt",
+   "swipe",
+   "lướt"
+  ],
+  "use": "vuốt màn hình điện thoại, lật thẻ"
+ },
+ {
+  "name": "slide",
+  "cat": "ui",
+  "dur": 0.35,
+  "tags": [
+   "trượt",
+   "slide",
+   "panel"
+  ],
+  "use": "panel/thẻ trượt vào"
+ },
+ {
+  "name": "slide_2",
+  "cat": "ui",
+  "dur": 0.55,
+  "tags": [
+   "trượt",
+   "slide",
+   "panel"
+  ],
+  "use": "panel/thẻ trượt vào"
+ },
+ {
+  "name": "impact",
+  "cat": "impact",
+  "dur": 0.7,
+  "tags": [
+   "impact",
+   "đập",
+   "hit",
+   "dấu"
+  ],
+  "use": "stamp, chữ mega đập, 100%, kết luận"
+ },
+ {
+  "name": "impact_2",
+  "cat": "impact",
+  "dur": 0.9,
+  "tags": [
+   "impact",
+   "đập",
+   "hit",
+   "dấu"
+  ],
+  "use": "stamp, chữ mega đập, 100%, kết luận"
+ },
+ {
+  "name": "impact_3",
+  "cat": "impact",
+  "dur": 0.5,
+  "tags": [
+   "impact",
+   "đập",
+   "hit",
+   "dấu"
+  ],
+  "use": "stamp, chữ mega đập, 100%, kết luận"
+ },
+ {
+  "name": "impact_4",
+  "cat": "impact",
+  "dur": 1.2,
+  "tags": [
+   "impact",
+   "đập",
+   "hit",
+   "dấu"
+  ],
+  "use": "stamp, chữ mega đập, 100%, kết luận"
+ },
+ {
+  "name": "impact_5",
+  "cat": "impact",
+  "dur": 0.4,
+  "tags": [
+   "impact",
+   "đập",
+   "hit",
+   "dấu"
+  ],
+  "use": "stamp, chữ mega đập, 100%, kết luận"
+ },
+ {
+  "name": "impact_6",
+  "cat": "impact",
+  "dur": 0.8,
+  "tags": [
+   "impact",
+   "đập",
+   "hit",
+   "dấu"
+  ],
+  "use": "stamp, chữ mega đập, 100%, kết luận"
+ },
+ {
+  "name": "boom",
+  "cat": "impact",
+  "dur": 1.6,
+  "tags": [
+   "boom",
+   "nổ trầm",
+   "bass"
+  ],
+  "use": "slam_bg hook, mở màn, con số lớn"
+ },
+ {
+  "name": "boom_2",
+  "cat": "impact",
+  "dur": 2.2,
+  "tags": [
+   "boom",
+   "nổ trầm",
+   "bass"
+  ],
+  "use": "slam_bg hook, mở màn, con số lớn"
+ },
+ {
+  "name": "boom_3",
+  "cat": "impact",
+  "dur": 1.2,
+  "tags": [
+   "boom",
+   "nổ trầm",
+   "bass"
+  ],
+  "use": "slam_bg hook, mở màn, con số lớn"
+ },
+ {
+  "name": "boom_4",
+  "cat": "impact",
+  "dur": 3.0,
+  "tags": [
+   "boom",
+   "nổ trầm",
+   "bass"
+  ],
+  "use": "slam_bg hook, mở màn, con số lớn"
+ },
+ {
+  "name": "sub_drop",
+  "cat": "impact",
+  "dur": 1.5,
+  "tags": [
+   "sub drop",
+   "bass drop",
+   "rơi"
+  ],
+  "use": "ngay sau riser, cảnh chuyển lớn"
+ },
+ {
+  "name": "sub_drop_2",
+  "cat": "impact",
+  "dur": 2.5,
+  "tags": [
+   "sub drop",
+   "bass drop",
+   "rơi"
+  ],
+  "use": "ngay sau riser, cảnh chuyển lớn"
+ },
+ {
+  "name": "sub_drop_3",
+  "cat": "impact",
+  "dur": 1.0,
+  "tags": [
+   "sub drop",
+   "bass drop",
+   "rơi"
+  ],
+  "use": "ngay sau riser, cảnh chuyển lớn"
+ },
+ {
+  "name": "cinematic_hit",
+  "cat": "impact",
+  "dur": 2.5,
+  "tags": [
+   "cinematic",
+   "điện ảnh",
+   "trailer"
+  ],
+  "use": "câu chốt, tiết lộ, title lớn"
+ },
+ {
+  "name": "cinematic_hit_2",
+  "cat": "impact",
+  "dur": 2.5,
+  "tags": [
+   "cinematic",
+   "điện ảnh",
+   "trailer"
+  ],
+  "use": "câu chốt, tiết lộ, title lớn"
+ },
+ {
+  "name": "cinematic_hit_3",
+  "cat": "impact",
+  "dur": 2.5,
+  "tags": [
+   "cinematic",
+   "điện ảnh",
+   "trailer"
+  ],
+  "use": "câu chốt, tiết lộ, title lớn"
+ },
+ {
+  "name": "braam",
+  "cat": "impact",
+  "dur": 2.8,
+  "tags": [
+   "braam",
+   "kèn đồng",
+   "trailer",
+   "căng"
+  ],
+  "use": "tuyên bố lớn kiểu trailer"
+ },
+ {
+  "name": "braam_2",
+  "cat": "impact",
+  "dur": 3.5,
+  "tags": [
+   "braam",
+   "trầm"
+  ],
+  "use": "tuyên bố lớn kiểu trailer"
+ },
+ {
+  "name": "transition_hit",
+  "cat": "transition",
+  "dur": 1.1,
+  "tags": [
+   "whoosh+impact",
+   "chuyển cảnh mạnh"
+  ],
+  "use": "đổi cảnh lớn có đập"
+ },
+ {
+  "name": "transition_hit_2",
+  "cat": "transition",
+  "dur": 2.05,
+  "tags": [
+   "whoosh+boom"
+  ],
+  "use": "đổi cảnh lớn có boom"
+ },
+ {
+  "name": "transition_hit_3",
+  "cat": "transition",
+  "dur": 1.6,
+  "tags": [
+   "riser+impact"
+  ],
+  "use": "build up ngắn rồi đập"
+ },
+ {
+  "name": "transition_hit_4",
+  "cat": "transition",
+  "dur": 0.38,
+  "tags": [
+   "swoosh+pop"
+  ],
+  "use": "chuyển nhẹ vui"
+ },
+ {
+  "name": "riser",
+  "cat": "build",
+  "dur": 0.5,
+  "tags": [
+   "riser",
+   "dâng lên",
+   "build up",
+   "căng dần"
+  ],
+  "use": "dồn trước khoảnh khắc lớn 0.5s (kết thúc đúng frame đập)"
+ },
+ {
+  "name": "riser_1s",
+  "cat": "build",
+  "dur": 1.0,
+  "tags": [
+   "riser",
+   "dâng lên",
+   "build up",
+   "căng dần"
+  ],
+  "use": "dồn trước khoảnh khắc lớn 1s (kết thúc đúng frame đập)"
+ },
+ {
+  "name": "riser_2s",
+  "cat": "build",
+  "dur": 2.0,
+  "tags": [
+   "riser",
+   "dâng lên",
+   "build up",
+   "căng dần"
+  ],
+  "use": "dồn trước khoảnh khắc lớn 2s (kết thúc đúng frame đập)"
+ },
+ {
+  "name": "riser_3s",
+  "cat": "build",
+  "dur": 3.0,
+  "tags": [
+   "riser",
+   "dâng lên",
+   "build up",
+   "căng dần"
+  ],
+  "use": "dồn trước khoảnh khắc lớn 3s (kết thúc đúng frame đập)"
+ },
+ {
+  "name": "riser_4s",
+  "cat": "build",
+  "dur": 4.0,
+  "tags": [
+   "riser",
+   "dâng lên",
+   "build up",
+   "căng dần"
+  ],
+  "use": "dồn trước khoảnh khắc lớn 4s (kết thúc đúng frame đập)"
+ },
+ {
+  "name": "downlifter",
+  "cat": "build",
+  "dur": 1.0,
+  "tags": [
+   "downlifter",
+   "hạ xuống",
+   "xả"
+  ],
+  "use": "sau cú đập, rời cảnh căng"
+ },
+ {
+  "name": "downlifter_2",
+  "cat": "build",
+  "dur": 1.6,
+  "tags": [
+   "downlifter",
+   "hạ xuống",
+   "xả"
+  ],
+  "use": "sau cú đập, rời cảnh căng"
+ },
+ {
+  "name": "downlifter_3",
+  "cat": "build",
+  "dur": 2.5,
+  "tags": [
+   "downlifter",
+   "hạ xuống",
+   "xả"
+  ],
+  "use": "sau cú đập, rời cảnh căng"
+ },
+ {
+  "name": "reverse_cymbal",
+  "cat": "build",
+  "dur": 0.8,
+  "tags": [
+   "reverse cymbal",
+   "hút ngược",
+   "dồn"
+  ],
+  "use": "đặt sao cho kết thúc đúng lúc chữ xuất hiện"
+ },
+ {
+  "name": "reverse_cymbal_2",
+  "cat": "build",
+  "dur": 1.5,
+  "tags": [
+   "reverse cymbal",
+   "hút ngược",
+   "dồn"
+  ],
+  "use": "đặt sao cho kết thúc đúng lúc chữ xuất hiện"
+ },
+ {
+  "name": "reverse_cymbal_3",
+  "cat": "build",
+  "dur": 2.5,
+  "tags": [
+   "reverse cymbal",
+   "hút ngược",
+   "dồn"
+  ],
+  "use": "đặt sao cho kết thúc đúng lúc chữ xuất hiện"
+ },
+ {
+  "name": "pop",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop",
+   "bật",
+   "emoji",
+   "tag"
+  ],
+  "use": "emoji/pill/tag/chip bật ra"
+ },
+ {
+  "name": "pop_2",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop",
+   "bật",
+   "emoji",
+   "tag"
+  ],
+  "use": "emoji/pill/tag/chip bật ra"
+ },
+ {
+  "name": "pop_3",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop",
+   "bật",
+   "emoji",
+   "tag"
+  ],
+  "use": "emoji/pill/tag/chip bật ra"
+ },
+ {
+  "name": "pop_4",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop",
+   "bật",
+   "emoji",
+   "tag"
+  ],
+  "use": "emoji/pill/tag/chip bật ra"
+ },
+ {
+  "name": "pop_5",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop",
+   "bật",
+   "emoji",
+   "tag"
+  ],
+  "use": "emoji/pill/tag/chip bật ra"
+ },
+ {
+  "name": "pop_6",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop",
+   "bật",
+   "emoji",
+   "tag"
+  ],
+  "use": "emoji/pill/tag/chip bật ra"
+ },
+ {
+  "name": "bubble",
+  "cat": "ui",
+  "dur": 0.18,
+  "tags": [
+   "bong bóng",
+   "bubble",
+   "vui"
+  ],
+  "use": "sticker vui, chat bubble"
+ },
+ {
+  "name": "bubble_2",
+  "cat": "ui",
+  "dur": 0.18,
+  "tags": [
+   "bong bóng",
+   "bubble",
+   "vui"
+  ],
+  "use": "sticker vui, chat bubble"
+ },
+ {
+  "name": "bubble_3",
+  "cat": "ui",
+  "dur": 0.18,
+  "tags": [
+   "bong bóng",
+   "bubble",
+   "vui"
+  ],
+  "use": "sticker vui, chat bubble"
+ },
+ {
+  "name": "blip",
+  "cat": "ui",
+  "dur": 0.07,
+  "tags": [
+   "blip",
+   "bíp",
+   "số",
+   "HUD"
+  ],
+  "use": "HUD/số nhảy/icon nhỏ"
+ },
+ {
+  "name": "blip_2",
+  "cat": "ui",
+  "dur": 0.07,
+  "tags": [
+   "blip",
+   "bíp",
+   "số",
+   "HUD"
+  ],
+  "use": "HUD/số nhảy/icon nhỏ"
+ },
+ {
+  "name": "blip_3",
+  "cat": "ui",
+  "dur": 0.07,
+  "tags": [
+   "blip",
+   "bíp",
+   "số",
+   "HUD"
+  ],
+  "use": "HUD/số nhảy/icon nhỏ"
+ },
+ {
+  "name": "blip_4",
+  "cat": "ui",
+  "dur": 0.07,
+  "tags": [
+   "blip",
+   "bíp",
+   "số",
+   "HUD"
+  ],
+  "use": "HUD/số nhảy/icon nhỏ"
+ },
+ {
+  "name": "blip_5",
+  "cat": "ui",
+  "dur": 0.07,
+  "tags": [
+   "blip",
+   "bíp",
+   "số",
+   "HUD"
+  ],
+  "use": "HUD/số nhảy/icon nhỏ"
+ },
+ {
+  "name": "tick",
+  "cat": "ui",
+  "dur": 0.05,
+  "tags": [
+   "tick",
+   "đồng hồ",
+   "đếm"
+  ],
+  "use": "counter mỗi bước, kim đồng hồ"
+ },
+ {
+  "name": "tick_2",
+  "cat": "ui",
+  "dur": 0.05,
+  "tags": [
+   "tick",
+   "đồng hồ",
+   "đếm"
+  ],
+  "use": "counter mỗi bước, kim đồng hồ"
+ },
+ {
+  "name": "tick_3",
+  "cat": "ui",
+  "dur": 0.05,
+  "tags": [
+   "tick",
+   "đồng hồ",
+   "đếm"
+  ],
+  "use": "counter mỗi bước, kim đồng hồ"
+ },
+ {
+  "name": "clock_ticking",
+  "cat": "ui",
+  "dur": 4.0,
+  "tags": [
+   "tích tắc",
+   "đồng hồ chạy",
+   "thời gian"
+  ],
+  "use": "nói về thời gian, deadline (4s loop)"
+ },
+ {
+  "name": "clock_ticking_fast",
+  "cat": "ui",
+  "dur": 3.0,
+  "tags": [
+   "tích tắc nhanh",
+   "gấp"
+  ],
+  "use": "áp lực thời gian"
+ },
+ {
+  "name": "countdown_321",
+  "cat": "ui",
+  "dur": 3.4,
+  "tags": [
+   "đếm ngược",
+   "3 2 1"
+  ],
+  "use": "đếm ngược 3-2-1 (beep cuối ở 3.0s)"
+ },
+ {
+  "name": "click",
+  "cat": "ui",
+  "dur": 0.03,
+  "tags": [
+   "click",
+   "bấm",
+   "chuột"
+  ],
+  "use": "bấm nút, chọn mục"
+ },
+ {
+  "name": "click_2",
+  "cat": "ui",
+  "dur": 0.03,
+  "tags": [
+   "click",
+   "bấm",
+   "chuột"
+  ],
+  "use": "bấm nút, chọn mục"
+ },
+ {
+  "name": "click_3",
+  "cat": "ui",
+  "dur": 0.03,
+  "tags": [
+   "click",
+   "bấm",
+   "chuột"
+  ],
+  "use": "bấm nút, chọn mục"
+ },
+ {
+  "name": "click_4",
+  "cat": "ui",
+  "dur": 0.03,
+  "tags": [
+   "click",
+   "bấm",
+   "chuột"
+  ],
+  "use": "bấm nút, chọn mục"
+ },
+ {
+  "name": "click_5",
+  "cat": "ui",
+  "dur": 0.03,
+  "tags": [
+   "click",
+   "bấm",
+   "chuột"
+  ],
+  "use": "bấm nút, chọn mục"
+ },
+ {
+  "name": "mouse_click",
+  "cat": "ui",
+  "dur": 0.11,
+  "tags": [
+   "chuột",
+   "click đôi"
+  ],
+  "use": "bấm chuột trên UI showcase"
+ },
+ {
+  "name": "typing_1s",
+  "cat": "ui",
+  "dur": 1.0,
+  "tags": [
+   "gõ phím",
+   "typing",
+   "bàn phím"
+  ],
+  "use": "prompt_box gõ chữ, search bar"
+ },
+ {
+  "name": "typing_2s",
+  "cat": "ui",
+  "dur": 2.0,
+  "tags": [
+   "gõ phím",
+   "typing",
+   "bàn phím"
+  ],
+  "use": "prompt_box gõ chữ, search bar"
+ },
+ {
+  "name": "typing_4s",
+  "cat": "ui",
+  "dur": 4.0,
+  "tags": [
+   "gõ phím",
+   "typing",
+   "bàn phím"
+  ],
+  "use": "prompt_box gõ chữ, search bar"
+ },
+ {
+  "name": "keyboard_enter",
+  "cat": "ui",
+  "dur": 0.06,
+  "tags": [
+   "enter",
+   "gửi lệnh"
+  ],
+  "use": "gõ xong bấm Enter"
+ },
+ {
+  "name": "ding",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "ding",
+   "chuông",
+   "kết luận"
+  ],
+  "use": "kết luận, đáp án, check ✅"
+ },
+ {
+  "name": "ding_2",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "ding",
+   "chuông",
+   "kết luận"
+  ],
+  "use": "kết luận, đáp án, check ✅"
+ },
+ {
+  "name": "ding_3",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "ding",
+   "chuông",
+   "kết luận"
+  ],
+  "use": "kết luận, đáp án, check ✅"
+ },
+ {
+  "name": "ding_4",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "ding",
+   "chuông",
+   "kết luận"
+  ],
+  "use": "kết luận, đáp án, check ✅"
+ },
+ {
+  "name": "success",
+  "cat": "chime",
+  "dur": 1.72,
+  "tags": [
+   "thành công",
+   "success",
+   "hoàn thành"
+  ],
+  "use": "hoàn tất, kết quả tốt"
+ },
+ {
+  "name": "success_2",
+  "cat": "chime",
+  "dur": 1.5,
+  "tags": [
+   "thành công",
+   "level up"
+  ],
+  "use": "đạt mục tiêu"
+ },
+ {
+  "name": "success_3",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "hoàn thành nhẹ"
+  ],
+  "use": "check mục cuối checklist"
+ },
+ {
+  "name": "level_up",
+  "cat": "chime",
+  "dur": 0.79,
+  "tags": [
+   "lên cấp",
+   "game"
+  ],
+  "use": "nâng cấp, mở khoá"
+ },
+ {
+  "name": "notification",
+  "cat": "chime",
+  "dur": 0.92,
+  "tags": [
+   "thông báo",
+   "notification",
+   "tin nhắn",
+   "đơn hàng"
+  ],
+  "use": "thông báo đẩy, tin nhắn mới, đơn hàng"
+ },
+ {
+  "name": "notification_2",
+  "cat": "chime",
+  "dur": 1.03,
+  "tags": [
+   "thông báo",
+   "notification",
+   "tin nhắn",
+   "đơn hàng"
+  ],
+  "use": "thông báo đẩy, tin nhắn mới, đơn hàng"
+ },
+ {
+  "name": "notification_3",
+  "cat": "chime",
+  "dur": 0.92,
+  "tags": [
+   "thông báo",
+   "notification",
+   "tin nhắn",
+   "đơn hàng"
+  ],
+  "use": "thông báo đẩy, tin nhắn mới, đơn hàng"
+ },
+ {
+  "name": "notification_4",
+  "cat": "chime",
+  "dur": 0.92,
+  "tags": [
+   "thông báo",
+   "notification",
+   "tin nhắn",
+   "đơn hàng"
+  ],
+  "use": "thông báo đẩy, tin nhắn mới, đơn hàng"
+ },
+ {
+  "name": "notification_5",
+  "cat": "chime",
+  "dur": 0.92,
+  "tags": [
+   "thông báo",
+   "notification",
+   "tin nhắn",
+   "đơn hàng"
+  ],
+  "use": "thông báo đẩy, tin nhắn mới, đơn hàng"
+ },
+ {
+  "name": "message_sent",
+  "cat": "chime",
+  "dur": 0.18,
+  "tags": [
+   "gửi tin",
+   "send"
+  ],
+  "use": "gửi tin nhắn, gửi prompt"
+ },
+ {
+  "name": "error",
+  "cat": "chime",
+  "dur": 0.45,
+  "tags": [
+   "lỗi",
+   "sai",
+   "error",
+   "buzz"
+  ],
+  "use": "sai lầm, ❌, cách cũ"
+ },
+ {
+  "name": "error_2",
+  "cat": "chime",
+  "dur": 0.58,
+  "tags": [
+   "lỗi",
+   "từ chối"
+  ],
+  "use": "sai lầm nhẹ"
+ },
+ {
+  "name": "wrong_buzzer",
+  "cat": "chime",
+  "dur": 0.8,
+  "tags": [
+   "sai",
+   "buzzer",
+   "gameshow"
+  ],
+  "use": "câu trả lời sai kiểu gameshow"
+ },
+ {
+  "name": "correct",
+  "cat": "chime",
+  "dur": 1.17,
+  "tags": [
+   "đúng",
+   "chính xác",
+   "gameshow"
+  ],
+  "use": "đáp án đúng"
+ },
+ {
+  "name": "coin",
+  "cat": "chime",
+  "dur": 0.44,
+  "tags": [
+   "xu",
+   "tiền",
+   "coin"
+  ],
+  "use": "tiền, doanh thu, giá"
+ },
+ {
+  "name": "coin_2",
+  "cat": "chime",
+  "dur": 0.6,
+  "tags": [
+   "tiền rơi",
+   "xu"
+  ],
+  "use": "tiền rơi, nhận thưởng"
+ },
+ {
+  "name": "cash_register",
+  "cat": "chime",
+  "dur": 1.4,
+  "tags": [
+   "ka-ching",
+   "bán hàng",
+   "doanh thu",
+   "tiền"
+  ],
+  "use": "chốt đơn, doanh thu tăng"
+ },
+ {
+  "name": "money_count",
+  "cat": "chime",
+  "dur": 1.14,
+  "tags": [
+   "đếm tiền",
+   "tiền"
+  ],
+  "use": "tiền, lương, thu nhập"
+ },
+ {
+  "name": "alarm",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "báo thức",
+   "cảnh báo"
+  ],
+  "use": "cảnh báo, deadline"
+ },
+ {
+  "name": "phone_vibrate",
+  "cat": "chime",
+  "dur": 1.3,
+  "tags": [
+   "rung điện thoại",
+   "vibrate"
+  ],
+  "use": "điện thoại rung, có cuộc gọi"
+ },
+ {
+  "name": "phone_ring",
+  "cat": "chime",
+  "dur": 1.3,
+  "tags": [
+   "chuông điện thoại"
+  ],
+  "use": "cuộc gọi"
+ },
+ {
+  "name": "glitch",
+  "cat": "tech",
+  "dur": 0.3,
+  "tags": [
+   "glitch",
+   "nhiễu",
+   "lỗi số",
+   "AI"
+  ],
+  "use": "glitch cut, chữ RGB split, AI"
+ },
+ {
+  "name": "glitch_2",
+  "cat": "tech",
+  "dur": 0.5,
+  "tags": [
+   "glitch",
+   "nhiễu",
+   "lỗi số",
+   "AI"
+  ],
+  "use": "glitch cut, chữ RGB split, AI"
+ },
+ {
+  "name": "glitch_3",
+  "cat": "tech",
+  "dur": 0.2,
+  "tags": [
+   "glitch",
+   "nhiễu",
+   "lỗi số",
+   "AI"
+  ],
+  "use": "glitch cut, chữ RGB split, AI"
+ },
+ {
+  "name": "glitch_4",
+  "cat": "tech",
+  "dur": 0.8,
+  "tags": [
+   "glitch",
+   "nhiễu",
+   "lỗi số",
+   "AI"
+  ],
+  "use": "glitch cut, chữ RGB split, AI"
+ },
+ {
+  "name": "glitch_5",
+  "cat": "tech",
+  "dur": 0.4,
+  "tags": [
+   "glitch",
+   "nhiễu",
+   "lỗi số",
+   "AI"
+  ],
+  "use": "glitch cut, chữ RGB split, AI"
+ },
+ {
+  "name": "glitch_6",
+  "cat": "tech",
+  "dur": 1.2,
+  "tags": [
+   "glitch",
+   "nhiễu",
+   "lỗi số",
+   "AI"
+  ],
+  "use": "glitch cut, chữ RGB split, AI"
+ },
+ {
+  "name": "static",
+  "cat": "tech",
+  "dur": 1.0,
+  "tags": [
+   "nhiễu TV",
+   "static"
+  ],
+  "use": "TV nhiễu, mất tín hiệu"
+ },
+ {
+  "name": "static_burst",
+  "cat": "tech",
+  "dur": 0.15,
+  "tags": [
+   "nhiễu ngắn"
+  ],
+  "use": "cắt glitch"
+ },
+ {
+  "name": "data_burst",
+  "cat": "tech",
+  "dur": 0.9,
+  "tags": [
+   "dữ liệu",
+   "data",
+   "xử lý",
+   "computer"
+  ],
+  "use": "dashboard, số liệu chạy, AI xử lý"
+ },
+ {
+  "name": "data_burst_2",
+  "cat": "tech",
+  "dur": 1.28,
+  "tags": [
+   "dữ liệu",
+   "data",
+   "xử lý",
+   "computer"
+  ],
+  "use": "dashboard, số liệu chạy, AI xử lý"
+ },
+ {
+  "name": "data_burst_3",
+  "cat": "tech",
+  "dur": 1.88,
+  "tags": [
+   "dữ liệu",
+   "data",
+   "xử lý",
+   "computer"
+  ],
+  "use": "dashboard, số liệu chạy, AI xử lý"
+ },
+ {
+  "name": "scan",
+  "cat": "tech",
+  "dur": 1.2,
+  "tags": [
+   "quét",
+   "scan",
+   "nhận diện"
+  ],
+  "use": "HUD quét mặt, AI phân tích"
+ },
+ {
+  "name": "scan_2",
+  "cat": "tech",
+  "dur": 0.6,
+  "tags": [
+   "quét nhanh"
+  ],
+  "use": "quét ngắn"
+ },
+ {
+  "name": "hud_lock",
+  "cat": "tech",
+  "dur": 0.57,
+  "tags": [
+   "khoá mục tiêu",
+   "lock",
+   "HUD"
+  ],
+  "use": "HUD khoá mặt xong"
+ },
+ {
+  "name": "hud_lock_2",
+  "cat": "tech",
+  "dur": 0.3,
+  "tags": [
+   "lock on"
+  ],
+  "use": "khoá mục tiêu"
+ },
+ {
+  "name": "ui_open",
+  "cat": "tech",
+  "dur": 0.2,
+  "tags": [
+   "mở UI",
+   "đóng UI",
+   "cửa sổ"
+  ],
+  "use": "mở/đóng cửa sổ, panel"
+ },
+ {
+  "name": "ui_close",
+  "cat": "tech",
+  "dur": 0.2,
+  "tags": [
+   "mở UI",
+   "đóng UI",
+   "cửa sổ"
+  ],
+  "use": "mở/đóng cửa sổ, panel"
+ },
+ {
+  "name": "beep_computer",
+  "cat": "tech",
+  "dur": 0.54,
+  "tags": [
+   "beep",
+   "máy tính",
+   "robot"
+  ],
+  "use": "AI/robot trả lời"
+ },
+ {
+  "name": "beep_computer_2",
+  "cat": "tech",
+  "dur": 0.62,
+  "tags": [
+   "beep",
+   "máy tính",
+   "robot"
+  ],
+  "use": "AI/robot trả lời"
+ },
+ {
+  "name": "beep_computer_3",
+  "cat": "tech",
+  "dur": 0.7,
+  "tags": [
+   "beep",
+   "máy tính",
+   "robot"
+  ],
+  "use": "AI/robot trả lời"
+ },
+ {
+  "name": "beep_computer_4",
+  "cat": "tech",
+  "dur": 0.78,
+  "tags": [
+   "beep",
+   "máy tính",
+   "robot"
+  ],
+  "use": "AI/robot trả lời"
+ },
+ {
+  "name": "power_up",
+  "cat": "tech",
+  "dur": 1.0,
+  "tags": [
+   "khởi động",
+   "power up",
+   "sạc"
+  ],
+  "use": "bật lên, kích hoạt AI"
+ },
+ {
+  "name": "power_down",
+  "cat": "tech",
+  "dur": 1.0,
+  "tags": [
+   "tắt",
+   "power down"
+  ],
+  "use": "tắt, thất bại, hết pin"
+ },
+ {
+  "name": "laser",
+  "cat": "tech",
+  "dur": 0.25,
+  "tags": [
+   "laser",
+   "bắn"
+  ],
+  "use": "tia sáng, chữ bắn ra"
+ },
+ {
+  "name": "teleport",
+  "cat": "tech",
+  "dur": 0.8,
+  "tags": [
+   "dịch chuyển",
+   "xuất hiện"
+  ],
+  "use": "đối tượng xuất hiện thần kỳ"
+ },
+ {
+  "name": "hologram",
+  "cat": "tech",
+  "dur": 1.5,
+  "tags": [
+   "hologram",
+   "ảo"
+  ],
+  "use": "UI nổi, hologram"
+ },
+ {
+  "name": "drone_tech",
+  "cat": "tech",
+  "dur": 3.0,
+  "tags": [
+   "drone",
+   "nền căng",
+   "công nghệ"
+  ],
+  "use": "nền căng dưới cảnh tech (3s)"
+ },
+ {
+  "name": "sparkle",
+  "cat": "magic",
+  "dur": 1.0,
+  "tags": [
+   "lấp lánh",
+   "sparkle",
+   "phép màu",
+   "✨"
+  ],
+  "use": "✨ xuất hiện, highlight, đẹp"
+ },
+ {
+  "name": "sparkle_2",
+  "cat": "magic",
+  "dur": 1.3,
+  "tags": [
+   "lấp lánh",
+   "sparkle",
+   "phép màu",
+   "✨"
+  ],
+  "use": "✨ xuất hiện, highlight, đẹp"
+ },
+ {
+  "name": "sparkle_3",
+  "cat": "magic",
+  "dur": 1.6,
+  "tags": [
+   "lấp lánh",
+   "sparkle",
+   "phép màu",
+   "✨"
+  ],
+  "use": "✨ xuất hiện, highlight, đẹp"
+ },
+ {
+  "name": "sparkle_4",
+  "cat": "magic",
+  "dur": 1.9,
+  "tags": [
+   "lấp lánh",
+   "sparkle",
+   "phép màu",
+   "✨"
+  ],
+  "use": "✨ xuất hiện, highlight, đẹp"
+ },
+ {
+  "name": "shimmer",
+  "cat": "magic",
+  "dur": 1.6,
+  "tags": [
+   "shimmer",
+   "lung linh",
+   "ánh sáng"
+  ],
+  "use": "light leak, mood happy, end card"
+ },
+ {
+  "name": "shimmer_2",
+  "cat": "magic",
+  "dur": 1.6,
+  "tags": [
+   "shimmer",
+   "lung linh",
+   "ánh sáng"
+  ],
+  "use": "light leak, mood happy, end card"
+ },
+ {
+  "name": "shimmer_3",
+  "cat": "magic",
+  "dur": 1.6,
+  "tags": [
+   "shimmer",
+   "lung linh",
+   "ánh sáng"
+  ],
+  "use": "light leak, mood happy, end card"
+ },
+ {
+  "name": "magic",
+  "cat": "magic",
+  "dur": 1.5,
+  "tags": [
+   "phép thuật",
+   "magic",
+   "biến hoá",
+   "🪄"
+  ],
+  "use": "biến hoá, trước→sau, AI làm phép"
+ },
+ {
+  "name": "magic_2",
+  "cat": "magic",
+  "dur": 1.5,
+  "tags": [
+   "phép thuật",
+   "magic",
+   "biến hoá",
+   "🪄"
+  ],
+  "use": "biến hoá, trước→sau, AI làm phép"
+ },
+ {
+  "name": "magic_3",
+  "cat": "magic",
+  "dur": 1.5,
+  "tags": [
+   "phép thuật",
+   "magic",
+   "biến hoá",
+   "🪄"
+  ],
+  "use": "biến hoá, trước→sau, AI làm phép"
+ },
+ {
+  "name": "fairy_dust",
+  "cat": "magic",
+  "dur": 2.0,
+  "tags": [
+   "bụi tiên",
+   "nhẹ nhàng"
+  ],
+  "use": "mood mellow, chuyển nhẹ"
+ },
+ {
+  "name": "camera_shutter",
+  "cat": "foley",
+  "dur": 0.35,
+  "tags": [
+   "chụp ảnh",
+   "camera",
+   "shutter"
+  ],
+  "use": "ảnh chụp màn hình xuất hiện, flash"
+ },
+ {
+  "name": "camera_shutter_2",
+  "cat": "foley",
+  "dur": 0.84,
+  "tags": [
+   "chụp liên tiếp"
+  ],
+  "use": "nhiều ảnh xuất hiện"
+ },
+ {
+  "name": "flash_pop",
+  "cat": "foley",
+  "dur": 0.6,
+  "tags": [
+   "flash",
+   "chớp sáng"
+  ],
+  "use": "flash trắng"
+ },
+ {
+  "name": "paper",
+  "cat": "foley",
+  "dur": 0.4,
+  "tags": [
+   "giấy",
+   "lật trang"
+  ],
+  "use": "lật trang, tài liệu"
+ },
+ {
+  "name": "paper_2",
+  "cat": "foley",
+  "dur": 0.7,
+  "tags": [
+   "vò giấy"
+  ],
+  "use": "bỏ đi, gạch bỏ"
+ },
+ {
+  "name": "stamp",
+  "cat": "foley",
+  "dur": 0.35,
+  "tags": [
+   "đóng dấu",
+   "stamp",
+   "duyệt"
+  ],
+  "use": "stamp ĐÃ DUYỆT/100%"
+ },
+ {
+  "name": "stamp_2",
+  "cat": "foley",
+  "dur": 0.35,
+  "tags": [
+   "đóng dấu",
+   "stamp",
+   "duyệt"
+  ],
+  "use": "stamp ĐÃ DUYỆT/100%"
+ },
+ {
+  "name": "pen_scribble",
+  "cat": "foley",
+  "dur": 0.6,
+  "tags": [
+   "viết",
+   "gạch"
+  ],
+  "use": "gạch bỏ chữ, viết tay"
+ },
+ {
+  "name": "zipper",
+  "cat": "foley",
+  "dur": 0.5,
+  "tags": [
+   "kéo khoá",
+   "mở"
+  ],
+  "use": "mở ra, tiết lộ"
+ },
+ {
+  "name": "heartbeat",
+  "cat": "foley",
+  "dur": 1.05,
+  "tags": [
+   "nhịp tim",
+   "hồi hộp"
+  ],
+  "use": "hồi hộp, căng thẳng (2 nhịp)"
+ },
+ {
+  "name": "heartbeat_loop",
+  "cat": "foley",
+  "dur": 4.26,
+  "tags": [
+   "nhịp tim",
+   "loop"
+  ],
+  "use": "nền hồi hộp 4s"
+ },
+ {
+  "name": "door_knock",
+  "cat": "foley",
+  "dur": 0.78,
+  "tags": [
+   "gõ cửa"
+  ],
+  "use": "có người đến, cơ hội"
+ },
+ {
+  "name": "footsteps",
+  "cat": "foley",
+  "dur": 2.7,
+  "tags": [
+   "bước chân"
+  ],
+  "use": "bước tiếp, hành trình"
+ },
+ {
+  "name": "water_drop",
+  "cat": "foley",
+  "dur": 0.12,
+  "tags": [
+   "giọt nước",
+   "drop"
+  ],
+  "use": "nhẹ nhàng, tinh tế"
+ },
+ {
+  "name": "rubber_band",
+  "cat": "foley",
+  "dur": 0.6,
+  "tags": [
+   "bật dây",
+   "boing"
+  ],
+  "use": "hài hước, bật lại"
+ },
+ {
+  "name": "cartoon_slip",
+  "cat": "foley",
+  "dur": 0.4,
+  "tags": [
+   "trượt",
+   "hài"
+  ],
+  "use": "fail hài hước"
+ },
+ {
+  "name": "balloon_pop",
+  "cat": "foley",
+  "dur": 0.12,
+  "tags": [
+   "nổ bóng"
+  ],
+  "use": "phá vỡ niềm tin sai"
+ },
+ {
+  "name": "crowd_cheer",
+  "cat": "foley",
+  "dur": 2.5,
+  "tags": [
+   "vỗ tay",
+   "cổ vũ",
+   "đám đông"
+  ],
+  "use": "thành tựu, ăn mừng (tổng hợp)"
+ },
+ {
+  "name": "applause",
+  "cat": "foley",
+  "dur": 2.6,
+  "tags": [
+   "vỗ tay",
+   "applause"
+  ],
+  "use": "kết thúc, chúc mừng"
+ },
+ {
+  "name": "kick",
+  "cat": "drum",
+  "dur": 0.5,
+  "tags": [
+   "kick",
+   "trống",
+   "nhịp"
+  ],
+  "use": "nhấn nhịp từ khoá"
+ },
+ {
+  "name": "kick_2",
+  "cat": "drum",
+  "dur": 0.7,
+  "tags": [
+   "kick",
+   "trống"
+  ],
+  "use": "nhấn nhịp"
+ },
+ {
+  "name": "snare",
+  "cat": "drum",
+  "dur": 0.3,
+  "tags": [
+   "snare",
+   "trống"
+  ],
+  "use": "nhấn chữ"
+ },
+ {
+  "name": "clap",
+  "cat": "drum",
+  "dur": 0.3,
+  "tags": [
+   "clap",
+   "vỗ tay đơn"
+  ],
+  "use": "pop hero vui"
+ },
+ {
+  "name": "clap_2",
+  "cat": "drum",
+  "dur": 0.3,
+  "tags": [
+   "clap"
+  ],
+  "use": "pop hero vui"
+ },
+ {
+  "name": "drum_roll",
+  "cat": "drum",
+  "dur": 3.2,
+  "tags": [
+   "trống dồn",
+   "drum roll",
+   "hồi hộp"
+  ],
+  "use": "chuẩn bị công bố (2s)"
+ },
+ {
+  "name": "tom_hits",
+  "cat": "drum",
+  "dur": 0.84,
+  "tags": [
+   "trống trận",
+   "epic"
+  ],
+  "use": "epic, tuyên bố"
+ },
+ {
+  "name": "cymbal_crash",
+  "cat": "drum",
+  "dur": 2.0,
+  "tags": [
+   "chập chõa",
+   "crash"
+  ],
+  "use": "mở đầu đoạn mới"
+ },
+ {
+  "name": "tape_stop",
+  "cat": "drum",
+  "dur": 0.8,
+  "tags": [
+   "tape stop",
+   "dừng băng",
+   "khựng"
+  ],
+  "use": "khựng lại, 'nhưng mà…'"
+ },
+ {
+  "name": "record_scratch",
+  "cat": "drum",
+  "dur": 0.5,
+  "tags": [
+   "scratch",
+   "cắt ngang",
+   "khoan đã"
+  ],
+  "use": "phủ định bất ngờ, 'khoan đã'"
+ },
+ {
+  "name": "vinyl_rewind",
+  "cat": "drum",
+  "dur": 1.2,
+  "tags": [
+   "tua lại",
+   "rewind"
+  ],
+  "use": "quay về quá khứ, 'trước đây'"
+ },
+ {
+  "name": "stinger_happy",
+  "cat": "stinger",
+  "dur": 1.6,
+  "tags": [
+   "stinger",
+   "nhạc ngắn",
+   "happy"
+  ],
+  "use": "kết câu vui"
+ },
+ {
+  "name": "stinger_sad",
+  "cat": "stinger",
+  "dur": 1.6,
+  "tags": [
+   "stinger",
+   "nhạc ngắn",
+   "sad"
+  ],
+  "use": "câu buồn, thất bại"
+ },
+ {
+  "name": "stinger_epic",
+  "cat": "stinger",
+  "dur": 1.6,
+  "tags": [
+   "stinger",
+   "nhạc ngắn",
+   "epic"
+  ],
+  "use": "tuyên bố lớn"
+ },
+ {
+  "name": "stinger_mystery",
+  "cat": "stinger",
+  "dur": 1.6,
+  "tags": [
+   "stinger",
+   "nhạc ngắn",
+   "mystery"
+  ],
+  "use": "bí mật, hé lộ"
+ },
+ {
+  "name": "stinger_win",
+  "cat": "stinger",
+  "dur": 1.6,
+  "tags": [
+   "stinger",
+   "nhạc ngắn",
+   "win"
+  ],
+  "use": "chiến thắng"
+ },
+ {
+  "name": "stinger_tension",
+  "cat": "stinger",
+  "dur": 1.6,
+  "tags": [
+   "stinger",
+   "nhạc ngắn",
+   "tension"
+  ],
+  "use": "căng thẳng, rủi ro"
+ },
+ {
+  "name": "tension_drone",
+  "cat": "atmos",
+  "dur": 4.0,
+  "tags": [
+   "căng thẳng",
+   "drone",
+   "suspense"
+  ],
+  "use": "nền căng dưới con số đau (4s)"
+ },
+ {
+  "name": "tension_drone_2",
+  "cat": "atmos",
+  "dur": 6.0,
+  "tags": [
+   "căng",
+   "rủi ro"
+  ],
+  "use": "nền căng (6s)"
+ },
+ {
+  "name": "wind",
+  "cat": "atmos",
+  "dur": 4.0,
+  "tags": [
+   "gió",
+   "trống trải"
+  ],
+  "use": "cô đơn, trống rỗng (4s)"
+ },
+ {
+  "name": "vinyl_crackle",
+  "cat": "atmos",
+  "dur": 5.0,
+  "tags": [
+   "vinyl",
+   "lofi",
+   "hoài niệm"
+  ],
+  "use": "mood mellow/hoài niệm (5s loop)"
+ },
+ {
+  "name": "rain",
+  "cat": "atmos",
+  "dur": 5.0,
+  "tags": [
+   "mưa",
+   "buồn"
+  ],
+  "use": "mood sad (5s)"
+ },
+ {
+  "name": "office_room",
+  "cat": "atmos",
+  "dur": 5.0,
+  "tags": [
+   "văn phòng",
+   "room tone"
+  ],
+  "use": "cảnh làm việc (5s)"
+ },
+ {
+  "name": "crowd_murmur",
+  "cat": "atmos",
+  "dur": 4.0,
+  "tags": [
+   "đám đông",
+   "ồn ào"
+  ],
+  "use": "sự kiện, đông người (4s)"
+ },
+ {
+  "name": "riser_0_6s",
+  "cat": "build",
+  "dur": 0.6,
+  "tags": [
+   "riser",
+   "dâng lên",
+   "build up"
+  ],
+  "use": "dồn trước khoảnh khắc lớn 0.6s"
+ },
+ {
+  "name": "riser_1_5s",
+  "cat": "build",
+  "dur": 1.5,
+  "tags": [
+   "riser",
+   "dâng lên",
+   "build up"
+  ],
+  "use": "dồn trước khoảnh khắc lớn 1.5s"
+ },
+ {
+  "name": "riser_noise_0_6s",
+  "cat": "build",
+  "dur": 0.6,
+  "tags": [
+   "riser",
+   "noise",
+   "hút lên"
+  ],
+  "use": "riser nhiễu trắng 0.6s trước cú đập"
+ },
+ {
+  "name": "riser_noise_1s",
+  "cat": "build",
+  "dur": 1.0,
+  "tags": [
+   "riser",
+   "noise",
+   "hút lên"
+  ],
+  "use": "riser nhiễu trắng 1s trước cú đập"
+ },
+ {
+  "name": "riser_noise_2s",
+  "cat": "build",
+  "dur": 2.0,
+  "tags": [
+   "riser",
+   "noise",
+   "hút lên"
+  ],
+  "use": "riser nhiễu trắng 2s trước cú đập"
+ },
+ {
+  "name": "riser_tension_1s",
+  "cat": "build",
+  "dur": 1.0,
+  "tags": [
+   "riser",
+   "căng",
+   "trailer"
+  ],
+  "use": "dồn căng kiểu trailer 1s"
+ },
+ {
+  "name": "riser_tension_2s",
+  "cat": "build",
+  "dur": 2.0,
+  "tags": [
+   "riser",
+   "căng",
+   "trailer"
+  ],
+  "use": "dồn căng kiểu trailer 2s"
+ },
+ {
+  "name": "riser_tension_3s",
+  "cat": "build",
+  "dur": 3.0,
+  "tags": [
+   "riser",
+   "căng",
+   "trailer"
+  ],
+  "use": "dồn căng kiểu trailer 3s"
+ },
+ {
+  "name": "riser_pitch_1s",
+  "cat": "build",
+  "dur": 1.0,
+  "tags": [
+   "riser",
+   "lên cao",
+   "tremolo"
+  ],
+  "use": "tông lên + rung nhanh dần 1s"
+ },
+ {
+  "name": "riser_pitch_2s",
+  "cat": "build",
+  "dur": 2.0,
+  "tags": [
+   "riser",
+   "lên cao",
+   "tremolo"
+  ],
+  "use": "tông lên + rung nhanh dần 2s"
+ },
+ {
+  "name": "reverse_cymbal_0_6s",
+  "cat": "build",
+  "dur": 0.6,
+  "tags": [
+   "reverse cymbal",
+   "hút ngược"
+  ],
+  "use": "kết thúc đúng frame chữ lớn (0.6s)"
+ },
+ {
+  "name": "reverse_swell_1s",
+  "cat": "build",
+  "dur": 1.0,
+  "tags": [
+   "reverse",
+   "swell",
+   "hút vào"
+  ],
+  "use": "hút vào mềm trước tiêu đề (1s)"
+ },
+ {
+  "name": "reverse_swell_2s",
+  "cat": "build",
+  "dur": 2.0,
+  "tags": [
+   "reverse",
+   "swell"
+  ],
+  "use": "hút vào dài trước tiêu đề (2s)"
+ },
+ {
+  "name": "hit_punch",
+  "cat": "impact",
+  "dur": 0.45,
+  "tags": [
+   "hit",
+   "punch",
+   "đấm"
+  ],
+  "use": "nhấn chữ/b-roll vào mạnh, gọn"
+ },
+ {
+  "name": "hit_punch_2",
+  "cat": "impact",
+  "dur": 0.38,
+  "tags": [
+   "hit",
+   "punch",
+   "đấm"
+  ],
+  "use": "nhấn chữ/b-roll vào mạnh, gọn"
+ },
+ {
+  "name": "hit_punch_3",
+  "cat": "impact",
+  "dur": 0.55,
+  "tags": [
+   "hit",
+   "punch",
+   "đấm"
+  ],
+  "use": "nhấn chữ/b-roll vào mạnh, gọn"
+ },
+ {
+  "name": "hit_metal",
+  "cat": "impact",
+  "dur": 1.4,
+  "tags": [
+   "kim loại",
+   "metal",
+   "keng"
+  ],
+  "use": "đập kim loại, con số lớn"
+ },
+ {
+  "name": "hit_metal_2",
+  "cat": "impact",
+  "dur": 1.4,
+  "tags": [
+   "kim loại",
+   "metal",
+   "keng"
+  ],
+  "use": "đập kim loại, con số lớn"
+ },
+ {
+  "name": "hit_deep",
+  "cat": "impact",
+  "dur": 1.2,
+  "tags": [
+   "trầm",
+   "deep hit",
+   "bass"
+  ],
+  "use": "cú đập trầm, tiết lộ"
+ },
+ {
+  "name": "hit_deep_2",
+  "cat": "impact",
+  "dur": 1.8,
+  "tags": [
+   "trầm",
+   "deep hit",
+   "bass"
+  ],
+  "use": "cú đập trầm, tiết lộ"
+ },
+ {
+  "name": "hit_snap",
+  "cat": "impact",
+  "dur": 0.08,
+  "tags": [
+   "snap",
+   "tách"
+  ],
+  "use": "cắt gọn, chữ bật"
+ },
+ {
+  "name": "hit_glass",
+  "cat": "impact",
+  "dur": 1.2,
+  "tags": [
+   "thuỷ tinh",
+   "sáng"
+  ],
+  "use": "chữ sáng, đẹp, cao cấp"
+ },
+ {
+  "name": "hit_cinematic_short",
+  "cat": "impact",
+  "dur": 1.4,
+  "tags": [
+   "cinematic",
+   "ngắn"
+  ],
+  "use": "title lớn, không quá dài"
+ },
+ {
+  "name": "hit_trailer",
+  "cat": "impact",
+  "dur": 1.8,
+  "tags": [
+   "trailer",
+   "braam ngắn"
+  ],
+  "use": "tuyên bố, chương mới"
+ },
+ {
+  "name": "intro_hit",
+  "cat": "impact",
+  "dur": 2.4,
+  "tags": [
+   "mở màn",
+   "intro"
+  ],
+  "use": "đầu video: hút ngược rồi đập (đập ở 0.8s)"
+ },
+ {
+  "name": "outro_hit",
+  "cat": "impact",
+  "dur": 2.0,
+  "tags": [
+   "kết",
+   "outro",
+   "end card"
+  ],
+  "use": "thẻ kết, câu chốt cuối"
+ },
+ {
+  "name": "ui_click_soft",
+  "cat": "ui",
+  "dur": 0.03,
+  "tags": [
+   "click mềm",
+   "bấm nhẹ"
+  ],
+  "use": "bấm UI nhẹ nhàng, không gắt"
+ },
+ {
+  "name": "ui_click_soft_2",
+  "cat": "ui",
+  "dur": 0.03,
+  "tags": [
+   "click mềm",
+   "bấm nhẹ"
+  ],
+  "use": "bấm UI nhẹ nhàng, không gắt"
+ },
+ {
+  "name": "ui_tap",
+  "cat": "ui",
+  "dur": 0.06,
+  "tags": [
+   "chạm",
+   "tap"
+  ],
+  "use": "chạm màn hình, chọn thẻ"
+ },
+ {
+  "name": "ui_tap_2",
+  "cat": "ui",
+  "dur": 0.06,
+  "tags": [
+   "chạm",
+   "tap"
+  ],
+  "use": "chạm màn hình, chọn thẻ"
+ },
+ {
+  "name": "ui_toggle_on",
+  "cat": "ui",
+  "dur": 0.4,
+  "tags": [
+   "bật",
+   "toggle"
+  ],
+  "use": "bật công tắc, chọn"
+ },
+ {
+  "name": "ui_toggle_off",
+  "cat": "ui",
+  "dur": 0.4,
+  "tags": [
+   "tắt",
+   "toggle"
+  ],
+  "use": "tắt công tắc, bỏ chọn"
+ },
+ {
+  "name": "ui_hover",
+  "cat": "ui",
+  "dur": 0.07,
+  "tags": [
+   "rê chuột",
+   "hover"
+  ],
+  "use": "rê qua mục, highlight rất nhẹ"
+ },
+ {
+  "name": "ui_select",
+  "cat": "ui",
+  "dur": 0.38,
+  "tags": [
+   "chọn",
+   "select"
+  ],
+  "use": "chọn mục trong danh sách"
+ },
+ {
+  "name": "ui_confirm",
+  "cat": "ui",
+  "dur": 0.64,
+  "tags": [
+   "xác nhận",
+   "ok"
+  ],
+  "use": "xác nhận, lưu xong"
+ },
+ {
+  "name": "ui_back",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "quay lại",
+   "back"
+  ],
+  "use": "quay lại, đóng"
+ },
+ {
+  "name": "ui_swipe_soft",
+  "cat": "ui",
+  "dur": 0.25,
+  "tags": [
+   "vuốt nhẹ",
+   "swipe"
+  ],
+  "use": "vuốt thẻ nhẹ"
+ },
+ {
+  "name": "ui_type_key",
+  "cat": "ui",
+  "dur": 0.04,
+  "tags": [
+   "phím",
+   "key"
+  ],
+  "use": "một phím gõ"
+ },
+ {
+  "name": "coin_drop",
+  "cat": "chime",
+  "dur": 1.0,
+  "tags": [
+   "đồng xu rơi",
+   "tiền"
+  ],
+  "use": "đồng xu rơi nảy, tiết kiệm"
+ },
+ {
+  "name": "coin_multi",
+  "cat": "chime",
+  "dur": 1.0,
+  "tags": [
+   "nhiều xu",
+   "tiền"
+  ],
+  "use": "nhận nhiều tiền, thưởng"
+ },
+ {
+  "name": "coins_pour",
+  "cat": "chime",
+  "dur": 1.6,
+  "tags": [
+   "đổ tiền",
+   "tiền xu"
+  ],
+  "use": "tiền về ào ào (1.6s)"
+ },
+ {
+  "name": "cash_ching",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "ka-ching",
+   "doanh thu",
+   "tiền"
+  ],
+  "use": "ra tiền, chốt đơn (ngắn)"
+ },
+ {
+  "name": "cash_ching_2",
+  "cat": "chime",
+  "dur": 1.2,
+  "tags": [
+   "ka-ching",
+   "giá"
+  ],
+  "use": "giá, khuyến mãi"
+ },
+ {
+  "name": "money_bag",
+  "cat": "chime",
+  "dur": 0.64,
+  "tags": [
+   "túi tiền",
+   "tiền"
+  ],
+  "use": "đặt túi tiền, thu nhập lớn"
+ },
+ {
+  "name": "price_tag",
+  "cat": "chime",
+  "dur": 0.54,
+  "tags": [
+   "giá",
+   "nhãn giá"
+  ],
+  "use": "hiện giá tiền, con số"
+ },
+ {
+  "name": "purchase_success",
+  "cat": "chime",
+  "dur": 1.36,
+  "tags": [
+   "mua thành công",
+   "đơn hàng"
+  ],
+  "use": "chốt đơn thành công"
+ },
+ {
+  "name": "bed_rain_light",
+  "cat": "bed",
+  "dur": 12.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "rain"
+  ],
+  "use": "mưa nhẹ: buồn, hoài niệm, thư giãn (12s, loop liền)"
+ },
+ {
+  "name": "bed_rain_heavy",
+  "cat": "bed",
+  "dur": 12.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "rain"
+  ],
+  "use": "mưa to: kịch tính, khó khăn (12s, loop liền)"
+ },
+ {
+  "name": "bed_room_tone",
+  "cat": "bed",
+  "dur": 10.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "room"
+  ],
+  "use": "room tone: lấp khoảng lặng giữa các câu (10s, loop liền)"
+ },
+ {
+  "name": "bed_city",
+  "cat": "bed",
+  "dur": 14.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "city"
+  ],
+  "use": "thành phố, giao thông: đô thị, BĐS (14s, loop liền)"
+ },
+ {
+  "name": "bed_cafe",
+  "cat": "bed",
+  "dur": 14.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "cafe"
+  ],
+  "use": "quán cà phê: trò chuyện, chia sẻ, review đồ uống (14s, loop liền)"
+ },
+ {
+  "name": "bed_office",
+  "cat": "bed",
+  "dur": 12.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "office"
+  ],
+  "use": "văn phòng: làm việc, công sở (12s, loop liền)"
+ },
+ {
+  "name": "bed_night",
+  "cat": "bed",
+  "dur": 14.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "night"
+  ],
+  "use": "đêm, dế kêu: yên tĩnh, kể chuyện (14s, loop liền)"
+ },
+ {
+  "name": "bed_ocean",
+  "cat": "bed",
+  "dur": 16.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "ocean"
+  ],
+  "use": "sóng biển: du lịch, thư giãn, nghỉ dưỡng (16s, loop liền)"
+ },
+ {
+  "name": "bed_wind_soft",
+  "cat": "bed",
+  "dur": 12.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "wind"
+  ],
+  "use": "gió nhẹ: trống trải, suy tư (12s, loop liền)"
+ },
+ {
+  "name": "bed_fire",
+  "cat": "bed",
+  "dur": 12.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "fire"
+  ],
+  "use": "lửa bập bùng: ấm cúng, kể chuyện (12s, loop liền)"
+ },
+ {
+  "name": "bed_forest",
+  "cat": "bed",
+  "dur": 14.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "forest"
+  ],
+  "use": "rừng, chim hót: thiên nhiên, sức khoẻ (14s, loop liền)"
+ },
+ {
+  "name": "bed_tech_hum",
+  "cat": "bed",
+  "dur": 10.0,
+  "tags": [
+   "nền",
+   "ambience",
+   "loop",
+   "tech"
+  ],
+  "use": "máy chủ rì rì + bíp: công nghệ, AI (10s, loop liền)"
+ },
+ {
+  "name": "boing",
+  "cat": "cartoon",
+  "dur": 0.7,
+  "tags": [
+   "boing",
+   "lò xo",
+   "hài"
+  ],
+  "use": "hài hước, nảy lên, bất ngờ vui"
+ },
+ {
+  "name": "boing_2",
+  "cat": "cartoon",
+  "dur": 0.55,
+  "tags": [
+   "boing",
+   "lò xo",
+   "hài"
+  ],
+  "use": "hài hước, nảy lên, bất ngờ vui"
+ },
+ {
+  "name": "boing_3",
+  "cat": "cartoon",
+  "dur": 0.9,
+  "tags": [
+   "boing",
+   "lò xo",
+   "hài"
+  ],
+  "use": "hài hước, nảy lên, bất ngờ vui"
+ },
+ {
+  "name": "cartoon_pop",
+  "cat": "cartoon",
+  "dur": 0.16,
+  "tags": [
+   "pop hoạt hình",
+   "bật"
+  ],
+  "use": "emoji/sticker bật vui nhộn"
+ },
+ {
+  "name": "slide_whistle_up",
+  "cat": "cartoon",
+  "dur": 0.6,
+  "tags": [
+   "sáo trượt",
+   "hài",
+   "lên"
+  ],
+  "use": "tăng vọt vui nhộn"
+ },
+ {
+  "name": "slide_whistle_down",
+  "cat": "cartoon",
+  "dur": 0.6,
+  "tags": [
+   "sáo trượt",
+   "hài",
+   "xuống"
+  ],
+  "use": "tụt dốc, thất bại hài"
+ },
+ {
+  "name": "cartoon_spring",
+  "cat": "cartoon",
+  "dur": 0.6,
+  "tags": [
+   "lò xo",
+   "kim loại"
+  ],
+  "use": "bật lò xo, nhảy ra"
+ },
+ {
+  "name": "cartoon_bonk",
+  "cat": "cartoon",
+  "dur": 0.18,
+  "tags": [
+   "bonk",
+   "gõ đầu",
+   "hài"
+  ],
+  "use": "gõ đầu, nhận ra sai"
+ },
+ {
+  "name": "cartoon_zip",
+  "cat": "cartoon",
+  "dur": 0.2,
+  "tags": [
+   "vụt",
+   "zip",
+   "chạy mất"
+  ],
+  "use": "biến mất nhanh, chạy đi"
+ },
+ {
+  "name": "swell_soft",
+  "cat": "swell",
+  "dur": 2.0,
+  "tags": [
+   "swell",
+   "pad",
+   "nhẹ"
+  ],
+  "use": "dâng nhẹ cảm xúc, chuyển đoạn êm"
+ },
+ {
+  "name": "swell_bright",
+  "cat": "swell",
+  "dur": 2.0,
+  "tags": [
+   "swell",
+   "sáng",
+   "lạc quan"
+  ],
+  "use": "giải pháp, kết quả tốt"
+ },
+ {
+  "name": "swell_dark",
+  "cat": "swell",
+  "dur": 2.2,
+  "tags": [
+   "swell",
+   "tối",
+   "căng"
+  ],
+  "use": "vấn đề, rủi ro"
+ },
+ {
+  "name": "swell_pad_2s",
+  "cat": "swell",
+  "dur": 2.0,
+  "tags": [
+   "pad",
+   "swell"
+  ],
+  "use": "nền chuyển đoạn 2s"
+ },
+ {
+  "name": "swell_pad_3s",
+  "cat": "swell",
+  "dur": 3.0,
+  "tags": [
+   "pad",
+   "swell"
+  ],
+  "use": "nền chuyển đoạn 3s"
+ },
+ {
+  "name": "glitch_digital",
+  "cat": "tech",
+  "dur": 0.35,
+  "tags": [
+   "glitch",
+   "số"
+  ],
+  "use": "glitch ngắn số hoá"
+ },
+ {
+  "name": "glitch_digital_2",
+  "cat": "tech",
+  "dur": 0.6,
+  "tags": [
+   "glitch",
+   "số"
+  ],
+  "use": "glitch dài hơn"
+ },
+ {
+  "name": "glitch_short",
+  "cat": "tech",
+  "dur": 0.12,
+  "tags": [
+   "glitch",
+   "cực ngắn"
+  ],
+  "use": "nháy glitch 1 frame"
+ },
+ {
+  "name": "glitch_stutter",
+  "cat": "tech",
+  "dur": 0.49,
+  "tags": [
+   "stutter",
+   "giật",
+   "lặp"
+  ],
+  "use": "chữ/hình giật lặp"
+ },
+ {
+  "name": "glitch_bitcrush",
+  "cat": "tech",
+  "dur": 0.5,
+  "tags": [
+   "bitcrush",
+   "8-bit"
+  ],
+  "use": "lỗi số, AI hỏng"
+ },
+ {
+  "name": "glitch_tape",
+  "cat": "tech",
+  "dur": 0.5,
+  "tags": [
+   "băng từ",
+   "tape"
+  ],
+  "use": "tua nhầm, khựng lại"
+ },
+ {
+  "name": "heartbeat_single",
+  "cat": "foley",
+  "dur": 0.74,
+  "tags": [
+   "nhịp tim",
+   "1 nhịp"
+  ],
+  "use": "khựng lại một nhịp"
+ },
+ {
+  "name": "heartbeat_slow",
+  "cat": "foley",
+  "dur": 2.46,
+  "tags": [
+   "nhịp tim chậm",
+   "hồi hộp"
+  ],
+  "use": "chờ đợi, căng thẳng (chậm)"
+ },
+ {
+  "name": "heartbeat_fast",
+  "cat": "foley",
+  "dur": 2.3,
+  "tags": [
+   "nhịp tim nhanh",
+   "sợ"
+  ],
+  "use": "lo sợ, gấp gáp"
+ },
+ {
+  "name": "applause_small",
+  "cat": "crowd",
+  "dur": 2.0,
+  "tags": [
+   "vỗ tay",
+   "nhỏ"
+  ],
+  "use": "vài người vỗ tay, cảm ơn"
+ },
+ {
+  "name": "applause_big",
+  "cat": "crowd",
+  "dur": 3.0,
+  "tags": [
+   "vỗ tay lớn",
+   "khán phòng"
+  ],
+  "use": "thành tựu lớn, kết thúc ấn tượng"
+ },
+ {
+  "name": "cheer_short",
+  "cat": "crowd",
+  "dur": 1.6,
+  "tags": [
+   "hò reo",
+   "yeah"
+  ],
+  "use": "ăn mừng ngắn"
+ },
+ {
+  "name": "crowd_ooh",
+  "cat": "crowd",
+  "dur": 1.4,
+  "tags": [
+   "ồ",
+   "wow",
+   "ngạc nhiên"
+  ],
+  "use": "khán giả 'ồ' ngạc nhiên"
+ },
+ {
+  "name": "whoosh_soft",
+  "cat": "transition",
+  "dur": 0.5,
+  "tags": [
+   "whoosh mềm",
+   "nhẹ"
+  ],
+  "use": "chuyển nhẹ dưới giọng nói"
+ },
+ {
+  "name": "whoosh_soft_2",
+  "cat": "transition",
+  "dur": 0.4,
+  "tags": [
+   "whoosh mềm"
+  ],
+  "use": "chữ trượt nhẹ"
+ },
+ {
+  "name": "whoosh_air",
+  "cat": "transition",
+  "dur": 0.8,
+  "tags": [
+   "gió",
+   "air"
+  ],
+  "use": "thoáng, chuyển sáng"
+ },
+ {
+  "name": "whoosh_heavy",
+  "cat": "transition",
+  "dur": 1.1,
+  "tags": [
+   "whoosh nặng",
+   "trầm"
+  ],
+  "use": "khối lớn bay vào, b-roll full"
+ },
+ {
+  "name": "swoosh_out",
+  "cat": "transition",
+  "dur": 0.45,
+  "tags": [
+   "swoosh ra",
+   "rời cảnh"
+  ],
+  "use": "b-roll/thẻ rời khỏi khung"
+ },
+ {
+  "name": "swoosh_out_2",
+  "cat": "transition",
+  "dur": 0.6,
+  "tags": [
+   "swoosh ra"
+  ],
+  "use": "rời cảnh chậm hơn"
+ },
+ {
+  "name": "whip",
+  "cat": "transition",
+  "dur": 0.2,
+  "tags": [
+   "whip",
+   "quất"
+  ],
+  "use": "whip pan, chuyển cực nhanh"
+ },
+ {
+  "name": "whip_2",
+  "cat": "transition",
+  "dur": 0.15,
+  "tags": [
+   "whip"
+  ],
+  "use": "whip pan ngắn"
+ },
+ {
+  "name": "pop_soft",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop mềm"
+  ],
+  "use": "emoji/chữ nhỏ dưới giọng nói"
+ },
+ {
+  "name": "pop_soft_2",
+  "cat": "ui",
+  "dur": 0.12,
+  "tags": [
+   "pop mềm"
+  ],
+  "use": "chữ nhỏ bật nhẹ"
+ },
+ {
+  "name": "pop_bright",
+  "cat": "ui",
+  "dur": 0.1,
+  "tags": [
+   "pop sáng"
+  ],
+  "use": "tag/sticker bật rõ"
+ },
+ {
+  "name": "pop_bubble",
+  "cat": "ui",
+  "dur": 0.13,
+  "tags": [
+   "pop bong bóng"
+  ],
+  "use": "bong bóng chat, sticker"
+ },
+ {
+  "name": "pop_cork",
+  "cat": "ui",
+  "dur": 0.15,
+  "tags": [
+   "bật nút chai",
+   "ăn mừng"
+  ],
+  "use": "khui, ăn mừng"
+ },
+ {
+  "name": "sparkle_soft",
+  "cat": "magic",
+  "dur": 0.8,
+  "tags": [
+   "lấp lánh nhẹ"
+  ],
+  "use": "emoji/sticker xuất hiện dưới giọng"
+ },
+ {
+  "name": "twinkle",
+  "cat": "magic",
+  "dur": 0.54,
+  "tags": [
+   "lấp lánh",
+   "chuông nhỏ"
+  ],
+  "use": "đẹp, mới, sạch"
+ },
+ {
+  "name": "chime_soft",
+  "cat": "magic",
+  "dur": 1.2,
+  "tags": [
+   "chuông nhẹ"
+  ],
+  "use": "ý hay, mẹo"
+ },
+ {
+  "name": "magic_rise",
+  "cat": "magic",
+  "dur": 1.3,
+  "tags": [
+   "phép màu",
+   "dâng"
+  ],
+  "use": "biến hoá, trước → sau"
+ },
+ {
+  "name": "notif_soft",
+  "cat": "chime",
+  "dur": 0.5,
+  "tags": [
+   "thông báo nhẹ"
+  ],
+  "use": "thông báo dưới giọng nói"
+ },
+ {
+  "name": "notif_pop",
+  "cat": "chime",
+  "dur": 0.63,
+  "tags": [
+   "thông báo",
+   "pop"
+  ],
+  "use": "thông báo bật lên trên điện thoại"
+ },
+ {
+  "name": "message_in",
+  "cat": "chime",
+  "dur": 0.15,
+  "tags": [
+   "tin nhắn đến"
+  ],
+  "use": "tin nhắn mới trong chat"
+ },
+ {
+  "name": "message_in_2",
+  "cat": "chime",
+  "dur": 0.56,
+  "tags": [
+   "tin nhắn đến"
+  ],
+  "use": "tin nhắn mới (biến thể)"
+ },
+ {
+  "name": "like_pop",
+  "cat": "chime",
+  "dur": 0.53,
+  "tags": [
+   "thả tim",
+   "like"
+  ],
+  "use": "tim/like bật lên"
+ },
+ {
+  "name": "typing_3s",
+  "cat": "ui",
+  "dur": 3.0,
+  "tags": [
+   "gõ phím",
+   "typing"
+  ],
+  "use": "gõ prompt/tìm kiếm 3s"
+ },
+ {
+  "name": "typing_soft_2s",
+  "cat": "ui",
+  "dur": 2.0,
+  "tags": [
+   "gõ phím nhẹ"
+  ],
+  "use": "gõ chữ dưới giọng nói"
+ },
+ {
+  "name": "keyboard_enter_2",
+  "cat": "ui",
+  "dur": 0.07,
+  "tags": [
+   "enter"
+  ],
+  "use": "bấm Enter gửi"
+ },
+ {
+  "name": "typewriter_ding",
+  "cat": "ui",
+  "dur": 0.95,
+  "tags": [
+   "máy đánh chữ",
+   "ding"
+  ],
+  "use": "hết dòng máy đánh chữ"
+ },
+ {
+  "name": "typewriter_keys_2s",
+  "cat": "ui",
+  "dur": 2.19,
+  "tags": [
+   "máy đánh chữ",
+   "gõ"
+  ],
+  "use": "chữ hiện từng ký tự kiểu máy chữ"
+ },
+ {
+  "name": "transition_soft",
+  "cat": "transition",
+  "dur": 0.8,
+  "tags": [
+   "chuyển nhẹ",
+   "shimmer"
+  ],
+  "use": "chuyển clip nhẹ nhàng"
+ },
+ {
+  "name": "transition_glitch",
+  "cat": "transition",
+  "dur": 0.4,
+  "tags": [
+   "chuyển glitch"
+  ],
+  "use": "chuyển clip kiểu glitch"
+ },
+ {
+  "name": "transition_whip_hit",
+  "cat": "transition",
+  "dur": 0.58,
+  "tags": [
+   "whip + đập"
+  ],
+  "use": "whip pan đập mạnh"
+ },
+ {
+  "name": "transition_riser_hit",
+  "cat": "transition",
+  "dur": 1.2,
+  "tags": [
+   "riser + đập"
+  ],
+  "use": "dồn ngắn rồi đập (đập ở 0.6s)"
+ },
+ {
+  "name": "sub_drop_short",
+  "cat": "impact",
+  "dur": 0.6,
+  "tags": [
+   "sub drop",
+   "ngắn"
+  ],
+  "use": "rơi bass ngắn sau hook"
+ },
+ {
+  "name": "sub_boom_soft",
+  "cat": "impact",
+  "dur": 1.0,
+  "tags": [
+   "boom mềm"
+  ],
+  "use": "nhấn trầm nhẹ dưới giọng"
+ }
+]

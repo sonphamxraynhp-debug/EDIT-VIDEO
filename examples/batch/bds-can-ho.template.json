@@ -1,0 +1,107 @@
+{
+ "id": "batch-bds-can-ho",
+ "name": "Căn hộ hàng loạt (ví dụ)",
+ "category": "bds",
+ "aspect": "9:16",
+ "pack": "realestate",
+ "desc": "Template mẫu cho Làm hàng loạt (12 s): mọi chữ là {{cột}} trong bảng tính, 4 ảnh lấy từ cột anh_1…anh_4, giọng đọc từ cột script.",
+ "title": "{{ten_du_an}}",
+ "caption_style": "realestate",
+ "music": "inspire",
+ "music_gain": -22,
+ "brand": {
+  "name": "Tên môi giới",
+  "phone": "09xx xxx xxx"
+ },
+ "use_recipe": false,
+ "base_dur": 12,
+ "needs": [
+  "bảng tính: ten_du_an, loai_can, dia_chi, gia, don_vi, dien_tich, phong_ngu, wc, huong, moi_gioi, sdt, script, anh_1…anh_4"
+ ],
+ "scenes": [
+  {
+   "type": "re_title",
+   "t0": 0,
+   "t1": 2.6,
+   "x": 360,
+   "y": 790,
+   "size": 60,
+   "tag": "{{loai_can}}",
+   "name": "{{ten_du_an}}",
+   "address": "{{dia_chi}}"
+  },
+  {
+   "type": "re_specs",
+   "t0": 2.6,
+   "t1": 4.8,
+   "x": 360,
+   "y": 800,
+   "size": 52,
+   "hideCaptions": true,
+   "title": "Thông tin căn hộ",
+   "items": [
+    {
+     "icon": "area",
+     "value": "{{dien_tich}}",
+     "label": "Diện tích"
+    },
+    {
+     "icon": "bed",
+     "value": "{{phong_ngu}}",
+     "label": "Phòng ngủ"
+    },
+    {
+     "icon": "bath",
+     "value": "{{wc}}",
+     "label": "WC"
+    },
+    {
+     "icon": "compass",
+     "value": "{{huong}}",
+     "label": "Hướng"
+    }
+   ]
+  },
+  {
+   "type": "re_gallery",
+   "t0": 4.8,
+   "t1": 7.6,
+   "mode": "full",
+   "per": 0.7,
+   "images": [
+    "media/living.jpg",
+    "media/bedroom.jpg",
+    "media/kitchen.jpg",
+    "media/facade.jpg"
+   ],
+   "labels": [
+    "Phòng khách",
+    "Phòng ngủ",
+    "Bếp",
+    "Mặt tiền"
+   ]
+  },
+  {
+   "type": "re_price",
+   "t0": 7.6,
+   "t1": 9.6,
+   "x": 360,
+   "y": 700,
+   "size": 60,
+   "value": "{{gia}}",
+   "unit": "{{don_vi}}",
+   "per_m2": "{{ghi_chu_gia}}",
+   "ribbon": "GIÁ THAM KHẢO",
+   "count_dur": 1.0
+  },
+  {
+   "type": "re_agent",
+   "t0": 9.6,
+   "t1": 12,
+   "x": 360,
+   "y": 680,
+   "size": 60,
+   "cta": "Gọi ngay"
+  }
+ ]
+}

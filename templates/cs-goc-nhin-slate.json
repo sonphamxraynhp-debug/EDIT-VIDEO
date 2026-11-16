@@ -1,0 +1,202 @@
+{
+ "id": "cs-goc-nhin-slate",
+ "name": "Góc nhìn trên lưới",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "slate",
+ "desc": "Chia sẻ góc nhìn / phân tích: thẻ video trên nền lưới, chữ LED, sơ đồ nối ý, thẻ kết đặt câu hỏi.",
+ "tags": [
+  "góc nhìn",
+  "phân tích",
+  "sơ đồ",
+  "lưới"
+ ],
+ "title": "Góc nhìn của mình",
+ "caption_style": "slate",
+ "music": "inspire_2",
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ý chính",
+  "2–3 khái niệm để nối sơ đồ"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.4
+ },
+ "fx": [
+  {
+   "t": 5.1,
+   "type": "punch",
+   "amp": 0.04
+  }
+ ],
+ "scenes": [
+  {
+   "type": "frame_grid",
+   "t0": 0,
+   "t1": 5.1,
+   "blur": [
+    {
+     "t": 0,
+     "v": 14
+    }
+   ],
+   "dim": 0.25,
+   "badge": {
+    "icon": "💡"
+   }
+  },
+  {
+   "type": "media_card",
+   "t0": 0.6,
+   "t1": 5.1,
+   "card": {
+    "x": 120,
+    "y": 372,
+    "w": 480,
+    "h": 270,
+    "r": 16
+   },
+   "screen": {
+    "broll": {
+     "id": "cong-nghe-moi--neural--ember"
+    }
+   },
+   "lines": [
+    {
+     "text": "góc nhìn của mình",
+     "t": 0.6,
+     "style": "clean",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 700,
+     "size": 24,
+     "y": 292
+    },
+    {
+     "text": "ĐIỀU ÍT AI NÓI",
+     "t": 1.1,
+     "style": "grad_blue",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 900,
+     "size": 58,
+     "y": 336,
+     "anim": "pop"
+    }
+   ]
+  },
+  {
+   "type": "frame_grid",
+   "t0": 5.1,
+   "t1": 11.1,
+   "enter": "blur",
+   "zoom": [
+    {
+     "t": 5.1,
+     "s": 1
+    },
+    {
+     "t": 6.7,
+     "s": 1.06,
+     "x": 50,
+     "y": 35
+    },
+    {
+     "t": 9.1,
+     "s": 1
+    }
+   ]
+  },
+  {
+   "type": "led_text",
+   "t0": 6.6,
+   "t1": 9.1,
+   "text": "SỰ THẬT",
+   "y": 398,
+   "size": 74
+  },
+  {
+   "type": "frame_grid",
+   "t0": 11.1,
+   "t1": 18.0,
+   "blur": [
+    {
+     "t": 11.1,
+     "v": 0
+    },
+    {
+     "t": 11.45,
+     "v": 18,
+     "dur": 0.35
+    }
+   ],
+   "dim": [
+    {
+     "t": 11.1,
+     "v": 0
+    },
+    {
+     "t": 11.45,
+     "v": 0.38,
+     "dur": 0.35
+    }
+   ]
+  },
+  {
+   "type": "diagram",
+   "t0": 11.1,
+   "t1": 18.0,
+   "nodes": [
+    {
+     "id": "a",
+     "kind": "chip",
+     "text": "Thói quen",
+     "icon": "🔁",
+     "x": 220,
+     "y": 640,
+     "t": 11.4
+    },
+    {
+     "id": "b",
+     "kind": "chip",
+     "text": "Môi trường",
+     "icon": "🌱",
+     "x": 500,
+     "y": 640,
+     "t": 11.9
+    },
+    {
+     "id": "p",
+     "kind": "pill",
+     "text": "Kết quả",
+     "x": 360,
+     "y": 480,
+     "t": 12.6,
+     "ring": true
+    }
+   ],
+   "edges": [
+    {
+     "from": "a",
+     "to": "p",
+     "t": 12.6
+    },
+    {
+     "from": "b",
+     "to": "p",
+     "t": 12.7
+    }
+   ]
+  },
+  {
+   "type": "title_card",
+   "t0": 18.0,
+   "t1": 20.2,
+   "question": "Bạn nghĩ sao?",
+   "keep": true
+  }
+ ]
+}

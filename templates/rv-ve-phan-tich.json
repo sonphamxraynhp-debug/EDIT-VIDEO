@@ -1,0 +1,213 @@
+{
+ "id": "rv-ve-phan-tich",
+ "name": "Vẽ phân tích dừng hình",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "broadcast",
+ "desc": "Kiểu bình luận chiến thuật: dừng hình thật rồi vẽ vòng, mũi tên, vùng đỏ, nhãn quanh người nói; bảng điện thoại, tua lại, bảng tóm tắt, dấu chốt; khung chương trình mọi khung hình.",
+ "tags": [
+  "phân tích",
+  "dừng hình",
+  "vẽ",
+  "chiến thuật",
+  "review"
+ ],
+ "title": "Soi kỹ",
+ "caption_style": "bc_tele",
+ "recipe_opts": {
+  "variant": "tele"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "2 vị trí đáng dừng hình (lời nói có ý chính)",
+  "toạ độ tay / khoảng trống quanh mặt cho vòng và nhãn",
+  "4–5 dòng cho bảng điện thoại",
+  "3 việc cần làm",
+  "2 phe của thanh đối đầu"
+ ],
+ "preview": {
+  "from": 2.6,
+  "to": 8.6,
+  "still": 4.6
+ },
+ "scenes": [
+  {
+   "type": "bc_tele_chrome",
+   "t0": 0,
+   "t1": 20.2,
+   "keep": true,
+   "show": "SOI KỸ",
+   "sides": [
+    "BẠN",
+    "CÁCH CŨ"
+   ],
+   "flip_t": 18.2
+  },
+  {
+   "type": "bc_tele_freeze",
+   "t0": 3.0,
+   "t1": 5.5,
+   "cut": true,
+   "ring": {
+    "x": 545,
+    "y": 800,
+    "r": 80,
+    "at": 0.25
+   },
+   "arrows": [
+    {
+     "pts": [
+      [
+       560,
+       740
+      ],
+      [
+       600,
+       560
+      ],
+      [
+       560,
+       400
+      ]
+     ],
+     "color": "yellow",
+     "at": 0.6
+    }
+   ],
+   "label": {
+    "big": "VÀI TIẾNG",
+    "small": "CÁCH CŨ (VÍ DỤ)",
+    "x": 330,
+    "y": 230,
+    "at": 1.0
+   }
+  },
+  {
+   "type": "bc_tele_board",
+   "t0": 6.2,
+   "t1": 10.4,
+   "cut": true,
+   "title": "Một clip làm tay (ví dụ)",
+   "items": [
+    {
+     "text": "Cắt từng đoạn lặng",
+     "icon": "cut",
+     "t": 6.7
+    },
+    {
+     "text": "Gõ phụ đề",
+     "icon": "text",
+     "t": 7.1
+    },
+    {
+     "text": "Chỉnh màu",
+     "icon": "spark",
+     "t": 7.5
+    },
+    {
+     "text": "Tìm nhạc nền",
+     "icon": "bell",
+     "t": 7.9
+    },
+    {
+     "text": "Xuất lại lần nữa",
+     "icon": "video",
+     "t": 8.3
+    }
+   ],
+   "freeze_t": 8.7,
+   "ring": [
+    0,
+    4
+   ],
+   "label": {
+    "big": "VIỆC LẶP LẠI",
+    "small": "ĐỂ AI LÀM",
+    "color": "cyan"
+   }
+  },
+  {
+   "type": "bc_tele_rewind",
+   "t0": 10.6,
+   "t1": 11.9,
+   "cut": true,
+   "span": 2.5
+  },
+  {
+   "type": "bc_tele_freeze",
+   "t0": 12.4,
+   "t1": 14.8,
+   "cut": true,
+   "zone": {
+    "x": 480,
+    "y": 300,
+    "w": 200,
+    "h": 330,
+    "at": 0.3
+   },
+   "ring": {
+    "x": 545,
+    "y": 820,
+    "r": 70,
+    "color": "yellow",
+    "at": 0.5
+   },
+   "arrows": [
+    {
+     "pts": [
+      [
+       560,
+       760
+      ],
+      [
+       590,
+       640
+      ]
+     ],
+     "color": "chalk",
+     "dashed": true,
+     "at": 0.8
+    }
+   ],
+   "label": {
+    "big": "KÉO THẢ",
+    "small": "LÀ XONG (VÍ DỤ)",
+    "x": 40,
+    "y": 230,
+    "at": 1.2
+   }
+  },
+  {
+   "type": "bc_tele_rows",
+   "t0": 15.2,
+   "t1": 18.0,
+   "cut": true,
+   "title": "Cần làm gì (ví dụ)",
+   "items": [
+    {
+     "icon": "cursor",
+     "text": "Kéo thả video",
+     "t": 15.6
+    },
+    {
+     "icon": "spark",
+     "text": "Chọn hiệu ứng",
+     "t": 16.3
+    },
+    {
+     "icon": "video",
+     "text": "Xuất clip",
+     "t": 17.0
+    }
+   ]
+  },
+  {
+   "type": "bc_tele_stamp",
+   "t0": 18.2,
+   "t1": 20.2,
+   "text": "ĐƠN GIẢN",
+   "sub": "VÍ DỤ"
+  }
+ ]
+}

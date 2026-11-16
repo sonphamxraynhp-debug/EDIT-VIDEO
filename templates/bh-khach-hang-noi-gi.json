@@ -1,0 +1,77 @@
+{
+ "id": "bh-khach-hang-noi-gi",
+ "name": "Khách hàng nói gì",
+ "category": "banhang",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Thẻ đánh giá của khách, chấm 4,9 sao, thẻ 12.000+ khách hàng, tường logo và câu kêu gọi đặt hàng.",
+ "tags": [
+  "đánh giá",
+  "feedback",
+  "khách hàng",
+  "uy tín"
+ ],
+ "title": "Khách hàng nói gì",
+ "caption_style": "hf_highlight_sweep",
+ "music": "inspire",
+ "brand": {
+  "primary": "#F97316",
+  "accent": "#FFE0B2",
+  "dark": "#140A02"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "lời khen của khách",
+  "số khách đã mua",
+  "lời kêu gọi"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 3.2
+ },
+ "fx": [],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "testimonial-card",
+   "t0": 0.3,
+   "t1": 4.4,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "star-rating-fill",
+   "t0": 4.8,
+   "t1": 8.4,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "social-proof-card",
+   "t0": 8.8,
+   "t1": 12.8,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "logo-wall",
+   "t0": 13.2,
+   "t1": 16.8,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "cta-close",
+   "t0": 17.2,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true
+  }
+ ]
+}

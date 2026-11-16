@@ -1,0 +1,174 @@
+{
+ "id": "cs-neon-dem-khuya",
+ "name": "Neon đêm khuya",
+ "category": "chiase",
+ "aspect": "9:16",
+ "pack": "neon",
+ "desc": "Chia sẻ năng lượng cao kiểu creator: nền gradient neon tím-hồng, chữ rải phát sáng, emoji bung, số chạy.",
+ "tags": [
+  "neon",
+  "creator",
+  "năng lượng",
+  "phụ đề đẹp"
+ ],
+ "title": "Sự thật ít ai nói",
+ "caption_style": "neon",
+ "music": "tech_2",
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "từ khoá hook",
+  "1 con số"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.9
+ },
+ "scenes": [
+  {
+   "type": "neon_frame",
+   "t0": 0,
+   "t1": 5.2,
+   "theme": "purple",
+   "preset": "wide",
+   "pan_y": 0.3,
+   "shots": [
+    {
+     "t": 1.7,
+     "preset": "full"
+    },
+    {
+     "t": 3.12,
+     "preset": "wide",
+     "pan_y": 0.3
+    },
+    {
+     "t": 4.04,
+     "preset": "punch",
+     "pan_y": 0.32
+    }
+   ]
+  },
+  {
+   "type": "neon_frame",
+   "t0": 5.2,
+   "t1": 11.1,
+   "theme": "pink",
+   "preset": "full",
+   "shots": [
+    {
+     "t": 7.66,
+     "preset": "card"
+    },
+    {
+     "t": 9.1,
+     "preset": "wide",
+     "pan_y": 0.3
+    }
+   ]
+  },
+  {
+   "type": "neon_frame",
+   "t0": 11.1,
+   "t1": 18.34,
+   "theme": "blue",
+   "preset": "wide",
+   "pan_y": 0.3,
+   "shots": [
+    {
+     "t": 12.92,
+     "preset": "full"
+    },
+    {
+     "t": 16.54,
+     "preset": "punch",
+     "pan_y": 0.32
+    }
+   ]
+  },
+  {
+   "type": "neon_frame",
+   "t0": 18.34,
+   "t1": 20.2,
+   "theme": "pink",
+   "preset": "wide",
+   "pan_y": 0.3,
+   "flash": true
+  },
+  {
+   "type": "neon_scatter",
+   "t0": 0.02,
+   "t1": 1.2,
+   "text": "Sự |thật| ít ai nói",
+   "x": 360,
+   "y": 780,
+   "size": 48,
+   "hl": "#FFBCFF",
+   "step": 0.3
+  },
+  {
+   "type": "neon_bigtype",
+   "t0": 1.2,
+   "t1": 2.8,
+   "text": "SỰ THẬT",
+   "x": 360,
+   "y": 210,
+   "size": 104,
+   "color": "#FFFF6B"
+  },
+  {
+   "type": "neon_flash",
+   "t0": 5.15,
+   "t1": 5.45,
+   "peak": 0.94
+  },
+  {
+   "type": "neon_emoji",
+   "t0": 6.68,
+   "t1": 7.6,
+   "burst": [
+    "🤯",
+    "😱",
+    "🔥"
+   ],
+   "x": 360,
+   "y": 640,
+   "size": 150
+  },
+  {
+   "type": "neon_counter",
+   "t0": 11.4,
+   "t1": 13.6,
+   "from": 0,
+   "to": 90,
+   "unit": "%",
+   "icon": "up",
+   "x": 360,
+   "y": 220,
+   "size": 86
+  },
+  {
+   "type": "neon_bigtype",
+   "t0": 18.4,
+   "t1": 20.2,
+   "text": "BẠN NGHĨ\nSAO?",
+   "x": 360,
+   "y": 230,
+   "size": 84,
+   "color": "#FFBCFF",
+   "keep": true
+  },
+  {
+   "type": "neon_doodle",
+   "t0": 18.9,
+   "t1": 20.2,
+   "kind": "underline",
+   "x": 360,
+   "y": 330,
+   "w": 400,
+   "h": 30,
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Soft Blur In - Demo</title>
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      body {
+        background: #101418;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      #demo {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 25% 20%, #3b5b7a 0, transparent 30%),
+          linear-gradient(135deg, #101418, #20282f);
+        color: white;
+      }
+      .wrap {
+        position: absolute;
+        left: 180px;
+        top: 310px;
+        width: 1200px;
+      }
+      .eyebrow {
+        color: #80d9ff;
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .title {
+        margin-top: 28px;
+        font-size: 132px;
+        line-height: 0.92;
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+      .copy {
+        margin-top: 42px;
+        width: 780px;
+        color: #d7e3ea;
+        font-size: 42px;
+        line-height: 1.18;
+      }
+      .hf-soft-blur-in {
+        opacity: 0;
+        transform: translate3d(0, 28px, 0);
+        filter: blur(18px);
+        will-change: transform, opacity, filter;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo" data-composition-id="soft-blur-in-demo" data-width="1920" data-height="1080" data-duration="5" data-composition-variables="[
+    { &quot;id&quot;: &quot;distance&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Distance&quot;, &quot;description&quot;: &quot;How far the element is offset before it slides home: 14px, 28px or 52px.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;close&quot;, &quot;label&quot;: &quot;Close&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;far&quot;, &quot;label&quot;: &quot;Far&quot; }] },
+    { &quot;id&quot;: &quot;direction&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Direction&quot;, &quot;description&quot;: &quot;up starts the element below its resting place so it rises in, down starts it above so it drops in.&quot;, &quot;default&quot;: &quot;up&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }, { &quot;value&quot;: &quot;down&quot;, &quot;label&quot;: &quot;Down&quot; }] },
+    { &quot;id&quot;: &quot;blur&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Blur&quot;, &quot;description&quot;: &quot;Starting blur radius, from a light haze to a full smear.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;soft&quot;, &quot;label&quot;: &quot;Soft&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;heavy&quot;, &quot;label&quot;: &quot;Heavy&quot; }] }
+  ]">
+      <div class="wrap">
+        <div class="eyebrow hf-soft-blur-in" data-hft="0">Motion Primitive</div>
+        <div class="title hf-soft-blur-in" data-hft="1">Soft blur reveals that feel cinematic.</div>
+        <div class="copy hf-soft-blur-in" data-hft="2">
+          Use it for titles, labels, stats, and scene intros without adding a framework.
+        </div>
+      </div>
+      <script>window.__hfApply&&window.__hfApply()</script><script>
+        (function () {
+          "use strict";
+
+          var vars =
+            window.__hyperframes && window.__hyperframes.getVariables
+              ? window.__hyperframes.getVariables()
+              : {};
+
+          // Unrecognised overrides return to their declared defaults.
+          function pick(table, value, fallback) {
+            return Object.prototype.hasOwnProperty.call(table, value) ? value : fallback;
+          }
+
+          var distances = { close: 14, standard: 28, far: 52 };
+          var directions = { up: 1, down: -1 };
+          var blurs = { soft: 8, standard: 18, heavy: 34 };
+
+          var distance = distances[pick(distances, vars.distance, "standard")];
+          var direction = directions[pick(directions, vars.direction, "up")];
+          var blur = blurs[pick(blurs, vars.blur, "standard")];
+
+          // Set on the root so every element carrying the class inherits the values,
+          // whether it exists yet or not.
+          var root = document.documentElement;
+          root.style.setProperty("--hf-soft-blur-y", distance * direction + "px");
+          root.style.setProperty("--hf-soft-blur-radius", blur + "px");
+        })();
+      </script>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.to(
+          ".hf-soft-blur-in",
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.12,
+          },
+          0.35,
+        );
+        window.__timelines = window.__timelines || {};
+        window.__timelines["soft-blur-in-demo"] = tl;
+      </script>
+    </div>
+    <style data-composition-variables="[
+    { &quot;id&quot;: &quot;distance&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Distance&quot;, &quot;description&quot;: &quot;How far the element is offset before it slides home: 14px, 28px or 52px.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;close&quot;, &quot;label&quot;: &quot;Close&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;far&quot;, &quot;label&quot;: &quot;Far&quot; }] },
+    { &quot;id&quot;: &quot;direction&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Direction&quot;, &quot;description&quot;: &quot;up starts the element below its resting place so it rises in, down starts it above so it drops in.&quot;, &quot;default&quot;: &quot;up&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; }, { &quot;value&quot;: &quot;down&quot;, &quot;label&quot;: &quot;Down&quot; }] },
+    { &quot;id&quot;: &quot;blur&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Blur&quot;, &quot;description&quot;: &quot;Starting blur radius, from a light haze to a full smear.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;soft&quot;, &quot;label&quot;: &quot;Soft&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;heavy&quot;, &quot;label&quot;: &quot;Heavy&quot; }] }
+  ]">
+      .hf-soft-blur-in {
+        opacity: 0;
+        transform: translate3d(0, var(--hf-soft-blur-y, 28px), 0);
+        filter: blur(var(--hf-soft-blur-radius, 18px));
+        will-change: transform, opacity, filter;
+      }
+    </style>
+  
+
+</body></html>

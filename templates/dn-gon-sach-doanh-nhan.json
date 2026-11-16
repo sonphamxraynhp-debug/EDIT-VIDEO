@@ -1,0 +1,68 @@
+{
+ "id": "dn-gon-sach-doanh-nhan",
+ "name": "Gọn sạch doanh nhân",
+ "category": "khac",
+ "aspect": "9:16",
+ "pack": "share",
+ "desc": "Talking head kinh doanh tiết chế: phụ đề đậm 1 từ khoá vàng, giật zoom theo ý chính, rất ít thẻ, không nhạc.",
+ "tags": [
+  "doanh nhân",
+  "tối giản",
+  "không nhạc",
+  "preset"
+ ],
+ "title": "Bài học kinh doanh",
+ "caption_style": "hf_highlight_sweep",
+ "brand": {
+  "primary": "#FFD23F",
+  "accent": "#E0B400",
+  "dark": "#111111",
+  "font": "'Montserrat',var(--sans)"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "con số chính của bạn"
+ ],
+ "preview": {
+  "from": 2.4,
+  "to": 8.4,
+  "still": 3.4
+ },
+ "fx": [
+  {
+   "t": 2.6,
+   "type": "punch"
+  },
+  {
+   "t": 7.9,
+   "type": "punch"
+  },
+  {
+   "t": 13.2,
+   "type": "punch"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "sh_stat",
+   "t0": 2.6,
+   "t1": 5.4,
+   "value": "3×",
+   "label": "doanh thu sau 6 tháng (ví dụ)"
+  },
+  {
+   "type": "sh_lesson",
+   "t0": 10.2,
+   "t1": 13.6,
+   "text": "Bán *giá trị*, đừng bán giá rẻ.",
+   "note": "ý chính"
+  },
+  {
+   "type": "sh_cta",
+   "t0": 17.6,
+   "t1": 20.2,
+   "keep": true
+  }
+ ]
+}

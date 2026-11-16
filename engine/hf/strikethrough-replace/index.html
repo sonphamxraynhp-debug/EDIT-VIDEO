@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Strikethrough Replace - Demo</title>
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #demo {
+        width: 1920px;
+        height: 1080px;
+        display: grid;
+        place-items: center;
+        background: #f7f7f8;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .demo-frame {
+        display: grid;
+        place-items: center;
+        min-width: 900px;
+        min-height: 500px;
+        padding: 64px;
+        /* ponytail: scale non-GSAP wrapper; GSAP targets are children */
+        transform: scale(2.8);
+      }
+      .hf-catalog-strikethrough-replace {
+        color: #18181b;
+        font-family: Inter, system-ui, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+      }
+      .hf-catalog-strikethrough-replace {
+        position: relative;
+        display: inline-grid;
+        grid-auto-flow: column;
+        gap: 18px;
+        align-items: center;
+        font-size: 58px;
+      }
+      .hf-catalog-strikethrough-replace i {
+        position: absolute;
+        left: 0;
+        width: 48%;
+        height: 6px;
+        border-radius: 999px;
+        background: #ef4444;
+        transform: scaleX(var(--hf-strike-progress, 1));
+        transform-origin: left center;
+      }
+      .hf-catalog-strikethrough-replace strong {
+        opacity: var(--hf-replace-opacity, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo" data-composition-id="strikethrough-replace-demo" data-start="0" data-width="1920" data-height="1080" data-duration="5">
+      <div class="demo-frame">
+        <div class="hf-catalog-strikethrough-replace" data-composition-variables="[
+    { &quot;id&quot;: &quot;origin&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Origin&quot;, &quot;description&quot;: &quot;Edge the strike grows out of as the timeline runs its scale from 0 to 1.&quot;, &quot;default&quot;: &quot;left&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;left&quot;, &quot;label&quot;: &quot;Left&quot; }, { &quot;value&quot;: &quot;center&quot;, &quot;label&quot;: &quot;Center&quot; }, { &quot;value&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Right&quot; }] },
+    { &quot;id&quot;: &quot;thickness&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Thickness&quot;, &quot;description&quot;: &quot;Height of the strike line, from a hairline rule to a heavy bar.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;thin&quot;, &quot;label&quot;: &quot;Thin&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;thick&quot;, &quot;label&quot;: &quot;Thick&quot; }] },
+    { &quot;id&quot;: &quot;tint&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Tint&quot;, &quot;description&quot;: &quot;Strike colour. Blue and violet ride --accent and --accent-2.&quot;, &quot;default&quot;: &quot;red&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;red&quot;, &quot;label&quot;: &quot;Red&quot; }, { &quot;value&quot;: &quot;amber&quot;, &quot;label&quot;: &quot;Amber&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;tone&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Tone&quot;, &quot;description&quot;: &quot;Colour of both words: ink for light frames, paper for dark ones.&quot;, &quot;default&quot;: &quot;ink&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;ink&quot;, &quot;label&quot;: &quot;Ink&quot; }, { &quot;value&quot;: &quot;paper&quot;, &quot;label&quot;: &quot;Paper&quot; }] }
+  ]">
+          <span data-hft="0">Slow</span><i></i><strong data-hft="1">Fast</strong>
+        </div>
+      </div>
+      <script>window.__hfApply&&window.__hfApply()</script><script>
+        (function () {
+          "use strict";
+
+          var vars =
+            window.__hyperframes && window.__hyperframes.getVariables
+              ? window.__hyperframes.getVariables()
+              : {};
+
+          // Unrecognised overrides return to their declared defaults.
+          var origins = { left: "left center", center: "center", right: "right center" };
+          var thicknesses = { thin: "3px", standard: "6px", thick: "10px" };
+          var tints = {
+            red: "#ef4444",
+            amber: "#f59e0b",
+            blue: "var(--accent, #38bdf8)",
+            violet: "var(--accent-2, #a78bfa)",
+          };
+          var tones = { ink: "#18181b", paper: "#fafafa" };
+
+          function pick(table, value, fallback) {
+            return Object.prototype.hasOwnProperty.call(table, value) ? value : fallback;
+          }
+
+          var origin = origins[pick(origins, vars.origin, "left")];
+          var thickness = thicknesses[pick(thicknesses, vars.thickness, "standard")];
+          var tint = tints[pick(tints, vars.tint, "red")];
+          var tone = tones[pick(tones, vars.tone, "ink")];
+
+          var roots = document.querySelectorAll(".hf-catalog-strikethrough-replace");
+          for (var i = 0; i < roots.length; i += 1) {
+            roots[i].style.setProperty("--hf-strike-origin", origin);
+            roots[i].style.setProperty("--hf-strike-thickness", thickness);
+            roots[i].style.setProperty("--hf-strike-color", tint);
+            roots[i].style.setProperty("--hf-strike-text-color", tone);
+          }
+        })();
+      </script>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        const startTime = 0.5;
+        tl.fromTo(
+          ".hf-catalog-strikethrough-replace i",
+          { "--hf-strike-progress": 0 },
+          { "--hf-strike-progress": 1, duration: 0.28, ease: "power2.out" },
+          startTime,
+        );
+        tl.fromTo(
+          ".hf-catalog-strikethrough-replace strong",
+          { "--hf-replace-opacity": 0, y: 14 },
+          { "--hf-replace-opacity": 1, y: 0, duration: 0.3, ease: "power2.out" },
+          startTime + 0.24,
+        );
+        tl.set({}, {}, 5);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["strikethrough-replace-demo"] = tl;
+      </script>
+    </div>
+    <style>
+      .hf-catalog-strikethrough-replace {
+        color: var(--hf-strike-text-color, #18181b);
+        font-family: Inter, system-ui, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+      }
+      .hf-catalog-strikethrough-replace {
+        position: relative;
+        display: inline-grid;
+        grid-auto-flow: column;
+        gap: 18px;
+        align-items: center;
+        font-size: 58px;
+      }
+      .hf-catalog-strikethrough-replace i {
+        position: absolute;
+        left: 0;
+        width: 48%;
+        height: var(--hf-strike-thickness, 6px);
+        border-radius: 999px;
+        background: var(--hf-strike-color, #ef4444);
+        transform: scaleX(var(--hf-strike-progress, 1));
+        transform-origin: var(--hf-strike-origin, left center);
+      }
+      .hf-catalog-strikethrough-replace strong {
+        opacity: var(--hf-replace-opacity, 1);
+      }
+    </style>
+  
+
+</body></html>

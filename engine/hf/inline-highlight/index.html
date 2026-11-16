@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Inline Highlight - Demo</title>
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #demo {
+        width: 1920px;
+        height: 1080px;
+        display: grid;
+        place-items: center;
+        background: #f5f5f4;
+        color: #18181b;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .copy {
+        width: 1200px;
+        font-size: 88px;
+        line-height: 1.14;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        text-align: left;
+      }
+      .hf-inline-highlight {
+        --hf-highlight-scale: 0;
+        --hf-highlight-color: #facc15;
+        position: relative;
+        display: inline;
+        isolation: isolate;
+      }
+      .hf-inline-highlight::after {
+        content: "";
+        position: absolute;
+        left: -0.05em;
+        right: -0.05em;
+        bottom: 0.06em;
+        height: 0.35em;
+        background: var(--hf-highlight-color);
+        border-radius: 3px;
+        transform: scaleX(var(--hf-highlight-scale));
+        transform-origin: left center;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo" data-composition-id="inline-highlight-demo" data-width="1920" data-height="1080" data-duration="4" data-composition-variables="[
+    { &quot;id&quot;: &quot;tint&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Tint&quot;, &quot;description&quot;: &quot;Marker colour. Green, blue and violet ride --brand, --accent and --accent-2.&quot;, &quot;default&quot;: &quot;yellow&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;yellow&quot;, &quot;label&quot;: &quot;Yellow&quot; }, { &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;thickness&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Thickness&quot;, &quot;description&quot;: &quot;Height of the marker band behind the text, as a share of the font size.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;thin&quot;, &quot;label&quot;: &quot;Thin&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;thick&quot;, &quot;label&quot;: &quot;Thick&quot; }] },
+    { &quot;id&quot;: &quot;origin&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Origin&quot;, &quot;description&quot;: &quot;Edge the marker grows out of as the scale variable runs from 0 to 1.&quot;, &quot;default&quot;: &quot;left&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;left&quot;, &quot;label&quot;: &quot;Left&quot; }, { &quot;value&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Right&quot; }, { &quot;value&quot;: &quot;center&quot;, &quot;label&quot;: &quot;Center&quot; }] }
+  ]">
+      <div class="copy">
+        Turn the important words into
+        <span class="hf-inline-highlight" data-hft="0">animated emphasis</span> without rebuilding the scene.
+      </div>
+      <script>window.__hfApply&&window.__hfApply()</script><script>
+        (function () {
+          "use strict";
+
+          var vars =
+            window.__hyperframes && window.__hyperframes.getVariables
+              ? window.__hyperframes.getVariables()
+              : {};
+
+          // Unrecognised overrides return to their declared defaults.
+          function pick(table, value, fallback) {
+            return Object.prototype.hasOwnProperty.call(table, value) ? value : fallback;
+          }
+
+          var tints = {
+            yellow: "#fff06a",
+            green: "var(--brand, #34d399)",
+            blue: "var(--accent, #38bdf8)",
+            violet: "var(--accent-2, #a78bfa)",
+          };
+          var heights = { thin: "0.22em", standard: "0.38em", thick: "0.62em" };
+          var origins = { left: "left center", right: "right center", center: "center" };
+
+          var root = document.documentElement;
+          root.style.setProperty("--hf-highlight-color", tints[pick(tints, vars.tint, "yellow")]);
+          root.style.setProperty(
+            "--hf-highlight-height",
+            heights[pick(heights, vars.thickness, "standard")],
+          );
+          root.style.setProperty(
+            "--hf-highlight-origin",
+            origins[pick(origins, vars.origin, "left")],
+          );
+        })();
+      </script>
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.from(".copy", { opacity: 0, y: 24, duration: 0.55, ease: "power3.out" }, 0.3);
+        tl.to(
+          ".hf-inline-highlight",
+          { "--hf-highlight-scale": 1, duration: 0.6, ease: "power2.out" },
+          0.95,
+        );
+        window.__timelines = window.__timelines || {};
+        window.__timelines["inline-highlight-demo"] = tl;
+      </script>
+    </div>
+    <style data-composition-variables="[
+    { &quot;id&quot;: &quot;tint&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Tint&quot;, &quot;description&quot;: &quot;Marker colour. Green, blue and violet ride --brand, --accent and --accent-2.&quot;, &quot;default&quot;: &quot;yellow&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;yellow&quot;, &quot;label&quot;: &quot;Yellow&quot; }, { &quot;value&quot;: &quot;green&quot;, &quot;label&quot;: &quot;Green&quot; }, { &quot;value&quot;: &quot;blue&quot;, &quot;label&quot;: &quot;Blue&quot; }, { &quot;value&quot;: &quot;violet&quot;, &quot;label&quot;: &quot;Violet&quot; }] },
+    { &quot;id&quot;: &quot;thickness&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Thickness&quot;, &quot;description&quot;: &quot;Height of the marker band behind the text, as a share of the font size.&quot;, &quot;default&quot;: &quot;standard&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;thin&quot;, &quot;label&quot;: &quot;Thin&quot; }, { &quot;value&quot;: &quot;standard&quot;, &quot;label&quot;: &quot;Standard&quot; }, { &quot;value&quot;: &quot;thick&quot;, &quot;label&quot;: &quot;Thick&quot; }] },
+    { &quot;id&quot;: &quot;origin&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;motion&quot;, &quot;label&quot;: &quot;Origin&quot;, &quot;description&quot;: &quot;Edge the marker grows out of as the scale variable runs from 0 to 1.&quot;, &quot;default&quot;: &quot;left&quot;, &quot;options&quot;: [{ &quot;value&quot;: &quot;left&quot;, &quot;label&quot;: &quot;Left&quot; }, { &quot;value&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Right&quot; }, { &quot;value&quot;: &quot;center&quot;, &quot;label&quot;: &quot;Center&quot; }] }
+  ]">
+      .hf-inline-highlight {
+        --hf-highlight-scale: 0;
+        position: relative;
+        display: inline;
+        z-index: 0;
+      }
+      .hf-inline-highlight::after {
+        content: "";
+        position: absolute;
+        left: -0.08em;
+        right: -0.08em;
+        bottom: 0.05em;
+        height: var(--hf-highlight-height, 0.38em);
+        background: var(--hf-highlight-color, #fff06a);
+        transform: scaleX(var(--hf-highlight-scale));
+        transform-origin: var(--hf-highlight-origin, left center);
+        z-index: -1;
+      }
+    </style>
+  
+
+</body></html>

@@ -1,0 +1,121 @@
+{
+ "id": "kh-chia-man-hinh",
+ "name": "Dạy kèm màn hình",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "split",
+ "desc": "Chia đôi người dạy và màn hình thao tác, PIP góc khi demo, đổi trọng tâm 70/30 theo lúc giảng.",
+ "tags": [
+  "chia đôi",
+  "màn hình",
+  "demo",
+  "tutorial"
+ ],
+ "title": "Thao tác từng bước",
+ "caption_style": "split",
+ "music": "lofi",
+ "brand": {
+  "accent": "#5CE1E6",
+  "primary": "#7B61FF"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "video quay màn hình",
+  "tên các bước"
+ ],
+ "preview": {
+  "from": 2.4,
+  "to": 8.4,
+  "still": 4.4
+ },
+ "scenes": [
+  {
+   "type": "split_label",
+   "t0": 0.3,
+   "t1": 2.6,
+   "text": "Bài 1 · Làm quen giao diện",
+   "x": 360,
+   "y": 170,
+   "size": 100,
+   "dot": true
+  },
+  {
+   "type": "split_stack",
+   "t0": 2.8,
+   "t1": 7.4,
+   "speaker_pos": "bottom",
+   "ratio": 0.5,
+   "media": {
+    "seq": "media/sc_demo/%05d.jpg",
+    "fps": 7.5,
+    "count": 60,
+    "t0": 2.8
+   },
+   "label": {
+    "text": "Màn hình",
+    "icon": "💻"
+   }
+  },
+  {
+   "type": "split_pip",
+   "t0": 7.6,
+   "t1": 11.6,
+   "corner": "br",
+   "size": 100,
+   "media": {
+    "seq": "media/sc_demo/%05d.jpg",
+    "fps": 7.5,
+    "count": 60,
+    "t0": 7.6
+   },
+   "label": {
+    "text": "Bước 2: điền thông tin",
+    "dot": true
+   },
+   "speaker_label": "GIẢNG VIÊN"
+  },
+  {
+   "type": "split_focus",
+   "t0": 11.8,
+   "t1": 17.6,
+   "media": {
+    "seq": "media/sc_demo/%05d.jpg",
+    "fps": 7.5,
+    "count": 60,
+    "t0": 11.8
+   },
+   "keys": [
+    {
+     "t": 11.8,
+     "v": 0.5
+    },
+    {
+     "t": 13.2,
+     "v": 0.7
+    },
+    {
+     "t": 16.0,
+     "v": 0.3
+    }
+   ],
+   "label": {
+    "text": "Kết quả"
+   },
+   "speaker_label": {
+    "text": "Mình"
+   }
+  },
+  {
+   "type": "split_label",
+   "t0": 17.9,
+   "t1": 20.2,
+   "text": "Lưu lại để làm theo",
+   "icon": "📌",
+   "x": 360,
+   "y": 170,
+   "size": 100,
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+{
+ "id": "kh-bang-trang-code",
+ "name": "Bảng trắng + code",
+ "category": "khoahoc",
+ "aspect": "9:16",
+ "pack": "course",
+ "desc": "Lớp lập trình / công thức: bảng trắng camera tròn, khung code gõ dần, các bước, khoanh chú thích.",
+ "tags": [
+  "lập trình",
+  "bảng trắng",
+  "code",
+  "công thức"
+ ],
+ "title": "Lập trình cơ bản",
+ "caption_style": "course",
+ "music": "lofi_2",
+ "brand": {
+  "primary": "#12A150",
+  "accent": "#FFB020",
+  "dark": "#0B2318",
+  "name": "Lớp học lập trình"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "dàn ý bài",
+  "đoạn code / công thức"
+ ],
+ "preview": {
+  "from": 1.8,
+  "to": 7.8,
+  "still": 4.2
+ },
+ "scenes": [
+  {
+   "type": "course_chapter",
+   "t0": 0,
+   "t1": 2.4,
+   "num": "BÀI 2",
+   "title": "Vòng lặp *for*",
+   "subtitle": "Khoá học Python cơ bản (ví dụ)"
+  },
+  {
+   "type": "course_board",
+   "t0": 2.5,
+   "t1": 7.4,
+   "num": "BÀI 2",
+   "title": "Hôm nay học gì?",
+   "bullets": [
+    "Vòng lặp là gì?",
+    "Cú pháp *for*",
+    "Bài tập nhỏ"
+   ]
+  },
+  {
+   "type": "course_code",
+   "t0": 7.6,
+   "t1": 11.6,
+   "title": "vong_lap.py",
+   "lang": "PYTHON",
+   "cps": 80,
+   "delay": 0.25,
+   "code": "mon = [\"Toán\", \"Văn\", \"Anh\"]\nfor m in mon:\n    print(\"Học\", m)",
+   "hl_line": 2,
+   "hl_t": 10.4
+  },
+  {
+   "type": "course_steps",
+   "t0": 11.8,
+   "t1": 15.4,
+   "title": "Cách làm",
+   "steps": [
+    {
+     "text": "Tạo *danh sách*",
+     "t": 12.0
+    },
+    {
+     "text": "Viết vòng lặp",
+     "t": 12.9
+    },
+    {
+     "text": "Chạy và kiểm tra",
+     "t": 13.8
+    }
+   ]
+  },
+  {
+   "type": "course_keypoint",
+   "t0": 15.6,
+   "t1": 17.6,
+   "kind": "tip",
+   "key_t": 15.65,
+   "text": "Thụt lề *4 dấu cách* trong thân vòng lặp"
+  },
+  {
+   "type": "course_cta",
+   "t0": 17.8,
+   "t1": 20.2,
+   "course": "Python cho người mới",
+   "old_price": "1.990.000đ",
+   "price": "990.000đ (ví dụ)",
+   "countdown": 86352,
+   "keep": true
+  }
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "id": "dn-ra-mat-san-pham",
+ "name": "Ra mắt sản phẩm mới",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Cổng không gian mở màn, sản phẩm xoay 360°, danh sách thông số trượt vào, chốt bằng nút hành động.",
+ "tags": [
+  "ra mắt",
+  "sản phẩm mới",
+  "launch",
+  "thông số"
+ ],
+ "title": "Ra mắt sản phẩm",
+ "caption_style": "hf_gradient_fill",
+ "music": "epic",
+ "brand": {
+  "primary": "#7C5CFF",
+  "accent": "#FFD166",
+  "dark": "#0A0718"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên sản phẩm",
+  "thông số nổi bật",
+  "lời kêu gọi"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.6
+ },
+ "fx": [
+  {
+   "t": 3.6,
+   "type": "whip"
+  },
+  {
+   "t": 16.2,
+   "type": "punch",
+   "amp": 0.1
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "titlecard-lockup",
+   "t0": 0,
+   "t1": 3.4,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "wordmark": "SẢN PHẨM MỚI",
+    "label": "RA MẮT HÔM NAY",
+    "kicker": "GIỚI THIỆU"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "product-turntable",
+   "t0": 3.6,
+   "t1": 8.4,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "mk-specs-list",
+   "t0": 8.8,
+   "t1": 14.6
+  },
+  {
+   "type": "hf",
+   "block": "cta-lockup",
+   "t0": 16.2,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "action_line": "Đặt trước hôm nay",
+    "button_label": "Nhận ưu đãi ra mắt",
+    "microcopy": "Số lượng có hạn"
+   }
+  }
+ ]
+}

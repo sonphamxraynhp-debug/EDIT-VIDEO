@@ -1,0 +1,121 @@
+{
+ "id": "ai-clean-os",
+ "name": "Clean OS điện thoại",
+ "category": "ai",
+ "aspect": "9:16",
+ "pack": "explain",
+ "desc": "Ý tưởng thành thao tác trên điện thoại: người trong điện thoại, chồng thông báo, công tắc bật/tắt, vòng %, khung chọn đỏ, bút ký chữ.",
+ "tags": [
+  "điện thoại",
+  "giao diện",
+  "tối giản",
+  "giải thích"
+ ],
+ "title": "Một ngày bận rộn",
+ "caption_style": "ex_os",
+ "music": "lofi",
+ "brand": {
+  "primary": "#0A84FF"
+ },
+ "recipe_opts": {
+  "variant": "os"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ý chính từng câu",
+  "từ khoá cần nhấn"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 1.6
+ },
+ "scenes": [
+  {
+   "type": "ex_os_phone",
+   "t0": 0,
+   "t1": 2.8,
+   "notif": {
+    "app": "Nhắc nhở",
+    "icon": "bell",
+    "title": "Đến giờ dựng video rồi",
+    "text": "Chỉ mất 3 phút (ví dụ)",
+    "t": 0.8
+   }
+  },
+  {
+   "type": "ex_os_notifs",
+   "t0": 3.6,
+   "t1": 6.4,
+   "items": [
+    {
+     "app": "Thư",
+     "icon": "mail",
+     "title": "Khách hàng: cần video gấp",
+     "text": "Gửi trước 5 giờ chiều nhé (ví dụ)"
+    },
+    {
+     "app": "Tin nhắn",
+     "icon": "chat",
+     "title": "Nhóm dự án (12)",
+     "text": "Ai làm phần phụ đề?"
+    },
+    {
+     "app": "Lịch",
+     "icon": "cal",
+     "title": "Họp lúc 15:00",
+     "text": "Còn 10 phút"
+    }
+   ]
+  },
+  {
+   "type": "ex_os_ring",
+   "t0": 7.4,
+   "t1": 10.2,
+   "from": 100,
+   "to": 12,
+   "label": "năng lượng"
+  },
+  {
+   "type": "ex_os_toggle",
+   "t0": 11.0,
+   "t1": 14.0,
+   "title": "cài đặt",
+   "rows": [
+    {
+     "label": "Tự động phụ đề",
+     "icon": "doc",
+     "on": false,
+     "t": 11.9
+    },
+    {
+     "label": "Hiệu ứng",
+     "icon": "spark",
+     "on": false,
+     "t": 12.4
+    },
+    {
+     "label": "Làm thủ công",
+     "icon": "clock",
+     "on": true,
+     "t": 12.9
+    }
+   ]
+  },
+  {
+   "type": "ex_os_select",
+   "t0": 14.8,
+   "t1": 17.0,
+   "text": "làm thủ công",
+   "mode": "reject",
+   "reject_at": 1.3
+  },
+  {
+   "type": "ex_os_pen",
+   "t0": 17.6,
+   "t1": 20.2,
+   "text": "tự do"
+  }
+ ]
+}

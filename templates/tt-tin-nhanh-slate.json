@@ -1,0 +1,91 @@
+{
+ "id": "tt-tin-nhanh-slate",
+ "name": "Điểm tin trên lưới",
+ "category": "tintuc",
+ "aspect": "9:16",
+ "pack": "slate",
+ "desc": "Điểm tin nhanh: phụ đề ô vàng, khung video trên lưới, chữ LED TIN NÓNG, thẻ media có tiêu đề gradient.",
+ "tags": [
+  "điểm tin",
+  "tin nhanh",
+  "LED",
+  "lưới"
+ ],
+ "title": "Điểm tin hôm nay",
+ "music": "tech",
+ "use_recipe": true,
+ "base_dur": 20.2,
+ "needs": [
+  "3 tin chính",
+  "hình minh hoạ"
+ ],
+ "preview": {
+  "from": 0.6,
+  "to": 6.6,
+  "still": 3.0
+ },
+ "scenes": [
+  {
+   "type": "media_card",
+   "t0": 1.0,
+   "t1": 5.0,
+   "card": {
+    "x": 120,
+    "y": 372,
+    "w": 480,
+    "h": 270,
+    "r": 16
+   },
+   "screen": {
+    "broll": {
+     "template": "ticker",
+     "pal": "ember",
+     "items": [
+      "TIN 1",
+      "TIN 2",
+      "TIN 3"
+     ]
+    }
+   },
+   "lines": [
+    {
+     "text": "điểm tin hôm nay",
+     "t": 1.0,
+     "style": "clean",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 700,
+     "size": 24,
+     "y": 292
+    },
+    {
+     "text": "3 TIN NÓNG",
+     "t": 1.5,
+     "style": "grad_blue",
+     "font": "var(--sans)",
+     "italic": false,
+     "weight": 900,
+     "size": 66,
+     "y": 336,
+     "anim": "pop"
+    }
+   ]
+  },
+  {
+   "type": "led_text",
+   "t0": 6.6,
+   "t1": 9.1,
+   "text": "TIN NÓNG",
+   "y": 398,
+   "size": 74
+  },
+  {
+   "type": "neon_text",
+   "t0": 10.0,
+   "t1": 11.1,
+   "text": "bất ngờ",
+   "y": 390,
+   "size": 84
+  }
+ ]
+}

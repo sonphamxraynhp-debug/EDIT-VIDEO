@@ -1,0 +1,78 @@
+{
+ "id": "dn-bao-cao-so-lieu",
+ "name": "Báo cáo số liệu",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Con số tăng trưởng đếm lên, cuộc đua doanh thu giữa các kênh bán, thanh tiến độ mục tiêu và dấu tích hoàn thành.",
+ "tags": [
+  "số liệu",
+  "báo cáo",
+  "tăng trưởng",
+  "doanh thu"
+ ],
+ "title": "Kết quả quý này",
+ "caption_style": "hf_editorial_emphasis",
+ "music": "corporate_2",
+ "brand": {
+  "primary": "#22C55E",
+  "accent": "#BBF7D0",
+  "dark": "#06130B"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "con số chính",
+  "số liệu theo kênh",
+  "mục tiêu"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.4
+ },
+ "fx": [
+  {
+   "t": 0.4,
+   "type": "punch",
+   "amp": 0.08
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "count-up",
+   "t0": 0.4,
+   "t1": 3.6,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "end": 245,
+    "prefix": "+",
+    "suffix": "%"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "bar-chart-race",
+   "t0": 4,
+   "t1": 13.4,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "mk-progress-stat",
+   "t0": 13.8,
+   "t1": 17.4
+  },
+  {
+   "type": "hf",
+   "block": "success-check",
+   "t0": 17.6,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true
+  }
+ ]
+}

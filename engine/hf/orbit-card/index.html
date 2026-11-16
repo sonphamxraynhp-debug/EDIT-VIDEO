@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-composition-variables="[{&quot;id&quot;:&quot;feature1Title&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Card title&quot;,&quot;default&quot;:&quot;Always in sync&quot;,&quot;maxLength&quot;:28},{&quot;id&quot;:&quot;feature1Desc&quot;,&quot;type&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Card description&quot;,&quot;default&quot;:&quot;Changes reach every screen the moment they happen.&quot;,&quot;maxLength&quot;:110},{&quot;id&quot;:&quot;feature1Accent&quot;,&quot;type&quot;:&quot;color&quot;,&quot;label&quot;:&quot;Card accent&quot;,&quot;default&quot;:&quot;#4cc9ff&quot;},{&quot;id&quot;:&quot;cardOrbitDegrees&quot;,&quot;type&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Card orbit degrees&quot;,&quot;description&quot;:&quot;Total card-only vertical orbit during Blender frames 150–180 (4.9667–5.9667 seconds). Enter 180, 360, 720, or any angle. The sphere keeps its independent spin. The final angle holds after frame 180.&quot;,&quot;default&quot;:360,&quot;min&quot;:-36000,&quot;max&quot;:36000,&quot;step&quot;:1}]"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Orbit Card — approved Blender motion</title>
+    <script src="assets/gsap-3.14.2.min.js"></script>
+    <style>
+      @font-face {
+        font-family: Archivo;
+        font-weight: 400;
+        src: url("assets/archivo-regular.ttf");
+      }
+      @font-face {
+        font-family: Archivo;
+        font-weight: 600;
+        src: url("assets/archivo-semibold.ttf");
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #161718;
+      }
+      #oc-root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        font-family: Archivo, sans-serif;
+      }
+      #oc-stage {
+        position: absolute;
+        inset: 0;
+      }
+      #oc-stage canvas {
+        width: 1920px;
+        height: 1080px;
+        display: block;
+      }
+      #oc-fontload {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="oc-root" data-composition-id="orbit-card" data-start="0" data-duration="10" data-width="1920" data-height="1080">
+      <section id="oc-stage" class="clip" data-start="0" data-duration="10" data-track-index="1"></section>
+      <div id="oc-fontload" aria-hidden="true">
+        <span style="font-weight: 400" data-hft="0">Aa</span><span style="font-weight: 600" data-hft="0">Aa</span>
+      </div>
+    </div>
+    <script>window.__hfApply&&window.__hfApply()</script><script type="importmap">
+      { "imports": { "orbit-card/scene": "./assets/orbit-scene.js" } }
+    </script>
+    <script type="module">
+      import { createOrbitScene } from "orbit-card/scene";
+      // Bare __hyperframes is this composition's own in a module.
+      const renderAt = createOrbitScene(
+        (typeof __hyperframes !== "undefined" && __hyperframes.getVariables?.()) || {},
+      );
+      const state = { time: 0 };
+      const timeline = gsap.timeline({ paused: true });
+      timeline.to(state, {
+        time: 10,
+        duration: 10,
+        ease: "none",
+        onUpdate: () => renderAt(state.time),
+      });
+      window.addEventListener("hf-seek", (event) => {
+        if (typeof event.detail?.time === "number") {
+          timeline.totalTime(Math.max(0, Math.min(10, event.detail.time)), true);
+          renderAt(event.detail.time);
+        }
+      });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["orbit-card"] = timeline;
+      const query = new URLSearchParams(location.search);
+      if (query.has("play")) {
+        timeline.repeat(query.has("loop") ? 999 : 0);
+        timeline.play(0);
+      }
+    </script>
+  
+
+</body></html>

@@ -1,0 +1,134 @@
+{
+ "id": "rv-danh-gia-chi-tiet",
+ "name": "Đánh giá chi tiết",
+ "category": "review",
+ "aspect": "9:16",
+ "pack": "review",
+ "desc": "Review sản phẩm đầy đủ: thẻ hero có giá, ưu/nhược, điểm chi tiết từng tiêu chí, điểm tổng và con dấu NÊN MUA.",
+ "tags": [
+  "review",
+  "ưu nhược",
+  "chấm điểm",
+  "đáng mua"
+ ],
+ "title": "Tên sản phẩm",
+ "caption_style": "review",
+ "music": "hype",
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "ảnh sản phẩm (PNG nền trong)",
+  "giá",
+  "ưu / nhược",
+  "điểm"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 2.2
+ },
+ "scenes": [
+  {
+   "type": "rv_product",
+   "t0": 0.0,
+   "t1": 2.95,
+   "x": 360,
+   "y": 500,
+   "size": 100,
+   "image": "media/phone_a.png",
+   "name": "Tên sản phẩm",
+   "brand": "Thương hiệu",
+   "price": "9.990.000đ",
+   "old_price": "11.490.000đ",
+   "badge": "MỚI"
+  },
+  {
+   "type": "rv_callout",
+   "t0": 1.3,
+   "t1": 2.95,
+   "px": 360,
+   "py": 238,
+   "x": 168,
+   "y": 175,
+   "size": 100,
+   "text": "Điểm nổi bật",
+   "sub": "mô tả ngắn",
+   "w": 240
+  },
+  {
+   "type": "rv_proscons",
+   "t0": 3.2,
+   "t1": 7.0,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "pros": [
+    "Ưu điểm thứ nhất",
+    "Ưu điểm thứ hai",
+    "Ưu điểm thứ ba"
+   ],
+   "cons": [
+    "Nhược điểm 1",
+    "Nhược điểm 2"
+   ]
+  },
+  {
+   "type": "rv_rating_bar",
+   "t0": 7.2,
+   "t1": 10.8,
+   "x": 360,
+   "y": 470,
+   "size": 100,
+   "stagger": 0.15,
+   "items": [
+    {
+     "label": "Thiết kế",
+     "score": 9,
+     "icon": "🎨"
+    },
+    {
+     "label": "Pin",
+     "score": 8.5,
+     "icon": "🔋"
+    },
+    {
+     "label": "Camera",
+     "score": 7.5,
+     "icon": "📷"
+    },
+    {
+     "label": "Hiệu năng",
+     "score": 8.5,
+     "icon": "⚡"
+    },
+    {
+     "label": "Giá",
+     "score": 7,
+     "icon": "💰"
+    }
+   ]
+  },
+  {
+   "type": "rv_score",
+   "t0": 16.4,
+   "t1": 20.2,
+   "x": 360,
+   "y": 378,
+   "size": 88,
+   "score": 8.6,
+   "label": "Rất đáng tiền",
+   "keep": true
+  },
+  {
+   "type": "rv_verdict",
+   "t0": 18.2,
+   "t1": 20.2,
+   "x": 360,
+   "y": 748,
+   "size": 96,
+   "verdict": "buy",
+   "sub": "Kết luận ngắn của bạn",
+   "keep": true
+  }
+ ]
+}

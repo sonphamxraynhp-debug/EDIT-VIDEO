@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        background: transparent;
+        overflow: hidden;
+      }
+      body {
+        width: 1920px;
+        height: 1080px;
+      }
+
+      #root .lt {
+        position: absolute;
+        left: 130px;
+        bottom: 122px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      #root .lt-kickwrap {
+        overflow: hidden;
+      }
+      #root .lt-kicker {
+        display: inline-block;
+        font-family: "Space Mono", monospace;
+        font-size: 22px;
+        font-weight: 700;
+        color: #141518;
+        background: #46e5b7;
+        padding: 6px 14px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      #root .lt-name {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 70px;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 0.98;
+        letter-spacing: -0.015em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        text-shadow: 0 2px 22px rgba(0, 0, 0, 0.5);
+      }
+      #root .lt-baseline {
+        height: 5px;
+        width: 100%;
+        background: #46e5b7;
+        border-radius: 3px;
+        transform-origin: 0% 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="lt-kicker-name" data-width="1920" data-height="1080" data-start="0" data-duration="4.8">
+      <div id="lt-clip" class="clip" data-start="0" data-duration="4.8" data-track-index="0">
+        <div id="lt" class="lt">
+          <div class="lt-kickwrap">
+            <span id="lt-kicker" class="lt-kicker" data-hft="0">Episode 47</span>
+          </div>
+          <div id="lt-name" class="lt-name" data-hft="1">Maya Chen</div>
+          <div id="lt-baseline" class="lt-baseline"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>window.__hfApply&&window.__hfApply()</script><script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      var wrap = document.getElementById("lt");
+      var kicker = document.getElementById("lt-kicker");
+      var nameEl = document.getElementById("lt-name");
+      var baseline = document.getElementById("lt-baseline");
+
+      // Kicker drops in, name slams up, accent baseline draws.
+      gsap.set(kicker, { y: -40 });
+      gsap.set(nameEl, { y: 34, opacity: 0 });
+      gsap.set(baseline, { scaleX: 0 });
+
+      tl.to(kicker, { y: 0, duration: 0.42, ease: "back.out(2)" }, 0.1);
+      tl.to(nameEl, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 0.32);
+      tl.to(baseline, { scaleX: 1, duration: 0.5, ease: "power4.out" }, 0.5);
+
+      // Exit: baseline retracts, text lifts, hard kill.
+      tl.to(baseline, { scaleX: 0, duration: 0.3, ease: "power2.in" }, 4.25);
+      tl.to(nameEl, { y: -16, opacity: 0, duration: 0.32, ease: "power2.in" }, 4.3);
+      tl.to(kicker, { y: -40, duration: 0.3, ease: "power2.in" }, 4.32);
+      tl.set(wrap, { visibility: "hidden" }, 4.75);
+
+      window.__timelines["lt-kicker-name"] = tl;
+    </script>
+  
+
+</body></html>

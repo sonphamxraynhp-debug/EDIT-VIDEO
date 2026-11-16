@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en"><head><style>[data-hf-demo]{visibility:hidden!important}[data-hf-anc]{background:transparent!important;box-shadow:none!important;border-color:transparent!important}</style><script>(function(){
+function own(o){try{return (parent!==window&&o&&o[window.name])||null}catch(e){return null}}
+function vars(){var d={};document.querySelectorAll('[data-composition-variables]').forEach(function(el){try{JSON.parse(el.getAttribute('data-composition-variables')).forEach(function(v){if(v&&v.id!=null&&'default' in v)d[v.id]=v.default})}catch(e){}});document.querySelectorAll('[data-variable-values]').forEach(function(el){try{var o=JSON.parse(el.getAttribute('data-variable-values'));for(var k in o)d[k]=o[k]}catch(e){}});var o=own(parent.HF_VARS)||{};for(var k in o)if(o[k]!==''&&o[k]!=null)d[k]=o[k];return d}
+window.__hyperframes={getVariables:vars};
+window.__hfApply=function(){var tx=own(parent.HF_TEXTS)||{};for(var i in tx){if(tx[i]==null)continue;document.querySelectorAll('[data-hft="'+i+'"]').forEach(function(el){el.textContent=tx[i]})}
+var v=vars(),r=document.querySelector('[data-composition-id]')||document.documentElement;for(var k in v){if(typeof v[k]==='string'||typeof v[k]==='number'){r.style.setProperty('--'+k,v[k]);r.style.setProperty('--'+k.replace(/[A-Z]/g,function(c){return '-'+c.toLowerCase()}),v[k])}}};
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>Oversized Cursor, Demo</title>
+    <script src="../_lib/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #111318;
+        font-family: Inter, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .demo-frame {
+        position: absolute;
+        left: 280px;
+        top: 150px;
+        width: 1360px;
+        height: 780px;
+        border-radius: 14px;
+        background: #ffffff;
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.06),
+          0 2px 6px rgba(0, 0, 0, 0.3),
+          0 30px 80px rgba(0, 0, 0, 0.45);
+        overflow: hidden;
+        color: #1c1c1e;
+      }
+      .app-titlebar {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        height: 52px;
+        padding: 0 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        background: #f6f6f7;
+      }
+      .app-titlebar i {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #ff5f57;
+      }
+      .app-titlebar i:nth-child(2) {
+        background: #febc2e;
+      }
+      .app-titlebar i:nth-child(3) {
+        background: #28c840;
+      }
+      .app-titlebar span {
+        flex: 1;
+        margin-right: 57px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+        color: #6e6e73;
+      }
+      .app-body {
+        display: flex;
+        height: 728px;
+      }
+      .app-side {
+        width: 300px;
+        padding: 22px 14px;
+        border-right: 1px solid rgba(0, 0, 0, 0.08);
+        background: #fafafa;
+      }
+      .app-side h4 {
+        margin: 0 10px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #8e8e93;
+      }
+      .app-post {
+        padding: 12px 12px;
+        border-radius: 9px;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.3;
+      }
+      .app-post small {
+        display: block;
+        margin-top: 3px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #8e8e93;
+      }
+      .app-post.is-open {
+        background: rgba(10, 132, 255, 0.1);
+      }
+      .app-main {
+        position: relative;
+        flex: 1;
+      }
+      .app-toolbar {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 72px;
+        padding: 0 36px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        font-size: 16px;
+        color: #8e8e93;
+      }
+      .app-toolbar b {
+        margin-left: 8px;
+        font-weight: 500;
+        color: #1c1c1e;
+      }
+      /* Ends left of the Comments toggle, which the cursor mount draws. */
+      .app-actions {
+        position: absolute;
+        right: 220px;
+        top: 50%;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transform: translateY(-50%);
+      }
+      .app-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 34px;
+        padding: 0 14px;
+        border-radius: 17px;
+        font-size: 15px;
+        font-weight: 500;
+        white-space: nowrap;
+        background: #f2f2f3;
+        color: #6e6e73;
+      }
+      .app-chip::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #aeaeb2;
+      }
+      .app-ghost {
+        height: 42px;
+        padding: 0 18px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 40px;
+        color: #1c1c1e;
+      }
+      .app-doc {
+        max-width: 680px;
+        margin: 52px 0 0 84px;
+      }
+      .app-doc h1 {
+        margin: 0;
+        font-size: 44px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+      }
+      .app-meta {
+        margin: 14px 0 30px;
+        font-size: 16px;
+        color: #8e8e93;
+      }
+      .app-doc p {
+        margin: 0 0 20px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #3a3a3c;
+      }
+      .app-doc mark {
+        border-radius: 3px;
+        background: rgba(255, 204, 0, 0);
+        color: inherit;
+      }
+      .app-comment {
+        position: absolute;
+        left: 785px;
+        top: 372px;
+        width: 236px;
+        padding: 14px 16px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.06),
+          0 8px 24px rgba(0, 0, 0, 0.08);
+        font-size: 16px;
+        line-height: 1.45;
+        color: #3a3a3c;
+        opacity: 0;
+      }
+      .app-comment b {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #1c1c1e;
+      }
+      .app-comment b i {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ff9f0a;
+        font-size: 11px;
+        font-style: normal;
+        line-height: 24px;
+        text-align: center;
+        color: #ffffff;
+      }
+      .app-comment small {
+        font-size: 14px;
+        font-weight: 400;
+        color: #8e8e93;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="oversized-cursor-demo" data-start="0" data-width="1920" data-height="1080" data-duration="2.6" data-hf-anc="">
+      <div id="demo-frame" class="demo-frame clip" data-start="0" data-duration="2.6" data-track-index="0" data-hf-demo="">
+        <div class="app-titlebar" data-hf-demo=""><i data-hf-demo=""></i><i data-hf-demo=""></i><i data-hf-demo=""></i><span data-hf-demo="" data-hft="0">Field Notes</span></div>
+        <div class="app-body" data-hf-demo="">
+          <aside class="app-side" data-hf-demo="">
+            <h4 data-hf-demo="" data-hft="1">Posts</h4>
+            <div class="app-post is-open" data-hf-demo="">
+              Offline mode, one year in<small data-hf-demo="" data-hft="2">Draft · edited 2 min ago</small>
+            </div>
+            <div class="app-post" data-hf-demo="">Why we rewrote sync<small data-hf-demo="" data-hft="3">Published Aug 14</small></div>
+            <div class="app-post" data-hf-demo="">Designing the new inbox<small data-hf-demo="" data-hft="4">Published Jul 30</small></div>
+            <div class="app-post" data-hf-demo="">What broke in the 4.2 release<small data-hf-demo="" data-hft="5">Published Jul 2</small></div>
+            <div class="app-post" data-hf-demo="">
+              Hiring our first support engineer<small data-hf-demo="" data-hft="6">Published Jun 11</small>
+            </div>
+          </aside>
+          <main class="app-main" data-hf-demo="">
+            <div class="app-toolbar" data-hf-demo="">
+              Posts /<b data-hf-demo="" data-hft="7">Offline mode, one year in</b>
+              <div class="app-actions" data-hf-demo="">
+                <span class="app-chip" data-hf-demo="" data-hft="8">Draft</span>
+                <span class="app-ghost" data-hf-demo="" data-hft="9">Preview</span>
+              </div>
+            </div>
+            <article class="app-doc" data-hf-demo="">
+              <h1 data-hf-demo="" data-hft="7">Offline mode, one year in</h1>
+              <div class="app-meta" data-hf-demo="" data-hft="10">Priya Raman · 6 min read</div>
+              <p data-hf-demo="">
+                A year ago we shipped offline mode to every workspace. Since then, 38% of edits have
+                happened on a plane, a train, or a flaky café connection.
+              </p>
+              <p data-hf-demo="">
+                Most of that traffic lands in the first ten minutes after a device reconnects, so
+                this post walks through how
+                <mark id="comment-mark" data-hf-demo="" data-hft="11">the sync queue drains</mark> without locking the editor.
+              </p>
+            </article>
+            <div class="app-comment" id="comment" data-hf-demo="">
+              <b data-hf-demo=""><i data-hf-demo="" data-hft="12">SK</i>Sam Kim <small data-hf-demo="" data-hft="13">2h</small></b>
+              Could this be a diagram? The drain order is the whole point.
+            </div>
+          </main>
+        </div>
+      </div>
+
+      <div class="clip" id="oversized-cursor" data-composition-id="oversized-cursor" data-variable-values="{&quot;cursor_variant&quot;:&quot;light&quot;,&quot;target_x&quot;:79,&quot;target_y&quot;:22,&quot;click_label&quot;:&quot;Comments&quot;}" data-start="0" data-duration="2.6" data-track-index="1" data-width="1920" data-height="1080" style="position: absolute; inset: 0; width: 1920px; height: 1080px" data-composition-variables="[
+    { &quot;id&quot;: &quot;cursor_variant&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;style&quot;, &quot;label&quot;: &quot;Cursor fill&quot;, &quot;default&quot;: &quot;light&quot;, &quot;options&quot;: [ { &quot;value&quot;: &quot;light&quot;, &quot;label&quot;: &quot;Light (white body)&quot; }, { &quot;value&quot;: &quot;dark&quot;, &quot;label&quot;: &quot;Dark (near-black body)&quot; } ] },
+    { &quot;id&quot;: &quot;target_x&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;layout&quot;, &quot;label&quot;: &quot;Target X&quot;, &quot;default&quot;: 55, &quot;min&quot;: 15, &quot;max&quot;: 85, &quot;step&quot;: 1, &quot;unit&quot;: &quot;%&quot; },
+    { &quot;id&quot;: &quot;target_y&quot;, &quot;type&quot;: &quot;number&quot;, &quot;role&quot;: &quot;layout&quot;, &quot;label&quot;: &quot;Target Y&quot;, &quot;default&quot;: 55, &quot;min&quot;: 15, &quot;max&quot;: 85, &quot;step&quot;: 1, &quot;unit&quot;: &quot;%&quot; },
+    { &quot;id&quot;: &quot;click_label&quot;, &quot;type&quot;: &quot;string&quot;, &quot;role&quot;: &quot;content&quot;, &quot;label&quot;: &quot;Click label&quot;, &quot;default&quot;: &quot;Generate&quot; },
+    { &quot;id&quot;: &quot;exit&quot;, &quot;type&quot;: &quot;enum&quot;, &quot;role&quot;: &quot;timing&quot;, &quot;label&quot;: &quot;Exit&quot;, &quot;description&quot;: &quot;Optional whole-stage departure. Default none: the ignited target stays until the frame cuts.&quot;, &quot;default&quot;: &quot;none&quot;, &quot;options&quot;: [ { &quot;value&quot;: &quot;none&quot;, &quot;label&quot;: &quot;None&quot; }, { &quot;value&quot;: &quot;fade&quot;, &quot;label&quot;: &quot;Fade&quot; }, { &quot;value&quot;: &quot;up&quot;, &quot;label&quot;: &quot;Up&quot; } ] }
+  ]" data-hf-host="">
+      <style>
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+
+        /* Root is styled by #root, never a class: the compositor scopes CSS to
+           [data-composition-id="oversized-cursor"] as a descendant selector, so a
+           rule keyed on the root's own class would never match the root itself.
+
+           Elastic and position-blind: fills whatever box the host slot gives it
+           (inset:0), owns its own stacking + container-query context, no
+           position:fixed anywhere in this file. */
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          isolation: isolate;
+          container-type: size;
+          container-name: oc-stage;
+          font-family: var(--font-body, Inter, system-ui, sans-serif);
+        }
+
+        .oc-stage {
+          position: absolute;
+          inset: 0;
+          /* Transparent by design: this actor overlays whatever scene it is
+             dropped into. demo.html supplies its own backdrop around it. */
+        }
+
+        /* EDIT ZONE: target look. Safe to retheme via tokens; keep it a simple,
+           legible UI surface so the click reaction reads clearly. */
+        .oc-target {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          padding: var(--space-2, 0.6cqw) var(--space-3, 1cqw);
+          border-radius: var(--radius, 0.55cqw);
+          border: 1px solid var(--border, rgba(0, 0, 0, 0.1));
+          background: color-mix(
+            in srgb,
+            var(--surface, #f8fafc) calc((1 - var(--oc-ignite, 0)) * 100%),
+            var(--brand, #0a84ff) calc(var(--oc-ignite, 0) * 100%)
+          );
+          box-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.08),
+            0 0.3cqw 0.8cqw rgba(0, 0, 0, 0.08);
+          --oc-ignite: 0;
+          z-index: 10;
+        }
+
+        /* The check's slot is always laid out; idle, the row shifts left by half of it
+           so the label sits centred, and the check slides in without a layout change. */
+        .oc-target-row {
+          display: flex;
+          align-items: center;
+          gap: 0.45cqw;
+          transform: translateX(calc((var(--oc-ignite, 0) - 1) * 0.725cqw));
+        }
+
+        .oc-target-check {
+          width: 1cqw;
+          height: 1cqw;
+          min-width: 14px;
+          min-height: 14px;
+          flex: none;
+          fill: none;
+          stroke: var(--fg, #ffffff);
+          stroke-width: 2.4;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          opacity: clamp(0, var(--oc-ignite, 0), 1);
+          transform: scale(calc(0.5 + var(--oc-ignite, 0) * 0.5));
+        }
+
+        .oc-target-label {
+          font-size: clamp(12px, 1cqw, 20px);
+          font-weight: 600;
+          line-height: 1;
+          white-space: nowrap;
+          color: color-mix(
+            in srgb,
+            var(--fg, #0f172a) calc((1 - var(--oc-ignite, 0)) * 100%),
+            var(--fg, #ffffff) calc(var(--oc-ignite, 0) * 100%)
+          );
+        }
+
+        /* 224px at 1920 wide: the family's 64u arrow at 3.5x, shadow scaled with it. */
+        .oc-cursor {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 11.67cqw;
+          height: 11.67cqw;
+          pointer-events: none;
+          will-change: transform;
+          filter: drop-shadow(0 0.52cqw 0.73cqw rgba(0, 0, 0, 0.3));
+          z-index: 20;
+        }
+
+        .oc-cursor-svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          stroke-linejoin: round;
+          stroke-linecap: round;
+        }
+
+        /* EDIT ZONE: the two house-convention fill pairings. Pick per scene
+           contrast, keep it constant per film. */
+        .oc-cursor[data-variant="light"] .oc-cursor-svg {
+          fill: #ffffff;
+          stroke: #141414;
+          stroke-width: 1.4;
+        }
+        .oc-cursor[data-variant="dark"] .oc-cursor-svg {
+          fill: #1c1c1c;
+          stroke: #ffffff;
+          stroke-width: 1.4;
+        }
+      </style>
+
+      <div id="root" data-composition-id="oversized-cursor" data-duration="2.6">
+        <div class="oc-stage">
+          <div class="oc-target" id="oc-target">
+            <div class="oc-target-row">
+              <svg class="oc-target-check" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="oc-target-label" id="oc-target-label"></span>
+            </div>
+          </div>
+          <div class="oc-cursor" id="oc-cursor" data-variant="light" aria-hidden="true">
+            <svg class="oc-cursor-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 3 L5 19 L9 15 L12 22 L15 20.5 L11.5 14 L18 14 Z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <script>window.__hfApply&&window.__hfApply()</script><script>
+        (function () {
+          "use strict";
+
+          // NOTE: once mounted, document.documentElement is the HOST page's
+          // root element, not this file's own (the mount contract discards
+          // this file's head and html elements after the loader reads declared
+          // variables/duration once, before cloning). html.getAttribute(...)
+          // below therefore resolves to null under mount, and every read
+          // falls through to its inline default (55 / 55 / "Generate" /
+          // "light"), which match this file's own declared defaults above.
+          var html = document.documentElement;
+          var root = document.getElementById("root");
+          var cursor = document.getElementById("oc-cursor");
+          var target = document.getElementById("oc-target");
+          var targetLabel = document.getElementById("oc-target-label");
+
+          // Declared defaults, then the render/preview engine's override object.
+          var DEFAULTS = {};
+          try {
+            JSON.parse(html.getAttribute("data-composition-variables") || "[]").forEach(
+              function (variable) {
+                DEFAULTS[variable.id] = variable.default;
+              },
+            );
+          } catch (error) {
+            /* malformed declaration falls back to hardcoded defaults below */
+          }
+          // Under mount, the runtime resolves this file's own declared
+          // variables merged with the host clip's per-instance
+          // data-variable-values through a scoped window.__hyperframes,
+          // shadowed in just for this file's script. window.__hfVariables
+          // stays in the merge too, as a raw fallback for the (non-mount)
+          // case where this file is driven by an older render/preview path.
+          var scopedVariables = {};
+          try {
+            if (window.__hyperframes && typeof window.__hyperframes.getVariables === "function") {
+              scopedVariables = window.__hyperframes.getVariables() || {};
+            }
+          } catch (error) {
+            /* no scoped variables API in this context, fall through */
+          }
+          var vars = Object.assign({}, DEFAULTS, window.__hfVariables || {}, scopedVariables);
+
+          function clampPercent(value, fallback) {
+            var n = Number(value);
+            if (!isFinite(n)) n = fallback;
+            return Math.max(0, Math.min(100, n));
+          }
+
+          // Hardcoded per the mount contract: deriving the id from the document
+          // returns null once the compositor rewrites the wrapper's attributes,
+          // which registers the timeline under "null" and breaks seek binding.
+          var compositionId = "oversized-cursor";
+          var duration = Math.max(
+            0.001,
+            parseFloat(
+              root.dataset.duration || html.getAttribute("data-composition-duration") || "2.6",
+            ),
+          );
+          var variant = vars.cursor_variant === "dark" ? "dark" : "light";
+          var targetX = clampPercent(vars.target_x, 55);
+          var targetY = clampPercent(vars.target_y, 55);
+          var clickLabel = String(vars.click_label || "Generate");
+          var exit = vars.exit === "fade" || vars.exit === "up" ? vars.exit : "none";
+          var stage = root.querySelector(".oc-stage");
+
+          cursor.setAttribute("data-variant", variant);
+          targetLabel.textContent = clickLabel;
+          target.style.left = targetX + "%";
+          target.style.top = targetY + "%";
+
+          // Motion runs on transforms only (x/y px), never left/top: layout
+          // props snap to integer device pixels under the seek-by-frame
+          // capture engine and stutter on slow/eased motion. Stage size is
+          // read once, synchronously, at load (deterministic: fixed viewport
+          // per render, no resize mid-render) to convert the percent-based
+          // target/off-screen positions (percent of the HOST box, not a fixed
+          // 1920 stage) into the px x/y GSAP needs.
+          var stageW = root.clientWidth || 1920;
+          var stageH = root.clientHeight || 1080;
+          function xAt(percent) {
+            return (percent / 100) * stageW;
+          }
+          function yAt(percent) {
+            return (percent / 100) * stageH;
+          }
+
+          // Tip-targeting: the family arrow's tip sits at (5/24, 3/24) of its box.
+          // Anchoring the box by that offset makes every x/y below place the TIP.
+          gsap.set(cursor, { xPercent: -20.83, yPercent: -12.5 });
+          gsap.set(target, { xPercent: -50, yPercent: -50, scale: 1 });
+
+          // entry and exit keep fixed durations; both shrink proportionally only
+          // when the composition is too short to fit them.
+          var IN_BASE = 1.02; // 0.5s glide + 0.2s aim + 0.1s press + 0.22s release
+          var OUT_BASE = 0.4;
+          var totalBase = IN_BASE + OUT_BASE;
+          var IN = IN_BASE;
+          var OUT = OUT_BASE;
+          if (duration < totalBase) {
+            var shrink = duration / totalBase;
+            IN = IN_BASE * shrink;
+            OUT = OUT_BASE * shrink;
+          }
+          var HOLD = Math.max(0, duration - (IN + OUT));
+          var OUT_AT = IN + HOLD;
+          var shrinkFactor = IN / IN_BASE;
+
+          var glideDur = 0.5 * shrinkFactor;
+          var clickInDur = 0.1 * shrinkFactor;
+          var clickOutDur = 0.22 * shrinkFactor;
+          // the click lands at a fixed offset into the entry, never in the stretchable hold.
+          var CLICK_AT = (0.5 + 0.2) * shrinkFactor;
+          var TIP_ORIGIN = "20.83% 12.5%";
+
+          var offX = xAt(48);
+          var offY = yAt(116); // resting pose IS off-screen, below the stage
+
+          var tl = gsap.timeline({ paused: true });
+
+          // ---- IN: off-screen entry, one continuous vector, aim, then the tap ----
+          tl.set(cursor, { scale: 1 });
+          tl.set(target, { "--oc-ignite": 0 });
+          tl.fromTo(
+            cursor,
+            { x: offX, y: offY },
+            { x: xAt(targetX), y: yAt(targetY), duration: glideDur, ease: "power3.out" },
+            0,
+          );
+          tl.to(
+            cursor,
+            { scale: 0.9, duration: clickInDur, ease: "power2.in", transformOrigin: TIP_ORIGIN },
+            CLICK_AT,
+          );
+          tl.to(
+            cursor,
+            { scale: 1, duration: clickOutDur, ease: "power2.out", transformOrigin: TIP_ORIGIN },
+            CLICK_AT + clickInDur,
+          );
+
+          // ---- the click switches the target on, same frame as the release ----
+          tl.to(target, { scale: 0.96, duration: clickInDur, ease: "power2.in" }, CLICK_AT);
+          tl.to(
+            target,
+            { scale: 1, duration: clickOutDur, ease: "power2.out" },
+            CLICK_AT + clickInDur,
+          );
+          tl.to(
+            target,
+            { "--oc-ignite": 1, duration: 0.3, ease: "power2.out" },
+            CLICK_AT + clickInDur,
+          );
+
+          // ---- HOLD (elastic): settle just below the target, still pointing at it ----
+          var driftDur = Math.min(0.4, HOLD);
+          if (driftDur > 0.05) {
+            var cq = stageW / 100;
+            tl.to(
+              cursor,
+              {
+                x: xAt(targetX) + 2.5 * cq,
+                y: yAt(targetY) + 2.1 * cq,
+                duration: driftDur,
+                ease: "power2.inOut",
+              },
+              IN,
+            );
+          }
+
+          // ---- OUT: leave the frame, physically, never a fade-in-place ----
+          tl.to(cursor, { y: yAt(120), duration: OUT, ease: "power2.in" }, OUT_AT);
+
+          // Optional whole-stage departure on top of the cursor's own exit;
+          // exit none leaves the ignited target until the frame cuts.
+          if (exit === "fade") {
+            tl.to(stage, { opacity: 0, duration: OUT, ease: "power2.in" }, OUT_AT);
+          } else if (exit === "up") {
+            tl.to(stage, { opacity: 0, y: "-4cqh", duration: OUT, ease: "power2.in" }, OUT_AT);
+          }
+
+          tl.seek(0);
+          window.__timelines = window.__timelines || {};
+          window.__timelines[compositionId] = tl;
+        })();
+      </script>
+    </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      // 0.8s is when the component's click releases: the click moment plus the press.
+      tl.to("#comment-mark", { backgroundColor: "rgba(255, 204, 0, 0.35)", duration: 0.2 }, 0.8);
+      tl.fromTo(
+        "#comment",
+        { opacity: 0, y: 6 },
+        { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" },
+        0.8,
+      );
+      window.__timelines["oversized-cursor-demo"] = tl;
+    </script>
+  
+
+</body></html>

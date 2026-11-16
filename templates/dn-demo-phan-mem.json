@@ -1,0 +1,88 @@
+{
+ "id": "dn-demo-phan-mem",
+ "name": "Demo phần mềm / app",
+ "category": "doanhnghiep",
+ "aspect": "9:16",
+ "pack": "hf_tin",
+ "desc": "Gõ câu lệnh mở đầu, điện thoại + tablet + laptop xoè ra, màn đăng ký, các bước hướng dẫn, tải app trên 2 kho.",
+ "tags": [
+  "app",
+  "phần mềm",
+  "SaaS",
+  "demo"
+ ],
+ "title": "Demo phần mềm",
+ "caption_style": "hf_pill_karaoke",
+ "music": "tech",
+ "brand": {
+  "primary": "#00C2A8",
+  "accent": "#B4FFF2",
+  "dark": "#04110F"
+ },
+ "use_recipe": false,
+ "base_dur": 20.2,
+ "needs": [
+  "tên app",
+  "tính năng chính",
+  "link tải"
+ ],
+ "preview": {
+  "from": 0,
+  "to": 6,
+  "still": 5.2
+ },
+ "fx": [
+  {
+   "t": 3.4,
+   "type": "zoom_in"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hf",
+   "block": "typed-prompt",
+   "t0": 0,
+   "t1": 3.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "text": "Quản lý bán hàng chỉ trong 1 app"
+   }
+  },
+  {
+   "type": "hf",
+   "block": "multi-device-splay",
+   "t0": 3.4,
+   "t1": 7.6,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "signup-flow",
+   "t0": 8,
+   "t1": 12.4,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "onboarding-stepper-flow",
+   "t0": 12.8,
+   "t1": 16.8,
+   "y": 1010,
+   "hideCaptions": true
+  },
+  {
+   "type": "hf",
+   "block": "store-badge-lockup",
+   "t0": 17.2,
+   "t1": 20.2,
+   "y": 640,
+   "hideCaptions": true,
+   "vars": {
+    "headline": "Tải app miễn phí"
+   }
+  }
+ ]
+}
