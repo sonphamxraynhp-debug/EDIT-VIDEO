@@ -3,7 +3,11 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
-[ -d .venv ] || { python3 -m venv .venv && .venv/bin/pip install -q -r services/api/requirements.txt; }
+export PATH="$HOME/.local/bin:$PATH"           # whisper-cli do install-linux.sh cài vào đây
+[ -x .venv/bin/python ] || python3 -m venv .venv
+if [ ! -f .venv/.req-stamp ] || [ services/api/requirements.txt -nt .venv/.req-stamp ]; then
+  .venv/bin/pip install -q -r services/api/requirements.txt && touch .venv/.req-stamp
+fi
 [ -d apps/desktop/node_modules ] || (cd apps/desktop && npm install)
 export PYTHONPATH="$ROOT/services/api"
 VOICE=""

@@ -1,13 +1,16 @@
-"""M07: TTS local pluggable. Provider mặc định: giọng hệ điều hành (macOS `say` – Linh vi_VN,
-Windows SAPI qua PowerShell). Cache theo hash(text + voice + settings)."""
+"""M07: TTS local pluggable. Provider mặc định theo hệ điều hành: macOS `say` (Linh vi_VN),
+Windows SAPI qua PowerShell, Linux Piper (giọng neural tiếng Việt, ~63 MB) hoặc espeak-ng (dự phòng).
+Cache theo hash(text + voice + settings)."""
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
 import platform
 import re
 import shutil
 import subprocess
+import sys
 import time
 import urllib.request
 import uuid
@@ -26,6 +29,46 @@ DEFAULT_LEXICON = {
 
 
 _VS: dict = {"at": 0.0, "data": None}
+
+PIPER_DIR = config.MODELS_DIR / "piper"
+# Giọng Piper tiếng Việt (rhasspy/piper-voices, MIT). vais1000-medium đọc rõ nhất; tải bằng nút trong app hoặc
+# scripts/install-linux.sh. Có thể thả thêm file .onnx + .onnx.json khác vào data/models/piper.
+PIPER_VOICES = {
+    "vi_VN-vais1000-medium": {"path": "vi/vi_VN/vais1000/medium", "size_mb": 63},
+    "vi_VN-25hours_single-low": {"path": "vi/vi_VN/25hours_single/low", "size_mb": 63},
+}
+PIPER_DEFAULT = "vi_VN-vais1000-medium"
+PIPER_BASE_URL = "https://huggingface.co/rhasspy/piper-voices/resolve/main"
+ESPEAK_VOICES = {"Bắc (espeak)": "vi", "Trung (espeak)": "vi-vn-x-central", "Nam (espeak)": "vi-vn-x-south"}
+
+
+def piper_installed() -> bool:
+    return importlib.util.find_spec("piper") is not None
+
+
+def piper_voices() -> list[str]:
+    """Các model Piper đã tải (cần cả .onnx lẫn .onnx.json)."""
+    if not PIPER_DIR.is_dir():
+        return []
+    return sorted(m.name[:-5] for m in PIPER_DIR.glob("*.onnx") if m.with_suffix(".onnx.json").exists())
+
+
+def espeak_bin() -> str | None:
+    return shutil.which("espeak-ng") or shutil.which("espeak")
+
+
+def _os_provider_ok(provider: str) -> bool:
+    """Provider này có chạy được trên máy hiện tại không (cấu hình có thể được lưu từ máy khác)."""
+    system = platform.system()
+    if provider == "os_say":
+        return system == "Darwin" and bool(shutil.which("say"))
+    if provider == "os_sapi":
+        return system == "Windows"
+    if provider == "piper":
+        return piper_installed() and bool(piper_voices())
+    if provider == "espeak":
+        return bool(espeak_bin())
+    return True
 
 
 def voice_server() -> dict:
@@ -68,8 +111,14 @@ def providers() -> list[dict]:
                     "license": "Apple OS voice – dùng nội bộ", "ready": bool(vi)})
     if platform.system() == "Windows":
         out.append({"id": "os_sapi", "name": "Windows SAPI (local)", "voices": ["An"], "license": "OS voice", "ready": True})
-    if shutil.which("piper"):
-        out.append({"id": "piper", "name": "Piper TTS", "voices": [], "license": "MIT", "ready": True})
+    if piper_installed() or platform.system() == "Linux":
+        pv = piper_voices()
+        out.append({"id": "piper", "name": "Piper TTS – giọng neural tiếng Việt (local)", "voices": pv,
+                    "license": "MIT (rhasspy/piper-voices)", "ready": piper_installed() and bool(pv),
+                    "hint": None if pv else "Tải giọng ở màn Quản lý mô hình AI (~63 MB)"})
+    if espeak_bin() and platform.system() != "Darwin":
+        out.append({"id": "espeak", "name": "eSpeak NG (giọng máy, dự phòng)", "voices": list(ESPEAK_VOICES),
+                    "license": "GPL-3.0", "ready": True})
     return out
 
 
@@ -89,17 +138,27 @@ def cache_key(text: str, settings: dict) -> str:
 
 
 def default_voice() -> dict:
-    """Giọng mặc định theo hệ điều hành: macOS `say` (Linh), Windows SAPI (An)."""
-    if platform.system() == "Windows" or not shutil.which("say"):
+    """Giọng mặc định theo hệ điều hành: macOS `say` (Linh), Windows SAPI (An), Linux Piper → espeak-ng."""
+    system = platform.system()
+    if system == "Darwin" and shutil.which("say"):
+        return {"provider": "os_say", "voice": "Linh"}
+    if system == "Windows":
         return {"provider": "os_sapi", "voice": "An"}
-    return {"provider": "os_say", "voice": "Linh"}
+    pv = piper_voices()
+    if piper_installed() and pv:
+        return {"provider": "piper", "voice": PIPER_DEFAULT if PIPER_DEFAULT in pv else pv[0]}
+    if espeak_bin():
+        return {"provider": "espeak", "voice": next(iter(ESPEAK_VOICES))}
+    return {"provider": "piper", "voice": PIPER_DEFAULT}       # chưa có gì: synth báo lỗi kèm hướng dẫn cài
 
 
 def synth(text: str, settings: dict) -> tuple[Path, int]:
     """Trả (wav_path, duration_ms). Chuẩn hoá loudness về target LUFS (M07-04/08)."""
     settings = {"rate": 1.0, "lufs": -16, **default_voice(), **settings}
-    if settings["provider"] == "os_say" and not shutil.which("say") and platform.system() == "Windows":
-        settings.update(default_voice())          # cấu hình lưu từ máy Mac chạy trên Windows
+    if not _os_provider_ok(settings["provider"]):
+        settings.update(default_voice())          # cấu hình lưu từ máy khác (Mac → Windows/Linux …) hoặc giọng chưa tải
+    if settings["provider"] == "piper" and settings.get("voice") not in piper_voices():
+        settings.update(default_voice())
     spoken = normalize_text(text, settings.get("lexicon"))
     key = cache_key(spoken, {k: settings[k] for k in ("provider", "voice", "rate", "lufs")})
     out = VOICE_DIR / f"{key}.wav"
@@ -137,6 +196,30 @@ def synth(text: str, settings: dict) -> tuple[Path, int]:
         voice = ({"kind": "preset", "name": settings["voice"]} if settings["provider"] == "vieneu_preset" else
                  {"kind": "clone", "ref": settings["voice"]})
         voice_call("/tts", {"text": spoken, "out": str(raw), "voice": voice})
+    elif settings["provider"] == "piper":
+        if not piper_installed() or not piper_voices():
+            raise AppError("TTS_UNAVAILABLE", "Chưa có giọng đọc tiếng Việt trên máy",
+                           hint="Linux: chạy scripts/install-linux.sh hoặc tải giọng Piper ở màn Quản lý mô hình AI; "
+                                "dự phòng: sudo apt install espeak-ng.")
+        raw = raw.with_suffix(".wav")
+        model = PIPER_DIR / f"{settings['voice']}.onnx"
+        length = 1.0 / max(0.5, min(2.0, float(settings["rate"])))        # rate 1.08 → đọc nhanh hơn
+        r = subprocess.run([sys.executable, "-m", "piper", "-m", str(model), "-f", str(raw),
+                            "--length-scale", f"{length:.3f}", "--sentence-silence", "0.15"],
+                           input=spoken, text=True, capture_output=True, timeout=300, encoding="utf-8")
+        if r.returncode != 0 or not raw.exists():
+            raise AppError("TTS_FAILED", "Piper TTS lỗi", details={"stderr": (r.stderr or "")[-300:]}, retryable=True)
+    elif settings["provider"] == "espeak":
+        exe = espeak_bin()
+        if not exe:
+            raise AppError("TTS_UNAVAILABLE", "Chưa cài espeak-ng", hint="sudo apt install espeak-ng")
+        raw = raw.with_suffix(".wav")
+        lang = ESPEAK_VOICES.get(settings["voice"], settings["voice"] if settings["voice"].startswith("vi") else "vi")
+        wpm = int(150 * float(settings["rate"]))
+        r = subprocess.run([exe, "-v", lang, "-s", str(wpm), "-w", str(raw), "--stdin"],
+                           input=spoken, text=True, capture_output=True, timeout=300, encoding="utf-8")
+        if r.returncode != 0 or not raw.exists():
+            raise AppError("TTS_FAILED", "espeak-ng lỗi", details={"stderr": (r.stderr or "")[-300:]}, retryable=True)
     else:
         raise AppError("TTS_PROVIDER", f"Provider {settings['provider']} chưa cấu hình")
     tmp = VOICE_DIR / f"{key}.{uid}.part.wav"

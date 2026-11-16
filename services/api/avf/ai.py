@@ -46,7 +46,9 @@ def generate_json(system: str, prompt: str, validate, *, retries: int = 2, tempe
     for attempt in range(retries + 1):
         body = {
             "model": config.OLLAMA_MODEL, "stream": False, "format": "json", "think": False,
-            "options": {"temperature": temperature, **({"seed": seed + attempt} if seed is not None else {})},
+            "keep_alive": config.OLLAMA_KEEP_ALIVE,
+            "options": {"temperature": temperature, "num_ctx": config.OLLAMA_NUM_CTX,
+                        **({"seed": seed + attempt} if seed is not None else {})},
             "messages": [{"role": "system", "content": system},
                          {"role": "user", "content": prompt + ("\n/no_think" if "qwen3" in config.OLLAMA_MODEL else "")}],
         }

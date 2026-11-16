@@ -32,6 +32,9 @@ Yêu cầu: Python 3.11+, Node 18+, FFmpeg/ffprobe trong PATH. Tuỳ chọn: Oll
 .venv/bin/python -I scripts/smoke_real.py video1.mov video2.mp4 [--folder thư_mục]   # test toàn bộ tính năng với video thật
 ```
 
+Linux: chạy `./scripts/install-linux.sh` một lần (kiểm tra máy, cài thư viện, giọng Piper tiếng Việt, whisper-cli, model AI — hỏi
+trước khi tải phần lớn), sau đó `./scripts/start.sh`. Chi tiết và cấu hình cho máy RAM 16 GB: [CAI-DAT.md](CAI-DAT.md).
+
 Windows (PowerShell): `.\scripts\dev.ps1` / `.\scripts\start.ps1` (cần Python 3.11+, Node 18+, ffmpeg trong PATH; giọng tiếng Việt
 cài ở Settings → Speech). Mã đã rà soát cho Windows nhưng mới chạy thử thật trên macOS.
 
@@ -39,7 +42,8 @@ Hướng dẫn sử dụng: [docs/HUONG_DAN.md](docs/HUONG_DAN.md) (xem trực t
 Chụp lại ảnh tài liệu: `scripts/capture_screens.py` (Chrome/Edge headless).
 
 Biến môi trường: `AVF_DATA_DIR` (CSDL, media, cache), `AVF_OUTPUT_DIR` (video xuất), `AVF_OLLAMA_MODEL`
-(mặc định `qwen3:8b`), `AVF_PORT`, `AVF_MIN_FREE_GB`.
+(mặc định `qwen3:8b`), `AVF_OLLAMA_NUM_CTX` (8192), `AVF_OLLAMA_KEEP_ALIVE` (3m), `AVF_RAM_PER_RENDER_GB` (4),
+`AVF_MIN_FREE_RAM_GB` (1.5), `AVF_PORT`, `AVF_MIN_FREE_GB`.
 
 ## Ứng dụng desktop (Tauri 2)
 
@@ -84,7 +88,7 @@ services/api/avf/
   media.py               ffprobe, proxy, keyframe, waveform, scene detect, chất lượng, OCR, ASR
   creative.py            ma trận biến thể, claim gate, độ tương đồng/cụm, kịch bản, storyboard
   ai.py                  client Ollama: JSON output + validate + retry → fallback template engine
-  tts.py                 TTS local (macOS `say`/Windows SAPI), lexicon đọc số/đơn vị, loudnorm, cache theo hash
+  tts.py                 TTS local (macOS `say`/Windows SAPI/Linux Piper + espeak-ng), lexicon đọc số/đơn vị, loudnorm, cache
   render.py              timeline JSON → FFmpeg: motion, phụ đề/tiêu đề (Pillow), mix giọng, DRAFT, xuất atomic
   pipeline.py            nghiệp vụ A–D + state machine biến thể + QC + duyệt
   scale.py               hook, cổng nguồn, biến số hình/tiếng, điểm nguyên bản, ước tính, yếu tố thắng → lô kế tiếp
@@ -110,7 +114,7 @@ Luồng: Nhập nguồn → Phân tích (cảnh, keyframe, OCR, ASR) → Product
 | Kịch bản | Ollama qwen3:8b thật; claim gate bắt sinh lại, sau đó dùng template engine (chỉ ghép dữ liệu đã duyệt) |
 | Claim gate | Chặn claim chưa duyệt/bị cấm, cụm từ rủi ro, câu không khớp claim được trích; cảnh báo câu lợi ích không trích dẫn |
 | Độ tương đồng / nguyên bản | Cosine unigram+bigram cho chữ; hình theo cảnh/bố cục/font; tiếng theo giọng/tốc độ/nhạc. Chưa dùng embedding hay perceptual hash khung hình |
-| TTS | Giọng hệ điều hành (macOS "Linh") × 3 tốc độ; máy chỉ có 1 giọng Việt — thêm giọng OS khác là tự xoay vòng; chưa có Piper/voice clone |
+| TTS | Giọng hệ điều hành (macOS "Linh", Windows SAPI) × 3 tốc độ; Linux: Piper neural tiếng Việt (`vi_VN-vais1000-medium`), dự phòng espeak-ng; giọng nhái/10 giọng có sẵn qua VieNeu (`setup-voice.sh`) |
 | Render | FFmpeg thật; motion zoom/pan; bố cục full/split/pip/packshot; logo + thẻ kết thương hiệu; GPU VideoToolbox/NVENC tự fallback CPU |
 | Nhạc nền + ducking | Thả file vào `data/music` kèm `LICENSE.txt`; app xoay vòng nhạc theo biến thể và duck dưới giọng. Không kèm nhạc sẵn |
 | GPU %/VRAM/nhiệt độ | Không đọc được trên macOS → hiển thị N/A, không bịa số |

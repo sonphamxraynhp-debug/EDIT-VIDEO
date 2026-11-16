@@ -19,6 +19,9 @@ PORT = int(os.environ.get("AVF_PORT", "8765"))
 
 OLLAMA_URL = os.environ.get("AVF_OLLAMA_URL", "http://127.0.0.1:11434")
 OLLAMA_MODEL = os.environ.get("AVF_OLLAMA_MODEL", "qwen3:8b")
+# Máy 16 GB: giới hạn ngữ cảnh (KV cache ~1,2 GB ở 8192) và nhả model khỏi RAM sau 3 phút rảnh để dành RAM cho render
+OLLAMA_NUM_CTX = int(os.environ.get("AVF_OLLAMA_NUM_CTX", "8192"))
+OLLAMA_KEEP_ALIVE = os.environ.get("AVF_OLLAMA_KEEP_ALIVE", "3m")
 FFMPEG = os.environ.get("AVF_FFMPEG", "ffmpeg")
 FFPROBE = os.environ.get("AVF_FFPROBE", "ffprobe")
 WHISPER_CLI = os.environ.get("AVF_WHISPER_CLI", "whisper-cli")
@@ -30,6 +33,8 @@ FONT_CANDIDATES = [
     "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
     "C:/Windows/Fonts/arialbd.ttf",
     "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "/usr/share/fonts/truetype/noto/NotoSans-Bold.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
 ]
 
 MIN_FREE_DISK_GB = float(os.environ.get("AVF_MIN_FREE_GB", "2"))

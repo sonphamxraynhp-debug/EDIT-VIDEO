@@ -31,6 +31,7 @@ Sau khi cài, app mở ở địa chỉ http://127.0.0.1:8765 trên trình duy�
 | Ollama + model `qwen3:8b` | Nên có | 5,2 GB | Kịch bản viết theo khuôn mẫu, không phải AI |
 | whisper-cli (whisper.cpp) | Nên có | nhỏ | Không nghe được lời thoại trong clip |
 | Model nghe lời thoại | Nên có | 574 MB | Tải bằng nút trong app sau khi mở |
+| Giọng Piper tiếng Việt (chỉ Linux) | Nên có | 63 MB | Linux đọc bằng giọng máy espeak-ng (nghe robot) |
 | Bộ giọng VieNeu | Nên có (hiện chỉ macOS, Linux) | khoảng 1 GB | Mất 10 giọng có sẵn và giọng nhái, chỉ còn giọng máy |
 | Tesseract | Tuỳ chọn | nhỏ | Không đọc chữ trên hình |
 | Thư viện nhạc nền | Nên có | 305 MB | Tải bằng nút trong app; thiếu thì video không có nhạc nền |
@@ -38,6 +39,16 @@ Sau khi cài, app mở ở địa chỉ http://127.0.0.1:8765 trên trình duy�
 Font chữ phụ đề đã nằm sẵn trong mã nguồn (`services/api/avf/fonts`), không cần cài thêm.
 
 Máy nên có RAM từ 16 GB và còn trống ít nhất 15 GB ổ đĩa. RAM dưới 16 GB vẫn chạy được nhưng bước viết kịch bản bằng AI sẽ chậm.
+
+### Máy RAM 16 GB — app đã tự cấu hình
+
+| Phần | Dùng RAM | App làm gì để vừa 16 GB |
+|---|---|---|
+| Ollama + `qwen3:8b` | ~6–7 GB khi đang viết kịch bản | Ngữ cảnh 8192 (`AVF_OLLAMA_NUM_CTX`), nhả model khỏi RAM sau 3 phút rảnh (`AVF_OLLAMA_KEEP_ALIVE`); `start.sh` bật Ollama với 1 model, 1 yêu cầu, KV cache nén |
+| Whisper large-v3-turbo (nén) | ~1 GB | Chạy tối đa 8 luồng, chừa 1 nhân cho giao diện |
+| Mỗi job dựng video 1080×1920 | ~1–2 GB | Worker tự giới hạn số job render song song theo RAM: 16 GB → tối đa 3 (`AVF_RAM_PER_RENDER_GB`, mặc định 4); RAM trống dưới 1,5 GB thì tạm chưa nhận job mới (`AVF_MIN_FREE_RAM_GB`) |
+
+Máy chỉ có 8 GB: đặt `AVF_OLLAMA_MODEL=qwen3:4b` (script Linux tự chọn khi RAM dưới 12 GB) và để Cài đặt → Hiệu năng ở "Tiết kiệm".
 
 ## macOS
 
@@ -99,6 +110,42 @@ curl -s http://127.0.0.1:8771/health
 
 Lệnh đầu phải trả về JSON. Lệnh thứ hai (máy chủ giọng) phải có `"ready": true` và danh sách `presets` gồm 10 giọng;
 nếu không kết nối được nghĩa là bước 3 chưa xong, app vẫn dùng được với giọng máy.
+
+## Linux (Ubuntu/Debian, Fedora, Arch)
+
+### Bước 1. Chạy script cài đặt
+
+```bash
+./scripts/install-linux.sh
+```
+
+Script kiểm tra máy, cài thư viện Python (kèm Piper TTS), dựng giao diện, rồi **hỏi trước** từng phần tải lớn:
+giọng Piper tiếng Việt (63 MB), dựng `whisper-cli` từ mã nguồn + model nghe 574 MB, model `qwen3:8b` 5,2 GB.
+Thêm `--yes` để đồng ý tất cả, `--minimal` để chỉ cài phần bắt buộc + giọng đọc.
+
+Script **không tự chạy sudo**. Thiếu gói hệ thống thì nó in ra lệnh (ví dụ Ubuntu:
+`sudo apt update && sudo apt install -y python3 python3-venv python3-pip nodejs npm ffmpeg espeak-ng tesseract-ocr tesseract-ocr-vie git cmake build-essential`)
+để người dùng tự chạy, rồi chạy lại script. Ollama cũng do người dùng tự cài:
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+Sau đó chạy lại `./scripts/install-linux.sh` để tải `qwen3:8b`. Script chạy lại bao nhiêu lần cũng được.
+
+### Bước 2. Mở app
+
+```bash
+./scripts/start.sh
+```
+
+Chờ dòng `AI Video Factory: http://127.0.0.1:8765`, mở địa chỉ đó trên trình duyệt. Script cài cũng tạo lối tắt
+"AI Video Factory" trong menu ứng dụng. Nếu Ollama đã cài mà chưa chạy, `start.sh` tự bật kèm.
+
+Kiểm tra: `curl -s http://127.0.0.1:8765/api/v1/models` — dòng `tts` phải có `"installed": true`.
+Nếu đang dùng eSpeak (giọng máy), vào **Nâng cao → Quản lý mô hình AI** bấm "Tải giọng Piper tiếng Việt".
+
+Bộ giọng VieNeu (10 giọng có sẵn + giọng nhái, ~1 GB) trên Linux cài giống macOS: `./scripts/setup-voice.sh`.
 
 ## Windows (PowerShell)
 
@@ -170,10 +217,13 @@ chứa mô tả, hashtag, link để dán khi đăng). Toàn bộ dữ liệu c�
 | Mục "Giọng có sẵn" bị mờ | Chưa cài bộ giọng hoặc máy chủ giọng chưa chạy | Chạy `./scripts/setup-voice.sh` rồi mở lại bằng `./scripts/start.sh` |
 | Lần nghe thử giọng đầu tiên chậm | Máy đang nạp và tải model giọng | Chờ, các lần sau nhanh |
 | Kịch bản ra đều đều theo khuôn | Không có Ollama nên app dùng engine mẫu | Cài Ollama và model như bước 2 |
+| Linux: giọng đọc nghe như robot | Chưa có giọng Piper nên dùng espeak-ng | Quản lý mô hình AI → "Tải giọng Piper tiếng Việt", hoặc chạy lại `./scripts/install-linux.sh` |
+| Linux: `Không tạo được môi trường Python` | Thiếu gói venv | `sudo apt install python3-venv` |
+| Máy chậm/đơ khi vừa viết kịch bản vừa dựng video | RAM đầy | Cài đặt → Hiệu năng → "Tiết kiệm" hoặc giảm số job song song; xem bảng RAM 16 GB ở trên |
 
 ## Mở lại app những lần sau
 
-- macOS: `./scripts/start.sh`
+- macOS, Linux: `./scripts/start.sh`
 - Windows: `.\scripts\start.ps1`
 
 ## Về giọng đọc

@@ -15,6 +15,8 @@ import time
 import traceback
 from datetime import datetime, timedelta, timezone
 
+import psutil
+
 from . import config, db, pipeline
 from .errors import AppError
 
@@ -25,11 +27,29 @@ RUNNING_STATES = ("PREPARING", "RENDERING", "VERIFYING")
 STALE_SEC = 90
 
 
+# Mỗi job render 1080x1920 (ffmpeg filter_complex + x264) cần khoảng 1–2 GB; để dư cho LLM (qwen3:8b ~6 GB),
+# whisper (~1 GB) và hệ điều hành. Máy 16 GB → tối đa 3 render song song; 8 GB → 1.
+RAM_PER_RENDER_GB = float(os.environ.get("AVF_RAM_PER_RENDER_GB", "4"))
+MIN_FREE_RAM_GB = float(os.environ.get("AVF_MIN_FREE_RAM_GB", "1.5"))
+
+
+def ram_cap(total_gb: float | None = None) -> int:
+    """Số job render tối đa theo RAM máy (trừ ~4 GB cho hệ điều hành + giao diện)."""
+    total = total_gb if total_gb is not None else psutil.virtual_memory().total / 1e9
+    return max(1, int((total - 4) // RAM_PER_RENDER_GB))
+
+
 def limits() -> dict:
     mode = db.get_setting("performance_mode", "balanced")
     parallel = int(db.get_setting("parallel_jobs", 2) or 2)
     base = {"eco": 1, "balanced": parallel, "turbo": max(parallel, os.cpu_count() // 2 or 2)}.get(mode, parallel)
-    return {"ai": 1, "cpu": max(1, base), "render": max(1, base)}
+    cap = ram_cap()
+    return {"ai": 1, "cpu": max(1, min(base, cap + 1)), "render": max(1, min(base, cap))}
+
+
+def ram_tight() -> bool:
+    """RAM trống quá ít → tạm chưa nhận job mới (job đang chạy vẫn tiếp tục), tránh máy bị swap/treo."""
+    return psutil.virtual_memory().available / 1e9 < MIN_FREE_RAM_GB
 
 
 def recover_stale(worker_id: str | None = None) -> int:
@@ -152,6 +172,8 @@ class Worker:
             with self.lock:
                 busy = {c: sum(1 for v in self.running.values() if v == c) for c in lim}
             kinds = [k for k, c in CLASS_OF.items() if busy[c] < lim[c]]
+            if self.running and ram_tight():
+                kinds = []                     # luôn cho chạy ít nhất 1 job để hàng đợi không bao giờ kẹt hẳn
             job = claim(self.id, kinds)
             if job:
                 with self.lock:

@@ -1214,7 +1214,7 @@ type VoiceMode = "os" | "preset" | "clone";
 type Preset = { name: string; gender?: string; region?: string; style?: string };
 const PRESET_DEFAULT = "Hải Đăng";
 const VOICE_OPTS: Array<{ id: VoiceMode; label: string; sub: string }> = [
-  { id: "os", label: "Giọng máy", sub: "Giọng Linh có sẵn của máy. Nhanh, không cần cài thêm." },
+  { id: "os", label: "Giọng máy", sub: "Giọng đọc có sẵn của máy (macOS: Linh, Windows: An, Linux: Piper). Nhanh, nhẹ RAM." },
   { id: "preset", label: "Giọng có sẵn", sub: "10 giọng nam nữ ba miền. Bấm nghe thử rồi chọn, không cần mẫu giọng." },
   { id: "clone", label: "Giọng người nói trong clip", sub: "AI tự cắt đoạn mẫu sạch nhất trong clip rồi đọc kịch bản bằng đúng giọng đó." },
 ];

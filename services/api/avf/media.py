@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -232,8 +233,9 @@ def transcribe(src: Path, work: Path) -> list[dict]:
     wav = work / "asr.wav"
     run([config.FFMPEG, "-y", "-v", "error", "-i", str(src), "-ac", "1", "-ar", "16000", str(wav)])
     out_base = work / "asr"
-    r = run([config.WHISPER_CLI, "-m", str(model), "-l", "vi", "-oj", "-of", str(out_base), "-f", str(wav)],
-            timeout=3600)
+    threads = str(min(8, max(2, (os.cpu_count() or 4) - 1)))          # chừa 1 nhân cho giao diện / render
+    r = run([config.WHISPER_CLI, "-m", str(model), "-l", "vi", "-t", threads, "-oj", "-of", str(out_base),
+             "-f", str(wav)], timeout=3600)
     wav.unlink(missing_ok=True)
     jf = out_base.with_suffix(".json")
     if r.returncode != 0 or not jf.exists():

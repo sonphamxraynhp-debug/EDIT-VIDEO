@@ -232,7 +232,8 @@ def voice_options() -> list[dict]:
         if p.get("ready") and not p["id"].startswith("vieneu"):
             for v in p.get("voices") or []:
                 out.append({"provider": p["id"], "voice": v})
-    return out or [tts.default_voice()]
+    better = [o for o in out if o["provider"] != "espeak"]      # giọng máy espeak chỉ dùng khi không còn giọng nào khác
+    return better or out or [tts.default_voice()]
 
 
 def decorate_concept(concept: dict, idx: int, brief: dict) -> dict:

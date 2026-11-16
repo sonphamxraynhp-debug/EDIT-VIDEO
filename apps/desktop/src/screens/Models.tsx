@@ -26,6 +26,8 @@ export default function Models() {
   const [confirmDl, setConfirmDl] = useState(false);
   const [dlPoll, setDlPoll] = useState(false);
   const dl = useApi<any>("/models/whisper/download", undefined, dlPoll ? 1000 : undefined);
+  const [pdPoll, setPdPoll] = useState(false);
+  const pd = useApi<any>("/models/piper/download", undefined, pdPoll ? 1000 : undefined);
   const [tests, setTests] = useState<any[] | null>(null);
   const st = hw?.static;
 
@@ -38,6 +40,26 @@ export default function Models() {
       else toast({ kind: "success", title: "Đã tải xong model Whisper (ggml-large-v3-turbo-q5_0.bin)" });
     }
   }, [dl.data]);
+
+  useEffect(() => {
+    if (pd.data?.running && !pdPoll) setPdPoll(true);
+    if (pd.data && !pd.data.running && pdPoll) {
+      setPdPoll(false);
+      q.reload();
+      if (pd.data.error) toast({ kind: "error", title: "Tải giọng Piper thất bại", body: pd.data.error });
+      else toast({ kind: "success", title: `Đã tải giọng đọc tiếng Việt ${pd.data.model}` });
+    }
+  }, [pd.data]);
+
+  async function startPiper() {
+    try {
+      await api.post("/models/piper/download");
+      setPdPoll(true);
+      pd.reload();
+    } catch (e) {
+      toastError(e, "Không bắt đầu tải giọng được");
+    }
+  }
 
   const models: any[] = q.data?.models || [];
   const sorted = useMemo(() => [...models].sort((a, b) => ORDER.indexOf(a.kind) - ORDER.indexOf(b.kind)), [models]);
@@ -111,7 +133,7 @@ export default function Models() {
             {() => (
               <div className="grid g2">
                 {shown.map((m) => (
-                  <ModelCard key={m.kind} m={m} dl={m.kind === "asr" ? dl.data : undefined} onDownload={() => setConfirmDl(true)} />
+                  <ModelCard key={m.kind} m={m} dl={m.kind === "asr" ? dl.data : m.kind === "tts" ? pd.data : undefined} onDownload={m.kind === "tts" ? startPiper : () => setConfirmDl(true)} />
                 ))}
               </div>
             )}
@@ -212,7 +234,8 @@ export default function Models() {
 
 function ModelCard({ m, dl, onDownload }: { m: any; dl?: any; onDownload: () => void }) {
   const k = KIND[m.kind] || { label: m.kind, icon: <Cpu size={18} />, color: "#8b6cff" };
-  const downloading = m.kind === "asr" && dl?.running;
+  const downloading = (m.kind === "asr" || m.kind === "tts") && dl?.running;
+  const piperMissing = m.kind === "tts" && m.can_download_piper && !(m.piper_voices || []).length;
   return (
     <div className="card" style={{ padding: 14 }}>
       <div className="row" style={{ alignItems: "flex-start" }}>
@@ -245,6 +268,17 @@ function ModelCard({ m, dl, onDownload }: { m: any; dl?: any; onDownload: () => 
           {downloading && <><div className="row between xs"><span>Đang tải ggml-large-v3-turbo-q5_0.bin</span><b>{Math.round((dl.progress || 0) * 100)}%</b></div><Bar value={(dl.progress || 0) * 100} thin tone="teal" style={{ marginTop: 4 }} /></>}
           {dl?.error && !downloading && <div className="xs c-red">Lỗi tải: {dl.error}</div>}
         </div>
+      )}
+      {m.kind === "tts" && (downloading || dl?.error) && (
+        <div className="mt8">
+          {downloading && <><div className="row between xs"><span>Đang tải giọng {dl.model}</span><b>{Math.round((dl.progress || 0) * 100)}%</b></div><Bar value={(dl.progress || 0) * 100} thin tone="teal" style={{ marginTop: 4 }} /></>}
+          {dl?.error && !downloading && <div className="xs c-red">Lỗi tải: {dl.error}</div>}
+        </div>
+      )}
+      {piperMissing && !downloading && (
+        m.piper
+          ? <Btn size="sm" kind="teal" className="mt8" icon={<Download size={13} />} onClick={onDownload}>Tải giọng Piper tiếng Việt (~{m.piper_size_mb} MB)</Btn>
+          : <div className="xs c-orange mt8">Chưa cài Piper – chạy `scripts/install-linux.sh` (hoặc `.venv/bin/pip install piper-tts`) rồi mở lại app.</div>
       )}
       {m.kind === "asr" && !m.installed && !downloading && (
         <Btn size="sm" kind="teal" className="mt8" icon={<Download size={13} />} onClick={onDownload}>Tải từ nguồn đã duyệt (~{WHISPER_MB} MB)</Btn>

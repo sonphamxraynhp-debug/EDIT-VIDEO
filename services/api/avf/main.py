@@ -81,6 +81,13 @@ def bootstrap() -> None:
     for k, v in DEFAULT_SETTINGS.items():
         if db.get_setting(k) is None:
             db.set_setting(k, v)
+    # Giọng mặc định lưu từ máy khác (macOS/Windows) hoặc giọng máy espeak trong khi đã có giọng tốt hơn → đổi sang
+    # giọng tốt nhất của máy này (giữ tốc độ/âm lượng người dùng đã chỉnh)
+    vd = db.get_setting("voice_default") or {}
+    best = tts.default_voice()
+    if vd.get("provider") != best["provider"] and (
+            not tts._os_provider_ok(vd.get("provider", "")) or (vd.get("provider") == "espeak" and best["provider"] == "piper")):
+        db.set_setting("voice_default", {**vd, **best})
 
 
 DEFAULT_BRAND = {"id": "brand-1", "name": "Thương hiệu mặc định", "primary": "#7B56FF", "secondary": "#00D6C0",
@@ -163,6 +170,61 @@ def download_whisper(model: str = "accurate"):
 @app.get(f"{API}/models/whisper/download")
 def download_whisper_state():
     return _download_state
+
+
+_piper_state: dict = {}
+
+
+@app.post(f"{API}/models/piper/download")
+def download_piper(voice: str = tts.PIPER_DEFAULT):
+    """Tải giọng Piper tiếng Việt (rhasspy/piper-voices, MIT) cho Linux. Chỉ chạy khi người dùng bấm."""
+    if _piper_state.get("running"):
+        return _piper_state
+    if voice not in tts.PIPER_VOICES:
+        raise AppError("PIPER_VOICE", f"Không có giọng {voice}")
+    if not tts.piper_installed():
+        raise AppError("PIPER_MISSING", "Chưa cài thư viện Piper", hint="Chạy: .venv/bin/pip install piper-tts")
+    spec = tts.PIPER_VOICES[voice]
+    tts.PIPER_DIR.mkdir(parents=True, exist_ok=True)
+
+    def run():
+        _piper_state.update({"running": True, "progress": 0, "error": None, "model": voice})
+        files = [f"{voice}.onnx.json", f"{voice}.onnx"]
+        try:
+            for i, name in enumerate(files):
+                dest = tts.PIPER_DIR / name
+                tmp = dest.with_name(dest.name + ".part")
+                with urllib.request.urlopen(f"{tts.PIPER_BASE_URL}/{spec['path']}/{name}", timeout=30) as r, \
+                        open(tmp, "wb") as f:
+                    total = int(r.headers.get("Content-Length", 0))
+                    done = 0
+                    while chunk := r.read(1 << 20):
+                        f.write(chunk)
+                        done += len(chunk)
+                        if i == len(files) - 1:
+                            _piper_state["progress"] = round(done / total, 3) if total else 0
+                tmp.replace(dest)
+            onnx = tts.PIPER_DIR / f"{voice}.onnx"
+            db.insert("model_registry", {"kind": "tts", "provider": "piper", "model_name": onnx.name,
+                                         "version": voice, "checksum": media.sha256_file(onnx), "license": "MIT",
+                                         "size_bytes": onnx.stat().st_size, "status": "installed", "created_at": db.now()})
+            if db.get_setting("voice_default", {}).get("provider") in (None, "os_sapi", "os_say", "espeak"):
+                db.set_setting("voice_default", {**db.get_setting("voice_default", {}), "provider": "piper", "voice": voice})
+            db.log_activity(f"Đã tải giọng Piper {voice}")
+        except Exception as e:  # noqa: BLE001
+            _piper_state["error"] = str(e)
+            for name in files:
+                (tts.PIPER_DIR / (name + ".part")).unlink(missing_ok=True)
+        finally:
+            _piper_state["running"] = False
+            db.reset_thread_conn()
+    threading.Thread(target=run, daemon=True).start()
+    return {"running": True, "progress": 0, "model": voice}
+
+
+@app.get(f"{API}/models/piper/download")
+def download_piper_state():
+    return _piper_state
 
 
 @app.post(f"{API}/models/test")

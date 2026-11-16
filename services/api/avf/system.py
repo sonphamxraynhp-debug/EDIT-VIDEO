@@ -90,6 +90,9 @@ def models_status() -> list[dict]:
     whisper = media.find_whisper_model()
     tesslangs = media.run([config.TESSERACT, "--list-langs"]).stdout if media.tool_available(config.TESSERACT) else ""
     tts_p = tts.providers()
+    # Hiện giọng thật sự được dùng: provider sẵn sàng đầu tiên (ưu tiên giọng neural hơn espeak), không thì provider đầu
+    ready = [p for p in tts_p if p["ready"]]
+    tts_main = next((p for p in ready if p["id"] != "espeak"), ready[0] if ready else (tts_p[0] if tts_p else None))
     out = [
         {"kind": "llm", "title": "LLM – Tạo kịch bản, phân tích nội dung", "provider": "Ollama",
          "model_name": config.OLLAMA_MODEL, "installed": any(m["name"] == config.OLLAMA_MODEL for m in llm_models),
@@ -101,9 +104,15 @@ def models_status() -> list[dict]:
          "size_gb": round(whisper.stat().st_size / 1e9, 2) if whisper else 0.15, "license": "MIT",
          "backend": "CPU/Metal", "cli": media.tool_available(config.WHISPER_CLI), "accurate": media.whisper_is_accurate(),
          "download_url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/" + media.WHISPER_MODELS["accurate"]["file"]},
-        {"kind": "tts", "title": "TTS – Chuyển văn bản thành giọng nói", "provider": tts_p[0]["name"] if tts_p else "—",
-         "model_name": ", ".join(tts_p[0]["voices"]) if tts_p else "—", "installed": bool(tts_p and tts_p[0]["ready"]),
-         "size_gb": 0, "license": tts_p[0]["license"] if tts_p else "—", "backend": "CPU"},
+        {"kind": "tts", "title": "TTS – Chuyển văn bản thành giọng nói", "provider": tts_main["name"] if tts_main else "—",
+         "model_name": ", ".join(tts_main["voices"]) if tts_main and tts_main["voices"] else "—",
+         "installed": bool(tts_main and tts_main["ready"]), "size_gb": 0,
+         "license": tts_main["license"] if tts_main else "—", "backend": "CPU",
+         "piper": tts.piper_installed(), "piper_voices": tts.piper_voices(),
+         "can_download_piper": platform.system() == "Linux" or tts.piper_installed(),
+         "piper_size_mb": tts.PIPER_VOICES[tts.PIPER_DEFAULT]["size_mb"],
+         "warning": None if tts_main and tts_main["id"] != "espeak" else
+         ("Đang dùng giọng máy eSpeak — tải giọng Piper để đọc tự nhiên hơn" if tts_main else None)},
         {"kind": "ocr", "title": "OCR – Nhận diện chữ trong ảnh/video", "provider": "Tesseract",
          "model_name": "vie" if "vie" in tesslangs.split() else "eng (thiếu vie)",
          "installed": media.tool_available(config.TESSERACT), "size_gb": 0.02, "license": "Apache 2.0", "backend": "CPU",
