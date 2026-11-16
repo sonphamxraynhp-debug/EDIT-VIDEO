@@ -68,6 +68,8 @@ $A = Join-Path $REPO 'assets'
 if (-not (Test-Path "$A\sfx\catalog.json")) { & $VPY (Join-Path $S 'gen_sfx.py') "$A\sfx" --ext flac }
 if (-not (Test-Path "$A\music\catalog.json")) { & $VPY (Join-Path $S 'gen_music.py') "$A\music" }
 if (-not (Test-Path "$A\broll\catalog.json")) { Push-Location $S; & $VPY gen_broll_catalog.py; Pop-Location }
+# Tải sẵn model whisper (~1,6 GB) để lần dựng đầu không phải chờ; lỗi mạng không chặn cài đặt. Bỏ qua: $env:AVS_SKIP_MODEL = '1'
+if ($env:AVS_SKIP_MODEL -ne '1') { Say 'Tải sẵn model nhận giọng nói (whisper large-v3-turbo, ~1,6 GB)'; & $VPY -I (Join-Path $S 'prefetch_model.py') }
 
 # 3. Gắn thành skill của Claude Code (junction: không cần quyền admin; git pull là cập nhật)
 if (-not $NoSkill -and ((Resolve-Path $REPO).Path -ne $SKILL_DIR)) {

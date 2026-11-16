@@ -17,6 +17,7 @@ import { rippleCut } from './ripple.mjs';
 import { AVS_HOME, getProfile, effectiveProfile } from './profile.mjs';
 import { notify } from './notify.mjs';
 import { findChrome } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 
 const SKILL = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const S = f => path.join(SKILL, 'scripts', f);
@@ -113,7 +114,7 @@ async function applyTemplate(dir, id) {
   delete tl._starter;
   const { default: puppeteer } = await import('puppeteer-core');
   const CHROME = findChrome();
-  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--allow-file-access-from-files'] });
+  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: [...CHROME_ARGS, '--allow-file-access-from-files'] });
   try {
     const pg = await b.newPage(); const errs = []; pg.on('pageerror', e => errs.push(e.message));
     await pg.goto(pathToFileURL(path.join(SKILL, 'engine/index.html')).href, { waitUntil: 'domcontentloaded' });

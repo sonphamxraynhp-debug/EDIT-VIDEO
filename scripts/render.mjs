@@ -11,6 +11,7 @@ import { spawn } from 'node:child_process';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
 import { findChrome } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 import { interceptCdn } from './net_cache.mjs';
 
 const args = process.argv.slice(2);
@@ -27,7 +28,7 @@ const PRESET = args.includes('--fast') ? 'veryfast' : 'medium';
 
 const CHROME = findChrome();
 
-const launchArgs = ['--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars',
+const launchArgs = [...CHROME_ARGS, '--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars',
   '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows',
   '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist']; // WebGL for 3D HyperFrames blocks
 const browsers = [];
@@ -77,7 +78,15 @@ const n = Math.round((t1 - t0) * fps);
 const defMix = path.resolve(tlDir, tl.audio?.mix || 'work/mix.wav');
 const audio = opt('--audio', tl.audio && fs.existsSync(defMix) ? defMix : null);
 // Default min(6, cores-2), max 3 above 1080p (each worker is a whole Chrome); never less than ~1 s of frames per worker.
-const workers = Math.max(1, Math.min(+opt('--workers', Math.min(W * H > 2.5e6 ? 3 : 6, os.cpus().length - 2)) || 1, Math.ceil(n / fps)));
+// RAM cap: one Chrome worker needs ~0.95 GB at 1080×1920 (measured), ~2.7 GB at 4K. Use at most ~45 % of total RAM so the
+// Studio, the browser and whisper keep room (16 GB → 6 workers at 1080p, 2 at 4K; 8 GB → 3 at 1080p).
+// On Linux/Windows os.freemem() is real available memory, so a busy machine gets fewer workers; macOS counts file cache as used.
+// Override: --workers N, or env AVS_RENDER_WORKERS=N (e.g. 2 on a machine that also runs other heavy apps).
+const perWorkerGB = 0.35 + 0.6 * (W * H) / 2.07e6;
+const ramGB = Math.min(os.totalmem() * 0.45, process.platform === 'darwin' ? Infinity : os.freemem() - 1.5e9) / 1e9;
+const ramCap = Math.max(1, Math.floor(ramGB / perWorkerGB));
+const autoWorkers = Math.min(W * H > 2.5e6 ? 3 : 6, os.cpus().length - 2, ramCap);
+const workers = Math.max(1, Math.min(+opt('--workers', process.env.AVS_RENDER_WORKERS || autoWorkers) || 1, Math.ceil(n / fps)));
 const venc = ['-c:v', 'libx264', '-preset', PRESET, '-crf', '17', '-pix_fmt', 'yuv420p', '-r', String(fps)];
 
 const started = Date.now();

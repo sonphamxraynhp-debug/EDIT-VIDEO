@@ -34,6 +34,7 @@ P = lambda p: p if os.path.isabs(p) else os.path.join(base, p)
 dur = tl["duration"]
 SKILL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ffmpeg_compat import filter_script_args  # noqa: E402
 
 
 def find(d, stem):
@@ -240,5 +241,5 @@ os.makedirs(os.path.dirname(out), exist_ok=True)
 script = out + ".filter.txt"
 open(script, "w").write(";\n".join(graph))
 extra = [a for lab, f in outs for a in ("-map", lab, "-t", str(dur), P(f))]
-subprocess.run(["ffmpeg", "-v", "error", "-y", *inputs, "-/filter_complex", script, "-map", "[out]", "-ac", "2", out, *extra], check=True)
+subprocess.run(["ffmpeg", "-v", "error", "-y", *inputs, *filter_script_args(script), "-map", "[out]", "-ac", "2", out, *extra], check=True)
 print("mix ->", out)

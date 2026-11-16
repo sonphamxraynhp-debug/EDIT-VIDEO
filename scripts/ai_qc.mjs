@@ -14,6 +14,7 @@ import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'
 import { spawn, execFile, execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { findChrome, pyBin, spawnClaude } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 
 export const SKILL = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const PY = pyBin(SKILL);
@@ -65,7 +66,7 @@ export async function openEngine(dir, { scale = .75 } = {}) {
   const { default: puppeteer } = await import('puppeteer-core');
   if (!CHROME) throw new Error('Không tìm thấy Google Chrome (cần để render ảnh kiểm tra).');
   const browser = await puppeteer.launch({ executablePath: CHROME, headless: true,
-    args: ['--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars', '--disable-background-timer-throttling', '--disable-renderer-backgrounding'] });
+    args: [...CHROME_ARGS, '--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars', '--disable-background-timer-throttling', '--disable-renderer-backgrounding'] });
   const page = (await browser.pages())[0] || await browser.newPage();
   const E = { browser, page, dir, scale, failed: [], errors: [], curT: null };
   page.on('requestfailed', r => { const u = r.url(); if (u.startsWith('file:')) E.failed.push({ url: decodeURIComponent(u.replace(/^file:\/\//, '')), t: E.curT }); });

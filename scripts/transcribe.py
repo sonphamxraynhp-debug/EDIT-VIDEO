@@ -5,6 +5,7 @@ Output: [{"w": "Video", "s": 0.00, "e": 0.32}, ...]  (flat list of words, second
 """
 import argparse
 import json
+import os
 import subprocess
 import wave
 
@@ -31,13 +32,22 @@ subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.src, "-ac", "1", "-ar", "
 w = wave.open(wav)
 audio = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
 
+# AVS_WHISPER_MODEL overrides the model for every caller (Studio, autopilot, batch…), e.g. "medium" on a slow machine.
+# int8 on CPU: large-v3-turbo needs ~1.5–2 GB RAM, fine on 16 GB. Threads capped so the Studio stays responsive.
+a.model = os.environ.get("AVS_WHISPER_MODEL") or a.model
+THREADS = int(os.environ.get("AVS_WHISPER_THREADS") or min(8, max(1, (os.cpu_count() or 4) - 1)))
 try:
-    model = WhisperModel(a.model, device="cpu", compute_type="int8")
+    model = WhisperModel(a.model, device="cpu", compute_type="int8", cpu_threads=THREADS)
 except Exception as e:  # first run offline / download failed: a worse transcript beats no transcript
     if a.model == "small":
-        raise
+        raise SystemExit(f"Không tải được model whisper ({e.__class__.__name__}). Lần đầu dùng cần mạng để tải model từ huggingface.co "
+                         "(large-v3-turbo ~1,6 GB, lưu ở ~/.cache/huggingface) — kiểm tra mạng/tường lửa rồi thử lại.")
     print(f"model {a.model} không tải được ({e.__class__.__name__}: {e}) — dùng tạm model small", flush=True)
-    model = WhisperModel("small", device="cpu", compute_type="int8")
+    try:
+        model = WhisperModel("small", device="cpu", compute_type="int8", cpu_threads=THREADS)
+    except Exception as e2:
+        raise SystemExit(f"Không tải được model whisper ({e2.__class__.__name__}). Lần đầu dùng cần mạng để tải model từ huggingface.co "
+                         "(large-v3-turbo ~1,6 GB, lưu ở ~/.cache/huggingface) — kiểm tra mạng/tường lửa rồi thử lại.")
 segs, _ = model.transcribe(audio, language=None if a.lang == "auto" else a.lang, word_timestamps=True, vad_filter=False)
 words = []
 for s in segs:

@@ -8,6 +8,9 @@ import argparse
 import json
 import os
 import subprocess
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ffmpeg_compat import filter_script_args  # noqa: E402
 
 ap = argparse.ArgumentParser()
 ap.add_argument("src")
@@ -66,7 +69,7 @@ os.makedirs(a.out_dir, exist_ok=True)
 script = os.path.join(a.out_dir, "cut_filter.txt")
 open(script, "w").write(f"[0:v]{vf}[v];[{0 if has_audio else 1}:a]{af}[a]")
 silence = [] if has_audio else ["-f", "lavfi", "-t", f"{float(probe('format=duration') or acc):.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
-subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.src, *silence, "-/filter_complex", script, "-map", "[v]", "-map", "[a]",
+subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.src, *silence, *filter_script_args(script), "-map", "[v]", "-map", "[a]",
                 "-c:v", "libx264", "-crf", "16", "-preset", "fast", "-c:a", "aac", "-b:a", "192k", os.path.join(a.out_dir, "aroll.mp4")], check=True)
 json.dump(out_words, open(os.path.join(a.out_dir, "words.json"), "w"), ensure_ascii=False, indent=1)
 print(f"{len(spans)} spans, {acc:.2f}s kept, {len(drop)} words dropped")

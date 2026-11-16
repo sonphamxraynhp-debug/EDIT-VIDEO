@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { findChrome } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 import { localize } from './hf_localize.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -36,7 +37,7 @@ var v=vars(),r=document.querySelector('[data-composition-id]')||document.documen
 
 const CHROME = findChrome();
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, protocolTimeout: 60000,
-  args: ['--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows'] });
+  args: [...CHROME_ARGS, '--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows'] });
 
 function copyDir(a, b) {
   fs.mkdirSync(b, { recursive: true });

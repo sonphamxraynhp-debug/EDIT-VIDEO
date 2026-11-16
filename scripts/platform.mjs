@@ -17,6 +17,8 @@ export function findChrome() {
   return c.find(f => f && fs.existsSync(f));
 }
 export const CHROME = findChrome();
+// Chrome refuses to start as root on Linux (Docker, cloud VMs, WSL as root) unless the sandbox is off. AVS_NO_SANDBOX=1 forces it.
+export const CHROME_ARGS = (process.platform === 'linux' && process.getuid?.() === 0) || process.env.AVS_NO_SANDBOX === '1' ? ['--no-sandbox', '--disable-dev-shm-usage'] : [];
 
 // Python of scripts/.venv (setup) — `dir` may be the skill root or scripts/.
 export function pyBin(dir) {

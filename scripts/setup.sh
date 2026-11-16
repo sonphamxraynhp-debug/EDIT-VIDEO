@@ -12,4 +12,5 @@ PY=./.venv/bin/python
 [ -f ../assets/music/catalog.json ] || $PY gen_music.py ../assets/music
 [ -f ../assets/broll/catalog.json ] || $PY gen_broll_catalog.py
 echo "SFX:   $(ls ../assets/sfx/*.flac | wc -l | tr -d ' ') · music: $(ls ../assets/music/*.mp3 | wc -l | tr -d ' ') · b-roll presets: $($PY -c "import json;print(len(json.load(open('../assets/broll/catalog.json'))))")"
+[ "${AVS_SKIP_MODEL:-0}" = 1 ] || $PY -I prefetch_model.py
 echo "OK. Python: $(pwd)/.venv/bin/python"

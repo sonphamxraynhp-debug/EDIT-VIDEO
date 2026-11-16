@@ -18,6 +18,7 @@ import { spawn } from 'node:child_process';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
 import { findChrome, linkPath } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const SK = path.resolve(here, '..');
@@ -71,7 +72,7 @@ const fps0 = base.fps || 30;
 const footVert = (base.height || 720) > (base.width || 1280);
 
 const CHROME = findChrome();
-const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: [...CHROME_ARGS, '--allow-file-access-from-files', '--disable-web-security', '--force-color-profile=srgb', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
 fs.mkdirSync(PREV, { recursive: true });
 
 const ff = (a) => new Promise((res, rej) => { const p = spawn('ffmpeg', a, { stdio: ['pipe', 'ignore', 'inherit'] }); p.on('close', c => (c ? rej(new Error('ffmpeg ' + c)) : res())); p.stdin.end(); });

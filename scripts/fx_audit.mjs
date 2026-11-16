@@ -8,6 +8,7 @@ import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
 import { findChrome } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 import { interceptCdn } from './net_cache.mjs';
 
 const a = process.argv.slice(2), opt = (k, d) => { const i = a.indexOf(k); return i >= 0 ? a[i + 1] : d; };
@@ -47,7 +48,7 @@ function checkTl(tl, D) {
   return issues;
 }
 
-const browser = await puppeteer.launch({ executablePath: findChrome(), headless: true, args: ['--allow-file-access-from-files', '--disable-web-security', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const browser = await puppeteer.launch({ executablePath: findChrome(), headless: true, args: [...CHROME_ARGS, '--allow-file-access-from-files', '--disable-web-security', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 const page = (await browser.pages())[0] || await browser.newPage();
 await interceptCdn(page).catch(() => {});
 const W = 216, H = Math.round(216 * (base.height || 1920) / (base.width || 1080));

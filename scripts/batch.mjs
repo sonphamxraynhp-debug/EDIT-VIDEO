@@ -18,6 +18,7 @@ import zlib from 'node:zlib';
 import { spawn, execFileSync } from 'node:child_process';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { findChrome, linkPath, pyBin } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SKILL = path.resolve(HERE, '..');
@@ -229,7 +230,7 @@ async function browser() {
   if (BROWSER) return BROWSER;
   const { default: puppeteer } = await import('puppeteer-core');
   const CHROME = findChrome();
-  BROWSER = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--allow-file-access-from-files', '--disable-web-security', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+  BROWSER = await puppeteer.launch({ executablePath: CHROME, headless: true, args: [...CHROME_ARGS, '--allow-file-access-from-files', '--disable-web-security', '--hide-scrollbars', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   return BROWSER;
 }
 // applyTemplate runs inside the engine page (same function Studio uses).

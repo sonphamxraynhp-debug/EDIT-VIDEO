@@ -4,6 +4,8 @@
 >
 > Mã nguồn mở theo giấy phép MIT. Khi sao chép, sửa hoặc phát hành lại (kể cả nhờ AI sửa), **giữ nguyên ghi công tác giả**. Xem [mục 16. Bản quyền và ghi công](#16-bản-quyền-và-ghi-công).
 
+> **Bản EDIT-VIDEO:** dựa trên AI Video Studio của Nguyễn Tất Kiểm – <https://github.com/nguyentatkiem/ai-video-studio>. Đã sửa lỗi xuất video trên ffmpeg 6 và tối ưu cho máy RAM 16 GB. Cài nhanh: xem [CAI-DAT-MAY-16GB.md](CAI-DAT-MAY-16GB.md).
+
 **Phần mềm edit video chạy ngay trên máy của bạn (macOS và Windows 10/11), có AI hỗ trợ.** Làm Reels, TikTok, YouTube Shorts và video ngang YouTube cho khoá học, bất động sản, review, chia sẻ, tin tức, bán hàng, podcast.
 
 Giao diện tối kiểu editor chuyên nghiệp. Phần mềm có **28 gói style**, **90 template có video xem trước**, **khoảng 200 khối hoạt ảnh HyperFrames**, AI dựng giúp bằng Claude, b-roll và âm thanh tự động, làm hàng loạt từ Excel. Bạn còn có thể **clone style từ bất kỳ video nào** bạn thích.

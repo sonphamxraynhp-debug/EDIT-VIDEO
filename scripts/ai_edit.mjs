@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import os from 'node:os'; import path from 'node:path'; import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { findChrome, spawnClaude } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 
 const SKILL = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -30,7 +31,7 @@ export function loadProject(p) {
 export async function engineCatalog(tl, caps, dir) {
   const { default: puppeteer } = await import('puppeteer-core');
   const CHROME = findChrome();
-  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--allow-file-access-from-files'] });
+  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: [...CHROME_ARGS, '--allow-file-access-from-files'] });
   try {
     const pg = await b.newPage();
     await pg.goto(pathToFileURL(path.join(SKILL, 'engine/index.html')).href, { waitUntil: 'domcontentloaded' });

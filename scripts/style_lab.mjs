@@ -16,6 +16,7 @@ import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'
 import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { findChrome, pyBin, claudeBin, spawnClaude } from './platform.mjs';
+import { CHROME_ARGS } from './platform.mjs';
 
 const SKILL = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const HOME = process.env.AVS_HOME || path.join(os.homedir(), '.ai-video-studio');
@@ -191,7 +192,7 @@ export async function validatePack(code, id, { outDir, vertical = true } = {}) {
   if (code.length > 40000) warnings.push(`Mã dài ${Math.round(code.length / 1024)} KB (nên ≤ 22 KB)`);
   const ft = footage();
   const { default: puppeteer } = await import('puppeteer-core');
-  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--allow-file-access-from-files', '--force-color-profile=srgb', '--hide-scrollbars'] });
+  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: [...CHROME_ARGS, '--allow-file-access-from-files', '--force-color-profile=srgb', '--hide-scrollbars'] });
   try {
     const [W, H] = vertical ? [360, 640] : [640, 360];
     const pg = await b.newPage(); const errs = [];
@@ -436,7 +437,7 @@ async function applyToProject(id, dir, title) {
   if (!tpl) throw new Error('Không có style ' + id);
   const caps = typeof tl.captions === 'string' ? rd(path.join(path.dirname(tlFile), tl.captions), []) : tl.captions || [];
   const { default: puppeteer } = await import('puppeteer-core');
-  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ['--allow-file-access-from-files'] });
+  const b = await puppeteer.launch({ executablePath: CHROME, headless: true, args: [...CHROME_ARGS, '--allow-file-access-from-files'] });
   try {
     const pg = await b.newPage(); const errs = []; pg.on('pageerror', e => errs.push(e.message));
     await pg.goto(pathToFileURL(path.join(SKILL, 'engine/index.html')).href, { waitUntil: 'domcontentloaded' });

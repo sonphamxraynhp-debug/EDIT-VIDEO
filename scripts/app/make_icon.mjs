@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import puppeteer from 'puppeteer-core';
 import { findChrome } from '../platform.mjs';
+import { CHROME_ARGS } from '../platform.mjs';
 
 const out = process.argv[2] || 'icon_1024.png';
 const CHROME = findChrome();
@@ -15,7 +16,7 @@ const html = `<html><body style="margin:0;background:transparent">
   <style>i{position:absolute;background:#0B0C0F;border-radius:${2 * k}px}</style>
   ${bar(6, 6, 12)}${bar(10.5, 9, 9)}${bar(15, 7, 11)}
 </div></body></html>`;
-const browser = await puppeteer.launch({ executablePath: CHROME, headless: true });
+const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: CHROME_ARGS });
 const page = (await browser.pages())[0];
 await page.setViewport({ width: 1024, height: 1024 });
 await page.setContent(html);
