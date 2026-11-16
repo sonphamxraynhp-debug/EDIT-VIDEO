@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "avf.timeline/1",
+  "title": "AI Video Factory – Timeline JSON",
+  "type": "object",
+  "required": ["schema", "canvas", "duration_ms", "tracks"],
+  "properties": {
+    "schema": { "const": "avf.timeline/1" },
+    "canvas": {
+      "type": "object",
+      "required": ["aspect", "width", "height", "fps"],
+      "properties": {
+        "aspect": { "enum": ["9:16", "1:1", "16:9", "4:5"] },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "fps": { "type": "integer" }
+      }
+    },
+    "duration_ms": { "type": "integer", "minimum": 0 },
+    "seed": { "type": "integer" },
+    "template_id": { "type": ["string", "null"] },
+    "template_version": { "type": ["integer", "null"] },
+    "script_version": { "type": "integer" },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "beat": { "type": "integer" },
+          "code": { "enum": ["BLOCK-03", "WARN-02"] },
+          "message": { "type": "string" },
+          "suggest_shot": { "type": "string" }
+        }
+      }
+    },
+    "tracks": {
+      "type": "object",
+      "required": ["video", "captions"],
+      "properties": {
+        "video": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["asset_id", "src_in_ms", "src_out_ms", "start_ms", "end_ms"],
+            "properties": {
+              "scene_id": { "type": ["string", "null"] },
+              "asset_id": { "type": "string" },
+              "src_in_ms": { "type": "integer" },
+              "src_out_ms": { "type": "integer" },
+              "start_ms": { "type": "integer" },
+              "end_ms": { "type": "integer" },
+              "loop": { "type": "boolean" },
+              "motion": { "enum": ["none", "zoom_in", "zoom_out", "pan_left", "pan_right"] },
+              "fallback": { "type": "boolean" }
+            }
+          }
+        },
+        "captions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["start_ms", "end_ms", "text"],
+            "properties": {
+              "beat": { "type": "integer" },
+              "start_ms": { "type": "integer" },
+              "end_ms": { "type": "integer" },
+              "text": { "type": "string" },
+              "words": { "type": "array", "items": { "type": "object" } }
+            }
+          }
+        },
+        "titles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "beat": { "type": "integer" },
+              "start_ms": { "type": "integer" },
+              "end_ms": { "type": "integer" },
+              "text": { "type": "string" },
+              "style": { "enum": ["hook", "callout", "cta"] }
+            }
+          }
+        },
+        "voice": { "type": "array" },
+        "voice_mix": { "type": "string" },
+        "music": { "type": "array" },
+        "music_mix": { "type": "string" }
+      }
+    }
+  }
+}

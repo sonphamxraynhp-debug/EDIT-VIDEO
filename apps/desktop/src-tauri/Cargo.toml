@@ -1,0 +1,15 @@
+[package]
+name = "ai-video-factory"
+version = "1.0.0"
+description = "AI Video Factory – Local AI Video Studio"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+[profile.release]
+strip = true
+lto = true
