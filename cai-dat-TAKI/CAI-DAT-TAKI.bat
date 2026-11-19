@@ -1,19 +1,239 @@
 @echo off
 setlocal
 rem ==================================================================
-rem  TAKI Agentic AI - tao loi tat tren man hinh (Desktop)
-rem  Cach dung: bam dup vao file nay 1 lan.
-rem  File se tu tim thu muc TAKI, chep ban chay "Mo-TAKI.bat" vao do
-rem  va tao bieu tuong "TAKI Agentic AI" ngoai man hinh.
+rem  CAI DAT TAKI Agentic AI - TU DONG TU A DEN Z (Windows 10/11)
+rem  Cach dung: bam dup vao file nay. Lam theo chu tren man hinh.
+rem  File tu: cai Node.js, Git, Chrome, Claude Code; tim + giai nen
+rem  file zip TAKI; chay buoc cai dat; tao bieu tuong ngoai man hinh;
+rem  roi mo he thong. Chay lai nhieu lan van an toan.
 rem ==================================================================
 if /i "%~1"=="run" goto run
 if /i "%~n0"=="Mo-TAKI" goto run
 
 :install
-title Tao loi tat TAKI Agentic AI
+title CAI DAT TAKI Agentic AI - dung dong cua so nay
+set "SELF=%~f0"
 echo.
-echo  Dang tim thu muc TAKI Agentic AI tren may...
+echo  ============================================================
+echo    CAI DAT TAKI Agentic AI - TU DONG
+echo    Mat khoang 10-30 phut. Neu Windows hoi "Yes/No" (quyen
+echo    Admin) thi bam YES. Khong dong cua so nay.
+echo  ============================================================
+echo.
+
+rem ---------- 1. winget ----------
+echo  [1/8] Kiem tra trinh cai dat cua Windows (winget)...
+where winget >nul 2>nul
+if errorlevel 1 goto nowinget
+
+rem ---------- 2. Node.js 24+ ----------
+echo  [2/8] Node.js...
+call :refreshpath
+call :nodeok
+if not errorlevel 1 goto node_done
+echo        Dang cai Node.js (co the hien hop thoai Admin - bam Yes)...
+winget install --id OpenJS.NodeJS.LTS -e --silent --accept-source-agreements --accept-package-agreements
+call :refreshpath
+call :nodeok
+if not errorlevel 1 goto node_done
+winget upgrade --id OpenJS.NodeJS.LTS -e --silent --accept-source-agreements --accept-package-agreements
+call :refreshpath
+call :nodeok
+if not errorlevel 1 goto node_done
+winget install --id OpenJS.NodeJS -e --silent --accept-source-agreements --accept-package-agreements
+call :refreshpath
+call :nodeok
+if errorlevel 1 goto failnode
+:node_done
+for /f "delims=" %%v in ('node -v') do echo        OK - Node.js %%v
+
+rem ---------- 3. Git ----------
+echo  [3/8] Git...
+where git >nul 2>nul
+if not errorlevel 1 goto git_done
+winget install --id Git.Git -e --silent --accept-source-agreements --accept-package-agreements
+call :refreshpath
+:git_done
+echo        OK
+
+rem ---------- 4. Chrome ----------
+echo  [4/8] Google Chrome...
+if exist "%ProgramFiles%\Google\Chrome\Application\chrome.exe" goto chrome_done
+if exist "%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe" goto chrome_done
+if exist "%LocalAppData%\Google\Chrome\Application\chrome.exe" goto chrome_done
+winget install --id Google.Chrome -e --silent --accept-source-agreements --accept-package-agreements
+:chrome_done
+echo        OK
+
+rem ---------- 5. Claude Code ----------
+echo  [5/8] Claude Code...
+powershell -NoProfile -Command "$b = Join-Path $env:USERPROFILE '.local\bin'; $p = [Environment]::GetEnvironmentVariable('Path','User'); if (-not $p) { $p = '' }; if (($p -split ';') -notcontains $b) { [Environment]::SetEnvironmentVariable('Path', ($p.TrimEnd(';') + ';' + $b).TrimStart(';'), 'User') }"
+powershell -NoProfile -Command "try { if ((Get-ExecutionPolicy -Scope CurrentUser) -in 'Restricted','AllSigned','Undefined') { Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force -ErrorAction Stop } } catch {}"
+call :refreshpath
+where claude >nul 2>nul
+if not errorlevel 1 goto claude_done
+echo        Dang cai Claude Code...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://claude.ai/install.ps1 | iex"
+call :refreshpath
+:claude_done
+where claude >nul 2>nul
+if errorlevel 1 (
+  echo        [CANH BAO] Chua thay lenh claude. Agent se chay che do don gian.
+  goto login_done
+)
+echo        OK
+echo.
+echo  [6/8] Dang nhap tai khoan Claude (can goi Pro hoac Max)...
+claude auth status >nul 2>nul
+if not errorlevel 1 goto login_ok
+echo        Trinh duyet se mo trang dang nhap Claude. Dang nhap xong
+echo        quay lai cua so nay.
+call claude auth login
+claude auth status >nul 2>nul
+if errorlevel 1 echo        [CANH BAO] Chua dang nhap duoc. Sau nay mo PowerShell go: claude auth login
+goto login_done
+:login_ok
+echo        OK - da dang nhap
+:login_done
+
+rem ---------- 7. Thu muc TAKI ----------
+echo.
+echo  [7/8] Tim thu muc / file zip TAKI...
 set "PROJ="
+call :findproj
+if defined PROJ goto proj_done
+set "ZIP="
+for /f "usebackq delims=" %%Z in (`powershell -NoProfile -Command "$d = @((Join-Path $env:USERPROFILE 'Downloads'), [Environment]::GetFolderPath('Desktop'), [Environment]::GetFolderPath('MyDocuments'), 'C:\', 'D:\'); Get-ChildItem -LiteralPath $d -Filter '*TAKI*.zip' -File -Recurse -Depth 1 -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName"`) do set "ZIP=%%Z"
+if defined ZIP goto unzip
+:askpath
+echo.
+echo  Khong tu tim thay thu muc TAKI hoac file zip TAKI.
+echo  Mo File Explorer, tim file zip TAKI (hoac thu muc da giai nen),
+echo  bam chuot phai vao no - chon "Copy as path" (Sao chep duong dan),
+echo  roi dan vao day (chuot phai = dan) va bam Enter:
+echo.
+set "INPUT="
+set /p "INPUT=  Duong dan: "
+if not defined INPUT goto askpath
+set "INPUT=%INPUT:"=%"
+call :try "%INPUT%"
+if defined PROJ goto proj_done
+if /i not "%INPUT:~-4%"==".zip" goto badpath
+set "ZIP=%INPUT%"
+goto unzip
+:badpath
+echo  [LOI] Duong dan nay khong phai TAKI. Thu lai.
+goto askpath
+
+:unzip
+echo        Giai nen: %ZIP%
+set "DEST=C:\TAKI"
+call :extract
+if defined PROJ goto proj_done
+set "DEST=%USERPROFILE%\TAKI"
+call :extract
+if defined PROJ goto proj_done
+echo  [LOI] Giai nen xong nhung khong thay thu muc TAKI ben trong file zip.
+goto askpath
+
+:proj_done
+echo        OK - %PROJ%
+cd /d "%PROJ%"
+if exist "node_modules" if exist ".env" (
+  echo        Da cai dat truoc do - bo qua buoc cai thu vien.
+  goto boot_done
+)
+set "BOOTFLAGS=--no-zlcrm"
+py -3.12 --version >nul 2>nul || py -3.11 --version >nul 2>nul || set "BOOTFLAGS=--no-zlcrm --no-video"
+echo.
+echo        Dang cai thu vien cho TAKI (lan dau mat 5-15 phut)...
+echo        Neu cuoi buoc nay co dong "Kiem tra chua dat" thi BO QUA,
+echo        do la 1 bai kiem tra bi loi theo ngay, khong anh huong.
+echo.
+node scripts\bootstrap.mjs %BOOTFLAGS%
+if errorlevel 1 echo  [CANH BAO] Buoc cai thu vien bao loi. Chup man hinh cua so nay gui lai de duoc ho tro.
+:boot_done
+call :refreshpath
+
+rem ---------- 8. Bieu tuong man hinh ----------
+echo.
+echo  [8/8] Tao bieu tuong "TAKI Agentic AI" ngoai man hinh...
+if /i not "%SELF%"=="%PROJ%\Mo-TAKI.bat" copy /y "%SELF%" "%PROJ%\Mo-TAKI.bat" >nul
+powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+  "$ErrorActionPreference='Stop';" ^
+  "Unblock-File -LiteralPath (Join-Path $env:PROJ 'Mo-TAKI.bat') -ErrorAction SilentlyContinue;" ^
+  "$lines = Get-Content -LiteralPath $env:SELF | Where-Object { $_.StartsWith('::ICO:') } | ForEach-Object { $_.Substring(6) };" ^
+  "[IO.File]::WriteAllBytes((Join-Path $env:PROJ 'taki.ico'), [Convert]::FromBase64String(($lines -join '')));" ^
+  "$desk = [Environment]::GetFolderPath('Desktop');" ^
+  "$sh = (New-Object -ComObject WScript.Shell).CreateShortcut((Join-Path $desk 'TAKI Agentic AI.lnk'));" ^
+  "$sh.TargetPath = (Join-Path $env:PROJ 'Mo-TAKI.bat');" ^
+  "$sh.Arguments = 'run';" ^
+  "$sh.WorkingDirectory = $env:PROJ;" ^
+  "$sh.IconLocation = (Join-Path $env:PROJ 'taki.ico') + ',0';" ^
+  "$sh.Description = 'Mo TAKI Agentic AI';" ^
+  "$sh.Save()"
+if errorlevel 1 goto shortcut_fail
+echo        OK - da co bieu tuong ngoai man hinh
+goto shortcut_done
+:shortcut_fail
+echo  [CANH BAO] Khong tao duoc bieu tuong. Mo thu muc TAKI va bam dup Mo-TAKI.bat de chay.
+:shortcut_done
+
+echo.
+echo  ============================================================
+echo    CAI DAT XONG!
+echo    Dang mo TAKI Agentic AI (cua so den moi + trinh duyet).
+echo.
+echo    Viec con lai lam tren trang web (chi 1 lan):
+echo     1. Thiet lap - Bat dau: nhap ten doanh nghiep, san pham.
+echo     2. Chrome: cai tien ich "Claude in Chrome", dang nhap dung
+echo        tai khoan Claude, cho phep "On all sites".
+echo     3. Kenh dang: them Trang Facebook.
+echo    Lan sau chi can bam bieu tuong TAKI ngoai man hinh.
+echo  ============================================================
+start "" "%PROJ%\Mo-TAKI.bat" run
+echo.
+pause
+exit /b 0
+
+:nowinget
+echo.
+echo  [LOI] May chua co winget (trinh cai dat cua Windows).
+echo  Mo Microsoft Store, tim "App Installer" (Trinh cai dat ung dung),
+echo  bam Cap nhat / Cai dat, roi bam dup lai file nay.
+start "" "ms-windows-store://pdp/?productid=9NBLGGH4NNS1"
+pause
+exit /b 1
+
+:failnode
+echo.
+echo  [LOI] Khong cai duoc Node.js ban 24 tro len.
+echo  Tai tay tai https://nodejs.org (nut LTS), cai xong bam dup lai file nay.
+start "" "https://nodejs.org/"
+pause
+exit /b 1
+
+rem ================= ham phu tro =================
+:nodeok
+where node >nul 2>nul || exit /b 1
+set "NODEMAJ="
+for /f "tokens=1 delims=." %%v in ('node -v') do set "NODEMAJ=%%v"
+if not defined NODEMAJ exit /b 1
+set "NODEMAJ=%NODEMAJ:v=%"
+if %NODEMAJ% GEQ 24 exit /b 0
+exit /b 1
+
+:refreshpath
+for /f "usebackq delims=" %%P in (`powershell -NoProfile -Command "[Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')"`) do set "PATH=%%P;%USERPROFILE%\.local\bin;%APPDATA%\npm"
+exit /b 0
+
+:extract
+powershell -NoProfile -Command "New-Item -ItemType Directory -Force -Path $env:DEST | Out-Null; Expand-Archive -LiteralPath $env:ZIP -DestinationPath $env:DEST -Force"
+call :try "%DEST%"
+for /d %%D in ("%DEST%\*") do call :try "%%~D"
+exit /b 0
+
+:findproj
 call :try "%~dp0."
 call :try "C:\TAKI-Agentic-AI-Affiliate"
 call :try "C:\taki-agentic-ai"
@@ -24,57 +244,10 @@ call :try "%USERPROFILE%\taki-agentic-ai"
 call :try "%USERPROFILE%\Desktop\TAKI-Agentic-AI-Affiliate"
 call :try "%USERPROFILE%\Documents\TAKI-Agentic-AI-Affiliate"
 call :try "%USERPROFILE%\Downloads\TAKI-Agentic-AI-Affiliate"
-if not defined PROJ for /d %%D in ("%USERPROFILE%\Downloads\*" "%USERPROFILE%\Desktop\*" "C:\*") do call :try "%%~D\TAKI-Agentic-AI-Affiliate"
-
-if defined PROJ goto found
-echo.
-echo  Khong tu tim thay thu muc TAKI (thu muc co file package.json).
-echo  Mo thu muc do trong File Explorer, bam vao thanh dia chi, copy
-echo  duong dan roi dan vao day (chuot phai = dan), sau do Enter:
-echo.
-set "INPUT="
-set /p "INPUT=  Duong dan: "
-if defined INPUT set "INPUT=%INPUT:"=%"
-if defined INPUT call :try "%INPUT%"
-if defined PROJ goto found
-echo.
-echo  [LOI] Thu muc nay khong phai TAKI Agentic AI (khong co package.json dung).
-pause
-exit /b 1
-
-:found
-echo  Tim thay: %PROJ%
-if /i not "%~f0"=="%PROJ%\Mo-TAKI.bat" copy /y "%~f0" "%PROJ%\Mo-TAKI.bat" >nul
-if errorlevel 1 (
-  echo  [LOI] Khong chep duoc Mo-TAKI.bat vao thu muc TAKI.
-  pause
-  exit /b 1
-)
-set "SELF=%~f0"
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$ErrorActionPreference='Stop';" ^
-  "$lines = Get-Content -LiteralPath $env:SELF | Where-Object { $_.StartsWith('::ICO:') } | ForEach-Object { $_.Substring(6) };" ^
-  "Unblock-File -LiteralPath (Join-Path $env:PROJ 'Mo-TAKI.bat') -ErrorAction SilentlyContinue;" ^
-  "[IO.File]::WriteAllBytes((Join-Path $env:PROJ 'taki.ico'), [Convert]::FromBase64String(($lines -join '')));" ^
-  "$desk = [Environment]::GetFolderPath('Desktop');" ^
-  "$sh = (New-Object -ComObject WScript.Shell).CreateShortcut((Join-Path $desk 'TAKI Agentic AI.lnk'));" ^
-  "$sh.TargetPath = (Join-Path $env:PROJ 'Mo-TAKI.bat');" ^
-  "$sh.Arguments = 'run';" ^
-  "$sh.WorkingDirectory = $env:PROJ;" ^
-  "$sh.IconLocation = (Join-Path $env:PROJ 'taki.ico') + ',0';" ^
-  "$sh.Description = 'Mo TAKI Agentic AI';" ^
-  "$sh.Save();" ^
-  "Write-Host ('  Da tao loi tat: ' + (Join-Path $desk 'TAKI Agentic AI.lnk'))"
-if errorlevel 1 (
-  echo  [LOI] Khong tao duoc loi tat. Chup man hinh cua so nay gui lai de duoc ho tro.
-  pause
-  exit /b 1
-)
-echo.
-echo  XONG! Ngoai man hinh da co bieu tuong "TAKI Agentic AI".
-echo  Bam dup vao bieu tuong do moi khi muon mo he thong.
-echo.
-pause
+if defined PROJ exit /b 0
+for /d %%D in ("C:\TAKI\*" "%USERPROFILE%\TAKI\*" "%USERPROFILE%\Downloads\*" "%USERPROFILE%\Desktop\*" "C:\*") do call :try "%%~D\TAKI-Agentic-AI-Affiliate"
+if defined PROJ exit /b 0
+for /d %%D in ("C:\TAKI\*" "%USERPROFILE%\TAKI\*") do call :try "%%~D"
 exit /b 0
 
 :try
@@ -85,11 +258,12 @@ set "PROJ=%~f1"
 exit /b 0
 
 rem ==================================================================
-rem  Che do chay: mo TAKI (loi tat ngoai man hinh goi vao day)
+rem  Che do chay: mo TAKI (bieu tuong ngoai man hinh goi vao day)
 rem ==================================================================
 :run
 cd /d "%~dp0"
 title TAKI Agentic AI - DONG CUA SO NAY LA TAT HE THONG
+call :refreshpath
 set "WEB=5173"
 set "API=8787"
 if exist ".env" for /f "usebackq eol=# tokens=1,* delims==" %%A in (".env") do (
@@ -111,7 +285,7 @@ if not errorlevel 1 (
 
 where node >nul 2>nul
 if errorlevel 1 (
-  echo  [LOI] May chua co Node.js. Cai theo huong dan: winget install --id OpenJS.NodeJS.LTS -e
+  echo  [LOI] May chua co Node.js. Bam dup lai file CAI-DAT-TAKI.bat de cai.
   pause
   exit /b 1
 )
@@ -135,9 +309,7 @@ exit /b 0
 :needsetup
 echo.
 echo  [CHUA CAI XONG] Thu muc nay chua chay buoc cai dat.
-echo  Mo PowerShell trong thu muc %CD% va chay:
-echo      node scripts/bootstrap.mjs --no-zlcrm
-echo  Cai xong, bam lai bieu tuong TAKI ngoai man hinh.
+echo  Bam dup lai file CAI-DAT-TAKI.bat de cai tiep.
 pause
 exit /b 1
 
