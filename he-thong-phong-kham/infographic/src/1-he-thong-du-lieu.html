@@ -1,0 +1,131 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Hệ thống dữ liệu</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.cols{display:grid;grid-template-columns:510px 36px 280px 36px 1fr 36px 330px;align-items:stretch}
+.box{background:rgba(255,255,255,.75);border:2px solid #A9CBF2;border-radius:22px;padding:14px;box-shadow:0 8px 22px rgba(11,78,198,.1);display:flex;flex-direction:column}
+.ht{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,#1E6FE0,#062066);color:#fff;border-radius:30px;padding:10px 16px;font-size:16.5px;font-weight:900;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;box-shadow:0 6px 14px rgba(11,78,198,.3);text-align:center;line-height:1.15}
+.ht .ic{font-size:24px;color:var(--gold)}
+.arrow{display:flex;align-items:center;justify-content:center}
+.arrow svg{width:40px;height:56px}
+/* sources */
+.src{flex:1;display:grid;grid-template-columns:142px 1fr;gap:10px;align-items:center;background:#fff;border:1.5px solid #CFE2FA;border-radius:14px;padding:8px 10px;margin-bottom:8px}
+.src .k{display:flex;align-items:center;gap:8px}
+.src .k .ic{font-size:28px;color:var(--blue);background:var(--ice);border-radius:9px;padding:5px;width:38px;height:38px}
+.src .k b{font-size:12.5px;font-weight:900;color:var(--navy);text-transform:uppercase;line-height:1.15}
+.src .k b small{display:block;font-size:10px;letter-spacing:.06em}
+.src .v{display:grid;grid-template-columns:repeat(3,1fr);gap:5px 6px}
+.src .v span{display:flex;align-items:center;gap:5px;font-size:11.3px;font-weight:700;color:var(--ink);line-height:1.15}
+.src .v span .ic{font-size:16px;color:var(--sky)}
+.red small{color:#D9534F}.ylw small{color:#B07A00}.grn small{color:#1E9E6A}
+/* ingest */
+.ing{flex:1;display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid #CFE2FA;border-radius:12px;padding:8px 10px;margin-bottom:7px;box-shadow:0 3px 0 #DCEAFB}
+.ing .ic{font-size:24px;color:var(--blue)}
+.ing b{font-size:13px;font-weight:850;color:var(--navy);line-height:1.15}
+.ing b small{display:block;font-size:10.8px;font-weight:600;color:var(--muted)}
+.gate{margin-top:4px;background:#FFF6DF;border:2px solid var(--gold);border-radius:14px;padding:9px 11px}
+.gate h5{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:900;color:#7A5200;text-transform:uppercase;margin-bottom:4px}
+.gate h5 .ic{font-size:18px}
+.gate p{font-size:11.3px;line-height:1.4;color:#4A3A10}
+/* core */
+.core{background:radial-gradient(ellipse at 50% 35%,#FFFFFF 0%,#E1F0FF 65%,#CDE5FF 100%);border:3px solid #7FC0FF;box-shadow:0 0 0 8px rgba(47,161,255,.12),0 0 46px rgba(47,161,255,.35);align-items:center}
+.brain{width:116px;height:116px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#5FB8FF,#0B4EC6 70%);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px rgba(47,161,255,.18),0 0 40px rgba(47,161,255,.7);margin:6px 0 16px;position:relative}
+.brain .ic{font-size:66px;color:#fff;stroke-width:1.6}
+.brain em{position:absolute;bottom:-8px;background:var(--gold);color:var(--ink);font-style:normal;font-weight:900;font-size:12px;border-radius:12px;padding:2px 10px}
+.disc{width:100%;max-width:430px;height:50px;margin-top:-4px;border-radius:50% / 50%;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(180deg,#FFFFFF 0%,#D9EBFF 55%,#B9D9FB 100%);border:2px solid #8DBEF3;box-shadow:0 6px 0 #9CC6F5,0 10px 18px rgba(11,78,198,.18);position:relative}
+.disc + .disc{margin-top:8px}
+.disc .ic{font-size:22px;color:var(--blue)}
+.disc b{font-size:13.5px;font-weight:900;color:var(--navy);text-transform:uppercase;letter-spacing:.02em}
+.disc small{font-size:11px;font-weight:600;color:var(--muted)}
+.disc.hl{background:linear-gradient(180deg,#FFF9EA,#FFE7A8);border-color:#F2C24E;box-shadow:0 6px 0 #EBC25A,0 10px 18px rgba(201,138,0,.2)}
+.strip{margin-top:auto;display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #A9CBF2;border-radius:20px;padding:8px 14px;font-size:12px;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}
+.strip .ic{font-size:18px}
+/* apps */
+.app{flex:1;display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid #CFE2FA;border-radius:14px;padding:10px 12px;margin-bottom:9px;box-shadow:0 3px 0 #DCEAFB}
+.app .ic{font-size:26px;color:#fff;background:linear-gradient(180deg,#2FA1FF,#0B4EC6);border-radius:10px;padding:6px;width:40px;height:40px}
+.app b{font-size:13.8px;font-weight:900;color:var(--navy);text-transform:uppercase;line-height:1.15}
+.app b small{display:block;font-size:11.2px;font-weight:600;color:var(--muted);text-transform:none;margin-top:2px}
+.loopwrap{position:relative;height:62px;margin-top:8px}
+.loopwrap svg.lw{position:absolute;inset:0;width:100%;height:100%}
+.lp{position:absolute;left:50%;top:22px;transform:translateX(-50%);background:linear-gradient(180deg,#1E6FE0,#062066);color:#fff;font-weight:900;font-size:14px;letter-spacing:.08em;border-radius:20px;padding:7px 18px;display:flex;gap:8px;align-items:center}
+.lp .ic{font-size:18px;color:var(--gold)}
+.lp span{font-weight:600;font-size:12px;letter-spacing:0;color:#D6E6FF;text-transform:none}
+</style></head><body>
+<div class="hdr">
+  <div class="logo"><div class="w"><small>PHÒNG KHÁM</small><b>BÁC SĨ<br>PHẠM SƠN</b></div><div class="sep"></div><div class="dna">[[dna]]<span>DNA<br>PHÒNG KHÁM</span></div></div>
+  <div class="title"><h1>Hệ thống dữ liệu DNA Phạm Sơn</h1>
+    <div class="flow">Nguồn dữ liệu <i>→</i> Nạp dữ liệu <i>→</i> Bộ não thứ 2 <i>→</i> Ứng dụng điều hành</div></div>
+  <div class="meta">Chuyên sâu siêu âm dị tật thai<br><b>Khoái Châu · Hưng Yên</b><br>600–800 ca / tháng</div>
+</div>
+
+<div class="cols">
+  <div class="box"><div class="ht">[[database]]1. Nguồn dữ liệu</div>
+    <div class="src grn"><div class="k">[[megaphone]]<b>Kênh khách hàng<small>● Công khai</small></b></div><div class="v">
+      <span>[[message-circle]]Zalo OA</span><span>[[thumbs-up]]Fanpage</span><span>[[clapperboard]]TikTok</span>
+      <span>[[phone-call]]Hotline</span><span>[[file-pen-line]]Form đặt lịch</span><span>[[messages-square]]Bình luận</span></div></div>
+    <div class="src red"><div class="k">[[stethoscope]]<b>Lâm sàng<small>● Nhạy cảm</small></b></div><div class="v">
+      <span>[[hospital]]Phần mềm HIS</span><span>[[scan-line]]Voluson E8</span><span>[[clipboard-pen]]Phiếu KQ</span>
+      <span>[[bone]]X-quang</span><span>[[test-tubes]]Xét nghiệm</span><span>[[dna]]NIPT</span></div></div>
+    <div class="src ylw"><div class="k">[[shopping-cart]]<b>Kinh doanh &amp; CSKH<small>● Nội bộ</small></b></div><div class="v">
+      <span>[[receipt]]Thu ngân</span><span>[[package]]Gói C1 / C2</span><span>[[pill]]Quầy dược</span>
+      <span>[[warehouse]]Kho thuốc</span><span>[[bell-ring]]Nhắc lịch</span><span>[[smile]]Khảo sát</span></div></div>
+    <div class="src ylw"><div class="k">[[users]]<b>Vận hành nội bộ<small>● Nội bộ</small></b></div><div class="v">
+      <span>[[calendar-days]]Xếp ca</span><span>[[fingerprint]]Chấm công</span><span>[[arrow-left-right]]Bàn giao ca</span>
+      <span>[[triangle-alert]]Sự cố</span><span>[[list-checks]]Checklist</span><span>[[clock]]Giờ cao điểm</span></div></div>
+    <div class="src grn"><div class="k">[[graduation-cap]]<b>Đào tạo &amp; tri thức<small>● Tài sản</small></b></div><div class="v">
+      <span>[[book-open]]SOP</span><span>[[scroll-text]]Kịch bản</span><span>[[book-marked]]Tài liệu y khoa</span>
+      <span>[[map]]Mốc siêu âm</span><span>[[video]]Video bác sĩ</span><span>[[heart-handshake]]Câu chuyện</span></div></div>
+    <div class="src grn" style="margin-bottom:0"><div class="k">[[folder-open]]<b>Tài liệu số</b></div><div class="v">
+      <span>[[image]]Ảnh</span><span>[[film]]Video 5D</span><span>[[file-text]]PDF</span>
+      <span>[[file-spreadsheet]]Excel</span><span>[[mic]]Ghi âm</span><span>[[presentation]]Slide</span></div></div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 40 56"><path d="M4 8 L30 28 L4 48 Z" fill="#2FA1FF"/><path d="M14 8 L40 28 L14 48" fill="none" stroke="#0B4EC6" stroke-width="0"/></svg></div>
+
+  <div class="box"><div class="ht">[[cloud-upload]]2. Nạp dữ liệu</div>
+    <div class="ing">[[plug]]<b>API Connector<small>HIS, thu ngân, dược</small></b></div>
+    <div class="ing">[[webhook]]<b>Webhook realtime<small>Zalo OA, Facebook, TikTok</small></b></div>
+    <div class="ing">[[scan-line]]<b>Đồng bộ DICOM / PACS<small>Ảnh, video 5D sau mỗi ca</small></b></div>
+    <div class="ing">[[file-spreadsheet]]<b>Import Excel / CSV<small>Dữ liệu cũ, bảng kê</small></b></div>
+    <div class="ing">[[file-pen-line]]<b>Form nhập tay · Mini App<small>Check-in, phiếu, bàn giao</small></b></div>
+    <div class="ing">[[scan-text]]<b>OCR tài liệu<small>Phiếu giấy, kết quả PDF</small></b></div>
+    <div class="ing">[[audio-lines]]<b>Speech-to-Text<small>Cuộc gọi, video bác sĩ</small></b></div>
+    <div class="ing">[[timer-reset]]<b>Đồng bộ lô 23h<small>Đối soát số ca, doanh thu</small></b></div>
+    <div class="gate"><h5>[[shield-check]]Cổng làm sạch</h5><p>Chuẩn hoá mã khách · <b>ẩn danh</b> trước khi vào AI · gắn nhãn <b>đã đồng ý</b> · chặn dữ liệu giới tính thai · ghi nhật ký truy cập</p></div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 40 56"><path d="M4 8 L30 28 L4 48 Z" fill="#2FA1FF"/></svg></div>
+
+  <div class="box core"><div class="ht" style="width:100%">[[brain-circuit]]3. Bộ não thứ 2 / Data Core</div>
+    <div class="brain">[[brain]]<em>AI</em></div>
+    <div class="disc">[[waves]]<b>Data Lake</b><small>ảnh · video · tài liệu thô</small></div>
+    <div class="disc">[[warehouse]]<b>Data Warehouse</b><small>KPI · báo cáo</small></div>
+    <div class="disc">[[network]]<b>Vector DB / Knowledge base</b></div>
+    <div class="disc">[[contact]]<b>Khách hàng 360</b><small>hành trình thai kỳ</small></div>
+    <div class="disc hl">[[dna]]<b>DNA · SOP · Ranh giới</b><small>nguồn sự thật</small></div>
+    <div class="disc hl">[[book-open-check]]<b>Tri thức y khoa</b><small>chỉ bản bác sĩ đã duyệt</small></div>
+    <div class="disc">[[library]]<b>Thư viện nội dung</b><small>bài · video đã duyệt</small></div>
+    <div class="disc">[[lightbulb]]<b>Bài học vận hành</b><small>insight · sự cố</small></div>
+    <div class="strip" style="margin-top:18px">[[repeat]]Lưu trữ · ghi nhớ · tìm kiếm · học hỏi · suy luận</div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 40 56"><path d="M4 8 L30 28 L4 48 Z" fill="#2FA1FF"/></svg></div>
+
+  <div class="box"><div class="ht">[[monitor-cog]]4. Ứng dụng điều hành</div>
+    <div class="app">[[layout-dashboard]]<b>Dashboard Admin<small>Bác sĩ &amp; quản lý xem toàn cảnh</small></b></div>
+    <div class="app">[[bot]]<b>AI Agent vận hành<small>Trả lời khách, nhắc lịch, soạn nội dung</small></b></div>
+    <div class="app">[[bell-ring]]<b>Báo cáo &amp; cảnh báo<small>Tồn kho, phản hồi xấu, quá mốc</small></b></div>
+    <div class="app">[[workflow]]<b>Tự động hoá quy trình<small>Check-in → phiếu → Zalo → nhắc lịch</small></b></div>
+    <div class="app">[[lightbulb]]<b>Gợi ý quyết định<small>Giờ mở ca, nội dung, ngân sách</small></b></div>
+    <div class="app">[[smartphone]]<b>Nhân viên tra cứu<small>SOP, kịch bản ngay trên điện thoại</small></b></div>
+    <div class="app" style="margin-bottom:0">[[orbit]]<b>Báo cáo hiệu suất 360<small>Ca khám · doanh thu · nhân sự</small></b></div>
+  </div>
+</div>
+
+<div class="loopwrap">
+  <svg class="lw" viewBox="0 0 1720 62" preserveAspectRatio="none">
+    <defs><marker id="m" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1E6FE0"/></marker></defs>
+    <path d="M1555 0 V20 Q1555 38 1537 38 H273 Q255 38 255 20 V8" fill="none" stroke="#2FA1FF" stroke-width="5" stroke-linecap="round" marker-end="url(#m)"/>
+  </svg>
+  <div class="lp">[[refresh-cw]]LEARNING LOOP <span>kết quả vận hành quay lại làm giàu nguồn dữ liệu mỗi tuần</span></div>
+</div>
+
+<div class="banner" style="margin-top:14px">[[target]]<span>Mọi dữ liệu hội tụ về <span class="g">một hệ thống duy nhất</span> để AI Agent và bác sĩ cùng khai thác</span></div>
+</body></html>
