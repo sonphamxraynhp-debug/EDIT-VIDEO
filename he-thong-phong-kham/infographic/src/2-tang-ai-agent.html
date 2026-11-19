@@ -1,0 +1,136 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Tầng AI Agent</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.stage{display:grid;grid-template-columns:64px 1fr 300px;gap:18px;align-items:stretch}
+.vlabel{background:linear-gradient(180deg,#0B4EC6,#062066);border-radius:32px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(11,78,198,.3)}
+.vlabel span{writing-mode:vertical-rl;transform:rotate(180deg);color:#fff;font-weight:900;font-size:24px;letter-spacing:.18em}
+.stack{display:flex;flex-direction:column;align-items:center;gap:16px;padding:6px 0 10px}
+.layer{position:relative;display:flex;align-items:stretch;border-radius:18px;
+  background:linear-gradient(180deg,#FFFFFF 0%,#EEF6FF 100%);border:2px solid #9CC6F5;
+  box-shadow:0 9px 0 #A9CBF2,0 14px 22px rgba(11,78,198,.18);padding:9px 10px 9px 9px;gap:9px}
+.layer .lab{flex:0 0 212px;border-radius:13px;background:linear-gradient(180deg,#1E6FE0,#0A3FA8);color:#fff;
+  display:flex;align-items:center;gap:10px;padding:8px 12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.layer .lab .ic{font-size:34px;color:#fff;background:rgba(255,255,255,.15);border-radius:10px;padding:5px;width:44px;height:44px}
+.layer .lab b{font-size:14.5px;font-weight:900;line-height:1.15;text-transform:uppercase;letter-spacing:.02em}
+.layer .lab b em{display:block;font-style:normal;color:var(--gold);font-size:12px;letter-spacing:.1em}
+.chips{flex:1;display:flex;gap:8px}
+.chip{flex:1 1 0;min-width:0;background:#fff;border:1.5px solid #CFE2FA;border-radius:11px;display:flex;align-items:center;gap:7px;padding:6px 8px;box-shadow:0 2px 0 #DCEAFB}
+.chip .ic{font-size:22px;color:var(--blue)}
+.chip span{font-size:11.6px;font-weight:800;line-height:1.18;color:var(--ink);text-transform:uppercase;letter-spacing:.01em}
+.l4{border-color:#2FA1FF;box-shadow:0 9px 0 #7DB6F2,0 0 0 6px rgba(47,161,255,.15),0 16px 34px rgba(11,78,198,.32);background:linear-gradient(180deg,#F5FAFF,#DDEEFF)}
+.l4 .lab{flex-basis:228px;background:linear-gradient(180deg,#0B4EC6,#062066)}
+.l4 .chip{padding:10px 8px}
+.l5 .chip{flex-direction:column;justify-content:center;text-align:center;gap:4px;padding:6px 4px}
+.l5 .chip span{font-size:11px}
+.l6 .lab{background:linear-gradient(180deg,#F7A600,#C77D00)}
+.l6 .lab b em{color:#FFF4D0}
+/* feedback loop */
+.loop{position:relative}
+.loop svg.arc{position:absolute;inset:0;width:100%;height:100%}
+.fb{position:absolute;left:96px;top:22px;background:linear-gradient(180deg,#1E6FE0,#062066);color:#fff;border-radius:30px;padding:14px 22px;text-align:center;font-weight:900;font-size:21px;line-height:1.05;letter-spacing:.06em;box-shadow:0 8px 20px rgba(11,78,198,.35)}
+.fb small{display:block;font-size:11px;color:var(--gold);letter-spacing:.14em;margin-top:4px}
+.node{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:2px solid #9CC6F5;border-radius:30px;padding:8px 14px 8px 10px;box-shadow:0 4px 12px rgba(11,78,198,.15)}
+.node .ic{font-size:22px;color:var(--blue)}
+.node b{font-size:14px;font-weight:900;color:var(--navy);text-transform:uppercase;line-height:1.1}
+.node b small{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:none}
+.node::before{content:"";position:absolute;left:-30px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+.human{position:absolute;left:26px;right:0;bottom:6px;background:#FFF6DF;border:2px solid var(--gold);border-radius:16px;padding:12px 14px}
+.human h4{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:900;color:#7A5200;text-transform:uppercase;margin-bottom:6px}
+.human h4 .ic{font-size:22px}
+.human p{font-size:12.4px;line-height:1.45;color:#4A3A10}
+.human p b{color:#7A5200}
+</style></head><body>
+<div class="hdr">
+  <div class="logo"><div class="w"><small>PHÒNG KHÁM</small><b>BÁC SĨ<br>PHẠM SƠN</b></div><div class="sep"></div><div class="dna">[[dna]]<span>DNA<br>PHÒNG KHÁM</span></div></div>
+  <div class="title"><h1>Cấu trúc các tầng hoạt động AI Agent</h1>
+    <div class="flow">Hạ tầng <i>→</i> Dữ liệu <i>→</i> Công cụ <i>→</i> Điều phối <i>→</i> Agent chuyên gia <i>→</i> Kiểm soát <i>→</i> Thực thi &amp; học tập</div></div>
+  <div class="meta">Siêu âm dị tật thai<br><b>Khoái Châu · Hưng Yên</b><br>600–800 ca / tháng</div>
+</div>
+
+<div class="stage">
+  <div class="vlabel"><span>MULTI-AGENT SYSTEM</span></div>
+  <div class="stack">
+    <div class="layer" style="width:85%"><div class="lab">[[monitor-smartphone]]<b><em>Tầng 7</em>Thực thi &amp; giao diện</b></div><div class="chips">
+      <div class="chip">[[layout-dashboard]]<span>Dashboard Admin</span></div>
+      <div class="chip">[[message-circle]]<span>Zalo OA</span></div>
+      <div class="chip">[[thumbs-up]]<span>Fanpage inbox</span></div>
+      <div class="chip">[[clapperboard]]<span>TikTok bình luận</span></div>
+      <div class="chip">[[phone-call]]<span>Hotline nhắc lịch</span></div>
+      <div class="chip">[[smartphone]]<span>Mini App nhân viên</span></div>
+      <div class="chip">[[bell-ring]]<span>Báo cáo &amp; cảnh báo</span></div></div></div>
+
+    <div class="layer l6" style="width:88%"><div class="lab">[[shield-check]]<b><em>Tầng 6</em>Kiểm soát &amp; quản trị</b></div><div class="chips">
+      <div class="chip">[[stethoscope]]<span>Bác sĩ duyệt y khoa</span></div>
+      <div class="chip">[[user-cog]]<span>Phân quyền vai trò</span></div>
+      <div class="chip">[[ban]]<span>Chặn giới tính thai</span></div>
+      <div class="chip">[[shield-alert]]<span>Ranh giới y khoa</span></div>
+      <div class="chip">[[badge-check]]<span>Kiểm tra chất lượng</span></div>
+      <div class="chip">[[gauge]]<span>KPI / SLA</span></div>
+      <div class="chip">[[scroll-text]]<span>Nhật ký kiểm tra</span></div></div></div>
+
+    <div class="layer l5" style="width:93%"><div class="lab">[[bot]]<b><em>Tầng 5</em>Agent chuyên gia</b></div><div class="chips">
+      <div class="chip">[[calendar-check]]<span>Lễ tân đặt lịch</span></div>
+      <div class="chip">[[baby]]<span>Đồng hành thai kỳ</span></div>
+      <div class="chip">[[clipboard-pen]]<span>Trợ lý phiếu KQ</span></div>
+      <div class="chip">[[video]]<span>Nội dung &amp; video</span></div>
+      <div class="chip">[[messages-square]]<span>Trả lời bình luận</span></div>
+      <div class="chip">[[smile]]<span>Khảo sát hài lòng</span></div>
+      <div class="chip">[[pill]]<span>Dược &amp; kho</span></div>
+      <div class="chip">[[chart-column]]<span>Phân tích báo cáo</span></div>
+      <div class="chip">[[graduation-cap]]<span>Đào tạo nhân viên</span></div></div></div>
+
+    <div class="layer l4" style="width:95%"><div class="lab">[[brain-circuit]]<b><em>Tầng 4</em>AI Orchestrator / Điều phối</b></div><div class="chips">
+      <div class="chip">[[route]]<span>Phân loại ý định</span></div>
+      <div class="chip">[[workflow]]<span>Điều phối quy trình</span></div>
+      <div class="chip">[[calendar-clock]]<span>Lập lịch tác vụ</span></div>
+      <div class="chip">[[scale]]<span>Bộ luật DNA</span></div>
+      <div class="chip">[[square-terminal]]<span>Quản lý prompt</span></div>
+      <div class="chip">[[wrench]]<span>Gọi công cụ</span></div>
+      <div class="chip">[[network]]<span>Phối hợp đa agent</span></div></div></div>
+
+    <div class="layer" style="width:96%"><div class="lab">[[plug-zap]]<b><em>Tầng 3</em>Công cụ &amp; tích hợp</b></div><div class="chips">
+      <div class="chip">[[hospital]]<span>Phần mềm HIS</span></div>
+      <div class="chip">[[scan-line]]<span>Voluson E8 · DICOM</span></div>
+      <div class="chip">[[message-circle]]<span>Zalo OA API</span></div>
+      <div class="chip">[[share-2]]<span>Facebook · TikTok</span></div>
+      <div class="chip">[[calendar-days]]<span>Lịch hẹn</span></div>
+      <div class="chip">[[receipt]]<span>Thu ngân · Dược</span></div>
+      <div class="chip">[[file-spreadsheet]]<span>Sheet · Excel · PDF</span></div></div></div>
+
+    <div class="layer" style="width:98%"><div class="lab">[[database]]<b><em>Tầng 2</em>Dữ liệu &amp; bộ nhớ</b></div><div class="chips">
+      <div class="chip">[[contact]]<span>Dữ liệu khách</span></div>
+      <div class="chip">[[heart-pulse]]<span>Hồ sơ thai kỳ</span></div>
+      <div class="chip">[[book-open]]<span>Tri thức SOP</span></div>
+      <div class="chip">[[library]]<span>Bộ não thứ 2</span></div>
+      <div class="chip">[[boxes]]<span>Bộ nhớ vector</span></div>
+      <div class="chip">[[history]]<span>Bộ nhớ hội thoại</span></div>
+      <div class="chip">[[chart-line]]<span>Dữ liệu phân tích</span></div></div></div>
+
+    <div class="layer" style="width:100%"><div class="lab">[[layers]]<b><em>Tầng 1</em>Hạ tầng nền</b></div><div class="chips">
+      <div class="chip">[[cloud]]<span>Cloud server</span></div>
+      <div class="chip">[[hard-drive]]<span>Database storage</span></div>
+      <div class="chip">[[images]]<span>Kho ảnh PACS</span></div>
+      <div class="chip">[[key-round]]<span>Đăng nhập &amp; quyền</span></div>
+      <div class="chip">[[activity]]<span>Logs / giám sát</span></div>
+      <div class="chip">[[lock]]<span>Mã hoá dữ liệu</span></div>
+      <div class="chip">[[archive-restore]]<span>Sao lưu hằng ngày</span></div></div></div>
+  </div>
+
+  <div class="loop">
+    <svg class="arc" viewBox="0 0 300 703">
+      <defs><linearGradient id="g" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0B4EC6"/><stop offset="1" stop-color="#2FA1FF"/></linearGradient>
+      <marker id="ah" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 z" fill="#2FA1FF"/></marker></defs>
+      <path d="M10 690 C 40 640, 49 570, 49 515 C 49 450, 43 380, 43 315 C 43 240, 60 160, 116 112" stroke="url(#g)" stroke-width="13" fill="none" stroke-linecap="round" marker-end="url(#ah)" opacity=".9"/>
+    </svg>
+    <div class="fb">FEEDBACK<br>LOOP<small>TỰ HỌC MỖI TUẦN</small></div>
+    <div class="node" style="left:72px;top:190px">[[chart-no-axes-combined]]<b>Đo kết quả<small>Tỷ lệ đặt lịch, hài lòng</small></b></div>
+    <div class="node" style="left:66px;top:290px">[[book-open-check]]<b>Học tập<small>Ghi bài học vào Bộ não 2</small></b></div>
+    <div class="node" style="left:66px;top:390px">[[refresh-cw]]<b>Tối ưu<small>Sửa kịch bản, luật, prompt</small></b></div>
+    <div class="node" style="left:72px;top:490px">[[circle-play]]<b>Thực thi lại<small>Áp dụng bản tốt hơn</small></b></div>
+    <div class="human"><h4>[[hand-heart]]Con người quyết định</h4>
+      <p><b>Bác sĩ Phạm Sơn</b> kết luận y khoa &amp; duyệt nội dung. <b>Quản lý</b> nhận phàn nàn, leo thang. <b>Nhân viên</b> xác nhận lịch, tự cân nhắc lời nói với ca bất thường thai. <b>Quầy Dược</b> trả lời mọi câu hỏi về thuốc.</p></div>
+  </div>
+</div>
+
+<div class="banner">[[target]]<span>AI Agent không chỉ trả lời — mà <span class="g">thực thi, kiểm soát và tự học</span></span><span class="bar"></span><span>AI hỗ trợ · bác sĩ kết luận</span></div>
+</body></html>

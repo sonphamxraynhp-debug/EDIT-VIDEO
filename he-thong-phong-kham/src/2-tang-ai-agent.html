@@ -1,0 +1,165 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Tầng AI Agent</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.wrap{display:grid;grid-template-columns:1fr 330px;gap:22px}
+.layer{display:grid;grid-template-columns:172px 1fr;border-radius:16px;overflow:hidden;border:1.5px solid var(--line);background:var(--card);margin-bottom:10px}
+.lab{padding:14px 14px;color:#fff;display:flex;flex-direction:column;justify-content:center}
+.lab .no{font-size:12.5px;font-weight:800;letter-spacing:.14em;opacity:.85}
+.lab .nm{font-size:18px;font-weight:800;line-height:1.2;margin-top:4px}
+.body{padding:12px 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
+.chip{background:var(--sky-soft);border-radius:10px;padding:9px 12px;font-size:14px;line-height:1.35;flex:1 1 0;min-width:150px}
+.chip b{display:block;color:var(--blue-deep);font-size:14.5px;margin-bottom:2px}
+.chip span{color:var(--muted);font-size:12.8px}
+.down{display:flex;justify-content:center;margin:-4px 0 6px;height:12px}
+.L1 .lab{background:#2FA1FF}
+.L2 .lab{background:#D9534F}
+.L2 .chip{background:var(--red-soft)}
+.L2 .chip b{color:#A8322E}
+.L3 .lab{background:#0B4EC6}
+.L3 .body{background:linear-gradient(90deg,#F2F7FF,#fff)}
+.L4 .lab{background:#002FAF}
+.L4 .chip{background:#fff;border:1.5px solid #BFD4F5;border-top:4px solid var(--gold)}
+.L5 .lab{background:#3A5BA8}
+.L6 .lab{background:#C98A00}
+.L6 .chip{background:var(--gold-soft)}
+.L7 .lab{background:#0F1B33}
+.L7 .chip{background:#EEF1F6}
+.orch{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.orch .st{background:#fff;border:1.5px solid #BFD4F5;border-radius:10px;padding:9px 12px}
+.orch .st b{color:var(--blue);font-size:14.5px;display:block}
+.orch .st span{font-size:12.8px;color:var(--muted);line-height:1.35}
+.agents{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%}
+.agent .h{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.agent .ic{width:30px;height:30px;border-radius:8px;background:var(--blue);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:0 0 30px}
+.agent b{margin:0!important}
+.agent .mt{margin-top:6px;font-size:11.5px;color:var(--blue);font-weight:700}
+.side .box{border-radius:16px;padding:16px;margin-bottom:14px}
+.hitl{background:var(--gold-soft);border:2.5px solid var(--gold)}
+.hitl h3{font-size:18px;color:#7A5200;margin-bottom:4px}
+.hitl p.s{font-size:13px;color:#7A5200;margin-bottom:10px}
+.hitl .r{background:#fff;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.hitl .r b{font-size:14.5px;color:var(--ink);display:block}
+.hitl .r span{font-size:12.8px;color:var(--muted);line-height:1.4}
+.obs{background:#fff;border:1.5px solid var(--line)}
+.obs h3{font-size:17px;color:var(--blue-deep);margin-bottom:8px}
+.obs li{font-size:13.3px;line-height:1.4;margin:5px 0 5px 16px;color:var(--ink)}
+.ex{background:var(--blue-deep);color:#fff}
+.ex h3{font-size:16px;color:var(--gold);margin-bottom:8px;letter-spacing:.04em}
+.ex .f{font-size:13px;line-height:1.45;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.25)}
+.ex .f:last-child{border:0}
+.ex .f i{font-style:normal;color:var(--gold);font-weight:800;margin-right:6px}
+</style></head><body>
+<div class="hdr">
+  <div>
+    <div class="kicker">Bản thiết kế 2/3 · Kiến trúc AI</div>
+    <h1>Cấu trúc các tầng hoạt động của AI Agent</h1>
+    <div class="sub">Yêu cầu đi từ trên xuống: kênh → bảo vệ → điều phối → agent chuyên trách → kỹ năng &amp; công cụ → bộ nhớ → mô hình AI</div>
+  </div>
+  <div class="brand"><b>Phòng khám Bác sĩ Phạm Sơn</b><span class="dot"></span>AI hỗ trợ con người — bác sĩ là người kết luận</div>
+</div>
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="dn" viewBox="0 0 24 12"><path d="M4 2l8 8 8-8" stroke="#2FA1FF" stroke-width="3" fill="none" stroke-linecap="round"/></symbol></defs></svg>
+
+<div class="wrap">
+<div>
+  <div class="layer L1"><div class="lab"><span class="no">TẦNG 1</span><span class="nm">Kênh tương tác</span></div>
+    <div class="body">
+      <div class="chip"><b>Zalo OA</b><span>Khách đặt lịch, hỏi giờ, nhận kết quả</span></div>
+      <div class="chip"><b>Fanpage</b><span>Inbox &amp; bình luận</span></div>
+      <div class="chip"><b>TikTok</b><span>Bình luận video</span></div>
+      <div class="chip"><b>Hotline</b><span>Ghi nhận cuộc gọi, nhắc lịch</span></div>
+      <div class="chip"><b>Mini App nội bộ</b><span>Nhân viên ra lệnh cho AI</span></div>
+      <div class="chip"><b>Dashboard Admin</b><span>Bác sĩ &amp; quản lý hỏi số liệu</span></div>
+    </div></div>
+  <div class="down"><svg width="24" height="12"><use href="#dn"/></svg></div>
+
+  <div class="layer L2"><div class="lab"><span class="no">TẦNG 2</span><span class="nm">Cổng bảo vệ (Guardrails)</span></div>
+    <div class="body">
+      <div class="chip"><b>Xác thực &amp; phân quyền</b><span>Khách / nhân viên / quản lý / bác sĩ — mỗi vai một quyền</span></div>
+      <div class="chip"><b>Không chẩn đoán</b><span>Không đọc kết quả, không suy diễn số đo thay bác sĩ</span></div>
+      <div class="chip"><b>Không giới tính thai</b><span>Chặn mọi câu hỏi, ẩn ý trai/gái — theo pháp luật</span></div>
+      <div class="chip"><b>Giá &amp; thuốc</b><span>Chỉ báo gói C1/C2; không giá lẻ; không tư vấn thuốc</span></div>
+      <div class="chip"><b>Phát hiện ca nhạy cảm</b><span>Bất thường thai, phàn nàn, khẩn cấp → chuyển người ngay</span></div>
+    </div></div>
+  <div class="down"><svg width="24" height="12"><use href="#dn"/></svg></div>
+
+  <div class="layer L3"><div class="lab"><span class="no">TẦNG 3</span><span class="nm">Agent điều phối (Orchestrator)</span></div>
+    <div class="body"><div class="orch">
+      <div class="st"><b>① Hiểu ý định</b><span>Đặt lịch? hỏi giá gói? hỏi mốc siêu âm? viết bài?</span></div>
+      <div class="st"><b>② Lập kế hoạch</b><span>Chia việc thành bước, chọn agent &amp; công cụ phù hợp</span></div>
+      <div class="st"><b>③ Giao việc &amp; ghép kết quả</b><span>Gọi 1 hoặc nhiều agent, tổng hợp câu trả lời</span></div>
+      <div class="st"><b>④ Kiểm tra cuối</b><span>Soát lại theo DNA: giọng điệu, xưng hô, từ cấm</span></div>
+    </div></div></div>
+  <div class="down"><svg width="24" height="12"><use href="#dn"/></svg></div>
+
+  <div class="layer L4"><div class="lab"><span class="no">TẦNG 4</span><span class="nm">Agent chuyên trách</span></div>
+    <div class="body"><div class="agents">
+      <div class="chip agent"><div class="h"><span class="ic">LT</span><b>Lễ tân &amp; Đặt lịch</b></div><span>Trả lời giờ làm việc theo mùa, chỉ đường, giới thiệu gói, giữ chỗ khung giờ vắng</span><div class="mt">Zalo · Fanpage · Hotline</div></div>
+      <div class="chip agent"><div class="h"><span class="ic">ĐH</span><b>Đồng hành thai kỳ</b></div><span>Nhắc mốc siêu âm theo tuổi thai &amp; lời dặn bác sĩ, nhắc tái khám, khảo sát hài lòng</span><div class="mt">Gói C1/C2 · 40 tuần</div></div>
+      <div class="chip agent"><div class="h"><span class="ic">PK</span><b>Trợ lý phiếu kết quả</b></div><span>Điền khung phiếu theo mẫu chuẩn, soát lỗi chính tả — bác sĩ đọc &amp; ký</span><div class="mt">Phụ siêu âm · HIS</div></div>
+      <div class="chip agent"><div class="h"><span class="ic">ND</span><b>Nội dung &amp; Marketing</b></div><span>Bài kiến thức thai kỳ, kịch bản TikTok, dựng video, trả lời bình luận</span><div class="mt">Gửi bác sĩ duyệt trước khi đăng</div></div>
+      <div class="chip agent"><div class="h"><span class="ic">VH</span><b>Vận hành &amp; Dược</b></div><span>Cảnh báo tồn kho, hạn dùng; xếp ca; tóm tắt bàn giao ca</span><div class="mt">Quầy Dược · Nhân sự</div></div>
+      <div class="chip agent"><div class="h"><span class="ic">PT</span><b>Phân tích &amp; Báo cáo</b></div><span>Báo cáo ngày/tuần: số ca, doanh thu, nguồn khách, tỷ lệ tái khám</span><div class="mt">Dashboard Admin</div></div>
+      <div class="chip agent"><div class="h"><span class="ic">ĐT</span><b>Đào tạo nhân viên</b></div><span>Hỏi đáp SOP, đóng vai khách khó, câu hỏi kiểm tra định kỳ</span><div class="mt">Nhân viên mới</div></div>
+      <div class="chip agent"><div class="h"><span class="ic">CS</span><b>Chăm sóc phản hồi</b></div><span>Phân loại phản hồi; tiêu cực → báo quản lý, không tự xin lỗi thay người</span><div class="mt">Leo thang quản lý</div></div>
+    </div></div></div>
+  <div class="down"><svg width="24" height="12"><use href="#dn"/></svg></div>
+
+  <div class="layer L5"><div class="lab"><span class="no">TẦNG 5</span><span class="nm">Kỹ năng &amp; Công cụ</span></div>
+    <div class="body">
+      <div class="chip"><b>Thư viện Skill</b><span>DNA phòng khám, quy trình phụ siêu âm, đón khách, kịch bản video, khảo sát…</span></div>
+      <div class="chip"><b>API kênh</b><span>Gửi/nhận Zalo OA, Facebook, TikTok</span></div>
+      <div class="chip"><b>API nội bộ</b><span>Lịch hẹn, HIS, thu ngân, kho dược</span></div>
+      <div class="chip"><b>Xử lý tệp</b><span>Excel, PDF, Word, dựng &amp; xuất video</span></div>
+      <div class="chip"><b>Lịch &amp; thông báo</b><span>Hẹn giờ gửi, gọi nhắc, thông báo nội bộ</span></div>
+    </div></div>
+  <div class="down"><svg width="24" height="12"><use href="#dn"/></svg></div>
+
+  <div class="layer L6"><div class="lab"><span class="no">TẦNG 6</span><span class="nm">Bộ nhớ &amp; Tri thức</span></div>
+    <div class="body">
+      <div class="chip"><b>Bộ nhớ ngắn hạn</b><span>Ngữ cảnh cuộc trò chuyện đang diễn ra</span></div>
+      <div class="chip"><b>Bộ não thứ 2 (RAG)</b><span>DNA · SOP · tri thức y khoa đã duyệt · bài học vận hành</span></div>
+      <div class="chip"><b>Hồ sơ hành trình khách</b><span>Tuổi thai, gói, lịch hẹn — chỉ thông tin cần cho việc nhắc lịch</span></div>
+      <div class="chip"><b>Dữ liệu phân tích</b><span>Số liệu từ kho phân tích cho báo cáo</span></div>
+    </div></div>
+  <div class="down"><svg width="24" height="12"><use href="#dn"/></svg></div>
+
+  <div class="layer L7" style="margin-bottom:0"><div class="lab"><span class="no">TẦNG 7</span><span class="nm">Mô hình AI nền</span></div>
+    <div class="body">
+      <div class="chip"><b>Mô hình ngôn ngữ lớn</b><span>Suy luận, viết, hội thoại tiếng Việt</span></div>
+      <div class="chip"><b>Nhận dạng giọng nói</b><span>Cuộc gọi, video bác sĩ → chữ</span></div>
+      <div class="chip"><b>OCR</b><span>Đọc phiếu giấy, tài liệu PDF</span></div>
+      <div class="chip"><b>Embedding</b><span>Mã hoá ý nghĩa cho tìm kiếm tri thức</span></div>
+    </div></div>
+</div>
+
+<div class="side">
+  <div class="box hitl">
+    <h3>Con người trong vòng lặp</h3>
+    <p class="s">Áp dụng xuyên suốt mọi tầng — AI đề xuất, con người quyết định</p>
+    <div class="r"><b>Bác sĩ Phạm Sơn</b><span>Kết luận mọi kết quả y khoa; duyệt nội dung y khoa trước khi đăng; ký phiếu</span></div>
+    <div class="r"><b>Quản lý phòng khám</b><span>Nhận phàn nàn, phản hồi tiêu cực, tình huống leo thang</span></div>
+    <div class="r"><b>Nhân viên lễ tân / phụ siêu âm</b><span>Xác nhận lịch hẹn; tự cân nhắc lời nói với ca bất thường thai</span></div>
+    <div class="r"><b>Quầy Dược</b><span>Mọi câu hỏi về thuốc chuyển cho nhân viên dược</span></div>
+  </div>
+  <div class="box obs">
+    <h3>Giám sát &amp; chất lượng</h3>
+    <ul>
+      <li>Nhật ký mọi câu trả lời của AI</li>
+      <li>Chấm điểm ngẫu nhiên hằng tuần theo DNA</li>
+      <li>Đo tỷ lệ chuyển người &amp; thời gian phản hồi</li>
+      <li>Bài học sai → nạp lại Bộ não thứ 2</li>
+    </ul>
+  </div>
+  <div class="box ex">
+    <h3>VÍ DỤ LUỒNG: "Chị 12 tuần, muốn đăng ký gói"</h3>
+    <div class="f"><i>T1</i>Tin nhắn Zalo OA đến</div>
+    <div class="f"><i>T2</i>Không có nội dung cấm → cho qua</div>
+    <div class="f"><i>T3</i>Ý định: đăng ký gói + đặt lịch</div>
+    <div class="f"><i>T4</i>Agent Lễ tân báo gói C1/C2 &amp; quyền lợi</div>
+    <div class="f"><i>T5–6</i>Tra lịch trống, mốc 11 tuần 6 ngày – 13 tuần 6 ngày</div>
+    <div class="f"><i>Người</i>Lễ tân xác nhận lịch, mời chị đến</div>
+  </div>
+</div>
+</div>
+<div class="foot"><span>Sức khỏe của bạn – Hạnh phúc của chúng tôi</span><span>Tận Tâm · Chính Trực · Chuyên Môn · Học Hỏi · Đồng Hành</span></div>
+</body></html>

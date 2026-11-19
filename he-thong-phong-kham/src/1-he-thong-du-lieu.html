@@ -1,0 +1,152 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Hệ thống dữ liệu</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.flow{display:grid;grid-template-columns:330px 40px 300px 40px 262px 40px 1fr;align-items:stretch}
+.arrow svg{width:40px;height:40px}
+.gate{background:linear-gradient(180deg,#0B4EC6,#002FAF);color:#fff;border-radius:16px;padding:18px 16px;display:flex;flex-direction:column;gap:12px}
+.gate h3{font-size:18px;font-weight:800;line-height:1.25}
+.gate .step{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:10px 12px}
+.gate .step b{display:block;font-size:14.5px;color:var(--gold);margin-bottom:2px}
+.gate .step span{font-size:13px;line-height:1.4;color:#E6EEFF}
+.store{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.store .card{margin:0}
+.brain{background:var(--card);border:3px solid var(--gold);border-radius:18px;padding:16px 18px;position:relative}
+.brain .bt{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.brain .bt .ic{width:46px;height:46px;border-radius:12px;background:var(--gold);display:flex;align-items:center;justify-content:center}
+.brain .bt h2{font-size:22px;font-weight:800;color:var(--blue-deep)}
+.brain .bt p{font-size:13.5px;color:var(--muted)}
+.drawers{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.drawer{background:var(--sky-soft);border-radius:10px;padding:10px;border-top:4px solid var(--blue)}
+.drawer b{font-size:13.5px;color:var(--blue-deep);display:block;margin-bottom:4px;line-height:1.25}
+.drawer span{font-size:12.2px;line-height:1.38;color:var(--ink);display:block}
+.loop{display:flex;align-items:center;gap:6px;margin-top:12px;flex-wrap:wrap}
+.loop .s{background:var(--gold-soft);border:1px solid #F3D58A;border-radius:8px;padding:6px 10px;font-size:12.8px}
+.loop .s b{color:#8A5D00}
+.loop .a{color:var(--gold);font-weight:900;font-size:18px}
+.bottom{margin-top:16px;display:flex;flex-direction:column;gap:14px}
+.out{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.out .o{background:var(--card);border:1.5px solid var(--line);border-left:5px solid var(--sky);border-radius:12px;padding:12px}
+.out .o b{font-size:15px;color:var(--blue-deep);display:block;margin-bottom:4px}
+.out .o span{font-size:13px;color:var(--muted);line-height:1.4}
+.legend{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px}
+.legend h4{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.lv{display:flex;gap:10px;align-items:flex-start;margin:7px 0;font-size:13.5px;line-height:1.4}
+.lv .tag{flex:0 0 92px;text-align:center}
+.method{display:flex;gap:10px;align-items:flex-start}
+.method .mi{flex:0 0 34px;height:34px;border-radius:9px;background:var(--sky-soft);color:var(--blue);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.method h3{margin-bottom:2px}
+.freq{font-size:11.5px;font-weight:700;color:var(--sky);text-transform:uppercase;letter-spacing:.06em}
+.sectiont{font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+</style></head><body>
+<div class="hdr">
+  <div>
+    <div class="kicker">Bản thiết kế 1/3 · Hạ tầng dữ liệu</div>
+    <h1>Hệ thống dữ liệu, nguồn dữ liệu &amp; Bộ não thứ 2</h1>
+    <div class="sub">Dữ liệu đi từ nguồn → cách nạp → lớp làm sạch &amp; bảo mật → kho lưu trữ → Bộ não thứ 2 → AI Agent &amp; Dashboard</div>
+  </div>
+  <div class="brand"><b>Phòng khám Bác sĩ Phạm Sơn</b><span class="dot"></span>Chuyên sâu siêu âm dị tật thai · Khoái Châu, Hưng Yên<br>600–800 ca siêu âm thai/tháng</div>
+</div>
+
+<div class="flow">
+  <!-- 1. NGUON -->
+  <div>
+    <div class="colt"><span class="n">1</span>Nguồn dữ liệu</div>
+    <div class="card"><h3>A · Lâm sàng <span class="tag t-red">Nhạy cảm</span></h3><ul>
+      <li>HIS / phần mềm phòng khám: hồ sơ khách, phiếu kết quả siêu âm</li>
+      <li>Máy Voluson E8 BT21: ảnh &amp; video 5D (DICOM)</li>
+      <li>X-quang, soi tai mũi họng: ảnh chụp</li>
+      <li>Xét nghiệm &amp; NIPT: kết quả từ đơn vị xét nghiệm</li></ul></div>
+    <div class="card"><h3>B · Khách hàng &amp; kênh</h3><ul>
+      <li>Zalo OA: đặt lịch, gửi kết quả, nhắc lịch</li>
+      <li>Fanpage: inbox, bình luận, lead quảng cáo</li>
+      <li>TikTok: lượt xem, bình luận, nguồn khách</li>
+      <li>Hotline 0986 442 313 / 0357 808 668: cuộc gọi</li>
+      <li>Khảo sát hài lòng sau khám</li></ul></div>
+    <div class="card"><h3>C · Vận hành &amp; kinh doanh</h3><ul>
+      <li>Thu ngân: giao dịch lẻ, gói C1 / C2, gói kết hợp NIPT</li>
+      <li>Quầy Dược: nhập – xuất – tồn, hạn dùng</li>
+      <li>Nhân sự: ca làm, chấm công, bàn giao ca</li></ul></div>
+    <div class="card"><h3>D · Tri thức nội bộ <span class="tag t-blue">Tài sản</span></h3><ul>
+      <li>DNA thương hiệu, SOP, kịch bản lễ tân, phụ siêu âm</li>
+      <li>Bảng mốc siêu âm chuẩn, tài liệu y khoa bác sĩ duyệt</li>
+      <li>Bài viết, video, câu chuyện khách (đã đồng ý)</li></ul></div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 40 40"><path d="M6 20h24M22 11l9 9-9 9" stroke="#2FA1FF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+  <!-- 2. CACH NAP -->
+  <div>
+    <div class="colt"><span class="n">2</span>Cách thức nạp dữ liệu</div>
+    <div class="card method"><div class="mi">API</div><div><span class="freq">Thời gian thực</span><h3>Webhook / API</h3><p>Zalo OA, Facebook Graph, TikTok → tin nhắn, lead, lịch hẹn đổ về ngay khi phát sinh</p></div></div>
+    <div class="card method"><div class="mi">DC</div><div><span class="freq">Sau mỗi ca khám</span><h3>Đồng bộ DICOM / PACS</h3><p>Ảnh, video 5D từ máy siêu âm &amp; X-quang lưu vào kho ảnh, gắn mã khách</p></div></div>
+    <div class="card method"><div class="mi">ETL</div><div><span class="freq">Hằng đêm 23h</span><h3>Đồng bộ theo lô</h3><p>Xuất dữ liệu HIS, thu ngân, dược → kho phân tích; đối soát số ca, doanh thu</p></div></div>
+    <div class="card method"><div class="mi">APP</div><div><span class="freq">Khi nhân viên thao tác</span><h3>Nhập qua Mini App</h3><p>Check-in, phiếu kết quả, bàn giao ca, khảo sát — biểu mẫu chuẩn, chống nhập sai</p></div></div>
+    <div class="card method"><div class="mi">OCR</div><div><span class="freq">Theo đợt</span><h3>Tải lên + OCR</h3><p>Phiếu giấy cũ, kết quả xét nghiệm PDF, tài liệu đào tạo → chuyển thành văn bản</p></div></div>
+    <div class="card method"><div class="mi">STT</div><div><span class="freq">Theo đợt</span><h3>Giọng nói → văn bản</h3><p>Ghi âm cuộc gọi (khi khách đồng ý), video bác sĩ → tóm tắt câu hỏi thường gặp</p></div></div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 40 40"><path d="M6 20h24M22 11l9 9-9 9" stroke="#2FA1FF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+  <!-- 3. GATE -->
+  <div>
+    <div class="colt"><span class="n">3</span>Làm sạch · Bảo mật</div>
+    <div class="gate">
+      <h3>Cổng kiểm soát dữ liệu</h3>
+      <div class="step"><b>① Chuẩn hoá</b><span>Một mã khách duy nhất (SĐT + năm sinh), gộp trùng, chuẩn ngày tuổi thai</span></div>
+      <div class="step"><b>② Ẩn danh hoá</b><span>Che tên, tuổi, địa chỉ, mã hồ sơ trước khi dữ liệu vào AI / marketing</span></div>
+      <div class="step"><b>③ Gắn nhãn đồng ý</b><span>Khách đồng ý dùng hình ảnh? đồng ý ghi âm? — không có nhãn thì không dùng</span></div>
+      <div class="step"><b>④ Phân cấp nhạy cảm</b><span>Đỏ · Vàng · Xanh — quyết định ai được xem, AI được đọc tới đâu</span></div>
+      <div class="step"><b>⑤ Chặn nội dung cấm</b><span>Loại bỏ mọi dữ liệu liên quan giới tính thai nhi; ẩn giá lẻ khỏi kho công khai</span></div>
+      <div class="step"><b>⑥ Nhật ký truy cập</b><span>Ghi lại ai xem, ai sửa, khi nào — phục vụ kiểm tra</span></div>
+    </div>
+  </div>
+  <div class="arrow"><svg viewBox="0 0 40 40"><path d="M6 20h24M22 11l9 9-9 9" stroke="#2FA1FF" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+  <!-- 4. KHO + BRAIN -->
+  <div>
+    <div class="colt"><span class="n">4</span>Kho lưu trữ &amp; Bộ não thứ 2</div>
+    <div class="store">
+      <div class="card"><h3>Cơ sở dữ liệu vận hành</h3><p>Khách, lịch hẹn, gói thai kỳ, thanh toán, kho dược, ca làm — dữ liệu "sống" cho Mini App</p></div>
+      <div class="card"><h3>Kho ảnh y khoa (PACS)</h3><p>Ảnh, video 5D, X-quang — mã hoá, chỉ bác sĩ &amp; nhân viên được phân quyền</p></div>
+      <div class="card"><h3>Kho phân tích (Data Warehouse)</h3><p>Số ca, doanh thu, tỷ lệ tái khám, nguồn khách — nạp cho Dashboard Admin</p></div>
+      <div class="card"><h3>Kho vector (tìm kiếm ngữ nghĩa)</h3><p>Tri thức đã chia đoạn &amp; mã hoá ý nghĩa để AI Agent tra cứu đúng chỗ</p></div>
+    </div>
+    <div class="brain">
+      <div class="bt"><div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0F1B33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3a3 3 0 0 0-3 3v.2A3 3 0 0 0 4 9a3 3 0 0 0 1 2.2A3 3 0 0 0 6 16a3 3 0 0 0 3 3h0a2 2 0 0 0 3-1.7V4.7A2 2 0 0 0 9 3z"/><path d="M15 3a3 3 0 0 1 3 3v.2A3 3 0 0 1 20 9a3 3 0 0 1-1 2.2A3 3 0 0 1 18 16a3 3 0 0 1-3 3h0a2 2 0 0 1-3-1.7"/></svg></div>
+        <div><h2>BỘ NÃO THỨ 2 của phòng khám</h2><p>Kho tri thức sống: mọi AI Agent và nhân viên đều tra cứu từ một nguồn sự thật duy nhất</p></div></div>
+      <div class="drawers">
+        <div class="drawer"><b>1. DNA thương hiệu</b><span>Giọng điệu, xưng hô, 4 trụ cột, giá trị cốt lõi, ranh giới bắt buộc</span></div>
+        <div class="drawer"><b>2. Quy trình (SOP)</b><span>Đón khách, phụ siêu âm, đánh phiếu, bàn giao ca, khảo sát</span></div>
+        <div class="drawer"><b>3. Tri thức y khoa</b><span>Mốc siêu âm chuẩn, giáo dục thai kỳ — <b style="display:inline;color:#9A6A00">chỉ bản bác sĩ đã duyệt</b></span></div>
+        <div class="drawer"><b>4. Ký ức khách hàng</b><span>Câu hỏi hay gặp, nỗi lo, phản hồi — đã ẩn danh</span></div>
+        <div class="drawer"><b>5. Bài học vận hành</b><span>Nhật ký sự cố, giờ cao điểm, insight nội dung hiệu quả</span></div>
+      </div>
+      <div class="loop">
+        <span style="font-size:12.5px;font-weight:800;color:var(--blue);letter-spacing:.06em">VÒNG NẠP TRI THỨC:</span>
+        <span class="s"><b>Thu thập</b> mọi nguồn</span><span class="a">›</span>
+        <span class="s"><b>Phân loại</b> vào 5 ngăn</span><span class="a">›</span>
+        <span class="s"><b>Chắt lọc</b> + bác sĩ duyệt</span><span class="a">›</span>
+        <span class="s"><b>Sử dụng</b> qua AI &amp; nhân viên</span><span class="a">›</span>
+        <span class="s"><b>Phản hồi</b> → cập nhật hằng tuần</span>
+      </div>
+    </div>
+<div class="bottom">
+      <div>
+        <div class="sectiont">5 · Đầu ra — dữ liệu phục vụ ai</div>
+        <div class="out">
+          <div class="o"><b>AI Agent</b><span>Tra cứu Bộ não thứ 2 để trả lời khách, soạn nội dung, nhắc lịch</span></div>
+          <div class="o"><b>Dashboard Admin</b><span>KPI ca khám, doanh thu, tái khám, hài lòng — cập nhật theo giờ</span></div>
+          <div class="o"><b>Nhân viên</b><span>Tra SOP, kịch bản, mốc siêu âm ngay trên điện thoại</span></div>
+          <div class="o"><b>Bác sĩ Phạm Sơn</b><span>Duyệt nội dung y khoa, xem báo cáo tuần, ra quyết định</span></div>
+        </div>
+      </div>
+      <div class="legend">
+        <h4>Phân cấp dữ liệu (áp dụng ở bước ③ ④)</h4>
+        <div class="lv"><span class="tag t-red">ĐỎ</span><span><b>Y tế định danh</b> — phiếu kết quả, ảnh siêu âm có tên. Chỉ bác sĩ &amp; nhân viên phụ trách. AI chỉ đọc sau khi ẩn danh.</span></div>
+        <div class="lv"><span class="tag t-gold">VÀNG</span><span><b>Nội bộ</b> — doanh thu, giá lẻ, đối thủ, nhân sự. Bác sĩ &amp; quản lý. Không đưa ra kênh công khai.</span></div>
+        <div class="lv"><span class="tag t-green">XANH</span><span><b>Công khai</b> — gói C1/C2, giờ làm việc, địa chỉ, bài viết đã duyệt. AI dùng tự do.</span></div>
+      </div>
+    </div>
+      </div>
+</div>
+
+<div class="foot"><span>Sức khỏe của bạn – Hạnh phúc của chúng tôi</span><span>Tận Tâm · Chính Trực · Chuyên Môn · Học Hỏi · Đồng Hành</span></div>
+</body></html>
