@@ -51,7 +51,19 @@ Agent tự động hoá trọn vòng làm video ngắn cho kênh **Bác sĩ Ph�
 
 ---
 
-## Cài đặt
+## Cách nhanh nhất: 1 lệnh
+
+Tải repo về máy (nút **Code → Download ZIP** trên GitHub, giải nén), rồi:
+
+- **Windows:** bấm đúp `BAT_DAU.bat`
+- **macOS / Linux:** mở Terminal trong thư mục và chạy `./bat_dau.sh`
+
+Trình cài đặt tự cài thư viện và cấu hình, rồi chỉ dừng lại ở 3 việc bắt buộc chính chủ làm:
+dán khoá Claude API, đăng nhập Facebook, đăng nhập Google Flow. Sau đó nó tự quét kênh mẫu, rút công thức, chạy
+quy trình hôm nay (10 kịch bản → chấm → ≤3 video → đăng Chỉ mình tôi) và hỏi bạn có bật chế độ tự chạy không.
+Kiểm tra máy bất cứ lúc nào: `python -m flow_agent doctor`.
+
+## Cài đặt thủ công
 
 Cần Python ≥ 3.10, ffmpeg, Google Chrome.
 

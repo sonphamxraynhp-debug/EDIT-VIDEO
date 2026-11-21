@@ -17,6 +17,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("-v", "--verbose", action="store_true")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
+    sub.add_parser("setup", help="cài đặt từng bước + tự chạy các bước đầu tiên (khuyên dùng lần đầu)")
+    sub.add_parser("doctor", help="kiểm tra máy đã sẵn sàng chưa")
     p = sub.add_parser("login", help="mở trình duyệt để đăng nhập 1 lần (facebook | flow)")
     p.add_argument("target", choices=["facebook", "flow"])
 
@@ -51,6 +53,14 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+
+    if args.cmd == "setup":
+        from .setup_wizard import run_setup
+        return run_setup(args.config)
+    if args.cmd == "doctor":
+        from .config import load_config
+        from .setup_wizard import print_checks, run_checks
+        return 0 if print_checks(run_checks(load_config(args.config))) else 1
 
     from .context import build_ctx
 
