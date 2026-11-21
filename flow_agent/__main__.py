@@ -29,6 +29,11 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("build-formula", help="rút công thức thành công (playbook) + sinh skill")
     sub.add_parser("research", help="= scan-reference + analyze + build-formula")
 
+    p = sub.add_parser("seed-playbook", help="nạp playbook khởi đầu (dùng khi chưa quét được kênh mẫu)")
+    p.add_argument("--force", action="store_true")
+    p = sub.add_parser("import-scripts", help="nạp kịch bản viết sẵn (vd seed/kich-ban-2026-11-21.json)")
+    p.add_argument("file")
+    p.add_argument("--rejudge", action="store_true", help="giám khảo AI độc lập chấm lại (cần khoá API)")
     sub.add_parser("propose", help="đề xuất 10 kịch bản, chấm điểm, chọn ≤3 bản > ngưỡng")
     p = sub.add_parser("produce", help="làm video từ kịch bản trên Google Flow")
     p.add_argument("script_id", type=int)
@@ -64,7 +69,7 @@ def main(argv: list[str] | None = None) -> int:
 
     from .context import build_ctx
 
-    needs_llm = args.cmd in {"analyze", "build-formula", "research", "propose", "daily", "learn", "run"}
+    needs_llm = (args.cmd == "import-scripts" and args.rejudge) or args.cmd in {"analyze", "build-formula", "research", "propose", "daily", "learn", "run"}
     ctx = build_ctx(args.config, with_llm=needs_llm)
 
     if args.cmd == "login":
@@ -93,6 +98,14 @@ def main(argv: list[str] | None = None) -> int:
         analyze_reference(ctx)
         v, pb = build_formula(ctx)
         print(f"Playbook v{v}:\n{pb.summary}")
+    elif args.cmd == "seed-playbook":
+        from .seeding import seed_playbook
+        v = seed_playbook(ctx, force=args.force)
+        print(f"Đã nạp playbook khởi đầu v{v}" if v else "Đã có playbook — bỏ qua (dùng --force để nạp đè)")
+    elif args.cmd == "import-scripts":
+        from .seeding import import_scripts, seed_playbook
+        seed_playbook(ctx)
+        _print(import_scripts(ctx, args.file, args.rejudge))
     elif args.cmd == "propose":
         from .planner import run_daily_planning
         _print(run_daily_planning(ctx))

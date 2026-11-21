@@ -1,0 +1,106 @@
+{
+  "summary": "PLAYBOOK KHỞI ĐẦU — chưa có số liệu từ kênh mẫu (sẽ được thay bằng playbook thật sau khi chạy `flowagent research`). Dựa trên công thức 'liệt kê song song nhịp điệu' đã bóc tách từ video viral: hook nỗi lo cụ thể trong 3 giây → 5–8 ý cùng một mẫu câu, câu ngắn → phụ đề đổi ~2 giây/dòng → CTA câu hỏi mở, không bán hàng. Giọng ấm áp – trấn an – chuyên nghiệp cho mẹ bầu Khoái Châu – Hưng Yên.",
+  "winning_topics": [
+    {
+      "topic": "Mốc siêu âm theo tuần thai",
+      "evidence": "Giả thuyết: nhu cầu tra cứu cao nhất của mẹ bầu; chưa có số liệu",
+      "priority": "cao"
+    },
+    {
+      "topic": "Phá hiểu lầm (NIPT, siêu âm 'thấy hết')",
+      "evidence": "Giả thuyết: dạng myth-busting tạo tranh luận, nhiều bình luận",
+      "priority": "cao"
+    },
+    {
+      "topic": "Người chồng đi cùng",
+      "evidence": "Giả thuyết: mở rộng khán giả sang nam giới, dễ được vợ chia sẻ/tag",
+      "priority": "trung bình"
+    },
+    {
+      "topic": "Thông tin thực dụng (giờ đông, lịch hẹn)",
+      "evidence": "Giả thuyết: lưu lại & chia sẻ cao",
+      "priority": "trung bình"
+    }
+  ],
+  "hook_patterns": [
+    {
+      "template": "Mẹ bầu [tuần X] mà chưa [việc] thì [hệ quả nhẹ nhàng, không doạ]",
+      "example": "Mẹ bầu 12 tuần mà chưa hẹn lịch siêu âm thì nghe kỹ 30 giây này.",
+      "why": "Neo tuần thai cụ thể, đúng người xem tự nhận ra mình"
+    },
+    {
+      "template": "[Niềm tin phổ biến]? Không hẳn đâu ạ.",
+      "example": "Làm NIPT rồi thì khỏi siêu âm? Không hẳn đâu ạ.",
+      "why": "Phản trực giác giữ người xem"
+    },
+    {
+      "template": "[N] [điều] mà [đối tượng] nên [làm]",
+      "example": "5 câu mẹ bầu nên hỏi bác sĩ mỗi lần siêu âm.",
+      "why": "Hứa hẹn danh sách rõ ràng, dễ xem hết"
+    }
+  ],
+  "structure_template": [
+    {
+      "name": "Hook",
+      "time_range": "0-3s",
+      "purpose": "chặn lướt",
+      "guideline": "1 câu ≤ 14 từ, có con số/tuần thai, nhìn thẳng camera"
+    },
+    {
+      "name": "Liệt kê song song",
+      "time_range": "3-32s",
+      "purpose": "giá trị chính",
+      "guideline": "5–8 ý, cùng 1 mẫu câu, mỗi cảnh 1–2 ý"
+    },
+    {
+      "name": "Chốt trấn an",
+      "time_range": "32-36s",
+      "purpose": "cảm xúc an tâm",
+      "guideline": "1 câu 'đồng hành', không hứa kết quả"
+    },
+    {
+      "name": "CTA",
+      "time_range": "36-40s",
+      "purpose": "bình luận",
+      "guideline": "Câu hỏi mở về tình huống của mẹ, không giá, không bán"
+    }
+  ],
+  "length_sweet_spot": "30–40 giây (4–5 cảnh × 8 giây)",
+  "visual_style": "Bác sĩ nói trước camera trong phòng siêu âm sáng sủa, xen cảnh mẹ bầu/ông xã đời thường; tông xanh dương – vàng ấm, không cảnh y khoa gây sợ, không hình thai nhi cận cảnh",
+  "audio_style": "Giọng nam trầm ấm, chậm rãi, rõ chữ; không nhạc ồn",
+  "on_screen_text_rules": [
+    "Chữ trắng trên hộp xanh thương hiệu, ≤ 7 từ/dòng, đổi dòng ~2 giây",
+    "Từ khoá/tuần thai được giữ nguyên số"
+  ],
+  "caption_patterns": [
+    "Câu hook lặp lại + 1 dòng tóm tắt + câu hỏi + 3–5 hashtag (#mebau #sieuamthai #khoaichau)"
+  ],
+  "cta_patterns": [
+    "Mẹ đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.",
+    "Mẹ thấy ý nào hữu ích nhất?"
+  ],
+  "posting_insights": [
+    "Chưa có số liệu — agent sẽ tự học giờ đăng tốt nhất từ view thật"
+  ],
+  "avoid": [
+    "Giật tít, doạ dị tật",
+    "Gợi ý giới tính thai",
+    "Nêu giá",
+    "Từ cấm: chính xác 100%, tốt nhất, số 1, duy nhất",
+    "Hình siêu âm thai cận cảnh do AI vẽ"
+  ],
+  "character_bible": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight.",
+  "flow_prompt_guide": [
+    "Mở đầu prompt bằng nguyên văn character bible để nhân vật đồng nhất giữa các cảnh",
+    "Medium close-up, eye-level, nhân vật nhìn thẳng camera khi nói; cảnh minh hoạ dùng mẹ bầu/ông xã",
+    "Ghi rõ: The doctor says in Vietnamese: \"…\" — câu ≤ 20 từ cho 8 giây",
+    "Kết thúc bằng: no on-screen text, no subtitles, no watermark",
+    "Màn hình siêu âm luôn mờ/không nét, không hiển thị hình thai nhi"
+  ],
+  "adaptation_for_brand": "Mọi thông tin y khoa chỉ lấy từ DNA (mốc siêu âm, NIPT là sàng lọc, tim thai 22–28 tuần, AI hỗ trợ bác sĩ). Câu y khoa nào cũng đưa vào medical_claims để Bác sĩ Phạm Sơn duyệt.",
+  "open_questions": [
+    "Talking head hay cảnh minh hoạ giữ người xem tốt hơn?",
+    "30s hay 60s?",
+    "Hook câu hỏi hay hook con số?"
+  ]
+}

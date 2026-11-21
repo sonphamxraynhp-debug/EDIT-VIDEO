@@ -172,12 +172,33 @@ def run_setup(config_path: str | None = None) -> int:
         from .research import analyze_reference, build_formula, scan_reference
 
         print("• Đang quét kênh mẫu (có thể mất 10–40 phút)…")
-        scan_reference(ctx)
-        analyze_reference(ctx)
-        v, pb = build_formula(ctx)
-        print(f"\n✅ Công thức kênh mẫu (playbook v{v}):\n{pb.summary}\n")
+        try:
+            scan_reference(ctx)
+            analyze_reference(ctx)
+            v, pb = build_formula(ctx)
+            print(f"\n✅ Công thức kênh mẫu (playbook v{v}):\n{pb.summary}\n")
+        except Exception as exc:  # noqa: BLE001
+            from .seeding import seed_playbook
 
-    if _yes("• Chạy ngay quy trình hôm nay (10 kịch bản → chấm điểm → làm ≤3 video → đăng Chỉ mình tôi)?"):
+            print(f"⚠️  Chưa quét được kênh mẫu ({exc}). Tạm dùng playbook khởi đầu; xem ảnh lỗi trong data/debug/ "
+                  "rồi chạy lại `python -m flow_agent research` sau.")
+            seed_playbook(ctx)
+
+    from .seeding import import_scripts
+
+    seeds = sorted((ROOT / "seed").glob("kich-ban-*.json"))
+    if seeds and _yes(f"• Có sẵn kịch bản viết trước ({seeds[-1].name}). Giám khảo AI chấm lại rồi làm video từ bản đó?"):
+        res = import_scripts(ctx, seeds[-1], rejudge=True)
+        print(f"  Đã chọn kịch bản: {res['selected']}")
+        from .production import produce, upload
+
+        for sid in res["selected"]:
+            try:
+                pid = produce(ctx, sid)
+                print(f"  ✅ Kịch bản #{sid} → video #{pid}: {upload(ctx, pid) or 'đã đăng Chỉ mình tôi'}")
+            except Exception as exc:  # noqa: BLE001
+                print(f"  ❌ Kịch bản #{sid}: {exc}")
+    elif _yes("• Chạy ngay quy trình hôm nay (10 kịch bản → chấm điểm → làm ≤3 video → đăng Chỉ mình tôi)?"):
         from .pipeline import run_daily
 
         out = run_daily(ctx)

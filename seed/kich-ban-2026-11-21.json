@@ -1,0 +1,822 @@
+{
+  "run_date": "2026-11-21",
+  "scored_by": "Claude (phiên viết code) — tự chấm, cần giám khảo độc lập chấm lại",
+  "scripts": [
+    {
+      "draft": {
+        "title": "8 mốc siêu âm thai mẹ bầu nên ghi vào lịch",
+        "topic": "Mốc siêu âm theo tuần thai",
+        "angle": "exploit",
+        "hypothesis": "Nội dung tra cứu thiết thực, dễ lưu & chia sẻ; danh sách song song đúng công thức",
+        "target_audience": "Mẹ bầu mọi tuần thai, đặc biệt lần đầu mang thai",
+        "hook": "Mẹ bầu ơi, lưu ngay 8 mốc siêu âm này kẻo lỡ.",
+        "formula_mapping": "Hook con số + liệt kê 8 mốc cùng mẫu câu 'Tuần X – xem Y' + CTA hỏi tuần thai",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds up a small paper calendar, smiles warmly and speaks to camera.",
+            "dialogue_vi": "Mẹ bầu ơi, lưu ngay 8 mốc siêu âm này kẻo lỡ nhé.",
+            "on_screen_text_vi": "8 mốc siêu âm mẹ bầu cần nhớ",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He counts on his fingers while explaining calmly.",
+            "dialogue_vi": "Tuần 5 đến 8: xem thai vào tổ. Tuần 9 đến 11: xem tim thai.",
+            "on_screen_text_vi": "Tuần 5–8: thai vào tổ. Tuần 9–11: tim thai",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He points to a softly blurred ultrasound monitor behind him, the screen out of focus.",
+            "dialogue_vi": "11 tuần 6 ngày đến 13 tuần 6 ngày: đo độ mờ da gáy.",
+            "on_screen_text_vi": "11 tuần 6 ngày – 13 tuần 6 ngày: đo độ mờ da gáy",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He continues counting on his fingers, friendly expression.",
+            "dialogue_vi": "Tuần 15 đến 18, tuần 22, rồi 26 đến 28: khảo sát hình thái và tim thai.",
+            "on_screen_text_vi": "Tuần 15–18 · tuần 22 · tuần 26–28",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He nods reassuringly, hands together.",
+            "dialogue_vi": "Tuần 30 đến 32 và 36 đến 40: theo dõi bé lớn đến ngày sinh.",
+            "on_screen_text_vi": "Tuần 30–32 · tuần 36–40: theo dõi đến ngày sinh",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 6,
+            "seconds": 6,
+            "visual_prompt_en": "A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile. She sits on a sofa at home, writing dates in a notebook, then looks up and smiles at camera. Warm daylight.",
+            "dialogue_vi": "Mẹ đang tuần thứ mấy rồi? Bình luận để Phòng khám nhắc mốc tiếp nhé.",
+            "on_screen_text_vi": "Mẹ đang tuần thứ mấy rồi?",
+            "camera": "medium shot, static"
+          }
+        ],
+        "cta": "Mẹ đang tuần thứ mấy rồi? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.",
+        "caption": "8 mốc siêu âm thai mẹ bầu nên ghi vào lịch. Lịch cụ thể của từng mẹ theo lời dặn của bác sĩ sau mỗi lần khám. Mẹ đang ở tuần thứ mấy rồi ạ?",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#mocsieuam",
+          "#khoaichau",
+          "#bacsiphamson"
+        ],
+        "medical_claims": [
+          "Các mốc siêu âm 5–8, 9–11, 11w6d–13w6d, 15–18, 22, 26–28, 30–32, 36–40 tuần",
+          "Mục tiêu từng mốc: thai vào tổ, tim thai, độ mờ da gáy, hình thái & tim thai, theo dõi tăng trưởng"
+        ],
+        "production_notes": "Cảnh 1–5 cùng nhân vật bác sĩ; cảnh 6 mẹ bầu. Phụ đề hiển thị số tuần thật to."
+      },
+      "scores": {
+        "hook": 19,
+        "formula": 20,
+        "density": 15,
+        "tone": 15,
+        "cta": 10,
+        "feasibility": 9,
+        "safety": 10
+      },
+      "notes": {
+        "hook": "Có con số 8 và lợi ích rõ; thiếu chi tiết neo địa phương (-1)",
+        "feasibility": "Cảnh 4 lời thoại dày (~17 từ/8s), cần đọc nhanh (-1)"
+      }
+    },
+    {
+      "draft": {
+        "title": "Mẹ bầu 12 tuần: đừng lỡ mốc đo độ mờ da gáy",
+        "topic": "Mốc sàng lọc quý I",
+        "angle": "exploit",
+        "hypothesis": "Neo đúng tuần thai tạo cảm giác 'nói đúng mình', mẹ 10–13 tuần sẽ xem hết",
+        "target_audience": "Mẹ bầu 10–13 tuần",
+        "hook": "Mẹ bầu 12 tuần mà chưa hẹn siêu âm thì nghe kỹ 30 giây này.",
+        "formula_mapping": "Hook neo tuần thai + 5 ý mẫu câu 'Mốc này để…' + chốt trấn an + CTA",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He leans slightly toward camera with a calm, caring expression.",
+            "dialogue_vi": "Mẹ bầu 12 tuần mà chưa hẹn siêu âm thì nghe kỹ 30 giây này nhé.",
+            "on_screen_text_vi": "Mẹ bầu 12 tuần chưa hẹn siêu âm?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds up one finger, then two, explaining clearly.",
+            "dialogue_vi": "Mốc vàng là 11 tuần 6 ngày đến 13 tuần 6 ngày, qua rồi không đo lại được.",
+            "on_screen_text_vi": "Mốc: 11 tuần 6 ngày – 13 tuần 6 ngày",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He gestures toward a softly blurred ultrasound monitor, the screen out of focus.",
+            "dialogue_vi": "Mốc này để đo độ mờ da gáy, và khảo sát sớm não, xương mũi, tay chân, cột sống.",
+            "on_screen_text_vi": "Đo độ mờ da gáy · khảo sát sớm hình thái",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile. She sits on a clinic bench holding a phone calendar, a calm reassuring mood, bright clean waiting room.",
+            "dialogue_vi": "Mẹ nên đặt lịch trước để không lỡ ngày. Lịch cụ thể theo lời dặn của bác sĩ.",
+            "on_screen_text_vi": "Đặt lịch trước · theo lời dặn bác sĩ",
+            "camera": "medium shot, gentle handheld"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly and nods.",
+            "dialogue_vi": "Siêu âm là sàng lọc, giúp theo dõi sát. Phòng khám luôn đồng hành cùng mẹ.",
+            "on_screen_text_vi": "Sàng lọc sớm – theo dõi sát – đồng hành",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 6,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He gently opens his hand toward camera, inviting.",
+            "dialogue_vi": "Mẹ đang tuần thứ mấy rồi? Bình luận cho Phòng khám biết nhé.",
+            "on_screen_text_vi": "Mẹ đang tuần thứ mấy?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Mẹ đang tuần thứ mấy rồi? Bình luận cho Phòng khám biết nhé.",
+        "caption": "Mẹ bầu 12 tuần nhớ mốc 11 tuần 6 ngày – 13 tuần 6 ngày để đo độ mờ da gáy. Mẹ đang tuần thứ mấy rồi ạ?",
+        "hashtags": [
+          "#mebau",
+          "#domodagay",
+          "#sieuamthai",
+          "#khoaichau"
+        ],
+        "medical_claims": [
+          "Mốc 11 tuần 6 ngày – 13 tuần 6 ngày để đo độ mờ da gáy",
+          "'Qua mốc này không đo lại được' — cần bác sĩ xác nhận cách diễn đạt",
+          "Khảo sát sớm não, xương mũi, tay chân, cột sống ở mốc này"
+        ],
+        "production_notes": "Cảnh 2 là ý quan trọng nhất — phụ đề giữ lâu."
+      },
+      "scores": {
+        "hook": 20,
+        "formula": 18,
+        "density": 15,
+        "tone": 15,
+        "cta": 10,
+        "feasibility": 10,
+        "safety": 10
+      },
+      "notes": {
+        "formula": "Chỉ có 4 ý song song, dưới mức 5–8 của công thức (-2)"
+      }
+    },
+    {
+      "draft": {
+        "title": "Làm NIPT rồi có cần siêu âm nữa không?",
+        "topic": "Phá hiểu lầm NIPT",
+        "angle": "exploit",
+        "hypothesis": "Câu hỏi phổ biến, câu trả lời phản trực giác giữ người xem và kéo bình luận",
+        "target_audience": "Mẹ bầu đang cân nhắc hoặc đã làm NIPT",
+        "hook": "Làm NIPT rồi thì khỏi siêu âm? Không hẳn đâu ạ.",
+        "formula_mapping": "Hook phản trực giác + 5 ý mẫu câu 'NIPT là…, siêu âm là…' + CTA",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 7,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He raises an eyebrow gently, then shakes his head with a friendly smile.",
+            "dialogue_vi": "Làm NIPT rồi thì khỏi siêu âm? Không hẳn đâu ạ.",
+            "on_screen_text_vi": "Làm NIPT rồi khỏi siêu âm?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He explains calmly, hands open.",
+            "dialogue_vi": "NIPT là xét nghiệm sàng lọc từ máu mẹ, không phải chẩn đoán.",
+            "on_screen_text_vi": "NIPT = xét nghiệm SÀNG LỌC",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He gestures toward a softly blurred ultrasound monitor, screen out of focus.",
+            "dialogue_vi": "Siêu âm hình thái giúp bác sĩ quan sát cấu trúc của bé qua từng giai đoạn.",
+            "on_screen_text_vi": "Siêu âm = quan sát hình thái",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds both hands side by side, showing two things working together.",
+            "dialogue_vi": "Hai việc bổ trợ cho nhau, NIPT không thay thế siêu âm hình thái.",
+            "on_screen_text_vi": "NIPT KHÔNG thay thế siêu âm",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile. She talks with the doctor across a desk in a bright clinic room, both smiling, calm atmosphere. A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight.",
+            "dialogue_vi": "Làm gì, lúc nào, mẹ hãy hỏi bác sĩ để có lịch phù hợp.",
+            "on_screen_text_vi": "Hỏi bác sĩ để có lịch phù hợp",
+            "camera": "over-the-shoulder, static"
+          },
+          {
+            "idx": 6,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles and points gently toward camera.",
+            "dialogue_vi": "Mẹ đã làm NIPT chưa? Kể Phòng khám nghe nhé.",
+            "on_screen_text_vi": "Mẹ đã làm NIPT chưa?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Mẹ đã làm NIPT chưa? Kể Phòng khám nghe nhé.",
+        "caption": "NIPT là xét nghiệm sàng lọc, không thay thế siêu âm hình thái. Mẹ đã làm NIPT chưa ạ?",
+        "hashtags": [
+          "#mebau",
+          "#NIPT",
+          "#sieuamthai",
+          "#khoaichau"
+        ],
+        "medical_claims": [
+          "NIPT là xét nghiệm sàng lọc từ máu mẹ, không phải chẩn đoán",
+          "NIPT không thay thế siêu âm hình thái"
+        ],
+        "production_notes": "Cảnh 5 hai nhân vật — kiểm tra khuôn mặt bác sĩ khớp các cảnh khác."
+      },
+      "scores": {
+        "hook": 20,
+        "formula": 17,
+        "density": 15,
+        "tone": 15,
+        "cta": 10,
+        "feasibility": 9,
+        "safety": 10
+      },
+      "notes": {
+        "formula": "Liệt kê chỉ 4 ý và mẫu câu chưa lặp đều (-3)",
+        "feasibility": "Cảnh 2 nhân vật khó giữ đồng nhất (-1)"
+      }
+    },
+    {
+      "draft": {
+        "title": "Tuần 22–28: vì sao bác sĩ hẹn siêu âm tim thai chi tiết",
+        "topic": "Siêu âm tim thai chi tiết",
+        "angle": "exploit",
+        "hypothesis": "Mẹ quý II hay thắc mắc vì sao có thêm lịch hẹn; giải thích rõ tạo tin tưởng",
+        "target_audience": "Mẹ bầu 20–28 tuần",
+        "hook": "Tuần 22 đến 28, bác sĩ hẹn siêu âm tim thai — mẹ có biết vì sao?",
+        "formula_mapping": "Hook câu hỏi neo tuần + 5 ý 'Vì…' + CTA",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He speaks to camera with a curious, friendly expression.",
+            "dialogue_vi": "Tuần 22 đến 28, bác sĩ hẹn siêu âm tim thai, mẹ có biết vì sao không?",
+            "on_screen_text_vi": "Tuần 22–28: siêu âm tim thai",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He counts on his fingers.",
+            "dialogue_vi": "Vì đây là giai đoạn tim bé đủ lớn để quan sát chi tiết hơn.",
+            "on_screen_text_vi": "Vì: tim bé đủ lớn để quan sát",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits at an ultrasound machine, the monitor screen softly blurred and unreadable.",
+            "dialogue_vi": "Vì có công nghệ AI hỗ trợ phân tích hình ảnh, bác sĩ là người kết luận.",
+            "on_screen_text_vi": "AI hỗ trợ – bác sĩ kết luận",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He nods calmly, reassuring.",
+            "dialogue_vi": "Vì đây là khảo sát thêm, không thay thế mốc siêu âm hình thái giữa thai kỳ.",
+            "on_screen_text_vi": "Không thay thế siêu âm hình thái",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles and opens his hand toward camera.",
+            "dialogue_vi": "Mẹ đã đến mốc này chưa? Bình luận để Phòng khám tư vấn lịch nhé.",
+            "on_screen_text_vi": "Mẹ đã đến mốc này chưa?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Mẹ đã đến mốc này chưa? Bình luận để Phòng khám tư vấn lịch nhé.",
+        "caption": "Tuần 22–28 là giai đoạn siêu âm tim thai chi tiết. AI hỗ trợ phân tích hình ảnh, Bác sĩ Phạm Sơn là người kết luận.",
+        "hashtags": [
+          "#mebau",
+          "#timthai",
+          "#sieuamthai",
+          "#khoaichau"
+        ],
+        "medical_claims": [
+          "Siêu âm tim thai chi tiết trong giai đoạn 22–28 tuần",
+          "'Tim bé đủ lớn để quan sát chi tiết hơn' — cần bác sĩ duyệt cách nói",
+          "AI hỗ trợ phân tích hình ảnh, bác sĩ kết luận",
+          "Không thay thế mốc siêu âm hình thái giữa thai kỳ"
+        ],
+        "production_notes": "Cảnh 3 tránh hiển thị bất kỳ hình tim/thai trên màn hình."
+      },
+      "scores": {
+        "hook": 19,
+        "formula": 16,
+        "density": 14,
+        "tone": 15,
+        "cta": 10,
+        "feasibility": 10,
+        "safety": 10
+      },
+      "notes": {
+        "formula": "Chỉ 3 ý 'Vì…' (-4)",
+        "density": "Cảnh 4 hơi trùng ý giới hạn (-1)",
+        "hook": "Câu hơi dài (-1)"
+      }
+    },
+    {
+      "draft": {
+        "title": "5 câu mẹ bầu nên hỏi bác sĩ mỗi lần siêu âm",
+        "topic": "Hỏi gì khi đi siêu âm",
+        "angle": "exploit",
+        "hypothesis": "Danh sách hành động cụ thể, mẹ lưu lại dùng ngay ở lần khám sau",
+        "target_audience": "Mẹ bầu đi siêu âm định kỳ",
+        "hook": "Đi siêu âm, mẹ hỏi đủ 5 câu này chưa?",
+        "formula_mapping": "Hook con số + 5 ý cùng mẫu câu 'Hỏi: …' + CTA mời bổ sung câu thứ 6",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds up five fingers with a friendly smile.",
+            "dialogue_vi": "Đi siêu âm, mẹ hỏi đủ 5 câu này chưa?",
+            "on_screen_text_vi": "5 câu nên hỏi bác sĩ",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile. She sits in a bright clinic room, reading questions from a small notebook. A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He listens attentively.",
+            "dialogue_vi": "Một: Bé phát triển có đúng tuần không ạ? Hai: Lần sau con hẹn tuần mấy ạ?",
+            "on_screen_text_vi": "1. Bé có đúng tuần? · 2. Hẹn tuần mấy?",
+            "camera": "two-shot, static"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile. She points at a line in her notebook, asking politely, warm light.",
+            "dialogue_vi": "Ba: Mốc tới cần khảo sát gì ạ? Bốn: Con cần lưu ý gì trong sinh hoạt ạ?",
+            "on_screen_text_vi": "3. Mốc tới xem gì? · 4. Cần lưu ý gì?",
+            "camera": "medium close-up on the woman"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He nods and answers kindly, gesturing with an open hand.",
+            "dialogue_vi": "Năm: Khi nào con cần đến khám sớm hơn lịch hẹn ạ?",
+            "on_screen_text_vi": "5. Khi nào cần khám sớm?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly at camera.",
+            "dialogue_vi": "Mẹ hay hỏi bác sĩ câu gì nhất? Viết câu thứ sáu ở bình luận nhé.",
+            "on_screen_text_vi": "Câu thứ 6 của mẹ là gì?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Mẹ hay hỏi bác sĩ câu gì nhất? Viết câu thứ sáu ở bình luận nhé.",
+        "caption": "5 câu mẹ bầu nên hỏi bác sĩ mỗi lần siêu âm. Câu thứ 6 của mẹ là gì?",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#kinhnghiemmebau",
+          "#khoaichau"
+        ],
+        "medical_claims": [
+          "Gợi ý câu hỏi cho bác sĩ (không chứa thông tin y khoa) — bác sĩ duyệt nhanh"
+        ],
+        "production_notes": "Cảnh 2–3 hai nhân vật; nếu Flow không giữ được mặt bác sĩ, quay mẹ bầu cận cảnh."
+      },
+      "scores": {
+        "hook": 19,
+        "formula": 20,
+        "density": 15,
+        "tone": 15,
+        "cta": 10,
+        "feasibility": 8,
+        "safety": 10
+      },
+      "notes": {
+        "hook": "Thiếu chi tiết neo (-1)",
+        "feasibility": "Hai cảnh hai nhân vật + lời thoại ~16 từ/8s (-2)"
+      }
+    },
+    {
+      "draft": {
+        "title": "Ông xã đi siêu âm cùng vợ: 5 việc nên làm",
+        "topic": "Người chồng đồng hành",
+        "angle": "explore",
+        "hypothesis": "Nhắm khán giả nam/người chồng — vợ dễ tag chồng, tăng chia sẻ",
+        "target_audience": "Chồng của mẹ bầu và cả mẹ bầu (để tag chồng)",
+        "hook": "Các ông xã đưa vợ đi siêu âm, nhớ 5 việc này nhé.",
+        "formula_mapping": "Hook gọi đúng đối tượng + 5 ý mẫu câu 'Nhớ …' + CTA tag chồng",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 7,
+            "visual_prompt_en": "A Vietnamese man around 30 years old, short hair, wearing a plain navy polo shirt, attentive and caring. He helps a pregnant woman out of a car in front of a bright clinic, caring gesture. A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile.",
+            "dialogue_vi": "Các ông xã đưa vợ đi siêu âm, nhớ 5 việc này nhé.",
+            "on_screen_text_vi": "Ông xã đi siêu âm cùng vợ: 5 việc",
+            "camera": "medium shot, gentle tracking"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese man around 30 years old, short hair, wearing a plain navy polo shirt, attentive and caring. He carries a small bag and a folder of medical papers, walking beside his pregnant wife into a clinic. A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile.",
+            "dialogue_vi": "Một, nhớ mang sổ khám. Hai, nhớ đặt lịch trước để vợ đỡ chờ.",
+            "on_screen_text_vi": "1. Mang sổ khám · 2. Đặt lịch trước",
+            "camera": "wide shot, tracking"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese man around 30 years old, short hair, wearing a plain navy polo shirt, attentive and caring. He sits beside his wife in a bright ultrasound room, holding her hand, listening carefully. A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile.",
+            "dialogue_vi": "Ba, nhớ vào cùng vợ. Bốn, nhớ hỏi bác sĩ lịch hẹn lần sau.",
+            "on_screen_text_vi": "3. Vào cùng vợ · 4. Hỏi lịch hẹn sau",
+            "camera": "medium shot, static"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese man around 30 years old, short hair, wearing a plain navy polo shirt, attentive and caring. At home he writes the next appointment date on a wall calendar, his wife smiling beside him. A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile.",
+            "dialogue_vi": "Năm, nhớ ghi lịch hẹn và nhắc vợ. Vợ yên tâm là bé khỏe hơn.",
+            "on_screen_text_vi": "5. Ghi lịch – nhắc vợ",
+            "camera": "medium shot, static"
+          },
+          {
+            "idx": 5,
+            "seconds": 7,
+            "visual_prompt_en": "A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile. She laughs warmly and points at camera, cozy living room.",
+            "dialogue_vi": "Tag ông xã vào đây xem anh ấy làm được mấy việc nào!",
+            "on_screen_text_vi": "Tag ông xã vào đây!",
+            "camera": "medium close-up"
+          }
+        ],
+        "cta": "Tag ông xã vào đây xem anh ấy làm được mấy việc nào!",
+        "caption": "Các ông xã đưa vợ đi siêu âm nhớ 5 việc này nhé. Tag ông xã vào xem anh ấy làm được mấy việc!",
+        "hashtags": [
+          "#mebau",
+          "#ongxa",
+          "#sieuamthai",
+          "#khoaichau"
+        ],
+        "medical_claims": [
+          "'Vợ yên tâm là bé khỏe hơn' — cảm xúc, cần bác sĩ xem có nên giữ không"
+        ],
+        "production_notes": "Không có cảnh bác sĩ — giảm rủi ro lệch nhân vật."
+      },
+      "scores": {
+        "hook": 19,
+        "formula": 20,
+        "density": 14,
+        "tone": 13,
+        "cta": 10,
+        "feasibility": 9,
+        "safety": 10
+      },
+      "notes": {
+        "tone": "'bé khỏe hơn' ngả về khẳng định y khoa, và thiếu chất chuyên môn của thương hiệu (-2)",
+        "density": "'Nhớ đặt lịch trước' trùng với kịch bản khác (-1)",
+        "feasibility": "Nhân vật chồng/vợ phải đồng nhất qua 5 cảnh (-1)"
+      }
+    },
+    {
+      "draft": {
+        "title": "Siêu âm có thấy hết mọi bất thường không?",
+        "topic": "Phá hiểu lầm 'siêu âm thấy hết'",
+        "angle": "exploit",
+        "hypothesis": "Nói thật về giới hạn siêu âm tạo uy tín (giá trị Chính Trực), kéo tranh luận",
+        "target_audience": "Mẹ bầu và gia đình",
+        "hook": "Siêu âm có thấy hết mọi bất thường không? Câu trả lời thật là không.",
+        "formula_mapping": "Hook myth + 5 ý mẫu câu 'Siêu âm …' + CTA",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He speaks honestly to camera, calm and serious but kind.",
+            "dialogue_vi": "Siêu âm có thấy hết mọi bất thường không? Câu trả lời thật là không.",
+            "on_screen_text_vi": "Siêu âm có thấy hết không?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He explains with open hands.",
+            "dialogue_vi": "Siêu âm là sàng lọc, có những điều chưa thể thấy ở một lần khám.",
+            "on_screen_text_vi": "Siêu âm là SÀNG LỌC",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds up a small paper calendar.",
+            "dialogue_vi": "Vì vậy mẹ cần đi đủ các mốc, mỗi mốc khảo sát những phần khác nhau.",
+            "on_screen_text_vi": "Đi đủ các mốc",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He nods reassuringly.",
+            "dialogue_vi": "Và có thể kết hợp xét nghiệm sàng lọc theo tư vấn của bác sĩ.",
+            "on_screen_text_vi": "Kết hợp xét nghiệm theo tư vấn",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly and gestures toward camera.",
+            "dialogue_vi": "Trước giờ mẹ có nghĩ siêu âm thấy được hết không? Bình luận nhé.",
+            "on_screen_text_vi": "Mẹ từng nghĩ siêu âm thấy hết?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Trước giờ mẹ có nghĩ siêu âm thấy được hết không? Bình luận nhé.",
+        "caption": "Siêu âm là sàng lọc, không phát hiện được tất cả bất thường. Đi đủ các mốc để được theo dõi sát.",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau"
+        ],
+        "medical_claims": [
+          "Siêu âm không phát hiện được tất cả bất thường",
+          "Mỗi mốc khảo sát những phần khác nhau",
+          "Có thể kết hợp xét nghiệm sàng lọc theo tư vấn"
+        ],
+        "production_notes": "Giữ giọng điềm tĩnh, không gây lo lắng."
+      },
+      "scores": {
+        "hook": 18,
+        "formula": 15,
+        "density": 13,
+        "tone": 14,
+        "cta": 10,
+        "feasibility": 10,
+        "safety": 10
+      },
+      "notes": {
+        "formula": "Chỉ 3 ý, mẫu câu không lặp (-5)",
+        "density": "Thiếu ví dụ cụ thể (-2)",
+        "hook": "Nhắc 'bất thường' ngay câu đầu có thể gây lo lắng (-2)",
+        "tone": "Hơi nặng nề (-1)"
+      }
+    },
+    {
+      "draft": {
+        "title": "Đi siêu âm giờ nào đỡ phải chờ?",
+        "topic": "Giờ ít đông ở phòng khám",
+        "angle": "explore",
+        "hypothesis": "Thông tin thực dụng, địa phương — tăng lưu & chia sẻ trong nhóm mẹ bầu Khoái Châu",
+        "target_audience": "Mẹ bầu khu vực Khoái Châu – Hưng Yên",
+        "hook": "Mẹ bầu Khoái Châu đi siêu âm, tránh 3 khung giờ này để đỡ chờ.",
+        "formula_mapping": "Hook neo địa phương + 5 ý mẫu câu 'Khung … : …' + CTA",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands at the clinic entrance with a friendly wave.",
+            "dialogue_vi": "Mẹ bầu Khoái Châu đi siêu âm, tránh 3 khung giờ này để đỡ chờ nhé.",
+            "on_screen_text_vi": "Tránh 3 khung giờ đông",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He counts on his fingers.",
+            "dialogue_vi": "Khung đông một: 7 rưỡi đến 9 rưỡi sáng. Khung đông hai: 5 đến 6 rưỡi chiều.",
+            "on_screen_text_vi": "7h30–9h30 · 17h00–18h30",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He shows a wall calendar and points at Sunday.",
+            "dialogue_vi": "Khung đông ba: Chủ nhật. Nếu được, mẹ đến ngày thường sẽ nhẹ nhàng hơn.",
+            "on_screen_text_vi": "Chủ nhật đông nhất",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds up a smartphone showing a blank messaging screen.",
+            "dialogue_vi": "Mẹo nhỏ: nhắn Zalo hoặc Fanpage đặt lịch trước, đến là vào nhanh hơn.",
+            "on_screen_text_vi": "Đặt lịch qua Zalo / Fanpage",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles and gestures toward camera.",
+            "dialogue_vi": "Mẹ hay đi siêu âm vào buổi nào? Bình luận cho Phòng khám nhé.",
+            "on_screen_text_vi": "Mẹ hay đi buổi nào?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Mẹ hay đi siêu âm vào buổi nào? Bình luận cho Phòng khám nhé.",
+        "caption": "Giờ cao điểm tại Phòng khám Bác sĩ Phạm Sơn: 7h30–9h30, 17h00–18h30 và Chủ nhật. Đặt lịch trước qua Zalo/Fanpage hoặc hotline 0986 442 313 để đỡ chờ.",
+        "hashtags": [
+          "#mebau",
+          "#khoaichau",
+          "#hungyen",
+          "#bacsiphamson"
+        ],
+        "medical_claims": [
+          "(Không có câu y khoa) — giờ cao điểm lấy từ thông tin phòng khám"
+        ],
+        "production_notes": "Không nói 'không phải chờ'; chỉ 'nhẹ nhàng hơn', 'vào nhanh hơn'."
+      },
+      "scores": {
+        "hook": 20,
+        "formula": 17,
+        "density": 15,
+        "tone": 15,
+        "cta": 10,
+        "feasibility": 9,
+        "safety": 9
+      },
+      "notes": {
+        "formula": "4 ý, mẫu câu 'Khung đông…' chỉ lặp 3 lần (-3)",
+        "feasibility": "Điện thoại trong cảnh 4 có thể bị Veo vẽ chữ lạ (-1)",
+        "safety": "'đến là vào nhanh hơn' gần với hứa hẹn thời gian chờ (-1)"
+      }
+    },
+    {
+      "draft": {
+        "title": "Từ Bệnh viện Nhi Trung ương về Khoái Châu",
+        "topic": "Câu chuyện thương hiệu",
+        "angle": "explore",
+        "hypothesis": "Câu chuyện con người tạo niềm tin & chia sẻ; thử định dạng kể chuyện thay vì liệt kê",
+        "target_audience": "Mẹ bầu và người dân Khoái Châu",
+        "hook": "Hơn 10 năm ở Bệnh viện Nhi Trung ương, rồi tôi chọn về quê.",
+        "formula_mapping": "Thử nghiệm: hook câu chuyện thay vì liệt kê; giữ CTA hỏi mở",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He walks slowly along a quiet green village road at sunrise, thoughtful, then looks at camera.",
+            "dialogue_vi": "Hơn 10 năm ở Khoa Chẩn đoán hình ảnh, Bệnh viện Nhi Trung ương.",
+            "on_screen_text_vi": "Hơn 10 năm ở BV Nhi Trung ương",
+            "camera": "wide to medium, slow dolly"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands in front of a bright clean clinic building on a village street.",
+            "dialogue_vi": "Rồi bác sĩ chọn về Khoái Châu, mang những gì đã học về gần nhà.",
+            "on_screen_text_vi": "Về Khoái Châu – gần nhà",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A Vietnamese pregnant woman around 28 years old, shoulder-length black hair, wearing a soft light-yellow maternity dress, gentle smile. She sits with her husband in a bright clinic waiting room, relaxed and smiling. A Vietnamese man around 30 years old, short hair, wearing a plain navy polo shirt, attentive and caring.",
+            "dialogue_vi": "Để mẹ bầu quê mình không phải đi xa mới được siêu âm kỹ.",
+            "on_screen_text_vi": "Không phải đi xa",
+            "camera": "medium shot, static"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly at camera inside the clinic.",
+            "dialogue_vi": "Chuyên môn tuyến trung ương, ngay tại quê nhà.",
+            "on_screen_text_vi": "Chuyên môn tuyến trung ương – ngay tại quê nhà",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 5,
+            "seconds": 7,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He gently nods, inviting.",
+            "dialogue_vi": "Mẹ ở xã nào? Bình luận để Phòng khám chỉ đường nhé.",
+            "on_screen_text_vi": "Mẹ ở xã nào?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Mẹ ở xã nào? Bình luận để Phòng khám chỉ đường nhé.",
+        "caption": "Chuyên môn tuyến trung ương – ngay tại quê nhà. Phòng khám Bác sĩ Phạm Sơn, cạnh Trường Mầm non Đông Kết, Khoái Châu.",
+        "hashtags": [
+          "#bacsiphamson",
+          "#khoaichau",
+          "#hungyen",
+          "#sieuamthai"
+        ],
+        "medical_claims": [
+          "Thông tin tiểu sử: hơn 10 năm tại Khoa CĐHA BV Nhi Trung ương (xác nhận cách diễn đạt)"
+        ],
+        "production_notes": "Nhân vật AI là hình tượng đại diện; caption ghi rõ có dùng AI. Cân nhắc thay cảnh 1–2 bằng video thật của bác sĩ."
+      },
+      "scores": {
+        "hook": 18,
+        "formula": 12,
+        "density": 14,
+        "tone": 15,
+        "cta": 9,
+        "feasibility": 9,
+        "safety": 9
+      },
+      "notes": {
+        "formula": "Cố ý không theo khung liệt kê (thử nghiệm) (-8)",
+        "hook": "Câu hook dùng 'tôi' nhưng cảnh sau dùng 'bác sĩ' (-2)",
+        "safety": "Nhân vật AI kể tiểu sử người thật — dễ hiểu nhầm là chính bác sĩ (-1)",
+        "cta": "-1",
+        "density": "-1",
+        "feasibility": "-1"
+      }
+    },
+    {
+      "draft": {
+        "title": "Mẹ hỏi trai hay gái — vì sao bác sĩ không trả lời?",
+        "topic": "Quy định giới tính thai nhi",
+        "angle": "explore",
+        "hypothesis": "Câu hỏi rất hay gặp; giải thích quy định một cách nhẹ nhàng giúp giảm áp lực cho nhân viên",
+        "target_audience": "Mẹ bầu và gia đình",
+        "hook": "Câu mẹ hỏi nhiều nhất khi siêu âm — và vì sao bác sĩ không trả lời.",
+        "formula_mapping": "Hook tò mò + 4 ý mẫu câu 'Vì…' + CTA",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles knowingly at camera.",
+            "dialogue_vi": "Câu mẹ hỏi nhiều nhất khi siêu âm, và vì sao bác sĩ không trả lời.",
+            "on_screen_text_vi": "Câu hỏi bác sĩ không trả lời",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He explains calmly with open hands.",
+            "dialogue_vi": "Vì pháp luật không cho phép thông báo giới tính thai nhi.",
+            "on_screen_text_vi": "Pháp luật không cho phép",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He nods kindly.",
+            "dialogue_vi": "Vì điều quan trọng nhất là bé đang phát triển khỏe mạnh theo từng mốc.",
+            "on_screen_text_vi": "Quan trọng: bé phát triển theo mốc",
+            "camera": "medium close-up, eye-level, slow push-in"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly at camera.",
+            "dialogue_vi": "Mẹ muốn bác sĩ giải đáp điều gì về sự phát triển của bé? Bình luận nhé.",
+            "on_screen_text_vi": "Mẹ muốn hỏi gì về bé?",
+            "camera": "medium close-up, eye-level, slow push-in"
+          }
+        ],
+        "cta": "Mẹ muốn bác sĩ giải đáp điều gì về sự phát triển của bé? Bình luận nhé.",
+        "caption": "Theo quy định của pháp luật, Phòng khám không thông báo giới tính thai nhi. Điều quan trọng nhất là bé phát triển khỏe mạnh qua từng mốc.",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau"
+        ],
+        "medical_claims": [
+          "Quy định pháp luật về thông báo giới tính thai nhi"
+        ],
+        "production_notes": "Chủ đề nhạy cảm: không hình ảnh/màu sắc gợi ý; cần bác sĩ duyệt kỹ."
+      },
+      "scores": {
+        "hook": 18,
+        "formula": 14,
+        "density": 13,
+        "tone": 14,
+        "cta": 9,
+        "feasibility": 10,
+        "safety": 8
+      },
+      "notes": {
+        "formula": "Chỉ 2 ý (-6)",
+        "density": "Mỏng nội dung (-2)",
+        "safety": "Chủ đề giáp ranh, dễ kéo bình luận đoán giới tính (-2)",
+        "hook": "-2",
+        "tone": "-1",
+        "cta": "-1"
+      }
+    }
+  ]
+}
