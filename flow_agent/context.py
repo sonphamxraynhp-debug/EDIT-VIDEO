@@ -70,12 +70,8 @@ def build_ctx(config_path: str | None = None, with_llm: bool = True) -> Ctx:
     db = DB(cfg.data_dir / "agent.db")
     ctx = Ctx(cfg=cfg, db=db)
     if with_llm:
-        from .llm import LLM, make_llm
+        from .llm import make_llm
 
         ctx.llm = make_llm(cfg)
-        ctx.judge = LLM(
-            model=cfg.get_path("llm.judge_model", cfg.get_path("llm.model")),
-            effort=cfg.get_path("llm.effort", "high"),
-            refusal_fallbacks=bool(cfg.get_path("llm.refusal_fallbacks", True)),
-        )
+        ctx.judge = make_llm(cfg, judge=True)
     return ctx

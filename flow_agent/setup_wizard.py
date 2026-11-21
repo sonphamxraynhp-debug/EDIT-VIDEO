@@ -48,8 +48,7 @@ def run_checks(cfg=None) -> list[Check]:  # noqa: ANN001
               "pip install yt-dlp"),
         Check("faster-whisper (bóc lời thoại)", _has_module("faster_whisper"), "pip install faster-whisper",
               required=False),
-        Check("Khoá Claude API", bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")),
-              "Điền ANTHROPIC_API_KEY vào file .env (lấy ở console.anthropic.com)"),
+        _claude_check(cfg),
         Check("File cấu hình config/config.yaml", DEFAULT_CONFIG.exists(), "python -m flow_agent setup"),
         Check("Đã đăng nhập Facebook (hồ sơ trình duyệt)", _profile_used(cfg.path("facebook.browser_profile_dir")),
               "python -m flow_agent login facebook"),
@@ -95,6 +94,76 @@ def _ask(prompt: str, default: str = "") -> str:
 def _yes(prompt: str, default: bool = True) -> bool:
     ans = input(f"{prompt} ({'C/k' if default else 'c/K'}): ").strip().lower()
     return default if not ans else ans in ("c", "co", "có", "y", "yes")
+
+
+# ------------------------------------------------------------------- Claude Code (gói Pro/Max, không tốn tiền API)
+def claude_code_ready(timeout: int = 180) -> tuple[bool, str]:
+    from .llm import find_claude_cli
+
+    exe = find_claude_cli()
+    if not exe:
+        return False, "chưa cài Claude Code"
+    try:
+        res = subprocess.run([exe, "-p", "--output-format", "json", "--tools", ""], input="Chỉ trả lời: OK",
+                             capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout)
+        import json
+
+        data = json.loads(res.stdout or "{}")
+        if data.get("is_error") or data.get("subtype") != "success":
+            return False, str(data.get("result") or res.stderr)[:200]
+        return True, "ok"
+    except Exception as exc:  # noqa: BLE001
+        return False, str(exc)[:200]
+
+
+def _claude_check(cfg) -> Check:  # noqa: ANN001
+    from .llm import find_claude_cli, resolve_backend
+
+    if resolve_backend(cfg) == "api":
+        return Check("Khoá Claude API (backend api — trả phí)",
+                     bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")),
+                     "Điền ANTHROPIC_API_KEY vào .env, hoặc đổi llm.backend thành claude_code để dùng gói Max")
+    if not find_claude_cli():
+        return Check("Claude Code (dùng gói Max, không tốn tiền API)", False, "python -m flow_agent setup (tự cài)")
+    ok, why = claude_code_ready()
+    return Check("Claude Code (dùng gói Max, không tốn tiền API)", ok,
+                 f"Gõ `claude`, đăng nhập tài khoản Claude Max rồi gõ /exit ({why})")
+
+
+def ensure_claude_code() -> bool:
+    """Cài Claude Code nếu thiếu, rồi mở cho người dùng đăng nhập tài khoản Claude Pro/Max (1 lần)."""
+    from .llm import find_claude_cli
+
+    if os.name == "nt" and not (shutil.which("git") or Path(r"C:\Program Files\Git\bin\bash.exe").exists()):
+        print("• Claude Code trên Windows cần Git — đang cài Git…")
+        subprocess.run(["winget", "install", "-e", "--id", "Git.Git", "--accept-source-agreements",
+                        "--accept-package-agreements"], check=False)
+    if not find_claude_cli():
+        print("• Đang cài Claude Code (dùng gói Claude Max của bạn, không tốn tiền API)…")
+        if os.name == "nt":
+            subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command",
+                            "irm https://claude.ai/install.ps1 | iex"], check=False)
+        else:
+            subprocess.run(["bash", "-c", "curl -fsSL https://claude.ai/install.sh | bash"], check=False)
+    exe = find_claude_cli()
+    if not exe:
+        print("❗ Chưa cài được Claude Code. Cài tay theo hướng dẫn tại code.claude.com rồi chạy lại.")
+        return False
+    print("• Kiểm tra đăng nhập Claude Code…")
+    ok, _ = claude_code_ready()
+    tries = 0
+    while not ok and tries < 2:
+        tries += 1
+        print("\n  Claude Code sẽ mở ngay trong cửa sổ này. Chọn đăng nhập bằng TÀI KHOẢN CLAUDE (gói Max),")
+        print("  làm theo trình duyệt, khi thấy dấu nhắc > thì gõ  /exit  rồi Enter để quay lại.\n")
+        input("  Nhấn Enter để bắt đầu… ")
+        subprocess.run([exe], check=False)
+        ok, why = claude_code_ready()
+        if not ok:
+            print(f"  Chưa đăng nhập được: {why}")
+    if ok:
+        print("  ✓ Claude Code đã sẵn sàng — agent sẽ dùng gói Max, không tốn tiền API.")
+    return ok
 
 
 def _ask_api_key() -> str:
@@ -154,9 +223,14 @@ def run_setup(config_path: str | None = None) -> int:
         print(f"• Đã tạo {DEFAULT_CONFIG.relative_to(ROOT)}")
     from .config import load_config
 
-    if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
-        _set_env("ANTHROPIC_API_KEY", _ask_api_key())
     cfg = load_config(config_path)
+    from .llm import resolve_backend
+
+    if resolve_backend(cfg) == "api":
+        if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
+            _set_env("ANTHROPIC_API_KEY", _ask_api_key())
+    elif not ensure_claude_code():
+        return 1
 
     # 3. đăng nhập (bắt buộc chủ tài khoản tự làm)
     from .browser import persistent_context

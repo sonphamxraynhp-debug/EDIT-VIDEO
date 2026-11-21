@@ -23,6 +23,9 @@ DNA thương hiệu ở `config/brand.md`, dữ liệu ở `data/` (SQLite `data
 | Quét view / tự học / báo cáo | `track` · `learn` · `report` |
 | Chạy liên tục theo lịch | `python -m flow_agent run` |
 
+## Gọi Claude
+Mặc định agent gọi `claude -p` (Claude Code, gói Pro/Max của người dùng) — không dùng khoá API trừ khi `llm.backend: api`.
+
 ## Quy tắc khi vận hành thay người dùng
 - Không hạ `daily.score_threshold` hay sửa rubric mục `safety` để có thêm video — ngưỡng > 95 là yêu cầu của chủ kênh.
 - Không tự `approve` video: chỉ chạy khi người dùng xác nhận Bác sĩ Phạm Sơn đã duyệt và video đã chuyển Công khai.

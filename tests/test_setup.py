@@ -4,11 +4,12 @@ from flow_agent.setup_wizard import print_checks, run_checks
 def test_doctor_reports_missing_items(ctx, monkeypatch, capsys):
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN", raising=False)
+    monkeypatch.setattr("flow_agent.llm.find_claude_cli", lambda: None)
     checks = {c.name: c for c in run_checks(ctx.cfg)}
-    assert not checks["Khoá Claude API"].ok
+    assert not checks["Claude Code (dùng gói Max, không tốn tiền API)"].ok
     assert not checks["Đã đăng nhập Facebook (hồ sơ trình duyệt)"].ok
     assert print_checks(list(checks.values())) is False
-    assert "Điền ANTHROPIC_API_KEY" in capsys.readouterr().out
+    assert "python -m flow_agent setup (tự cài)" in capsys.readouterr().out
 
 
 def test_seed_files_import(tmp_path):

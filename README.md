@@ -58,8 +58,13 @@ Tải repo về máy (nút **Code → Download ZIP** trên GitHub, giải nén),
 - **Windows:** bấm đúp `BAT_DAU.bat`
 - **macOS / Linux:** mở Terminal trong thư mục và chạy `./bat_dau.sh`
 
-Trình cài đặt tự cài thư viện và cấu hình, rồi chỉ dừng lại ở 3 việc bắt buộc chính chủ làm:
-dán khoá Claude API, đăng nhập Facebook, đăng nhập Google Flow. Sau đó nó tự quét kênh mẫu, rút công thức, chạy
+Trình cài đặt tự cài thư viện, cấu hình và **Claude Code**, rồi chỉ dừng lại ở 3 việc bắt buộc chính chủ làm:
+đăng nhập Claude Code bằng tài khoản Claude (gói Pro/Max), đăng nhập Facebook, đăng nhập Google Flow.
+
+> 💡 **Không tốn tiền API:** agent gọi Claude qua Claude Code (`claude -p`) nên dùng hạn mức của gói Claude
+> Pro/Max bạn đang trả. Muốn dùng Claude API trả phí thay thế: đặt `llm.backend: api` và điền `ANTHROPIC_API_KEY`.
+> Gói Max có giới hạn sử dụng theo chu kỳ; lần quét kênh mẫu đầu tiên (nhiều video) tốn hạn mức nhất —
+> nếu chạm giới hạn, agent báo lỗi rõ ràng và lần chạy sau sẽ làm tiếp phần còn lại. Sau đó nó tự quét kênh mẫu, rút công thức, chạy
 quy trình hôm nay (10 kịch bản → chấm → ≤3 video → đăng Chỉ mình tôi) và hỏi bạn có bật chế độ tự chạy không.
 Kiểm tra máy bất cứ lúc nào: `python -m flow_agent doctor`.
 
@@ -87,7 +92,8 @@ python -m playwright install chromium
 cp config/config.example.yaml config/config.yaml && cp .env.example .env
 ```
 
-Mở `.env`, điền `ANTHROPIC_API_KEY` (khoá Claude API), giữ `FLOWAGENT_BROWSER_CHANNEL=chrome`.
+Cài Claude Code rồi gõ `claude` một lần để đăng nhập tài khoản Claude (gói Pro/Max) — agent dùng nó, không cần khoá API.
+Giữ `FLOWAGENT_BROWSER_CHANNEL=chrome` trong `.env`.
 Mở `config/config.yaml` kiểm tra 2 link kênh, giờ chạy, ngưỡng điểm.
 
 ### Đăng nhập (1 lần)
