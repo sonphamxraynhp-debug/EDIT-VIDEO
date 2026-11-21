@@ -33,3 +33,11 @@ def test_seed_files_import(tmp_path):
     assert len(blocked) == 2
     assert import_scripts(c, ROOT / "seed" / "kich-ban-2026-11-21.json")["imported"] == []  # không nạp trùng
     assert Path(c.cfg.path("skill_dir") / "SKILL.md").exists()
+
+
+def test_auto_mode_never_prompts(monkeypatch):
+    import flow_agent.setup_wizard as sw
+
+    monkeypatch.setattr("builtins.input", lambda *a: (_ for _ in ()).throw(AssertionError("không được hỏi")))
+    monkeypatch.setattr(sw, "AUTO", True)
+    assert sw._yes("x") is True and sw._yes("y", False) is False and sw._ask("z", "d") == "d"

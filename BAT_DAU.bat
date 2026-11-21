@@ -7,5 +7,5 @@ if not exist .venv (python -m venv .venv)
 call .venv\Scripts\activate.bat
 python -m pip install -q --upgrade pip
 python -m pip install -q -r requirements.txt
-python -m flow_agent setup
+python -m flow_agent setup --auto
 pause

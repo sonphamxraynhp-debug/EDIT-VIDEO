@@ -10,4 +10,4 @@ fi
 source .venv/bin/activate
 python -m pip install -q --upgrade pip
 python -m pip install -q -r requirements.txt
-python -m flow_agent setup
+python -m flow_agent setup --auto

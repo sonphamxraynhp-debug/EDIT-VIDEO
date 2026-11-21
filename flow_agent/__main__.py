@@ -17,7 +17,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("-v", "--verbose", action="store_true")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    sub.add_parser("setup", help="cài đặt từng bước + tự chạy các bước đầu tiên (khuyên dùng lần đầu)")
+    p = sub.add_parser("setup", help="cài đặt từng bước + tự chạy các bước đầu tiên (khuyên dùng lần đầu)")
+    p.add_argument("--auto", action="store_true", help="không hỏi, tự chọn mặc định và bật tự chạy")
     sub.add_parser("doctor", help="kiểm tra máy đã sẵn sàng chưa")
     p = sub.add_parser("login", help="mở trình duyệt để đăng nhập 1 lần (facebook | flow)")
     p.add_argument("target", choices=["facebook", "flow"])
@@ -61,7 +62,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.cmd == "setup":
         from .setup_wizard import run_setup
-        return run_setup(args.config)
+        return run_setup(args.config, auto=args.auto)
     if args.cmd == "doctor":
         from .config import load_config
         from .setup_wizard import print_checks, run_checks

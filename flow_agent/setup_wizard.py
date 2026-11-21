@@ -6,6 +6,7 @@ bắt buộc phải là chủ tài khoản (dán khoá API, đăng nhập Facebo
 from __future__ import annotations
 
 import importlib.util
+import json
 import os
 import shutil
 import subprocess
@@ -86,12 +87,20 @@ def print_checks(checks: list[Check]) -> bool:
 
 
 # ------------------------------------------------------------------------------------------- setup
+AUTO = False  # True = không hỏi gì, tự chọn mặc định (python -m flow_agent setup --auto)
+
+
 def _ask(prompt: str, default: str = "") -> str:
+    if AUTO:
+        return default
     ans = input(f"{prompt}{f' [{default}]' if default else ''}: ").strip()
     return ans or default
 
 
 def _yes(prompt: str, default: bool = True) -> bool:
+    if AUTO:
+        print(f"{prompt} → {'Có' if default else 'Không'} (tự chọn)")
+        return default
     ans = input(f"{prompt} ({'C/k' if default else 'c/K'}): ").strip().lower()
     return default if not ans else ans in ("c", "co", "có", "y", "yes")
 
@@ -156,7 +165,8 @@ def ensure_claude_code() -> bool:
         tries += 1
         print("\n  Claude Code sẽ mở ngay trong cửa sổ này. Chọn đăng nhập bằng TÀI KHOẢN CLAUDE (gói Max),")
         print("  làm theo trình duyệt, khi thấy dấu nhắc > thì gõ  /exit  rồi Enter để quay lại.\n")
-        input("  Nhấn Enter để bắt đầu… ")
+        if not AUTO:
+            input("  Nhấn Enter để bắt đầu… ")
         subprocess.run([exe], check=False)
         ok, why = claude_code_ready()
         if not ok:
@@ -198,7 +208,32 @@ def _pip(*pkgs: str) -> None:
     subprocess.run([sys.executable, "-m", "pip", "install", "-q", *pkgs], check=True)
 
 
-def run_setup(config_path: str | None = None) -> int:
+def _chrome_installed() -> bool:
+    cands = [Path(os.environ.get("PROGRAMFILES", r"C:\Program Files")) / "Google/Chrome/Application/chrome.exe",
+             Path(os.environ.get("PROGRAMFILES(X86)", r"C:\Program Files (x86)")) / "Google/Chrome/Application/chrome.exe",
+             Path(os.environ.get("LOCALAPPDATA", "")) / "Google/Chrome/Application/chrome.exe",
+             Path("/Applications/Google Chrome.app"), Path("/usr/bin/google-chrome")]
+    return any(c.exists() for c in cands)
+
+
+def register_autostart() -> None:
+    """Windows: tự bật agent mỗi khi đăng nhập máy (Task Scheduler). Gỡ: schtasks /Delete /TN FlowVideoAgent /F"""
+    if os.name != "nt":
+        print("  (macOS/Linux: thêm `python -m flow_agent run` vào mục khởi động nếu muốn tự chạy khi bật máy)")
+        return
+    bat = ROOT / "CHAY_TU_DONG.bat"
+    res = subprocess.run(["schtasks", "/Create", "/F", "/SC", "ONLOGON", "/TN", "FlowVideoAgent",
+                          "/TR", f'"{bat}"'], capture_output=True, text=True)
+    if res.returncode == 0:
+        print("  ✓ Đã cài tự khởi động: agent tự chạy mỗi khi bạn đăng nhập Windows.")
+        print("    (Muốn gỡ: schtasks /Delete /TN FlowVideoAgent /F)")
+    else:
+        print(f"  ! Không tạo được lịch tự khởi động: {(res.stderr or res.stdout).strip()[:200]}")
+
+
+def run_setup(config_path: str | None = None, auto: bool = False) -> int:
+    global AUTO
+    AUTO = auto
     print("=== CÀI ĐẶT FLOW VIDEO AGENT ===\n")
     # 1. thư viện
     if not all(_has_module(m) for m in ("anthropic", "playwright", "apscheduler", "yt_dlp", "yaml")):
@@ -207,7 +242,7 @@ def run_setup(config_path: str | None = None) -> int:
     if not _has_module("faster_whisper") and _yes("• Cài faster-whisper để bóc lời thoại video kênh mẫu (nên có)?"):
         _pip("faster-whisper")
     if not os.environ.get("FLOWAGENT_BROWSER_CHANNEL") and not os.environ.get("FLOWAGENT_BROWSER_PATH"):
-        if _yes("• Máy đã cài Google Chrome? (dùng Chrome thật giúp đăng nhập Google/Facebook ổn định)"):
+        if _chrome_installed() if AUTO else _yes("• Máy đã cài Google Chrome? (dùng Chrome thật giúp đăng nhập ổn định)"):
             _set_env("FLOWAGENT_BROWSER_CHANNEL", "chrome")
         else:
             print("• Cài trình duyệt Chromium cho Playwright…")
@@ -277,11 +312,19 @@ def run_setup(config_path: str | None = None) -> int:
 
     seeds = sorted((ROOT / "seed").glob("kich-ban-*.json"))
     if seeds and _yes(f"• Có sẵn kịch bản viết trước ({seeds[-1].name}). Giám khảo AI chấm lại rồi làm video từ bản đó?"):
-        res = import_scripts(ctx, seeds[-1], rejudge=True)
-        print(f"  Đã chọn kịch bản: {res['selected']}")
+        try:
+            res = import_scripts(ctx, seeds[-1], rejudge=True)
+        except Exception as exc:  # noqa: BLE001 — giám khảo AI không chạy được (vd chạm giới hạn) -> dùng điểm có sẵn
+            print(f"  ! Giám khảo AI chưa chấm được ({exc}). Dùng điểm có sẵn trong file.")
+            res = import_scripts(ctx, seeds[-1], rejudge=False)
+        run_date = json.loads(seeds[-1].read_text(encoding="utf-8")).get("run_date")
+        todo = [r["id"] for r in ctx.db.all(
+            "SELECT id FROM scripts WHERE run_date=? AND status IN ('selected','failed') ORDER BY total_score DESC",
+            (run_date,))]
+        print(f"  Kịch bản sẽ làm video: {todo or res['selected']}")
         from .production import produce, upload
 
-        for sid in res["selected"]:
+        for sid in todo:
             try:
                 pid = produce(ctx, sid)
                 print(f"  ✅ Kịch bản #{sid} → video #{pid}: {upload(ctx, pid) or 'đã đăng Chỉ mình tôi'}")
@@ -301,6 +344,8 @@ def run_setup(config_path: str | None = None) -> int:
     if _yes("\n• Bật chế độ tự chạy (quét view 2 giờ/lần, mỗi sáng làm video, mỗi tối tự học) ngay bây giờ?"):
         from .scheduler import run_forever
 
+        register_autostart()
+        print("\n=== AGENT ĐANG TỰ CHẠY — để nguyên cửa sổ này (có thể thu nhỏ) ===\n")
         run_forever(ctx)
     else:
         print("  Khi muốn chạy tự động: python -m flow_agent run")
