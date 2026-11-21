@@ -78,10 +78,11 @@ def run_checks(cfg=None) -> list[Check]:  # noqa: ANN001
 def print_checks(checks: list[Check]) -> bool:
     all_ok = True
     for c in checks:
-        mark = "✅" if c.ok else ("❌" if c.required else "⚠️ ")
+        # Command Prompt trên Windows không hiển thị được emoji -> dùng nhãn chữ
+        mark = "[OK]    " if c.ok else ("[THIẾU] " if c.required else "[NÊN CÓ]")
         print(f"{mark} {c.name}" + ("" if c.ok else f"\n     → {c.fix}"))
         all_ok &= c.ok or not c.required
-    print("\nSẵn sàng chạy!" if all_ok else "\nCòn mục ❌ cần xử lý (xem hướng dẫn → ở trên).")
+    print("\nSẵn sàng chạy!" if all_ok else "\nCòn mục [THIẾU] cần xử lý (xem hướng dẫn → ở trên).")
     return all_ok
 
 
@@ -94,6 +95,22 @@ def _ask(prompt: str, default: str = "") -> str:
 def _yes(prompt: str, default: bool = True) -> bool:
     ans = input(f"{prompt} ({'C/k' if default else 'c/K'}): ").strip().lower()
     return default if not ans else ans in ("c", "co", "có", "y", "yes")
+
+
+def _ask_api_key() -> str:
+    """Hỏi khoá Claude API. Trên Windows, ô nhập ẩn (getpass) không nhận Ctrl+V nên dùng ô nhập thường."""
+    print("• Cần khoá Claude API: vào console.anthropic.com → API Keys → Create Key, sao chép khoá (sk-ant-...).")
+    while True:
+        if os.name == "nt":
+            key = input("  Dán khoá vào đây (chuột phải hoặc Ctrl+V) rồi Enter: ").strip()
+        else:
+            key = getpass("  Dán khoá vào đây (không hiện ra màn hình) rồi Enter: ").strip()
+        key = "".join(ch for ch in key if ch.isprintable() and not ch.isspace())
+        if key.startswith("sk-ant-") and len(key) > 30:
+            if os.name == "nt":
+                os.system("cls")  # xoá khoá khỏi màn hình
+            return key
+        print("  Khoá chưa đúng (phải bắt đầu bằng sk-ant-). Thử lại.")
 
 
 def _set_env(key: str, value: str) -> None:
@@ -138,9 +155,7 @@ def run_setup(config_path: str | None = None) -> int:
     from .config import load_config
 
     if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
-        key = getpass("• Dán khoá Claude API (bắt đầu bằng sk-ant-, sẽ không hiện ra màn hình): ").strip()
-        if key:
-            _set_env("ANTHROPIC_API_KEY", key)
+        _set_env("ANTHROPIC_API_KEY", _ask_api_key())
     cfg = load_config(config_path)
 
     # 3. đăng nhập (bắt buộc chủ tài khoản tự làm)
