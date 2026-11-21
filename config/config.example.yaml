@@ -1,0 +1,79 @@
+# ===================== FLOW VIDEO AGENT — CẤU HÌNH =====================
+# Sao chép file này thành config/config.yaml rồi sửa theo nhu cầu.
+
+# Kênh mẫu cần học công thức thành công
+reference_channel: "https://www.facebook.com/profile.php?id=61594456071180"
+
+# Kênh của bạn — nơi đăng video và đo view thật
+own_channel: "https://www.facebook.com/bsphamson.cdha"
+# profile = trang cá nhân (đăng bằng trình duyệt, quyền "Chỉ mình tôi")
+# page    = fanpage (đăng bằng Graph API, published=false — chỉ quản trị viên thấy)
+own_channel_type: profile
+
+data_dir: data
+brand_file: config/brand.md
+# Skill công thức sẽ được tự sinh/tự cập nhật vào đây (Claude Code tự nhận)
+skill_dir: .claude/skills/cong-thuc-kenh-mau
+
+llm:
+  model: claude-opus-5-5          # tạo kịch bản, phân tích, tự học
+  judge_model: claude-opus-5-5    # chấm điểm (gọi tách riêng để tránh tự chấm dễ dãi)
+  effort: high
+  refusal_fallbacks: true
+
+facebook:
+  browser_profile_dir: data/browser/facebook   # đăng nhập 1 lần bằng `flowagent login facebook`
+  headless: false
+  locale: vi-VN
+  scroll_rounds: 40              # số lần cuộn khi quét danh sách video
+  upload_privacy: only_me        # only_me = "Chỉ mình tôi"
+  graph:                         # chỉ dùng khi own_channel_type = page
+    page_id: ""
+    access_token_env: FB_PAGE_TOKEN
+    api_version: v21.0
+
+analysis:
+  max_videos: 60                 # số video tối đa phân tích ở kênh mẫu
+  download: true                 # tải video về (yt-dlp, dùng cookie đăng nhập)
+  transcribe: true               # cần cài faster-whisper
+  whisper_model: small
+  frames_per_video: 6
+
+daily:
+  num_scripts: 10                # mỗi ngày đề xuất 10 kịch bản
+  score_threshold: 95            # chỉ kịch bản > 95 điểm mới được làm video
+  max_videos: 3                  # lấy tối đa 3 kịch bản hay nhất
+  revision_rounds: 1             # số vòng sửa kịch bản chưa đạt trước khi loại
+  explore_ratio: 0.3             # 30% kịch bản thử hướng mới, 70% bám công thức đã thắng
+
+schedule:
+  timezone: Asia/Ho_Chi_Minh
+  track_every_hours: 2           # 2 tiếng quét view 1 lần
+  daily_time: "05:30"            # giờ chạy pipeline tạo video mỗi ngày
+  learn_time: "22:30"            # giờ chạy vòng tự học mỗi ngày
+  rescan_reference_day: sun      # quét lại kênh mẫu hàng tuần
+
+video:
+  backend: flow                  # flow = Google Flow (trình duyệt) | veo_api = Gemini API
+  aspect_ratio: "9:16"
+  width: 1080
+  height: 1920
+  burn_subtitles: true
+  font: "DejaVu Sans"            # nên cài "Be Vietnam Pro" rồi đổi tên ở đây
+  ai_disclosure: true            # thêm dòng ghi chú video có dùng AI vào caption
+  flow:
+    url: "https://labs.google/fx/tools/flow"
+    browser_profile_dir: data/browser/google
+    headless: false
+    generation_timeout_sec: 900
+    # Bộ chọn giao diện — Flow thay đổi giao diện thường xuyên, sửa ở đây nếu cần
+    selectors:
+      new_project: ["New project", "Dự án mới"]
+      prompt_box: "textarea"
+      generate: ["Create", "Generate", "Tạo"]
+      download: ["Download", "Tải xuống"]
+      download_quality: ["Original size", "Kích thước gốc", "720p", "1080p"]
+  veo_api:
+    model: veo-3.1-generate-preview
+    api_key_env: GEMINI_API_KEY
+    resolution: 720p
