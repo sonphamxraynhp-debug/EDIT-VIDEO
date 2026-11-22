@@ -90,6 +90,39 @@ def revise_script(ctx: Ctx, draft: ScriptDraft, scored: Scored) -> ScriptDraft:
     return batch.scripts[0] if batch.scripts else draft
 
 
+def _confirm(ctx: Ctx, draft: ScriptDraft, scored: Scored, threshold: float) -> Scored:
+    """Giám khảo AI có dao động: bản vượt ngưỡng phải được một phiên chấm độc lập thứ hai xác nhận,
+    lấy điểm THẤP HƠN — để không qua 95 nhờ may mắn."""
+    if scored.blocked or scored.total <= threshold or not ctx.cfg.get_path("daily.confirm_pass", True):
+        return scored
+    second = judge_script(ctx, draft)
+    log.info("  xác nhận '%s': %.0f / %.0f", draft.title, scored.total, second.total)
+    return second if (second.blocked or second.total < scored.total) else scored
+
+
+def _improve(ctx: Ctx, draft: ScriptDraft, rounds: int, threshold: float,
+             scored: Scored | None = None) -> tuple[ScriptDraft, Scored, int]:
+    """Chấm rồi sửa tối đa `rounds` vòng; luôn giữ PHIÊN BẢN ĐIỂM CAO NHẤT (bản sửa tụt điểm bị bỏ).
+    Bản vi phạm an toàn không được sửa — loại luôn để tránh "lách" ranh giới."""
+    scored = scored or _confirm(ctx, draft, judge_script(ctx, draft), threshold)
+    best, best_sc, used = draft, scored, 0
+    cur, cur_sc = draft, scored
+    while used < rounds and not best_sc.blocked and best_sc.total <= threshold:
+        used += 1
+        try:
+            cur = revise_script(ctx, cur, cur_sc)
+            cur_sc = _confirm(ctx, cur, judge_script(ctx, cur), threshold)
+        except Exception as exc:  # noqa: BLE001 — một lần sửa hỏng không được làm mất bản tốt nhất
+            log.warning("Sửa kịch bản '%s' lỗi: %s", draft.title, exc)
+            break
+        log.info("  sửa vòng %d '%s': %.0f -> %.0f", used, cur.title, best_sc.total, cur_sc.total)
+        if not cur_sc.blocked and cur_sc.total > best_sc.total:
+            best, best_sc = cur, cur_sc
+        else:
+            cur, cur_sc = best, best_sc  # sửa tiếp từ bản tốt nhất, không từ bản tụt
+    return best, best_sc, used
+
+
 def _save(ctx: Ctx, draft: ScriptDraft, scored: Scored, revision: int, pv: dict) -> int:
     cur = ctx.db.execute(
         """INSERT INTO scripts(run_date, created_at, title, topic, angle, draft_json, score_json, total_score,
@@ -114,15 +147,20 @@ def run_daily_planning(ctx: Ctx) -> dict:
     pv = ctx.prompt_vars()
 
     drafts = generate_batch(ctx, n)
+    items = [_improve(ctx, d, rounds, threshold) for d in drafts]
+    # Đánh bóng: các bản gần đạt nhất được thêm vòng sửa (không bao giờ hạ ngưỡng)
+    polish_top = int(ctx.cfg.get_path("daily.polish_top", 3))
+    polish_rounds = int(ctx.cfg.get_path("daily.polish_rounds", 2))
+    passing = sum(1 for it in items if not it[1].blocked and it[1].total > threshold)
+    if passing < k and polish_rounds > 0:
+        near = sorted((i for i, it in enumerate(items) if not it[1].blocked and it[1].total <= threshold),
+                      key=lambda i: -items[i][1].total)[: max(0, min(polish_top, k - passing))]
+        for i in near:
+            d, sc, rev = items[i]
+            d2, sc2, extra = _improve(ctx, d, polish_rounds, threshold, sc)
+            items[i] = (d2, sc2, rev + extra)
     results: list[tuple[int, str, Scored]] = []
-    for draft in drafts:
-        scored = judge_script(ctx, draft)
-        rev = 0
-        # Sửa bản chưa đạt (không sửa bản vi phạm an toàn — loại luôn để tránh "lách" ranh giới)
-        while rev < rounds and not scored.blocked and scored.total <= threshold:
-            rev += 1
-            draft = revise_script(ctx, draft, scored)
-            scored = judge_script(ctx, draft)
+    for draft, scored, rev in items:
         sid = _save(ctx, draft, scored, rev, pv)
         results.append((sid, draft.topic, scored))
         log.info("Kịch bản #%d '%s': %.0f điểm%s", sid, draft.title, scored.total, " [CHẶN]" if scored.blocked else "")

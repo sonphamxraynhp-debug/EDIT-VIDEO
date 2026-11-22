@@ -48,6 +48,9 @@ daily:
   score_threshold: 95            # chỉ kịch bản > 95 điểm mới được làm video
   max_videos: 3                  # lấy tối đa 3 kịch bản hay nhất
   revision_rounds: 2             # số vòng sửa kịch bản chưa đạt trước khi loại (skill gốc cho tối đa 3)
+  polish_top: 3                  # nếu chưa đủ 3 bản đạt: lấy các bản gần đạt nhất…
+  polish_rounds: 2               # …và sửa thêm tối đa 2 vòng (luôn giữ bản điểm cao nhất)
+  confirm_pass: true             # bản vượt ngưỡng được chấm lại độc lập lần 2, lấy điểm thấp hơn
   explore_ratio: 0.3             # 30% kịch bản thử hướng mới, 70% bám công thức đã thắng
 
 schedule:

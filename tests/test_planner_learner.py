@@ -63,6 +63,19 @@ def test_revision_round_can_lift_script(ctx):
     assert revised and all(r["total_score"] == 98 for r in revised if not r["blocked"])
 
 
+def test_revision_keeps_best_version_and_polishes_near_misses(ctx):
+    llm = FakeLLM(make_handler(revise_to="Kịch bản 8"))  # mọi bản sửa đều tụt xuống 60
+    ctx.llm = ctx.judge = llm
+    ctx.cfg["daily"]["revision_rounds"] = 1
+    ctx.cfg["daily"]["polish_rounds"] = 2
+    run_daily_planning(ctx)
+    # bản sửa tụt điểm bị bỏ: kịch bản gốc 90/80/70 vẫn giữ nguyên điểm, không bị thay bằng 60
+    totals = sorted(r["total_score"] for r in ctx.db.all("SELECT total_score FROM scripts WHERE blocked=0"))
+    assert 60 not in totals[1:] and 90 in totals
+    polished = ctx.db.one("SELECT revision FROM scripts WHERE title='Kịch bản 5'")
+    assert polished["revision"] >= 1
+
+
 def test_views_at_and_spearman():
     series = [(2, 100), (6, 500), (26, 2500), (50, 4000)]
     assert views_at(series, 6) == 500
@@ -141,3 +154,19 @@ def test_learn_from_judge_adds_capped_lessons(ctx):
         learn_from_judge(ctx, [(1, "a", Scored(total=80, per_criterion={}, blocked=False, raw=raw))])
     rows = [r for r in ctx.db.active_lessons() if r["source"] == "judge"]
     assert len(rows) == MAX_JUDGE_LESSONS and rows[-1]["text"] == "[Giám khảo] Quy tắc 14"
+
+
+def test_pass_needs_second_independent_judge(ctx):
+    from flow_agent.planner import _improve
+    calls = []
+
+    def handler(schema, system, content):
+        if schema is ScriptBatch:
+            return ScriptBatch(scripts=[make_draft(1)])
+        calls.append(1)
+        total = 99 if len(calls) == 1 else 90  # lần chấm đầu may mắn, lần xác nhận thấp hơn
+        return ScriptScore(criteria=_criteria(total), safety_violations=[], predicted_performance="cao",
+                           improvement_suggestions=[])
+    ctx.llm = ctx.judge = FakeLLM(handler)
+    _, sc, _ = _improve(ctx, make_draft(0), rounds=0, threshold=95)
+    assert sc.total == 90 and len(calls) == 2
