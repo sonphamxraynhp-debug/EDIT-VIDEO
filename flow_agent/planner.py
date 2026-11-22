@@ -7,7 +7,7 @@ from datetime import date
 
 from .context import Ctx
 from .db import now_iso
-from .models import ScriptBatch, ScriptDraft, ScriptScore
+from .models import JudgeLessons, ScriptBatch, ScriptDraft, ScriptScore
 from .prompts import JUDGE_SYSTEM, WRITER_SYSTEM
 from .scoring import Scored, compute_score, hard_safety_check, select_top
 
@@ -128,6 +128,10 @@ def run_daily_planning(ctx: Ctx) -> dict:
         log.info("Kịch bản #%d '%s': %.0f điểm%s", sid, draft.title, scored.total, " [CHẶN]" if scored.blocked else "")
 
     chosen = select_top(results, threshold, k)
+    try:
+        learn_from_judge(ctx, results)
+    except Exception as exc:  # noqa: BLE001 — bước học thêm, không được làm hỏng kế hoạch ngày
+        log.warning("Không rút được bài học từ giám khảo: %s", exc)
     for sid, _, _ in results:
         ctx.db.execute("UPDATE scripts SET status=? WHERE id=?", ("selected" if sid in chosen else "rejected", sid))
     ctx.db.log("planning", f"{len(results)} kịch bản, chọn {len(chosen)}: {chosen}")
@@ -136,3 +140,32 @@ def run_daily_planning(ctx: Ctx) -> dict:
         "selected": chosen,
         "threshold": threshold,
     }
+
+
+MAX_JUDGE_LESSONS = 8
+
+
+def learn_from_judge(ctx: Ctx, results: list[tuple[int, str, Scored]]) -> list[str]:
+    """Vòng học trước khi đăng: gom các lỗi giám khảo trừ điểm nhiều nhất thành quy tắc viết cho lần sau.
+    (Vòng học sau khi đăng — theo view thật — nằm ở learner.py.)"""
+    feedback = []
+    for sid, _, sc in results:
+        if not sc.raw:
+            continue
+        lost = [{"tieu_chi": c.key, "diem": c.score, "ly_do": c.reason} for c in sc.raw.criteria]
+        feedback.append({"kich_ban": sid, "tong": sc.total, "bi_tru": lost, "goi_y": sc.raw.improvement_suggestions})
+    if not feedback:
+        return []
+    current = [r["text"] for r in ctx.db.active_lessons()]
+    user = ("Nhận xét của giám khảo cho các kịch bản hôm nay:\n" + json.dumps(feedback, ensure_ascii=False)
+            + "\n\nBài học đang dùng (đừng lặp lại):\n" + "\n".join(current or ["(chưa có)"])
+            + "\n\nViết 3–6 quy tắc viết kịch bản mới, cụ thể, đo được (vd 'mỗi cảnh 8 giây tối đa 18 từ lời thoại'), "
+              "nhắm vào những lỗi bị trừ điểm nhiều nhất. Không nới ranh giới an toàn.")
+    out: JudgeLessons = ctx.llm.structured("Bạn là biên tập viên trưởng, rút kinh nghiệm cho đội viết kịch bản.",
+                                           user, JudgeLessons)
+    for rule in out.rules[:6]:
+        ctx.db.add_lesson(f"[Giám khảo] {rule}", "judge")
+    judge_rows = [r for r in ctx.db.active_lessons() if r["source"] == "judge"]
+    for r in judge_rows[:-MAX_JUDGE_LESSONS] if len(judge_rows) > MAX_JUDGE_LESSONS else []:
+        ctx.db.retire_lesson(r["id"])
+    return out.rules

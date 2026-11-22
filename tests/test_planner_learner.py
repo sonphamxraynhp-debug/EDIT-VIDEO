@@ -127,3 +127,17 @@ def test_skill_written(ctx):
     text = open(path, encoding="utf-8").read()
     assert text.startswith("---\nname: cong-thuc-kenh-mau")
     assert "Character bible" in text
+
+
+def test_learn_from_judge_adds_capped_lessons(ctx):
+    from flow_agent.models import JudgeLessons
+    from flow_agent.planner import MAX_JUDGE_LESSONS, learn_from_judge
+    from flow_agent.scoring import Scored
+
+    raw = ScriptScore(criteria=_criteria(80), safety_violations=[], predicted_performance="cao", improvement_suggestions=["ngắn hơn"])
+    calls = iter(range(100))
+    ctx.llm = FakeLLM(lambda schema, s, c: JudgeLessons(rules=[f"Quy tắc {next(calls)}" for _ in range(5)]))
+    for _ in range(3):
+        learn_from_judge(ctx, [(1, "a", Scored(total=80, per_criterion={}, blocked=False, raw=raw))])
+    rows = [r for r in ctx.db.active_lessons() if r["source"] == "judge"]
+    assert len(rows) == MAX_JUDGE_LESSONS and rows[-1]["text"] == "[Giám khảo] Quy tắc 14"

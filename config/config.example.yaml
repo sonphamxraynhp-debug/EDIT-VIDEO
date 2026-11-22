@@ -47,7 +47,7 @@ daily:
   num_scripts: 10                # mỗi ngày đề xuất 10 kịch bản
   score_threshold: 95            # chỉ kịch bản > 95 điểm mới được làm video
   max_videos: 3                  # lấy tối đa 3 kịch bản hay nhất
-  revision_rounds: 1             # số vòng sửa kịch bản chưa đạt trước khi loại
+  revision_rounds: 2             # số vòng sửa kịch bản chưa đạt trước khi loại (skill gốc cho tối đa 3)
   explore_ratio: 0.3             # 30% kịch bản thử hướng mới, 70% bám công thức đã thắng
 
 schedule:

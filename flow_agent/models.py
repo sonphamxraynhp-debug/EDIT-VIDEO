@@ -131,3 +131,7 @@ class LearningUpdate(BaseModel):
     update_playbook: bool
     playbook: Playbook | None = Field(description="Playbook đầy đủ đã cập nhật nếu update_playbook = true, ngược lại null")
     confidence: Literal["thấp", "trung bình", "cao"]
+
+
+class JudgeLessons(BaseModel):
+    rules: list[str] = Field(description="3–6 quy tắc viết kịch bản ngắn gọn, hành động được, rút từ các lỗi giám khảo trừ điểm nhiều nhất")

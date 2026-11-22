@@ -1,0 +1,1051 @@
+{
+  "run_date": "2026-11-22",
+  "scored_by": "Giám khảo AI độc lập (Claude Code, phiên riêng cho từng kịch bản) — agent tự viết & tự chấm",
+  "scripts": [
+    {
+      "draft": {
+        "title": "Sợ lỡ mốc siêu âm? 8 mốc cả thai kỳ mẹ cần nhớ",
+        "topic": "Mốc siêu âm theo tuần thai (toàn thai kỳ)",
+        "angle": "exploit",
+        "hypothesis": "Đây là chủ đề mẹ bầu tra cứu nhiều nhất. Hook nói thẳng nỗi lo 'sợ lỡ mốc' nên người xem dễ nhận ra mình. Danh sách 8 mốc có số tuần cụ thể kèm mục đích (độ mờ da gáy, tim thai chi tiết) dễ được lưu lại và gửi cho chồng/người nhà. CTA hỏi tuần thai dễ trả lời, kéo nhiều bình luận.",
+        "target_audience": "Mẹ bầu ở mọi tuần thai, nhất là mẹ mang thai lần đầu ở Khoái Châu – Hưng Yên và vùng lân cận, cùng chồng/người nhà hay đi cùng",
+        "hook": "Mẹ bầu sợ lỡ mốc siêu âm? Nhớ tám mốc này nhé.",
+        "formula_mapping": "Hook 3 giây nói nỗi lo cụ thể (sợ lỡ mốc) và có con số (8 mốc), nhìn thẳng camera → liệt kê song song 8 mốc theo cùng mẫu câu 'Mốc X: … tuần', mỗi cảnh tối đa 2 mốc, có thêm mục đích lấy từ DNA (mốc 3: đo độ mờ da gáy; mốc 5–6: tim thai chi tiết 22–28 tuần) → chốt trấn an có chữ 'đồng hành' → CTA theo mẫu playbook 'Mẹ đang ở tuần thứ mấy rồi ạ?'. Talking head trong phòng siêu âm sáng, xen 1 cảnh mẹ bầu ở nhà. Phụ đề hộp xanh, mỗi dòng ≤7 từ, mỗi dòng 1 mốc, giữ nguyên số tuần.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 3,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks directly into the camera with a caring, attentive expression, leaning in slightly as he speaks. The doctor says in Vietnamese: \"Mẹ bầu sợ lỡ mốc siêu âm? Nhớ tám mốc này nhé.\" Medium close-up, eye-level, gentle push-in. Vertical 9:16, photorealistic, warm blue and soft yellow-orange palette. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ bầu sợ lỡ mốc siêu âm? Nhớ tám mốc này nhé.",
+            "on_screen_text_vi": "Sợ lỡ mốc siêu âm?\n8 MỐC MẸ CẦN NHỚ",
+            "camera": "Medium close-up, eye-level, nhìn thẳng camera, push-in nhẹ"
+          },
+          {
+            "idx": 2,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks at the camera and speaks calmly and clearly, with a relaxed open-palm hand gesture at chest level, hands mostly still. The doctor says in Vietnamese: \"Mốc một: năm đến tám tuần. Mốc hai: chín đến mười một tuần.\" Medium shot, eye-level, static camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mốc một: năm đến tám tuần. Mốc hai: chín đến mười một tuần.",
+            "on_screen_text_vi": "Mốc 1: 5–8 tuần\nMốc 2: 9–11 tuần",
+            "camera": "Medium shot, eye-level, cố định"
+          },
+          {
+            "idx": 3,
+            "seconds": 7,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits beside an ultrasound machine whose monitor is softly out of focus and shows no recognizable image, turns toward the camera and explains gently with a light open-hand gesture. The doctor says in Vietnamese: \"Mốc ba: mười một tuần sáu ngày đến mười ba tuần sáu ngày, đo độ mờ da gáy.\" Medium shot, slight side angle. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mốc ba: mười một tuần sáu ngày đến mười ba tuần sáu ngày, đo độ mờ da gáy.",
+            "on_screen_text_vi": "Mốc 3: 11 tuần 6 ngày –\n13 tuần 6 ngày\nĐo độ mờ da gáy",
+            "camera": "Medium shot, góc nghiêng nhẹ, máy siêu âm mờ phía sau"
+          },
+          {
+            "idx": 4,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands, looks at the camera with a friendly expression, speaking at a steady, unhurried pace, hands relaxed with a small open-palm gesture. The doctor says in Vietnamese: \"Mốc bốn: mười lăm đến mười tám tuần. Mốc năm: hai mươi hai tuần.\" Medium close-up, eye-level. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mốc bốn: mười lăm đến mười tám tuần. Mốc năm: hai mươi hai tuần.",
+            "on_screen_text_vi": "Mốc 4: 15–18 tuần\nMốc 5: 22 tuần",
+            "camera": "Medium close-up, eye-level, cố định"
+          },
+          {
+            "idx": 5,
+            "seconds": 7,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks at the camera with a reassuring expression and gently places one hand over his own chest to suggest the heart, then lowers it calmly. The doctor says in Vietnamese: \"Mốc sáu: hai mươi sáu đến hai mươi tám tuần. Mốc năm, sáu xem tim thai chi tiết.\" Medium close-up, eye-level, very slow push-in. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mốc sáu: hai mươi sáu đến hai mươi tám tuần. Mốc năm, sáu xem tim thai chi tiết.",
+            "on_screen_text_vi": "Mốc 6: 26–28 tuần\nTim thai chi tiết: 22–28 tuần",
+            "camera": "Medium close-up, eye-level, push-in rất chậm"
+          },
+          {
+            "idx": 6,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks at the camera with a gentle smile, speaking clearly and steadily, hands relaxed with a light open-palm gesture. The doctor says in Vietnamese: \"Mốc bảy: ba mươi đến ba mươi hai tuần. Mốc tám: ba mươi sáu đến bốn mươi tuần.\" Medium shot, eye-level, static camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mốc bảy: ba mươi đến ba mươi hai tuần. Mốc tám: ba mươi sáu đến bốn mươi tuần.",
+            "on_screen_text_vi": "Mốc 7: 30–32 tuần\nMốc 8: 36–40 tuần",
+            "camera": "Medium shot, eye-level, cố định"
+          },
+          {
+            "idx": 7,
+            "seconds": 4,
+            "visual_prompt_en": "A gentle Vietnamese pregnant woman in her late 20s, visibly pregnant, shoulder-length black hair, wearing a loose cream-colored maternity dress, sits on a sofa at home beside her husband, a Vietnamese man around 30 in a simple light blue shirt; she smiles as she writes appointment dates in a small notebook while he looks on warmly, soft morning daylight, cozy living room with light blue cushions and a small yellow flower vase. A calm, warm male voice-over in Vietnamese says: \"Các mẹ yên tâm, Phòng khám luôn đồng hành cùng mẹ.\" Medium shot, slight high angle, slow gentle dolly-in. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Các mẹ yên tâm, Phòng khám luôn đồng hành cùng mẹ.",
+            "on_screen_text_vi": "Yên tâm – Phòng khám đồng hành",
+            "camera": "Medium shot, góc cao nhẹ, dolly-in chậm"
+          },
+          {
+            "idx": 8,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly at the camera with an inviting open-hand gesture toward the viewer. The doctor says in Vietnamese: \"Mẹ đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.\" Medium close-up, eye-level. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.",
+            "on_screen_text_vi": "Mẹ đang tuần thứ mấy rồi ạ? 👇",
+            "camera": "Medium close-up, eye-level, nhìn thẳng camera"
+          }
+        ],
+        "cta": "Mẹ đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.",
+        "caption": "Sợ lỡ mốc siêu âm? 8 mốc cả thai kỳ mẹ cần nhớ 📌\nTừ 5 tuần đến 40 tuần, có mốc đo độ mờ da gáy (11 tuần 6 ngày – 13 tuần 6 ngày) và giai đoạn xem tim thai chi tiết (22–28 tuần). Mẹ lưu lại để không lỡ mốc nào nhé.\nMẹ đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.\n📍 Phòng khám Bác sĩ Phạm Sơn – Thôn Đông Kết, xã Khoái Châu, Hưng Yên (cạnh Trường Mầm non Đông Kết) | ☎ 0986 442 313 – 0357 808 668\n(Video có sử dụng AI để minh hoạ.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#mocsieuam",
+          "#hungyen"
+        ],
+        "medical_claims": [
+          "Các mốc siêu âm khuyến nghị: 5–8 tuần; 9–11 tuần; 11 tuần 6 ngày–13 tuần 6 ngày; 15–18 tuần; 22 tuần; 26–28 tuần; 30–32 tuần; 36–40 tuần.",
+          "Mốc 11 tuần 6 ngày–13 tuần 6 ngày là mốc đo độ mờ da gáy.",
+          "Mốc năm (22 tuần) và mốc sáu (26–28 tuần) là giai đoạn xem tim thai chi tiết (22–28 tuần).",
+          "Đi đủ mốc để Phòng khám đồng hành, theo dõi sát thai kỳ cùng mẹ (caption: 'để không lỡ mốc nào')."
+        ],
+        "production_notes": "Tổng 45 giây (3+6+7+6+7+6+4+6). Dài hơn sweet spot 30–40 giây vì cần đủ 8 mốc, mỗi cảnh tối đa 2 mốc. Nên dùng làm video ghim của kênh. Mọi con số trong lời thoại đã viết thành chữ để Veo đọc đúng. Đã bỏ động tác đếm ngón tay, chỉ dùng cử chỉ mở bàn tay nhẹ để tránh lỗi bàn tay. Veo xuất clip 8 giây, khi dựng cắt theo lời thoại: cảnh 1 lấy 3 giây đầu, cảnh 7 lấy 4 giây. Cảnh 7 thu VO riêng bằng cùng giọng nam trầm ấm, nói chậm. Phụ đề chữ trắng trên hộp xanh #0B4EC6, số tuần tô vàng cam #FCB318, mỗi dòng 1 mốc, tối đa 7 từ, đổi dòng khoảng 2 giây. Có thể chèn đồ hoạ timeline 8 mốc ở hậu kỳ, sáng dần theo từng mốc (không yêu cầu Veo vẽ chữ). Màn hình siêu âm luôn để mờ, không có hình thai nhi. Nhân vật bác sĩ AI chỉ là hình tượng, không xưng là BS Phạm Sơn. Bật nhãn 'Thông tin do AI tạo' khi đăng. Toàn bộ medical_claims phải được BS Phạm Sơn duyệt trước khi đăng."
+      },
+      "scores": {
+        "hook": 16,
+        "formula": 15,
+        "density": 11,
+        "tone": 13,
+        "cta": 9,
+        "feasibility": 8,
+        "safety": 10
+      },
+      "notes": {
+        "hook": "'Mẹ bầu sợ lỡ mốc siêu âm? Nhớ tám mốc này nhé.' vào thẳng nỗi lo, không chào hỏi, có con số (8 mốc), chỉ 11 từ, khớp mẫu '[N] [điều] mà [đối tượng] nên [làm]'. Tuy vậy, nỗi lo 'sợ lỡ mốc' còn chung chung: không có tuần thai cụ thể hay tình huống neo như ví dụ trong playbook ('Mẹ bầu 12 tuần mà chưa hẹn lịch…'), nên lực chặn lướt chỉ ở mức khá. Đặt câu 11 âm tiết trong 3 giây cũng khiến lời nói bị dồn.",
+        "formula": "Đi đúng khung Hook → liệt kê song song cùng mẫu câu 'Mốc X: … tuần' → chốt 'đồng hành' → CTA. Phụ đề hộp xanh, giữ nguyên số tuần, có cảnh mẹ bầu và ông xã xen vào. Điểm trừ: tổng 45 giây với 8 cảnh, vượt sweet spot 30–40 giây (4–5 cảnh × 8 giây). Riêng phần liệt kê kéo dài khoảng 32 giây, chỉ có một cảnh minh hoạ, còn lại 7/8 cảnh là bác sĩ nói trước camera nên nhịp dễ đều đều. Production notes đã tự nêu và giải thích lý do vượt độ dài, nhưng vẫn là lệch khỏi playbook.",
+        "density": "Không có câu đệm, mỗi câu đều mang mốc cụ thể. Nhưng 6/8 mốc chỉ là dãy số không kèm mục đích ('Mốc một: năm đến tám tuần. Mốc hai: chín đến mười một tuần.'). Khi nghe, người xem nhận được một chuỗi con số khô, khó nhớ và ít giá trị 'vì sao'. Câu 'Mốc năm, sáu xem tim thai chi tiết' nhắc lại mốc 5 sau một cảnh, hơi rối. Câu 'mười một tuần sáu ngày đến mười ba tuần sáu ngày' dài, khó tiếp nhận bằng tai. Cảnh 7 ('Các mẹ yên tâm…') gần như chỉ mang chức năng cảm xúc.",
+        "tone": "Giọng ấm, chậm, trấn an, không giật tít hay doạ dị tật. Xưng 'Phòng khám', gọi 'mẹ/các mẹ' đúng DNA, có 'ạ', 'nhé' gần gũi. Hơi thiên về đọc danh sách, thiếu sự thân tình của một bác sĩ trò chuyện, ví dụ không có lời dặn ngắn kiểu 'mẹ nhớ ghi lại lịch'. Cảnh 7 'Các mẹ yên tâm' hơi chung chung.",
+        "cta": "'Mẹ đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.' dùng đúng mẫu playbook: câu hỏi mở, dễ trả lời, không bán hàng, không nói giá. Trừ nhẹ vì lời hứa 'nhắc mốc tiếp theo' tạo cam kết phải trả lời từng bình luận. Phần trả lời đó cần kịch bản chuẩn để không biến thành tư vấn y khoa cá nhân qua bình luận.",
+        "feasibility": "Mỗi cảnh ≤ 8 giây. Character bible lặp nguyên văn ở mọi cảnh bác sĩ, có 'no on-screen text', màn hình siêu âm để mờ, bỏ động tác đếm ngón tay, số viết thành chữ. Rủi ro: (1) Cảnh 1 có 11 âm tiết nhưng chỉ lấy 3 giây, Veo thường nói chậm hơn nên dễ bị cắt lời. (2) Prompt cảnh 7 vẫn yêu cầu Veo đọc voice-over, trong khi notes nói thu VO riêng; hai chỗ mâu thuẫn, nên bỏ câu thoại khỏi prompt. (3) Cần 7 clip bác sĩ đồng nhất mặt, khả năng phải gen lại nhiều lần. (4) Veo phát âm chuỗi số tiếng Việt dài ('hai mươi sáu đến hai mươi tám tuần') thường lỗi, cần dự phòng lồng tiếng.",
+        "safety": "Không có từ cấm, không chẩn đoán, không đưa số đo hay tiên lượng, không hứa 'phát hiện hết', không nói giá, không nêu cơ sở khác, không dùng khách thật. Mọi mốc lấy đúng từ DNA và được đưa vào medical_claims để BS Phạm Sơn duyệt. Caption ghi rõ có dùng AI, notes yêu cầu bật nhãn 'Thông tin do AI tạo'. Bác sĩ AI không xưng là BS Phạm Sơn. Chỉ có rủi ro nhỏ (không phải vi phạm) ở cảnh 7, xem phần gợi ý."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Rút xuống 35–40 giây: gộp 3 mốc mỗi cảnh ở lời thoại (để phụ đề hoặc đồ hoạ timeline gánh phần số) hoặc tách thành 2 video (nửa đầu và nửa sau thai kỳ) để vào sweet spot và có thêm một video cho series.",
+        "Thêm mục đích ngắn 2–4 từ cho mỗi mốc, lấy đúng thông tin đã được BS Phạm Sơn duyệt, để người xem biết 'vì sao' chứ không chỉ nghe số. Mọi mục đích mới phải đưa vào medical_claims.",
+        "Làm hook neo cụ thể hơn, ví dụ 'Mẹ bầu lần đầu chưa biết siêu âm tuần nào? Lưu ngay 8 mốc này.', và giữ dưới 10 âm tiết nếu chỉ có 3 giây; nếu không thì kéo cảnh 1 lên 4 giây.",
+        "Xoá câu thoại khỏi prompt Veo của cảnh 7 (chỉ ghi 'no dialogue, ambient sound') vì đã thu VO riêng, tránh khẩu hình thừa hoặc lệch giọng.",
+        "Cảnh 7: đổi gối xanh nhạt/áo xanh của ông xã sang màu trung tính (be, trắng) để tránh mọi cách đọc ẩn ý màu sắc liên quan giới tính thai; dùng màu thương hiệu ở đồ hoạ hậu kỳ thay vì đồ vật trong nhà.",
+        "Thêm 1–2 cảnh minh hoạ (mẹ bầu xem lịch, ông xã đặt nhắc lịch trên điện thoại) xen giữa các cảnh bác sĩ để phá nhịp talking head đơn điệu và kéo khán giả nam theo playbook.",
+        "Chuẩn bị sẵn mẫu trả lời bình luận cho CTA 'nhắc mốc tiếp theo': chỉ nêu mốc khuyến nghị kế tiếp kèm câu 'mẹ đi khám để bác sĩ tư vấn cụ thể', không tư vấn cá nhân qua bình luận.",
+        "Chuẩn bị phương án lồng tiếng thật cho các câu có chuỗi số dài (cảnh 3, 5, 6) phòng khi Veo đọc sai."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Mẹ bầu 12 tuần: 5 điều cần biết về mốc đo độ mờ da gáy",
+        "topic": "Mốc 11 tuần 6 ngày – 13 tuần 6 ngày (đo độ mờ da gáy)",
+        "angle": "exploit",
+        "hypothesis": "Hook neo tuần 12 và nói ngay mốc này chỉ kéo dài khoảng 2 tuần, nên mẹ ở tuần 10–13 tự nhận ra mình và thấy cần xem, mà không bị dọa. Hai thuật ngữ khó (độ mờ da gáy, NIPT) được giải thích bằng lời dễ hiểu, giúp video có giá trị để lưu lại. Ý cuối là mốc tiếp theo 15–18 tuần, nối thẳng sang CTA hỏi tuần thai, nên dễ có bình luận và được tag bạn bè cùng tuần.",
+        "target_audience": "Mẹ bầu 10–13 tuần khu vực Khoái Châu – Hưng Yên và chồng/người nhà cùng quyết định lịch khám",
+        "hook": "Mẹ bầu 12 tuần, mốc siêu âm này chỉ kéo dài khoảng 2 tuần.",
+        "formula_mapping": "Hook mẫu 'Mẹ bầu [tuần X]…', 13 từ, đưa tính cấp thiết '2 tuần' lên 0–5 giây → 5 ý song song cùng mẫu 'Một/Hai/Ba/Bốn/Năm: …' (3 cảnh, mỗi cảnh 1–2 ý ngắn) → chốt trấn an 'Phòng khám luôn đồng hành' → CTA hỏi tuần thai, có chủ thể 'Phòng khám'. Tổng 37 giây, 5 cảnh, nằm trong mốc 30–40 giây. Talking head xen cảnh mẹ bầu và ông xã. Phụ đề hộp xanh, mỗi khung 1 ý, đổi khung khoảng 2–4 giây, số tuần viết đầy đủ bằng tiếng Việt.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 5,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks directly into the camera with a calm, caring expression and speaks gently. The doctor says in Vietnamese: \"Mẹ bầu 12 tuần, mốc siêu âm này chỉ kéo dài khoảng 2 tuần.\" Medium close-up, eye-level, slow gentle push-in. Any ultrasound monitor in the background is turned away and out of focus. Vertical 9:16, photorealistic, warm blue and soft golden tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ bầu 12 tuần, mốc siêu âm này chỉ kéo dài khoảng 2 tuần.",
+            "on_screen_text_vi": "(0–2,5s) Mẹ bầu 12 tuần → (2,5–5s) Mốc này chỉ khoảng 2 tuần",
+            "camera": "Medium close-up, eye-level, push-in nhẹ, nhìn thẳng camera"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He raises one finger, then two fingers while explaining calmly and kindly to the camera. The doctor says in Vietnamese: \"Một: mốc từ 11 tuần 6 ngày đến 13 tuần 6 ngày. Hai: mẹ nên gọi hẹn lịch sớm.\" Medium shot, eye-level, static camera. Ultrasound monitor out of frame. Vertical 9:16, photorealistic, warm blue and soft golden tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Một: mốc từ 11 tuần 6 ngày đến 13 tuần 6 ngày. Hai: mẹ nên gọi hẹn lịch sớm.",
+            "on_screen_text_vi": "(0–4s) 1. Từ 11 tuần 6 ngày – 13 tuần 6 ngày → (4–8s) 2. Gọi hẹn lịch sớm",
+            "camera": "Medium shot, eye-level, tĩnh"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds up three fingers, then gently touches the back of his own neck with one hand to illustrate the area while explaining in a reassuring way to the camera. The doctor says in Vietnamese: \"Ba: độ mờ da gáy là một chỉ số sàng lọc sớm, bác sĩ đo trên siêu âm.\" Medium close-up, eye-level, static camera. Ultrasound monitor out of frame. Vertical 9:16, photorealistic, warm blue and soft golden tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Ba: độ mờ da gáy là một chỉ số sàng lọc sớm, bác sĩ đo trên siêu âm.",
+            "on_screen_text_vi": "(0–4s) 3. Độ mờ da gáy = chỉ số sàng lọc sớm → (4–8s) Bác sĩ đo trên siêu âm",
+            "camera": "Medium close-up, eye-level, tĩnh"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He counts four and then five on his fingers, speaking calmly with a gentle smile to the camera. The doctor says in Vietnamese: \"Bốn: NIPT là xét nghiệm máu sàng lọc, làm rồi vẫn cần siêu âm. Năm: mốc kế tiếp là 15 đến 18 tuần.\" Medium close-up, eye-level, very slow push-in. Ultrasound monitor out of frame. Vertical 9:16, photorealistic, warm blue and soft golden tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Bốn: NIPT là xét nghiệm máu sàng lọc, làm rồi vẫn cần siêu âm. Năm: mốc kế tiếp là 15 đến 18 tuần.",
+            "on_screen_text_vi": "(0–2,5s) 4. NIPT = xét nghiệm máu sàng lọc → (2,5–5s) Có NIPT vẫn cần siêu âm → (5–8s) 5. Mốc kế tiếp: 15–18 tuần",
+            "camera": "Medium close-up, eye-level, push-in rất chậm"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits at a consultation desk across from a gentle Vietnamese pregnant woman in her late 20s with a small bump, shoulder-length black hair, wearing a loose cream-colored maternity dress, and her husband in his early 30s wearing a simple white polo shirt; a closed blue medical booklet lies on the desk. The couple smile with relief and the husband holds his wife's hand. The doctor then turns to the camera with a warm smile and an open, inviting hand gesture. The doctor says in Vietnamese: \"Mẹ yên tâm, Phòng khám luôn đồng hành. Mẹ đang tuần mấy ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.\" Medium two-shot transitioning to medium close-up on the doctor, eye-level. No ultrasound monitor in frame. Vertical 9:16, photorealistic, warm blue and soft golden tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ yên tâm, Phòng khám luôn đồng hành. Mẹ đang tuần mấy ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.",
+            "on_screen_text_vi": "(0–3s) Phòng khám luôn đồng hành cùng mẹ → (3–8s) Mẹ đang tuần thứ mấy? 👇",
+            "camera": "Two-shot rồi chuyển medium close-up bác sĩ, eye-level"
+          }
+        ],
+        "cta": "Mẹ đang tuần mấy ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.",
+        "caption": "Mẹ bầu 12 tuần, mốc siêu âm đo độ mờ da gáy (11 tuần 6 ngày – 13 tuần 6 ngày) chỉ kéo dài khoảng 2 tuần, chị nên gọi hẹn lịch sớm nhé. NIPT là xét nghiệm máu sàng lọc, làm rồi vẫn cần siêu âm. Mốc kế tiếp là 15–18 tuần.\nChị đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé!\n☎ 0986 442 313 – 0357 808 668 | Phòng khám Bác sĩ Phạm Sơn – Thôn Đông Kết, xã Khoái Châu, Hưng Yên (cạnh Trường Mầm non Đông Kết)\n(Video có sử dụng AI để minh hoạ. Nội dung đã được Bác sĩ Phạm Sơn duyệt.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#domodagay",
+          "#mebau12tuan"
+        ],
+        "medical_claims": [
+          "Mốc siêu âm đo độ mờ da gáy là từ 11 tuần 6 ngày đến 13 tuần 6 ngày, kéo dài khoảng 2 tuần.",
+          "Mẹ bầu nên gọi hẹn lịch siêu âm sớm để không lỡ mốc này.",
+          "Độ mờ da gáy là một chỉ số sàng lọc sớm, bác sĩ đo trên siêu âm.",
+          "NIPT là xét nghiệm máu sàng lọc; đã làm NIPT vẫn cần siêu âm (NIPT không thay thế siêu âm hình thái).",
+          "Mốc siêu âm kế tiếp sau mốc độ mờ da gáy là 15–18 tuần."
+        ],
+        "production_notes": "Tổng 37 giây, 5 cảnh (5 + 8 + 8 + 8 + 8). Tất cả lời thoại do nhân vật bác sĩ nói trực tiếp trong Veo nên giọng đồng nhất, không cần thu lồng tiếng riêng. Mỗi cảnh dùng nguyên văn character bible. Mẹ bầu và ông xã chỉ xuất hiện ở cảnh 5, đều mô tả cố định. Không đưa màn hình siêu âm vào khung hình, không có hình thai nhi, không có giấy tờ siêu âm, sổ khám chỉ ở dạng 'closed blue medical booklet'. Không dùng trang phục hay đạo cụ có màu gợi ý giới tính. Phụ đề chữ trắng trên hộp xanh #0B4EC6, số tuần tô vàng cam #FCB318, mỗi khung 1 ý, ≤ 7 từ/dòng, đổi khung theo mốc thời gian ghi trong on_screen_text_vi. Âm thanh: giọng nam trầm ấm, nhạc nền rất nhỏ. Bật nhãn 'Thông tin do AI tạo' khi đăng. Bác sĩ Phạm Sơn phải duyệt toàn bộ medical_claims trước khi xuất bản."
+      },
+      "scores": {
+        "hook": 16,
+        "formula": 16,
+        "density": 12,
+        "tone": 13,
+        "cta": 9,
+        "feasibility": 7,
+        "safety": 9
+      },
+      "notes": {
+        "hook": "'Mẹ bầu 12 tuần, mốc siêu âm này chỉ kéo dài khoảng 2 tuần.' khớp mẫu 'Mẹ bầu [tuần X]…', dài 13 từ, nhắm đúng người xem và tạo cảm giác cần làm ngay mà không dọa. Điểm trừ: 'mốc siêu âm này' chưa nói rõ là mốc gì, nên người không biết thuật ngữ sẽ chưa thấy ngay lý do để xem tiếp. Hook cũng kéo dài 0–5s, quá khung 0–3s của playbook.",
+        "formula": "Video dài 37s, có đủ 5 ý, có câu chốt trấn an và CTA đúng thứ tự, nên khớp khung chung. Nhưng chỉ có số thứ tự 'Một/Hai/Ba…' là song song, còn nội dung mỗi ý theo mẫu câu khác nhau: ý 1 là khoảng thời gian, ý 2 là hành động, ý 3 và 4 là định nghĩa, ý 5 là mốc tiếp theo. Vì vậy chưa đạt yêu cầu 'cùng 1 mẫu câu'. Một số dòng phụ đề quá 7 từ, ví dụ '1. Từ 11 tuần 6 ngày – 13 tuần 6 ngày' và '3. Độ mờ da gáy = chỉ số sàng lọc sớm'. Cảnh mẹ bầu và ông xã chỉ có ở cảnh 5, các cảnh khác đều là bác sĩ nói, ít cảnh minh họa xen kẽ hơn playbook gợi ý.",
+        "density": "Các ý 3, 4 và 5 có thông tin hữu ích. Ý 2 'mẹ nên gọi hẹn lịch sớm' gần như nhắc lại sự gấp gáp đã nói ở hook. Câu 'độ mờ da gáy là một chỉ số sàng lọc sớm' chưa giải thích bác sĩ đo cái gì và đo ở đâu, nên chưa làm được việc 'giải thích dễ hiểu' như giả thuyết đề ra. Cử chỉ chạm gáy chỉ gợi ý vị trí trên người lớn, không thay được lời giải thích.",
+        "tone": "Giọng ấm áp: 'Mẹ yên tâm, Phòng khám luôn đồng hành', không giật tít, không dọa, xưng hô hợp lệ. Câu cuối bác sĩ nói 'Phòng khám' hai lần liền ('Phòng khám luôn đồng hành… để Phòng khám nhắc') nghe hơi cứng. Lời nói trực tiếp có thể dùng 'bác sĩ' để gần gũi hơn.",
+        "cta": "'Mẹ đang tuần mấy ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.' là câu hỏi mở, dễ trả lời, không bán hàng và nối tự nhiên từ ý 5. CTA lấy gần nguyên văn mẫu trong playbook, chưa gắn riêng với chủ đề độ mờ da gáy.",
+        "feasibility": "Character bible được dán nguyên văn vào mọi cảnh, prompt rõ ràng, có 'no on-screen text', màn hình siêu âm nằm ngoài khung. Rủi ro: lời thoại cảnh 4 (~25 từ) và cảnh 5 (~23 từ) vượt giới hạn ≤20 từ/8s, khó đọc kịp với giọng chậm rãi. Cảnh 5 chứa quá nhiều hành động trong 8s (cặp vợ chồng phản ứng, nắm tay, chuyển từ cảnh hai người sang cận bác sĩ, rồi bác sĩ quay ra camera). Cảnh 1 dài 5s, phải cắt từ clip Veo 8s. Veo có thể phát âm 'NIPT' không chuẩn. Cử chỉ đếm ngón tay dễ bị lỗi hình.",
+        "safety": "Không thấy vi phạm ranh giới DNA. Mốc thời gian lấy đúng từ DNA, nói rõ NIPT là sàng lọc và không thay siêu âm, không có từ cấm, không có hình thai nhi, không gợi ý giới tính, không nói giá. Trừ 1 điểm vì caption đã ghi sẵn 'Nội dung đã được Bác sĩ Phạm Sơn duyệt.' trong khi phần ghi chú sản xuất cho biết chưa duyệt. Đây là khẳng định sai nếu đăng trước khi duyệt."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Gọi tên mốc ngay trong hook để người xem hiểu từ giây đầu, ví dụ 'Mẹ bầu 12 tuần, mốc đo độ mờ da gáy chỉ kéo dài khoảng 2 tuần.' Rút hook về khoảng 3s.",
+        "Viết 5 ý theo cùng một mẫu câu, ví dụ 'Điều thứ N: …', và bỏ hoặc thay ý 2 'gọi hẹn lịch sớm' (trùng với hook) bằng một ý có thông tin mới. Ý thay thế phải được bác sĩ duyệt.",
+        "Giải thích độ mờ da gáy bằng lời dễ hiểu (một câu đơn giản, đã được bác sĩ duyệt) thay vì chỉ nói 'chỉ số sàng lọc sớm'.",
+        "Rút lời thoại cảnh 4 và 5 xuống ≤20 từ. Có thể tách ý 5 sang một cảnh riêng, hoặc rút CTA còn 'Mẹ đang tuần mấy? Bình luận để Phòng khám nhắc mốc tiếp nhé.'",
+        "Giảm hành động ở cảnh 5: tách cảnh vợ chồng (không thoại) và cảnh bác sĩ nói CTA thành hai clip. Thêm một cảnh mẹ bầu hoặc ông xã ngoài đời thường ở giữa video để khớp playbook.",
+        "Chia lại các dòng phụ đề cho ≤7 từ, ví dụ '11 tuần 6 ngày' / 'đến 13 tuần 6 ngày'.",
+        "Chỉ ghi 'Nội dung đã được Bác sĩ Phạm Sơn duyệt' vào caption sau khi bác sĩ đã duyệt thật. Trước đó để trống hoặc đánh dấu là chờ duyệt.",
+        "Trong lời bác sĩ nói, đổi một chữ 'Phòng khám' thành 'bác sĩ' để giọng tự nhiên, gần gũi hơn."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Mẹ bầu 12 tuần, làm NIPT ổn rồi thì khỏi siêu âm? Không hẳn đâu ạ",
+        "topic": "Phá hiểu lầm: NIPT và siêu âm hình thái",
+        "angle": "exploit",
+        "hypothesis": "Hook dùng mẫu phản trực giác của playbook và nêu rõ 12 tuần cùng tình huống 'NIPT ổn', nên đúng mẹ bầu đang ở giai đoạn làm NIPT sẽ nhận ra mình. Lời hứa '4 điểm khác nhau' giữ người xem đến hết. Phần lõi là các cặp câu 'NIPT… – siêu âm…' cùng một mẫu, ngắn gọn, giúp người xem hiểu ra điều mới và muốn lưu lại. CTA hỏi tuần thai và đã làm NIPT chưa, nên người xem có chuyện cụ thể để bình luận và Phòng khám có cớ để trả lời.",
+        "target_audience": "Mẹ bầu 10–22 tuần ở Khoái Châu – Hưng Yên và lân cận, đã làm hoặc đang cân nhắc làm NIPT; ông xã cùng quyết định",
+        "hook": "Mẹ bầu 12 tuần, làm NIPT ổn rồi thì khỏi siêu âm? Không hẳn đâu ạ.",
+        "formula_mapping": "Hook mẫu '[Niềm tin phổ biến]? Không hẳn đâu ạ.', thêm mốc tuần thai (12 tuần) và tình huống (NIPT ổn), câu hỏi 12 từ. Tiếp theo là lời hứa danh sách '4 điểm khác nhau'. Phần lõi liệt kê song song 4 cặp cùng mẫu câu 'NIPT… – siêu âm…' (lấy máu mẹ/nhìn trực tiếp em bé; báo nguy cơ/xem bé phát triển; sàng lọc nhiễm sắc thể/quan sát tim, chi, các cơ quan; NIPT ổn/vẫn nên siêu âm đúng mốc 22 tuần, tim thai 22–28 tuần). Chốt trấn an 'Bác sĩ đồng hành cùng mẹ', sau đó CTA câu hỏi mở về tuần thai và NIPT. Tổng 40 giây = 5 cảnh × 8 giây, khớp đúng độ dài clip Veo nên không phải cắt. Cả 5 cảnh đều do bác sĩ nói trước camera để giọng đồng nhất. Cảnh 4 có thêm mẹ bầu trong khung hình để xen hình ảnh đời thường. Phụ đề hộp xanh, mỗi dòng ≤7 từ, đổi dòng khoảng 2 giây.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks straight into the camera, raises his eyebrows slightly as if repeating a common question, then gives a gentle knowing smile and softly shakes his head, finally holding up four fingers. The doctor speaks calmly in a warm deep voice. The doctor says in Vietnamese: \"Mẹ bầu mười hai tuần, làm en-ai-pi-ti ổn rồi thì khỏi siêu âm? Không hẳn đâu ạ. Khác nhau ở bốn điểm.\" Medium close-up, eye-level, slow gentle push-in. Vertical 9:16, photorealistic, blue and warm yellow tones. No ultrasound images visible. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ bầu 12 tuần, làm NIPT ổn rồi thì khỏi siêu âm? Không hẳn đâu ạ. Khác nhau ở 4 điểm.",
+            "on_screen_text_vi": "12 tuần, NIPT ổn rồi…\nCòn cần siêu âm?\n4 điểm khác nhau",
+            "camera": "Medium close-up, eye-level, push-in chậm, nhìn thẳng camera"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He explains while comparing two things with his hands: on each first half-sentence he gestures with his left hand, on each second half-sentence he gestures with his right hand, rhythm calm and clear. The doctor says in Vietnamese: \"En-ai-pi-ti lấy máu mẹ, siêu âm nhìn trực tiếp em bé. En-ai-pi-ti báo nguy cơ, siêu âm xem bé phát triển.\" Medium shot, eye-level, static. Vertical 9:16, photorealistic. No ultrasound images visible. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "NIPT lấy máu mẹ, siêu âm nhìn trực tiếp em bé. NIPT báo nguy cơ, siêu âm xem bé phát triển.",
+            "on_screen_text_vi": "NIPT: lấy máu mẹ\nSiêu âm: nhìn trực tiếp em bé\nNIPT: báo mức nguy cơ\nSiêu âm: xem bé phát triển",
+            "camera": "Medium shot, eye-level, tĩnh"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He continues the same left-hand then right-hand comparison gesture; on the second half he lightly touches his own chest, then his arm, then opens his palm to suggest the heart, limbs and organs. The doctor says in Vietnamese: \"En-ai-pi-ti sàng lọc một số bất thường nhiễm sắc thể. Siêu âm quan sát tim, chi và các cơ quan.\" Medium close-up, eye-level. Vertical 9:16, photorealistic. No ultrasound images visible, no anatomical diagrams. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "NIPT sàng lọc một số bất thường nhiễm sắc thể. Siêu âm quan sát tim, chi và các cơ quan.",
+            "on_screen_text_vi": "NIPT: sàng lọc nhiễm sắc thể\nSiêu âm: tim, chi, các cơ quan",
+            "camera": "Medium close-up, eye-level"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits at a consultation desk beside a gentle Vietnamese pregnant woman in her late 20s, visibly pregnant, shoulder-length black hair, wearing a loose cream-colored maternity dress, who listens and nods with a relaxed smile. The doctor turns from her to the camera and speaks kindly. The doctor says in Vietnamese: \"En-ai-pi-ti ổn rồi, mẹ vẫn nên siêu âm đúng mốc: hai mươi hai tuần, tim thai chi tiết hai mươi hai đến hai mươi tám tuần.\" Medium two-shot, eye-level, slight slow dolly-in. Vertical 9:16, photorealistic. No ultrasound screen, no papers or booklets with writing. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "NIPT ổn rồi, mẹ vẫn nên siêu âm đúng mốc: 22 tuần, tim thai chi tiết 22 đến 28 tuần.",
+            "on_screen_text_vi": "NIPT ổn – vẫn nên siêu âm\nMốc 22 tuần\nTim thai chi tiết 22–28 tuần",
+            "camera": "Medium two-shot, eye-level, dolly-in nhẹ"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks into the camera with a calm reassuring expression, places a hand lightly on his chest, then smiles warmly and opens his hand toward the camera in an inviting gesture. The doctor says in Vietnamese: \"Bác sĩ đồng hành cùng mẹ. Mẹ tuần mấy, đã làm en-ai-pi-ti chưa? Bình luận để Phòng khám nhắc mốc nhé.\" Medium close-up, eye-level, static. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Bác sĩ đồng hành cùng mẹ. Mẹ tuần mấy, đã làm NIPT chưa? Bình luận để Phòng khám nhắc mốc nhé.",
+            "on_screen_text_vi": "Bác sĩ đồng hành cùng mẹ\nMẹ đang tuần mấy? 👇\nĐã làm NIPT chưa?",
+            "camera": "Medium close-up, nhìn thẳng camera"
+          }
+        ],
+        "cta": "Mẹ tuần mấy, đã làm NIPT chưa? Bình luận để Phòng khám nhắc mốc siêu âm tiếp theo nhé.",
+        "caption": "Mẹ bầu 12 tuần, làm NIPT ổn rồi thì khỏi siêu âm? Không hẳn đâu ạ.\nNIPT là xét nghiệm sàng lọc từ máu mẹ. Siêu âm hình thái giúp bác sĩ quan sát trực tiếp em bé. Hai việc bổ trợ cho nhau, không thay thế nhau.\nChị đang ở tuần mấy và đã làm NIPT chưa ạ? Bình luận để Phòng khám nhắc mốc siêu âm tiếp theo nhé.\n📍 Phòng khám Bác sĩ Phạm Sơn – Thôn Đông Kết, xã Khoái Châu, Hưng Yên (cạnh Trường Mầm non Đông Kết)\n☎ 0986 442 313 – 0357 808 668\n(Video có sử dụng AI để minh hoạ. Nhân vật bác sĩ là hình tượng đại diện.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#NIPT",
+          "#sieuamhinhthai"
+        ],
+        "medical_claims": [
+          "Ngầm ý của hook: mẹ bầu 12 tuần dù đã làm NIPT và kết quả ổn thì vẫn cần siêu âm.",
+          "NIPT là xét nghiệm lấy máu mẹ; siêu âm giúp bác sĩ nhìn trực tiếp em bé.",
+          "NIPT cho biết mức nguy cơ; siêu âm giúp xem em bé phát triển ra sao.",
+          "NIPT sàng lọc một số bất thường nhiễm sắc thể.",
+          "Siêu âm hình thái giúp bác sĩ quan sát tim, chi và các cơ quan của em bé.",
+          "NIPT là sàng lọc, không thay thế siêu âm hình thái; hai việc bổ trợ cho nhau (caption).",
+          "Dù NIPT ổn, mẹ vẫn nên siêu âm đúng mốc: 22 tuần; tim thai chi tiết 22–28 tuần."
+        ],
+        "production_notes": "Tổng 40 giây = 5 cảnh × 8 giây, khớp đúng độ dài clip Veo nên không cần cắt. Cả 5 cảnh do bác sĩ nói trước camera (đã bỏ VO riêng) để giọng nam trầm ấm đồng nhất. Phát âm: trong prompt viết 'en-ai-pi-ti' thay cho NIPT và viết số thành chữ ('mười hai', 'hai mươi hai đến hai mươi tám') để Veo đọc đúng. Trong phụ đề vẫn ghi 'NIPT' và giữ số. Nếu Veo vẫn đọc sai thì sinh lại hoặc lồng tiếng lại đúng câu đó. Cần kiểm tra lời thoại vừa đủ 8 giây, không bị cắt dở. Phụ đề: chữ trắng trên hộp xanh #0B4EC6, mỗi dòng ≤7 từ, đổi dòng khoảng 2 giây; chữ 'NIPT' và số tuần tô vàng cam #FCB318. Cảnh 2–4 giữ cố định vị trí 'NIPT' bên trái, 'Siêu âm' bên phải để nhấn nhịp song song. Không hiển thị màn hình siêu âm hay hình thai nhi. Không có sổ hoặc giấy tờ có chữ trong khung hình. Không nhắc giới tính thai (NIPT có thể biết giới tính, tuyệt đối không đề cập). Không nêu giá, không nêu tên cơ sở xét nghiệm. Trang phục mẹ bầu màu kem trung tính. Bật nhãn 'Thông tin do AI tạo' khi đăng. Toàn bộ medical_claims cần Bác sĩ Phạm Sơn duyệt trước khi sản xuất."
+      },
+      "scores": {
+        "hook": 16,
+        "formula": 15,
+        "density": 11,
+        "tone": 13,
+        "cta": 8,
+        "feasibility": 7,
+        "safety": 9
+      },
+      "notes": {
+        "hook": "Hook mạnh: ghép đúng mẫu phản trực giác của playbook ('...? Không hẳn đâu ạ.') với mốc tuần thai và tình huống cụ thể ('Mẹ bầu 12 tuần, làm NIPT ổn rồi thì khỏi siêu âm?'), không chào hỏi, mẹ bầu đang làm NIPT dễ nhận ra mình. Trừ điểm vì: (1) câu dài 17 âm tiết, vượt giới hạn ≤14 từ của playbook. formula_mapping ghi '12 từ' là đếm sai. (2) Trong 3 giây đầu còn phải nói thêm 'Khác nhau ở 4 điểm', nên phần chặn lướt bị kéo dài, khó gói gọn trong 0–3s.",
+        "formula": "Khớp tổng 40s = 5×8s, có đủ chuỗi hook → liệt kê song song 'NIPT… – siêu âm…' → chốt 'đồng hành' → CTA. Phụ đề hộp xanh ≤7 từ/dòng, số tuần tô vàng cam đúng quy tắc. Trừ điểm: (1) chỉ có 4 ý, dưới mức 5–8 ý của playbook. Thực chất chỉ có 3 cặp so sánh, còn ý thứ 4 ('NIPT ổn rồi, mẹ vẫn nên siêu âm đúng mốc') là lời khuyên chứ không phải 'điểm khác nhau', nên phá mẫu câu song song. (2) Phần chốt trấn an và CTA bị dồn vào cùng một cảnh 8s, không có nhịp 'chốt' riêng. (3) Hình ảnh gần như toàn talking head, chỉ cảnh 4 có mẹ bầu. Chưa có cảnh mẹ bầu/ông xã đời thường như visual_style gợi ý, dù mục tiêu có nhắc 'ông xã cùng quyết định'.",
+        "density": "Câu ngắn, mỗi vế một ý, không có câu đệm. Trừ điểm: (1) lời hứa 'Khác nhau ở 4 điểm' không được thực hiện đúng, chỉ có 3 điểm khác nhau. (2) 'NIPT báo nguy cơ, siêu âm xem bé phát triển' và 'NIPT sàng lọc… nhiễm sắc thể. Siêu âm quan sát tim, chi…' gần như lặp ý (sàng lọc gen so với quan sát hình thái). (3) Bỏ lỡ thông tin đắt giá nhất cho đúng đối tượng 12 tuần: mốc đo độ mờ da gáy 11 tuần 6 ngày–13 tuần 6 ngày có trong DNA. Kịch bản lại nhảy thẳng tới 22 tuần, trong khi mẹ 12 tuần cần biết mốc ngay trước mắt. (4) '22 tuần, tim thai chi tiết 22 đến 28 tuần' lặp số 22, khó nghe.",
+        "tone": "Ấm áp, chuyên nghiệp, không dọa dị tật, không giật tít ('Không hẳn đâu ạ', 'em bé', 'Bác sĩ đồng hành cùng mẹ'). Caption xưng 'Phòng khám', gọi 'Chị' đúng DNA. Trừ điểm: câu 'NIPT báo nguy cơ' đứng trơ, không có câu trấn an đi kèm, dễ gây lo cho mẹ vừa làm NIPT. Câu chốt 'Bác sĩ đồng hành cùng mẹ' còn chung chung, chưa có hơi ấm 'tại quê nhà' của thông điệp nền.",
+        "cta": "Câu hỏi mở, cụ thể, không bán hàng: 'Mẹ tuần mấy, đã làm NIPT chưa? Bình luận để Phòng khám nhắc mốc nhé.' Có lý do rõ để bình luận. Trừ điểm: gộp 2 câu hỏi vào một hơi nói nhanh ở cuối cảnh nên giảm độ rõ. Lời thoại 'nhắc mốc' và CTA trong caption ('nhắc mốc siêu âm tiếp theo') lệch nhau nhẹ.",
+        "feasibility": "Character bible được lặp nguyên văn, có 'no on-screen text', không có màn hình siêu âm. Phiên âm 'en-ai-pi-ti' và viết số thành chữ là xử lý tốt. Trừ điểm: (1) lời thoại vượt hướng dẫn ≤20 từ/8s. Cảnh 1 khoảng 25 âm tiết, cảnh 2 khoảng 27, cảnh 4 khoảng 30 âm tiết kèm động tác quay từ mẹ bầu sang camera, rất dễ bị cắt dở hoặc đọc vội. (2) Có nhiều động tác tay phức tạp ('holding up four fingers', 'left hand then right hand on each half-sentence', 'touches chest, then arm, then opens palm') mà Veo thường làm sai ngón tay hoặc không khớp nhịp lời. (3) Cảnh 4 đổi bối cảnh sang ngồi ở bàn tư vấn, làm tăng rủi ro lệch nhân vật.",
+        "safety": "Không thấy vi phạm ranh giới DNA: không nói giới tính, không có giá, không có từ cấm, không hứa 'thấy hết'. Kịch bản nêu rõ NIPT là sàng lọc, không thay thế siêu âm hình thái. Mốc 22 tuần và tim thai 22–28 tuần khớp DNA. Có liệt kê medical_claims để bác sĩ duyệt và có nhãn AI. Trừ 1 điểm phòng ngừa: nhân vật bác sĩ AI tự xưng 'Bác sĩ đồng hành cùng mẹ' và nói 'Phòng khám nhắc mốc', người xem dễ hiểu đây là chính Bác sĩ Phạm Sơn. Chỉ có dòng chú thích trong caption làm rõ, chưa có ghi chú trên màn hình."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Rút hook xuống ≤14 âm tiết, ví dụ: 'NIPT ổn rồi, khỏi siêu âm? Không hẳn đâu ạ.' Đưa '12 tuần' lên phụ đề, chuyển 'Khác nhau ở…' sang đầu cảnh 2.",
+        "Thêm mốc đo độ mờ da gáy 11 tuần 6 ngày–13 tuần 6 ngày (có trong DNA), vì đây là thông tin trực tiếp nhất cho mẹ 12 tuần. Có thể thay cho cặp 'báo nguy cơ / xem bé phát triển' đang lặp ý.",
+        "Sửa lời hứa cho đúng nội dung: hoặc nói '3 điểm khác nhau', hoặc bổ sung đủ 4–5 cặp song song thật sự cùng mẫu 'NIPT… – siêu âm…'. Tách lời khuyên 'vẫn nên siêu âm đúng mốc' ra làm phần chốt.",
+        "Cắt mỗi cảnh xuống còn khoảng 18–20 âm tiết. Cảnh 4 chỉ giữ 'NIPT ổn, mẹ vẫn nên siêu âm đúng mốc 12 tuần và 22 tuần' hoặc tương đương, bỏ chuỗi số '22 đến 28'.",
+        "Đơn giản hóa động tác tay trong prompt (bỏ 'four fingers', bỏ chuỗi chạm ngực/tay) để giảm lỗi tay và lệch nhịp của Veo.",
+        "Tách cảnh 5: 4s chốt trấn an có thông điệp 'ngay tại quê nhà', 4s CTA một câu hỏi duy nhất ('Mẹ đang tuần mấy rồi ạ?').",
+        "Thêm 1 cảnh minh hoạ ông xã đi cùng vợ để đúng visual_style và đối tượng 'chồng cùng quyết định'. Ghi dòng phụ đề nhỏ 'Nhân vật minh hoạ bằng AI' để tránh hiểu nhầm là bác sĩ thật."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Siêu âm xong mới nhớ quên hỏi? 5 câu mẹ bầu nên hỏi bác sĩ",
+        "topic": "Kỹ năng trao đổi với bác sĩ khi siêu âm",
+        "angle": "exploit",
+        "hypothesis": "Hook chạm đúng tình huống rất phổ biến ('ra về mới nhớ quên hỏi') nên mẹ bầu dễ nhận ra mình. Danh sách 5 câu dùng được ngay ở lần khám tới nên dễ được lưu và chia sẻ. CTA hỏi tuần thai kéo bình luận và cho Phòng khám cớ trả lời theo từng mốc.",
+        "target_audience": "Mẹ bầu 18–45 tuổi ở mọi tuần thai, khu vực Khoái Châu – Hưng Yên, đặc biệt các mẹ ngại hỏi hoặc hay quên hỏi bác sĩ; ông xã đi khám cùng",
+        "hook": "Siêu âm xong, ra về mới nhớ quên hỏi bác sĩ? Mẹ lưu ngay 5 câu này nhé.",
+        "formula_mapping": "Hook theo nỗi lo và tình huống cụ thể, kết hợp mẫu '[N] [điều] mà [đối tượng] nên [làm]' (0–3s) → liệt kê song song 5 câu hỏi cùng một mẫu 'Một/Hai/Ba…', mỗi cảnh 2 ý (8–32s) → chốt trấn an 'cứ hỏi lại, không phiền' (32–36s) → CTA hỏi mở kèm tuần thai (36–40s). Tổng 40 giây = 5 clip × 8 giây, không phải cắt clip. Chỉ một người nói là bác sĩ, nhìn thẳng camera. Phụ đề hộp xanh #0B4EC6, số thứ tự vàng cam #FCB318, mỗi dòng ≤ 7 từ, đổi dòng khoảng 2–4 giây.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands facing the camera with his hands relaxed at his sides, out of frame, and gives a gentle, knowing smile as if he understands a common worry. He is the only person in the scene. The doctor says in Vietnamese: \"Siêu âm xong, ra về mới nhớ quên hỏi bác sĩ? Mẹ lưu ngay 5 câu này nhé.\" Medium close-up, eye-level, slow gentle push-in. Background ultrasound monitor is switched off and softly blurred. Vertical 9:16, photorealistic, calm warm color grade with blue and warm yellow tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Siêu âm xong, ra về mới nhớ quên hỏi bác sĩ? Mẹ lưu ngay 5 câu này nhé.",
+            "on_screen_text_vi": "[0–3s] Ra về mới nhớ quên hỏi?\n[3–8s] Lưu ngay 5 câu này",
+            "camera": "Medium close-up, eye-level, push-in chậm"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits at a tidy white desk, hands resting still on the desk below the frame, looking directly into the camera and speaking calmly with a friendly nod. He is the only person in the scene. The doctor says in Vietnamese: \"Một: lần này bác sĩ kiểm tra những gì cho bé? Hai: bé phát triển có phù hợp tuần thai không?\" Medium close-up, eye-level, static camera. Vertical 9:16, photorealistic, soft blue and warm tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Một: lần này bác sĩ kiểm tra những gì cho bé? Hai: bé phát triển có phù hợp tuần thai không?",
+            "on_screen_text_vi": "[0–4s] 1. Lần này kiểm tra gì?\n[4–8s] 2. Bé có hợp tuần thai?",
+            "camera": "Medium close-up, eye-level, máy tĩnh"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands near a window, slightly angled body but face turned to the camera, hands out of frame, speaking in a calm, reassuring way. He is the only person in the scene. The doctor says in Vietnamese: \"Ba: có điểm nào cần theo dõi thêm không? Bốn: mốc siêu âm tiếp theo là tuần nào, để mẹ không lỡ hẹn.\" Medium close-up, eye-level, very slow lateral slide. Vertical 9:16, photorealistic, bright and airy. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Ba: có điểm nào cần theo dõi thêm không? Bốn: mốc siêu âm tiếp theo là tuần nào, để mẹ không lỡ hẹn.",
+            "on_screen_text_vi": "[0–3s] 3. Cần theo dõi thêm gì?\n[3–8s] 4. Mốc tiếp theo tuần nào?",
+            "camera": "Medium close-up, trượt ngang rất chậm"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits at the desk facing the camera; softly out of focus in the background, a gentle Vietnamese pregnant woman in her late 20s with shoulder-length black hair, wearing a loose cream-colored maternity dress, sits quietly and smiles, with her lips closed. Only the doctor speaks. He smiles kindly with his hands out of frame. The doctor says in Vietnamese: \"Năm: mẹ cần lưu ý gì trong ăn ngủ, sinh hoạt? Chưa rõ chỗ nào, mẹ cứ hỏi lại, không phiền đâu ạ.\" Medium close-up on the doctor, shallow depth of field, eye-level. Vertical 9:16, photorealistic, warm reassuring mood. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Năm: mẹ cần lưu ý gì trong ăn ngủ, sinh hoạt? Chưa rõ chỗ nào, mẹ cứ hỏi lại, không phiền đâu ạ.",
+            "on_screen_text_vi": "[0–4s] 5. Lưu ý gì khi sinh hoạt?\n[4–8s] Cứ hỏi lại – không phiền ạ",
+            "camera": "Medium close-up, xoá phông nhẹ, eye-level"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands facing the camera, hands relaxed out of frame, with a warm, inviting smile and a slight lean toward the viewer. He is the only person in the scene. The doctor says in Vietnamese: \"Mẹ đang tuần thứ mấy, hay quên hỏi câu nào? Bình luận để Phòng khám nhắc mẹ nhé.\" Medium close-up, eye-level, gentle slow push-in. Vertical 9:16, photorealistic, blue and warm yellow tones. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ đang tuần thứ mấy, hay quên hỏi câu nào? Bình luận để Phòng khám nhắc mẹ nhé.",
+            "on_screen_text_vi": "[0–4s] Mẹ đang tuần thứ mấy?\n[4–8s] Hay quên hỏi câu nào? 👇",
+            "camera": "Medium close-up, nhìn thẳng camera, push-in nhẹ"
+          }
+        ],
+        "cta": "Mẹ đang tuần thứ mấy, hay quên hỏi câu nào? Bình luận để Phòng khám nhắc mẹ nhé.",
+        "caption": "Siêu âm xong, ra về mới nhớ quên hỏi bác sĩ? Chị lưu lại 5 câu này để lần khám tới hỏi đủ nhé: kiểm tra những gì, bé có phù hợp tuần thai không, cần theo dõi thêm gì, mốc tiếp theo là tuần nào, và lưu ý sinh hoạt. Chưa rõ chỗ nào chị cứ hỏi lại, Phòng khám luôn sẵn lòng đồng hành.\nChị đang tuần thứ mấy và hay quên hỏi câu nào? Bình luận để Phòng khám nhắc chị mốc tiếp theo nhé.\n(Video có sử dụng AI để minh hoạ. Nhân vật bác sĩ là hình tượng đại diện.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#hungyen",
+          "#kinhnghiemmebau"
+        ],
+        "medical_claims": [
+          "Mỗi lần siêu âm, mẹ bầu nên hỏi bác sĩ: lần này kiểm tra những gì cho bé.",
+          "Mẹ bầu nên hỏi: bé phát triển có phù hợp tuần thai không.",
+          "Mẹ bầu nên hỏi: có điểm nào cần theo dõi thêm không.",
+          "Mẹ bầu nên hỏi mốc siêu âm tiếp theo là tuần nào để không lỡ hẹn.",
+          "Mẹ bầu nên hỏi cần lưu ý gì trong ăn ngủ, sinh hoạt.",
+          "Bác sĩ là người giải thích kết quả; mẹ chưa rõ chỗ nào thì nên hỏi lại."
+        ],
+        "production_notes": "Tổng 40 giây, gồm 5 clip Veo × 8 giây, không cần cắt. Chỉ bác sĩ nói, lip-sync trực tiếp trong Veo, giọng nam trầm ấm, chậm rãi, không nhạc ồn. Cảnh 4 có mẹ bầu xoá phông ở hậu cảnh, ngậm miệng, không thoại. Nếu Veo vẫn cho mẹ bầu mấp máy môi thì tạo lại cảnh 4 với bác sĩ một mình. Không có cử chỉ đếm hay giơ ngón tay, tay để ngoài khung để tránh lỗi bàn tay. Không có sổ, giấy hay chữ trong khung. Màn hình siêu âm tắt hoặc mờ, không có hình thai nhi. Phụ đề chèn sau: chữ trắng trên hộp xanh #0B4EC6, số thứ tự màu vàng cam #FCB318, mỗi dòng ≤ 7 từ, đổi dòng theo mốc thời gian ghi trong on_screen_text_vi. Không đưa câu hỏi liên quan giới tính thai, không nói giá. Toàn bộ medical_claims cần Bác sĩ Phạm Sơn duyệt trước khi đăng. Khi đăng bật nhãn 'Thông tin do AI tạo' trên Facebook."
+      },
+      "scores": {
+        "hook": 16,
+        "formula": 16,
+        "density": 12,
+        "tone": 14,
+        "cta": 8,
+        "feasibility": 8,
+        "safety": 10
+      },
+      "notes": {
+        "hook": "\"Siêu âm xong, ra về mới nhớ quên hỏi bác sĩ? Mẹ lưu ngay 5 câu này nhé.\" mở bằng một tình huống rất quen với mẹ bầu và có con số 5, khớp mẫu '[N] [điều] mà [đối tượng] nên [làm]'. Không chào hỏi, giọng không giật tít. Trừ điểm vì câu dài khoảng 17 từ, vượt mức ≤ 14 từ, nên khó nói hết trong 3 giây đầu. Hook cũng không có tuần thai cụ thể, nên người xem khó thấy ngay video đang nói với mình, kém hơn mẫu hook có neo tuần thai.",
+        "formula": "Kịch bản bám playbook: 40 giây = 5 cảnh × 8 giây, liệt kê 5 ý theo cùng mẫu câu 'Một/Hai/Ba…', mỗi cảnh 2 ý, có phần trấn an và CTA câu hỏi. Phụ đề dùng hộp xanh #0B4EC6, số thứ tự màu vàng cam, mỗi dòng ≤ 7 từ. Bốn điểm lệch so với playbook: (1) phụ đề đổi dòng sau 3–5 giây, trong khi playbook yêu cầu khoảng 2 giây; (2) hook kéo dài hết cảnh 1 (8 giây), nên phần liệt kê bắt đầu muộn; (3) câu trấn an bị gộp vào cuối cảnh 4 thay vì đứng riêng ở 32–36 giây, và lời thoại không có chữ 'đồng hành'; (4) gần như toàn bộ video là bác sĩ nói trước camera, mẹ bầu chỉ xuất hiện mờ ở hậu cảnh cảnh 4, thiếu cảnh mẹ bầu/ông xã đời thường mà visual_style yêu cầu.",
+        "density": "Mỗi câu hỏi là một ý riêng, không lặp, dùng được ngay ở lần khám tới. Câu 4 'mốc siêu âm tiếp theo là tuần nào, để mẹ không lỡ hẹn' có ích thực tế rõ. Tuy vậy câu 1 'lần này bác sĩ kiểm tra những gì cho bé?' và câu 3 'có điểm nào cần theo dõi thêm không?' còn chung chung, gần nghĩa nhau. Video chưa tận dụng thông tin riêng của DNA, ví dụ nhắc mốc đo độ mờ da gáy 11 tuần 6 ngày–13 tuần 6 ngày hay mốc tim thai 22–28 tuần, để thêm giá trị.",
+        "tone": "Giọng ấm áp và trấn an, ví dụ 'Chưa rõ chỗ nào, mẹ cứ hỏi lại, không phiền đâu ạ.' Lời bác sĩ gọi 'mẹ' và nói 'Phòng khám nhắc mẹ'; caption xưng 'Phòng khám' và gọi 'chị'. Xưng hô đúng DNA. Không giật tít, không doạ. Chữ 'ngay' trong 'Mẹ lưu ngay' hơi thúc ép nhưng vẫn chấp nhận được.",
+        "cta": "CTA là câu hỏi mở, không bán hàng, không nói giá, có lý do để bình luận ('Phòng khám nhắc mẹ'). Trừ điểm vì gộp hai câu hỏi trong một câu ('Mẹ đang tuần thứ mấy, hay quên hỏi câu nào?') nên người xem bị phân tán. Lời thoại chỉ nói 'nhắc mẹ' mà không nói nhắc gì; chỉ caption mới ghi rõ là nhắc 'mốc tiếp theo'.",
+        "feasibility": "Mỗi cảnh 8 giây. Prompt mỗi cảnh đều mở bằng nguyên văn character bible, kết thúc bằng 'no on-screen text', màn hình siêu âm tắt hoặc mờ, tay để ngoài khung để tránh lỗi bàn tay. Cảnh 4 có phương án tạo lại nếu mẹ bầu mấp máy môi. Rủi ro chính là lời thoại: cảnh 2, 3 và 4 dài khoảng 20–22 từ, vượt mức ≤ 20 từ, nên nói giọng trầm chậm sẽ khó vừa 8 giây. Cảnh 4 còn có người thứ hai ở hậu cảnh, dễ lỗi lip-sync. Ngoài ra Veo khẩu hình tiếng Việt chưa ổn định.",
+        "safety": "Không thấy vi phạm ranh giới DNA. Kịch bản không chẩn đoán và không đưa số đo; các câu hỏi chỉ hướng mẹ hỏi bác sĩ. Không gợi ý giới tính thai; trang phục mẹ bầu màu kem, trung tính. Không nói giá, không có từ cấm, không có hình thai nhi hay ca bất thường. Caption ghi rõ có dùng AI và 'nhân vật bác sĩ là hình tượng đại diện'. Production notes có bước Bác sĩ Phạm Sơn duyệt medical_claims và bật nhãn AI khi đăng."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Rút hook xuống ≤ 14 từ để nói gọn trong 3 giây, ví dụ: 'Ra về mới nhớ quên hỏi bác sĩ? Lưu 5 câu này.' Có thể thêm neo tuần thai.",
+        "Cắt lời thoại cảnh 2, 3, 4 xuống ≤ 18 từ: bỏ 'để mẹ không lỡ hẹn' và rút gọn 'trong ăn ngủ, sinh hoạt'. Như vậy giọng trầm chậm sẽ đọc kịp trong 8 giây.",
+        "Làm câu 1 và câu 3 cụ thể hơn, khác nhau rõ hơn. Ví dụ câu 1 thành 'Mốc này bác sĩ kiểm tra những gì?', câu 3 thành 'Kết quả hôm nay có gì cần theo dõi thêm?'. Nếu được, thêm một mốc trong DNA (đo độ mờ da gáy, tim thai 22–28 tuần) để tăng giá trị.",
+        "Tách câu trấn an thành nhịp riêng và dùng từ 'đồng hành' cho đúng playbook. Thay một cảnh nói trước camera bằng cảnh mẹ bầu hoặc ông xã đời thường, không thoại, để video có nhịp hình ảnh.",
+        "Đổi phụ đề nhanh hơn, khoảng 2 giây/dòng, ví dụ tách mỗi câu hỏi thành 2 dòng ngắn.",
+        "Gộp CTA về một câu hỏi duy nhất: 'Mẹ đang tuần thứ mấy? Bình luận để Phòng khám nhắc mốc siêu âm tiếp theo nhé.'"
+      ]
+    },
+    {
+      "draft": {
+        "title": "Mẹ bầu 22–28 tuần: 5 điều nên làm khi siêu âm tim thai",
+        "topic": "Siêu âm tim thai chi tiết 22–28 tuần",
+        "angle": "exploit",
+        "hypothesis": "Hook neo khung 22–28 tuần giúp mọi mẹ đang trong khung tim thai thấy mình trong câu, thêm vế tò mò 'nghe kỹ 30 giây này' để giữ người xem. 5 ý thực dụng cùng mẫu 'nên…' dễ lưu lại, dễ chia sẻ; ý 'rủ ông xã đi cùng' khiến vợ tag chồng.",
+        "target_audience": "Mẹ bầu 20–28 tuần khu vực Khoái Châu – Hưng Yên và ông xã/người nhà",
+        "hook": "Mẹ bầu 22 đến 28 tuần mà chưa siêu âm tim thai thì nghe kỹ 30 giây này.",
+        "formula_mapping": "Hook mẫu 'Mẹ bầu [tuần X] mà chưa [việc] thì…' có vế tò mò → liệt kê song song 5 ý cùng một mẫu 'nên…', 2 ý mỗi cảnh → chốt trấn an 'đồng hành' thuần cảm xúc, không quảng bá máy → CTA hỏi tuần thai theo mẫu playbook. 5 cảnh, 38 giây, đúng mức 30–40 giây. Talking head xen 1 cảnh vợ chồng đời thường, tông xanh dương – vàng ấm, chữ trên màn hình ≤7 từ/dòng, đổi dòng ~2 giây, đánh số ý bằng chữ hậu kỳ.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 7,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands still, hands relaxed at his sides, looking straight into the camera with a caring, attentive expression, speaking at a calm, clear pace. The doctor says in Vietnamese: \"Mẹ bầu 22 đến 28 tuần mà chưa siêu âm tim thai thì nghe kỹ 30 giây này.\" Medium close-up, eye-level, slow gentle push-in. Vertical 9:16, photorealistic, soft blue and warm yellow color palette. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ bầu 22 đến 28 tuần mà chưa siêu âm tim thai thì nghe kỹ 30 giây này.",
+            "on_screen_text_vi": "Mẹ bầu 22–28 tuần / Chưa siêu âm tim thai?",
+            "camera": "Medium close-up, eye-level, push-in nhẹ"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks straight into the camera with a friendly expression, hands loosely clasped in front of him, speaking calmly and clearly with a slight nod. The doctor says in Vietnamese: \"Một: nên đặt lịch từ 22 đến 28 tuần. Hai: nên mang kết quả lần trước.\" Medium shot, eye-level, static camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Một: nên đặt lịch từ 22 đến 28 tuần. Hai: nên mang kết quả lần trước.",
+            "on_screen_text_vi": "1. Đặt lịch 22–28 tuần / 2. Mang kết quả lần trước",
+            "camera": "Medium shot, eye-level, tĩnh"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A gentle Vietnamese pregnant woman in her late 20s, visibly pregnant in mid-pregnancy, shoulder-length black hair, wearing a loose cream-colored maternity dress, walks hand in hand with her husband, a friendly Vietnamese man around 30 with short black hair in a plain white polo shirt, into a bright clinic waiting area with white walls, blue accents and a small yellow flower pot. The husband carries a plain blue folder with no writing on it. They exchange a warm, reassuring smile. The characters do not speak, lips closed, no lip movement. A calm, warm male voice-over in Vietnamese says: \"Ba: nên báo bác sĩ tiền sử gia đình. Bốn: nên rủ ông xã đi cùng.\" Medium shot, slow dolly-in, soft natural daylight. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark, no written text anywhere in the scene.",
+            "dialogue_vi": "Ba: nên báo bác sĩ tiền sử gia đình. Bốn: nên rủ ông xã đi cùng.",
+            "on_screen_text_vi": "3. Báo tiền sử gia đình / 4. Rủ ông xã đi cùng",
+            "camera": "Medium shot, dolly-in chậm, giọng đọc ngoài khung hình"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks straight into the camera with a gentle, reassuring smile, places one hand lightly on his chest on the last sentence, speaking slowly and warmly. The doctor says in Vietnamese: \"Năm: nên hỏi bác sĩ điều còn lo. Đi đúng mốc, mẹ yên tâm, bác sĩ luôn đồng hành.\" Medium close-up, eye-level, very slow push-in. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Năm: nên hỏi bác sĩ điều còn lo. Đi đúng mốc, mẹ yên tâm, bác sĩ luôn đồng hành.",
+            "on_screen_text_vi": "5. Hỏi bác sĩ điều còn lo / Đi đúng mốc – mẹ yên tâm",
+            "camera": "Medium close-up, eye-level, push-in rất chậm"
+          },
+          {
+            "idx": 5,
+            "seconds": 7,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly at the camera and makes a gentle open-palm inviting gesture. The doctor says in Vietnamese: \"Mẹ đang tuần thứ mấy rồi? Bình luận để Phòng khám nhắc mốc tim thai nhé.\" Medium close-up, eye-level, static camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ đang tuần thứ mấy rồi? Bình luận để Phòng khám nhắc mốc tim thai nhé.",
+            "on_screen_text_vi": "Mẹ đang tuần thứ mấy? / Bình luận để được nhắc 👇",
+            "camera": "Medium close-up, nhìn thẳng camera"
+          }
+        ],
+        "cta": "Mẹ đang tuần thứ mấy rồi? Bình luận để Phòng khám nhắc mốc tim thai nhé.",
+        "caption": "Mẹ bầu 22–28 tuần mà chưa siêu âm tim thai thì lưu ngay 5 điều này ạ:\n1. Đặt lịch trong khung 22–28 tuần\n2. Mang theo kết quả siêu âm lần trước\n3. Báo bác sĩ tiền sử gia đình\n4. Rủ ông xã đi cùng\n5. Hỏi bác sĩ điều chị còn băn khoăn\nSiêu âm tim thai là bước sàng lọc, hỗ trợ phát hiện sớm; bác sĩ là người trực tiếp giải thích kết quả cho chị. Phòng khám sử dụng máy siêu âm Voluson E8 BT21 cho hình ảnh rõ nét, hỗ trợ bác sĩ quan sát chi tiết.\nChị đang ở tuần thứ mấy? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.\n📍 Phòng khám Bác sĩ Phạm Sơn – Thôn Đông Kết, xã Khoái Châu, Hưng Yên (cạnh Trường Mầm non Đông Kết)\n☎ 0986 442 313 – 0357 808 668\n(Video có sử dụng AI để minh hoạ.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#sieuamtimthai",
+          "#khoaichau",
+          "#hungyen"
+        ],
+        "medical_claims": [
+          "Siêu âm tim thai chi tiết nên làm trong khoảng 22–28 tuần.",
+          "Khi đi siêu âm tim thai nên mang theo kết quả siêu âm lần trước.",
+          "Nên báo bác sĩ tiền sử gia đình khi siêu âm tim thai.",
+          "Nên hỏi bác sĩ điều mẹ còn lo lắng; bác sĩ là người trực tiếp giải thích kết quả.",
+          "Đi siêu âm đúng mốc giúp mẹ yên tâm.",
+          "Siêu âm tim thai là bước sàng lọc, hỗ trợ phát hiện sớm (caption).",
+          "Máy Voluson E8 BT21 cho hình ảnh rõ nét, hỗ trợ bác sĩ quan sát chi tiết (caption)."
+        ],
+        "production_notes": "Tổng 38 giây, 5 cảnh (7–8–8–8–7). Đã bỏ cử chỉ đếm ngón tay; số thứ tự 1–5 chèn bằng chữ hậu kỳ. Chữ trên màn hình: hộp xanh #0B4EC6 chữ trắng, số thứ tự nhấn vàng cam #FCB318; mỗi cảnh 2 dòng ≤7 từ (ngăn bằng '/'), dòng 2 hiện khi bắt đầu ý thứ hai, khoảng giây thứ 4. Lời thoại mỗi cảnh ≤22 từ, đọc chậm, rõ. Tên máy Voluson chỉ để trong caption, không cho Veo đọc. Cảnh 3: giọng đọc ngoài khung hình, nhân vật không mấp máy môi; nếu Veo vẫn cho nhân vật nói thì tạo cảnh không thoại rồi ghép giọng đọc riêng (cùng giọng nam trầm ấm). Bìa hồ sơ trơn, không chữ; nếu sinh chữ rác thì tạo lại cảnh. Không có cảnh màn hình siêu âm, không hình thai nhi. Nhạc nền nhẹ hoặc không nhạc. Bật nhãn 'Thông tin do AI tạo' khi đăng. Cần Bác sĩ Phạm Sơn duyệt toàn bộ medical_claims trước khi đăng, nhất là ý 2 và ý 3 (mang kết quả cũ, báo tiền sử gia đình)."
+      },
+      "scores": {
+        "hook": 16,
+        "formula": 17,
+        "density": 11,
+        "tone": 13,
+        "cta": 8,
+        "feasibility": 8,
+        "safety": 10
+      },
+      "notes": {
+        "hook": "Hook đúng mẫu playbook 'Mẹ bầu [tuần X] mà chưa [việc] thì…', không chào hỏi, có số tuần cụ thể, nhìn thẳng camera. Điểm trừ: 'Mẹ bầu 22 đến 28 tuần mà chưa siêu âm tim thai thì nghe kỹ 30 giây này.' dài khoảng 17 từ, vượt mức ≤14 từ, nên khó nói gọn trong 3 giây. Ý cũng hơi lệch logic: mẹ vừa tròn 22 tuần thì đương nhiên chưa siêu âm tim thai, nên vế 'mà chưa' không tạo được cảm giác 'mình đang bị lỡ'. Câu hứa '30 giây' trong khi video dài 38 giây, lệch nhẹ.",
+        "formula": "Bám công thức tốt: 5 cảnh, 38 giây (đúng khoảng 30–40 giây), 5 ý cùng mẫu 'nên…', mỗi cảnh 2 ý, có xen một cảnh vợ chồng đời thường, chữ ≤7 từ/dòng trong hộp xanh #0B4EC6, số thứ tự nhấn vàng cam #FCB318, giọng nam trầm ấm. Điểm trừ: phần chốt trấn an không có nhịp riêng mà bị ghép chung cảnh 4 với ý thứ năm ('Năm: nên hỏi bác sĩ điều còn lo. Đi đúng mốc, mẹ yên tâm…'), nên khoảnh khắc cảm xúc an tâm bị nén lại. Cảnh 1 chỉ chứa hook nhưng kéo dài 7 giây, hơi dư so với khung 0–3 giây.",
+        "density": "Ý 1 'nên đặt lịch từ 22 đến 28 tuần' gần như lặp lại nội dung hook, tốn một suất trong danh sách 5 ý. Các ý còn lại đúng việc cần làm nhưng chỉ nêu việc mà không nói lý do: 'mang kết quả lần trước', 'báo tiền sử gia đình' không kèm nửa câu 'vì sao', nên giá trị lưu lại còn mỏng. 'Đi đúng mốc, mẹ yên tâm' mang tính câu đệm.",
+        "tone": "Giọng ấm áp, trấn an, không dọa dị tật. Caption xưng 'Phòng khám', gọi 'chị' đúng DNA; bác sĩ gọi 'mẹ' cũng đúng. Có nhắc 'bác sĩ là người trực tiếp giải thích kết quả'. Điểm trừ: 'nghe kỹ 30 giây này' hơi mang tính thúc ép. Lời thoại thiếu từ đệm lễ phép quen thuộc với khán giả quê như 'ạ' ('Mẹ đang tuần thứ mấy rồi?'), nên độ thân tình chưa tối đa.",
+        "cta": "CTA là câu hỏi mở theo đúng mẫu playbook, không chốt bán, không nêu giá: 'Mẹ đang tuần thứ mấy rồi? Bình luận để Phòng khám nhắc mốc tim thai nhé.' Điểm trừ: câu hỏi chung chung, chưa gắn với nội dung 5 ý, ví dụ hỏi mẹ thấy ý nào khó làm nhất hay đã chuẩn bị được ý nào, nên khó gợi bình luận có chiều sâu. Với mẹ đang ở đúng khung 22–28 tuần thì 'nhắc mốc tim thai' không còn nhiều ý nghĩa.",
+        "feasibility": "Mỗi cảnh ≤8 giây, prompt tiếng Anh rõ ràng, lặp nguyên văn character bible, có 'no on-screen text', bìa hồ sơ trơn, không có màn hình siêu âm, có phương án dự phòng cho cảnh 3. Rủi ro: cảnh 1 có khoảng 17 từ trong 7 giây, sát giới hạn khi đọc chậm. Cảnh 3 dùng giọng đọc ngoài khung, nhưng Veo khó giữ giọng nam đồng nhất với các cảnh bác sĩ nói trực tiếp, dễ lệch chất giọng giữa các cảnh. Veo đọc tiếng Việt những chữ số như '22 đến 28' có thể sai.",
+        "safety": "Không phát hiện vi phạm: không chẩn đoán, không gợi ý giới tính thai, không nêu giá, không dùng từ cấm. Caption ghi rõ 'bước sàng lọc, hỗ trợ phát hiện sớm', mô tả máy Voluson đúng mức chung mà DNA cho phép. Có ghi chú dùng AI và bật nhãn khi đăng, có liệt kê medical_claims để Bác sĩ Phạm Sơn duyệt. Không có hình thai nhi hay cảnh y khoa gây sợ."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Rút hook xuống ≤14 từ và sửa lỗi logic, ví dụ: 'Mẹ bầu 22 tuần, đến mốc siêu âm tim thai rồi — nghe kỹ nhé.' Hoặc neo vào mẹ 26–27 tuần sắp hết khung. Bỏ con số '30 giây' nếu video dài 38 giây.",
+        "Thay ý 1 (lặp hook) bằng một ý thực dụng mới chưa có, ví dụ 'nên chọn giờ vắng để bác sĩ có thời gian khám kỹ' hoặc 'nên mặc đồ rộng, dễ vén bụng'. Nội dung này cần bác sĩ duyệt.",
+        "Thêm nửa câu 'vì sao' cho ý 2 và ý 3 (mang kết quả cũ để bác sĩ so sánh, tiền sử gia đình giúp bác sĩ theo dõi sát hơn), sau khi Bác sĩ Phạm Sơn duyệt, để tăng giá trị lưu lại.",
+        "Tách phần chốt trấn an thành nhịp riêng khoảng 3–4 giây: rút gọn ý 5 hoặc chuyển ý 5 lên cảnh 3, để câu 'bác sĩ luôn đồng hành' có khoảnh khắc riêng.",
+        "CTA gắn với nội dung hơn, ví dụ: 'Trong 5 điều này, mẹ đã chuẩn bị được điều nào rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.' Thêm 'ạ' cho thân tình.",
+        "Cảnh 3: nên tạo cảnh không thoại rồi ghép giọng đọc thu riêng ngay từ đầu, thay vì chờ Veo làm hỏng, để giọng đồng nhất với các cảnh bác sĩ. Cân nhắc cho Veo đọc số bằng chữ ('hai mươi hai đến hai mươi tám tuần') để tránh đọc sai."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Mẹ bầu ơi, gửi ông xã 5 việc này trước buổi siêu âm",
+        "topic": "Người chồng đi cùng vợ siêu âm",
+        "angle": "exploit",
+        "hypothesis": "Hook gọi thẳng mẹ bầu (người xem chính) và giao cho mẹ việc 'gửi cho ông xã', nên mẹ có lý do để chia sẻ hoặc tag chồng. 5 việc có giá trị thực dụng và chuyên môn (mốc đo độ mờ da gáy, mang kết quả cũ, hiểu đúng về NIPT, chuẩn bị câu hỏi, hẹn mốc tiếp theo) nên đáng lưu lại. CTA là câu hỏi mở mà mẹ nào cũng trả lời được, giúp tăng bình luận và lượt tiếp cận tự nhiên.",
+        "target_audience": "Mẹ bầu 18–45 tuổi ở Khoái Châu – Hưng Yên và lân cận (người xem, người chia sẻ/tag) cùng ông xã, người thường cùng quyết định việc đi khám",
+        "hook": "Mẹ bầu ơi, gửi ông xã 5 việc này trước buổi siêu âm.",
+        "formula_mapping": "Hook theo mẫu '[N] [điều] mà [đối tượng] nên [làm]', nhắm mẹ bầu và có con số 5 cùng tình huống 'trước buổi siêu âm'. Phần chính liệt kê song song 5 ý cùng mẫu 'Một/Hai/…: [động từ] …', câu ngắn, có mốc tuần thai giữ nguyên số. Cảnh minh hoạ đôi vợ chồng xen với bác sĩ nói trước camera. Chốt trấn an 1 câu 'đồng hành', rồi CTA câu hỏi mở về tình huống của mẹ, không bán hàng. Tổng 40 giây. Chữ trên màn hình mỗi hộp 1 ý, ≤ 7 từ, đổi khoảng 2–3 giây.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 5,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks directly into the camera with a warm, friendly smile and raises one open hand gently as if sharing a helpful tip. The doctor says in Vietnamese, in a deep, warm, calm voice: \"Mẹ bầu ơi, gửi ông xã 5 việc này trước buổi siêu âm.\" Medium close-up, eye-level, slow gentle push-in. Vertical 9:16, photorealistic, clean bright look. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ bầu ơi, gửi ông xã 5 việc này trước buổi siêu âm.",
+            "on_screen_text_vi": "0–2s: Mẹ bầu ơi, gửi ông xã / 2–5s: 5 việc trước buổi siêu âm",
+            "camera": "Medium close-up, eye-level, push-in nhẹ, nhìn thẳng camera"
+          },
+          {
+            "idx": 2,
+            "seconds": 7,
+            "visual_prompt_en": "A friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt, sits on a sofa beside his wife, a gentle Vietnamese pregnant woman in her late 20s, visibly pregnant, shoulder-length black hair, wearing a loose cream-colored maternity dress. She speaks to him softly and he listens attentively, nodding and smiling. Cozy, bright living room with white walls and light blue cushions, soft morning daylight. Single continuous action, calm pace. No dialogue spoken on screen, only soft ambient room sound. Medium two-shot, eye-level. Vertical 9:16, photorealistic. No phones, no papers, no on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Một: nhớ mốc đo độ mờ da gáy, từ 11 tuần 6 ngày đến 13 tuần 6 ngày.",
+            "on_screen_text_vi": "0–3s: 1. Nhớ mốc đo độ mờ da gáy / 3–7s: 11 tuần 6 ngày – 13 tuần 6 ngày",
+            "camera": "Medium two-shot, eye-level, máy tĩnh"
+          },
+          {
+            "idx": 3,
+            "seconds": 5,
+            "visual_prompt_en": "A friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt, carries a closed plain white document folder under his arm and walks slowly beside his wife, a gentle Vietnamese pregnant woman in her late 20s, visibly pregnant, shoulder-length black hair, wearing a loose cream-colored maternity dress, holding her hand as they enter a bright modern clinic entrance with white walls and soft blue accents, soft natural daylight. Single continuous action. No dialogue spoken on screen, only soft ambient sound. Medium shot, slow tracking from the side. Vertical 9:16, photorealistic. The folder is closed with no visible writing. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Hai: mang sổ khám, kết quả cũ, cả NIPT nếu có.",
+            "on_screen_text_vi": "0–2s: 2. Mang sổ khám, kết quả cũ / 2–5s: Cả kết quả NIPT nếu có",
+            "camera": "Medium shot, tracking ngang chậm"
+          },
+          {
+            "idx": 4,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks directly into the camera with a calm, serious but kind expression and gives a small reassuring nod. The doctor says in Vietnamese, in a deep, warm, calm voice: \"Ba: NIPT là sàng lọc, không thay được siêu âm hình thái.\" Medium close-up, eye-level. An ultrasound machine is visible softly out of focus in the background, its screen blurred and dark, showing no fetal image. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Ba: NIPT là sàng lọc, không thay được siêu âm hình thái.",
+            "on_screen_text_vi": "0–3s: 3. NIPT là sàng lọc / 3–6s: Không thay siêu âm hình thái",
+            "camera": "Medium close-up, eye-level, nhìn thẳng camera"
+          },
+          {
+            "idx": 5,
+            "seconds": 7,
+            "visual_prompt_en": "A friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt, sits beside his wife, a gentle Vietnamese pregnant woman in her late 20s, visibly pregnant, shoulder-length black hair, wearing a loose cream-colored maternity dress, in a bright clinic consultation room with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. The husband leans forward slightly and asks a question with an attentive, polite expression while his wife smiles and holds his arm; the doctor is only partially visible from behind at the edge of the frame, out of focus. Single continuous action. No dialogue spoken on screen, only soft ambient sound. Medium two-shot over the doctor's shoulder. Vertical 9:16, photorealistic. No papers, no writing, no on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Bốn: chuẩn bị sẵn câu hỏi cho bác sĩ. Năm: hẹn luôn mốc siêu âm tiếp theo.",
+            "on_screen_text_vi": "0–3s: 4. Chuẩn bị sẵn câu hỏi / 3–7s: 5. Hẹn luôn mốc tiếp theo",
+            "camera": "Medium two-shot qua vai bác sĩ (bác sĩ mờ, quay lưng)"
+          },
+          {
+            "idx": 6,
+            "seconds": 4,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly at the camera and places a hand lightly on his chest in a sincere gesture. The doctor says in Vietnamese, slowly, in a deep, warm, calm voice: \"Có anh đồng hành, vợ vững lòng hơn nhiều.\" Medium close-up, eye-level. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Có anh đồng hành, vợ vững lòng hơn nhiều.",
+            "on_screen_text_vi": "Có anh đồng hành, vợ vững lòng",
+            "camera": "Medium close-up, eye-level"
+          },
+          {
+            "idx": 7,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks directly into the camera with a friendly, curious smile and opens his palm toward the viewer in an inviting gesture. The doctor says in Vietnamese, slowly, in a deep, warm, calm voice: \"Lần siêu âm gần nhất, ông xã giúp chị việc gì nhất?\" Medium close-up, eye-level. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Lần siêu âm gần nhất, ông xã giúp chị việc gì nhất?",
+            "on_screen_text_vi": "0–3s: Ông xã giúp chị việc gì nhất? / 3–6s: Kể và tag anh ấy nhé 👇",
+            "camera": "Medium close-up, nhìn thẳng camera"
+          }
+        ],
+        "cta": "Lần siêu âm gần nhất, ông xã giúp chị việc gì nhất? Kể cho Phòng khám nghe và tag anh ấy nhé.",
+        "caption": "Mẹ bầu ơi, gửi ông xã 5 việc này trước buổi siêu âm nhé!\nNhớ mốc đo độ mờ da gáy (11 tuần 6 ngày – 13 tuần 6 ngày), mang sổ khám và kết quả cũ, hiểu đúng NIPT là sàng lọc, chuẩn bị sẵn câu hỏi, hẹn luôn mốc tiếp theo.\nLần siêu âm gần nhất, ông xã giúp chị việc gì nhất? Kể cho Phòng khám nghe và tag anh ấy nhé 💙\n☎ 0986 442 313 – 0357 808 668 | Phòng khám Bác sĩ Phạm Sơn, thôn Đông Kết, xã Khoái Châu, Hưng Yên (cạnh Trường Mầm non Đông Kết)\n(Video có sử dụng AI để minh hoạ. Nội dung chuyên môn do Bác sĩ Phạm Sơn duyệt.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#ongxa",
+          "#domodagay"
+        ],
+        "medical_claims": [
+          "Mốc siêu âm đo độ mờ da gáy là từ 11 tuần 6 ngày đến 13 tuần 6 ngày.",
+          "Nên mang theo sổ khám, kết quả siêu âm/xét nghiệm cũ và kết quả NIPT (nếu có) khi đi siêu âm.",
+          "NIPT là xét nghiệm sàng lọc, không thay được siêu âm hình thái.",
+          "Nên chuẩn bị sẵn câu hỏi để hỏi bác sĩ và hẹn luôn mốc siêu âm tiếp theo.",
+          "Cảnh 5 có ông xã ngồi cùng vợ trong phòng tư vấn: cần xác nhận chính sách cho người nhà vào cùng của Phòng khám."
+        ],
+        "production_notes": "Tổng 40 giây (5+7+5+6+7+4+6), 7 cảnh, mỗi cảnh ≤ 8 giây. Giọng: thu MỘT bản VO duy nhất (giọng nam trầm ấm, chậm rãi, dùng làm giọng của bác sĩ) cho toàn bộ dialogue_vi. Các cảnh 2, 3, 5 tạo bằng Veo không có lời thoại (chỉ ambient), rồi ghép VO. Các cảnh 1, 4, 6, 7 có thể dùng tiếng Veo tạo khớp khẩu hình; nếu giọng lệch với VO thì lồng tiếng đè cho đồng nhất. Mỗi cảnh chỉ một hành động chính. Không có cảnh viết lách, điện thoại hay giấy tờ mở để Veo không vẽ chữ. Bìa hồ sơ màu trắng trơn. Màn hình siêu âm luôn mờ, không hiện hình thai nhi. Phụ đề chữ trắng trên hộp xanh #0B4EC6, nhấn số bằng vàng cam #FCB318, mỗi hộp 1 ý ≤ 7 từ, đổi theo mốc thời gian đã ghi. Trang phục và đạo cụ không có đồ sơ sinh, không dùng cặp màu xanh/hồng gợi ý giới tính. Cảnh 5: bác sĩ chỉ hiện mờ từ phía sau, không lộ mặt người khác. Xác nhận chính sách người nhà vào phòng trước khi đăng. Bác sĩ Phạm Sơn duyệt medical_claims trước khi công khai. Bật nhãn 'Thông tin do AI tạo' trên Facebook."
+      },
+      "scores": {
+        "hook": 15,
+        "formula": 16,
+        "density": 11,
+        "tone": 13,
+        "cta": 8,
+        "feasibility": 8,
+        "safety": 10
+      },
+      "notes": {
+        "hook": "\"Mẹ bầu ơi, gửi ông xã 5 việc này trước buổi siêu âm.\" (13 từ) theo đúng mẫu '[N] [điều] mà [đối tượng] nên [làm]', có con số 5 và tình huống 'trước buổi siêu âm', lại có lý do để tag chồng. Điểm trừ: (1) 'Mẹ bầu ơi' là câu gọi giống lời chào, chưa vào thẳng nỗi lo; (2) không neo tuần thai cụ thể; (3) không có yếu tố lo lắng hay tò mò (ví dụ 'kẻo phải đi lại lần nữa'), nên sức chặn lướt chỉ ở mức khá.",
+        "formula": "Kịch bản khớp khung của playbook: hook, liệt kê 5 ý đánh số, chốt 'đồng hành', CTA câu hỏi mở, tổng 40 giây. Bác sĩ nói trước camera xen cảnh vợ chồng đời thường, đúng visual_style. Chữ trên màn hình chia theo mốc thời gian, giữ nguyên số tuần. Điểm trừ: (1) dựng 7 cảnh 4–7 giây thay vì 4–5 cảnh × 8 giây; (2) mẫu câu song song bị gãy ở ý 3, 'NIPT là sàng lọc, không thay được siêu âm hình thái' là một nhận định chứ không phải 'việc' có động từ như các ý 1, 2, 4, 5; (3) dòng '11 tuần 6 ngày – 13 tuần 6 ngày' vượt nhẹ giới hạn ≤ 7 từ/dòng.",
+        "density": "Ý 1 (mốc 11 tuần 6 ngày – 13 tuần 6 ngày), ý 2 (mang sổ khám, kết quả cũ, NIPT) và ý 3 (NIPT là sàng lọc) cụ thể và có giá trị. Ý 4 'chuẩn bị sẵn câu hỏi cho bác sĩ' quá chung, không có ví dụ câu hỏi nào. Ý 5 'hẹn luôn mốc siêu âm tiếp theo' không nói mốc tiếp theo là khi nào, dù DNA có sẵn danh sách mốc. Ý 1 chỉ hữu ích cho mẹ đang 11–13 tuần, lệch với tiền đề 'trước buổi siêu âm' nói chung. Câu chốt 'vững lòng hơn nhiều' chủ yếu mang cảm xúc, chấp nhận được.",
+        "tone": "Giọng ấm áp, không giật tít, không dọa dị tật. Caption xưng 'Phòng khám' và gọi 'chị' đúng DNA. Điểm trừ: người được nói tới bị đổi giữa chừng. Hook nói với mẹ ('Mẹ bầu ơi, gửi ông xã…'), cảnh 6 quay sang nói với chồng ('Có anh đồng hành, vợ vững lòng hơn nhiều'), CTA lại hỏi mẹ ('ông xã giúp chị…'). Người xem dễ không rõ bác sĩ đang nói với ai.",
+        "cta": "\"Lần siêu âm gần nhất, ông xã giúp chị việc gì nhất?\" là câu hỏi mở, dễ trả lời, kèm lời mời tag chồng (giúp video lan rộng), không bán hàng hay nói giá. Điểm trừ: câu 'việc gì nhất' hơi cụt. Câu hỏi mặc định chồng đã đi cùng nên loại ra những mẹ đi một mình, và có thể khiến họ chạnh lòng.",
+        "feasibility": "Mỗi cảnh ≤ 8 giây, prompt tiếng Anh rõ ràng, mở đầu bằng character bible giống hệt nhau. Có ràng buộc no text, folder trắng trơn, màn hình siêu âm mờ. Lời thoại ngắn, đọc kịp. Rủi ro: (1) cảnh 2 có vợ nói với chồng nhưng tiếng là VO của bác sĩ, Veo có thể tạo khẩu hình lệch hoặc tiếng lầm bầm; (2) cảnh bác sĩ dùng tiếng Veo khớp khẩu hình còn các cảnh khác dùng VO thu riêng, nên giọng dễ không đồng nhất và nếu lồng đè thì lệch khẩu hình; (3) nhân vật vợ chồng không có bible cố định riêng, chỉ mô tả lặp lại, nên khuôn mặt có thể đổi giữa cảnh 2, 3 và 5.",
+        "safety": "Không có vi phạm. Không chẩn đoán, không nói giá, không dùng từ cấm. NIPT được mô tả đúng là sàng lọc, không thay siêu âm hình thái. Mốc độ mờ da gáy lấy nguyên từ DNA và đã đưa vào medical_claims để bác sĩ duyệt. Không gợi ý giới tính: production_notes đã loại đồ sơ sinh và cặp màu xanh/hồng. Caption có ghi chú video dùng AI. Lưu ý rủi ro nhỏ (chưa phải vi phạm): emoji 💙 trong caption của video về ông xã có thể bị đọc là ẩn ý màu xanh, và câu 'Nội dung chuyên môn do Bác sĩ Phạm Sơn duyệt' chỉ được đăng khi bác sĩ đã duyệt thật."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Viết lại ý 3 thành một việc có động từ để giữ mẫu câu song song, ví dụ 'Ba: nhớ rằng NIPT chỉ là sàng lọc, vẫn cần siêu âm hình thái.'",
+        "Làm ý 5 cụ thể bằng mốc trong DNA, ví dụ 'hẹn luôn mốc tiếp theo, như siêu âm hình thái 22 tuần'. Cho ý 4 một câu hỏi mẫu cụ thể.",
+        "Đổi ý 1 thành một việc dùng được ở mọi tuần thai (ví dụ 'ghi lại tuần thai và mốc siêu âm tiếp theo'), hoặc neo hook vào 12 tuần để khớp với mốc độ mờ da gáy.",
+        "Làm hook có thêm một chút nỗi lo hoặc tò mò mà không dọa, ví dụ 'Ông xã đưa vợ đi siêu âm, nhớ 5 việc này kẻo đi lại lần nữa.' Bỏ 'Mẹ bầu ơi' nếu thấy giống câu chào.",
+        "Giữ một người được nói tới xuyên suốt video: hoặc nói với mẹ từ đầu đến cuối (cảnh 6 thành 'Có ông xã đồng hành, mẹ vững lòng hơn nhiều'), hoặc nói thẳng với ông xã.",
+        "Sửa CTA cho cả những mẹ đi siêu âm một mình, ví dụ 'Mẹ muốn ông xã giúp việc gì nhất khi đi siêu âm?'",
+        "Cảnh 2 nên để vợ chồng chỉ nhìn nhau gật đầu, không có cảnh vợ nói, để tránh lệch khẩu hình với VO. Dùng một giọng VO cho tất cả cảnh, hoặc tạo lip-sync bằng chính VO đó.",
+        "Dồn thành 5 cảnh × 8 giây theo playbook, ví dụ gộp cảnh 6 và 7, để giảm số lần cắt và dễ giữ nhân vật đồng nhất. Viết thêm một bible cố định cho nhân vật vợ và chồng.",
+        "Thay emoji 💙 bằng 🤍 hoặc 🌼 để tránh mọi ẩn ý màu sắc liên quan giới tính."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Mẹ bầu Khoái Châu đi siêu âm, nhớ 6 việc này để khỏi chờ lâu",
+        "topic": "Thông tin thực dụng: chuẩn bị trước buổi siêu âm, hẹn lịch, địa chỉ",
+        "angle": "exploit",
+        "hypothesis": "Hook neo địa danh 'Khoái Châu' cộng nỗi lo rất đời thường là 'chờ lâu, quên giấy tờ' giúp đúng người xem trong vùng dừng lướt. 6 mẹo chuẩn bị đi cùng một mẫu câu, mỗi ý bắt đầu bằng động từ, nên dễ xem hết và dễ lưu. Ý 'rủ ông xã đi cùng' khuyến khích các mẹ tag chồng. CTA hỏi tuần thai tạo bình luận và giúp kênh có dữ liệu để làm video về mốc siêu âm sau này.",
+        "target_audience": "Mẹ bầu 18–45 tuổi và ông xã/người nhà ở Khoái Châu – Hưng Yên và các xã lân cận",
+        "hook": "Mẹ bầu Khoái Châu đi siêu âm, nhớ 6 việc này để khỏi chờ lâu.",
+        "formula_mapping": "Hook theo mẫu '[N] [điều] mà [đối tượng] nên [làm]', có neo địa danh, con số 6 và nỗi lo 'chờ lâu' (14 từ, nhìn thẳng camera). Phần liệt kê song song có 6 ý cùng mẫu 'Số + động từ + việc cần làm' (gọi / mang / nhớ / mặc / rủ / đến), mỗi cảnh 2 ý, và gộp địa chỉ thành 1 ý duy nhất. Chốt trấn an bằng một câu đồng hành ấm áp, không dùng slogan. CTA là câu hỏi mở về tuần thai, lấy từ cta_patterns của playbook. Tổng 40 giây, đúng sweet spot. Chữ trên màn hình ≤7 từ/dòng, đổi khoảng 2 giây/dòng. Tông xanh dương – vàng ấm, có xen ông xã và mẹ bầu ở hậu cảnh, không có hình thai nhi.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 6,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks straight into the camera with a friendly, neighborly smile and speaks calmly and clearly. The doctor says in Vietnamese: \"Mẹ bầu Khoái Châu đi siêu âm, nhớ 6 việc này để khỏi chờ lâu.\" Medium close-up, eye-level, gentle slow push-in. Vertical 9:16, photorealistic, clean bright color grade with blue and warm yellow tones. The ultrasound monitor in the background is turned off or softly blurred, no fetal images. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ bầu Khoái Châu đi siêu âm, nhớ 6 việc này để khỏi chờ lâu.",
+            "on_screen_text_vi": "Mẹ bầu Khoái Châu đi siêu âm / Nhớ 6 việc này",
+            "camera": "Medium close-up, eye-level, push-in nhẹ"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands beside a clean reception desk, holding a plain blue folder with no visible writing, lifting it slightly toward the camera as he speaks warmly. The doctor says in Vietnamese: \"Một: gọi hẹn giờ trước, số ở trên màn hình. Hai: mang sổ khám và kết quả lần trước.\" Medium shot, eye-level, steady camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no readable labels, no watermark.",
+            "dialogue_vi": "Một: gọi hẹn giờ trước, số ở trên màn hình. Hai: mang sổ khám và kết quả lần trước.",
+            "on_screen_text_vi": "1. Gọi hẹn giờ trước / Hotline: 0986 442 313 / 0357 808 668 / 2. Mang sổ khám, kết quả cũ",
+            "camera": "Medium shot, eye-level, cố định"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands in a calm, tidy waiting area and speaks gently to the camera. In the softly blurred background, a gentle Vietnamese pregnant woman in her late 20s with shoulder-length black hair, wearing a loose cream-colored maternity dress, sits relaxed on a light blue bench. The doctor says in Vietnamese: \"Ba: nhớ mình đang tuần thai thứ mấy. Bốn: mặc đồ rộng, dễ vén bụng.\" Medium shot, eye-level, shallow depth of field. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Ba: nhớ mình đang tuần thai thứ mấy. Bốn: mặc đồ rộng, dễ vén bụng.",
+            "on_screen_text_vi": "3. Nhớ mình tuần thai thứ mấy / 4. Mặc đồ rộng, dễ vén bụng",
+            "camera": "Medium shot, eye-level, hậu cảnh xoá phông"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands near the clinic entrance and turns to the camera with a welcoming smile, while behind him a Vietnamese couple walks in hand in hand: a gentle pregnant woman in her late 20s with shoulder-length black hair in a loose cream-colored maternity dress, and her husband in a simple light grey polo shirt, both smiling and relaxed. The doctor says in Vietnamese: \"Năm: rủ ông xã đi cùng nghe dặn dò. Sáu: đến thôn Đông Kết, cạnh trường mầm non.\" Medium shot, eye-level, slow gentle dolly. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no signs with readable text, no watermark.",
+            "dialogue_vi": "Năm: rủ ông xã đi cùng nghe dặn dò. Sáu: đến thôn Đông Kết, cạnh trường mầm non.",
+            "on_screen_text_vi": "5. Rủ ông xã đi cùng / 6. Thôn Đông Kết, xã Khoái Châu / Cạnh Trường Mầm non Đông Kết",
+            "camera": "Medium shot, dolly chậm, cặp vợ chồng ở hậu cảnh"
+          },
+          {
+            "idx": 5,
+            "seconds": 5,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He gives a gentle, reassuring nod and a soft smile directly to the camera, relaxed posture, hands lightly folded. The doctor says in Vietnamese: \"Gần nhà thôi, mẹ yên tâm đi khám đúng mốc nhé.\" Medium close-up, eye-level. Vertical 9:16, photorealistic, warm soft light. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Gần nhà thôi, mẹ yên tâm đi khám đúng mốc nhé.",
+            "on_screen_text_vi": "Gần nhà – yên tâm khám đúng mốc",
+            "camera": "Medium close-up, eye-level, cố định"
+          },
+          {
+            "idx": 6,
+            "seconds": 5,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He opens one palm gently toward the camera in an inviting gesture, smiling warmly. The doctor says in Vietnamese: \"Mẹ đang tuần thứ mấy? Bình luận, Phòng khám nhắc mốc tiếp theo nhé.\" Medium close-up, eye-level, looking straight into the camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ đang tuần thứ mấy? Bình luận, Phòng khám nhắc mốc tiếp theo nhé.",
+            "on_screen_text_vi": "Mẹ đang tuần thứ mấy? 👇 / Phòng khám nhắc mốc tiếp theo",
+            "camera": "Medium close-up, nhìn thẳng camera"
+          }
+        ],
+        "cta": "Mẹ đang tuần thứ mấy? Bình luận, Phòng khám nhắc mốc tiếp theo nhé.",
+        "caption": "Mẹ bầu Khoái Châu đi siêu âm, nhớ 6 việc này để khỏi chờ lâu 📌\n1️⃣ Gọi hẹn giờ trước: 0986 442 313 – 0357 808 668\n2️⃣ Mang sổ khám và kết quả lần trước\n3️⃣ Nhớ mình đang tuần thai thứ mấy\n4️⃣ Mặc đồ rộng, dễ vén bụng\n5️⃣ Rủ ông xã đi cùng nghe bác sĩ dặn dò\n6️⃣ 📍 Thôn Đông Kết, xã Khoái Châu, Hưng Yên — cạnh Trường Mầm non Đông Kết\nBác sĩ Phạm Sơn làm toàn thời gian tại Phòng khám, đồng hành cùng chị trong từng mốc siêu âm. Chị đang ở tuần thứ mấy? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.\n(Video có sử dụng AI để minh hoạ; nhân vật bác sĩ trong video là hình tượng đại diện.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#hungyen",
+          "#phongkhambacsiphamson"
+        ],
+        "medical_claims": [
+          "Mang theo sổ khám và kết quả siêu âm/xét nghiệm lần trước khi đi siêu âm.",
+          "Mẹ bầu nên nhớ mình đang ở tuần thai thứ mấy trước khi đi siêu âm.",
+          "Mặc đồ rộng, dễ vén bụng khi đi siêu âm.",
+          "Nên rủ ông xã đi cùng để cùng nghe bác sĩ dặn dò.",
+          "Mẹ bầu nên đi khám đúng các mốc siêu âm.",
+          "Phòng khám nhắc mốc siêu âm tiếp theo theo tuần thai mà mẹ bình luận. Khi trả lời bình luận chỉ dùng các mốc trong DNA và cần BS Phạm Sơn duyệt mẫu trả lời."
+        ],
+        "production_notes": "Tổng 40 giây (6 + 8 + 8 + 8 + 5 + 5). Mọi lời thoại do cùng một nhân vật bác sĩ AI nói trực tiếp trước camera, không dùng voice-over, để giọng đồng nhất giữa các cảnh. Nhân vật AI không xưng tên và không được giới thiệu là BS Phạm Sơn; thông tin 'BS Phạm Sơn làm toàn thời gian' chỉ đặt ở caption. Veo không đọc số hotline: nhân vật chỉ nói 'số ở trên màn hình', còn hai số hotline chèn bằng chữ hậu kỳ, mỗi số một dòng. Không cho Veo dựng mặt tiền phòng khám hay trường mầm non. Nếu muốn có cảnh địa điểm ở cảnh 4, dùng footage thật quay mặt tiền phòng khám và cổng Trường MN Đông Kết (2–3 giây, giữ nguyên tiếng bác sĩ). Chữ trên màn hình: chữ trắng trên hộp xanh #0B4EC6, số thứ tự nhấn vàng cam #FCB318, mỗi dòng ≤7 từ, dấu '/' là chỗ đổi dòng, khoảng 2 giây/dòng. Riêng cảnh 2 có 4 dòng trong 8 giây. Kiểm tra cảnh 3–4: mẹ bầu mặc màu kem trung tính, ông xã mặc xám, không dùng cặp màu xanh/hồng gợi giới tính. Màn hình siêu âm luôn tắt hoặc mờ. Giọng nam trầm ấm, chậm rãi, không nhạc ồn. Bật nhãn 'Thông tin do AI tạo' khi đăng. Chỉ đăng sau khi BS Phạm Sơn duyệt medical_claims."
+      },
+      "scores": {
+        "hook": 15,
+        "formula": 16,
+        "density": 12,
+        "tone": 13,
+        "cta": 8,
+        "feasibility": 7,
+        "safety": 9
+      },
+      "notes": {
+        "hook": "Câu 'Mẹ bầu Khoái Châu đi siêu âm, nhớ 6 việc này để khỏi chờ lâu.' vào thẳng vấn đề, không chào hỏi. Có neo địa danh 'Khoái Châu' và con số 6, khớp mẫu '[N] [điều] mà [đối tượng] nên [làm]'. Điểm trừ: (1) Câu có 15 từ, vượt giới hạn ≤14 từ, trong khi formula_mapping lại ghi là 14 từ. (2) Lời hứa 'khỏi chờ lâu' không khớp nội dung: chỉ ý 1 (gọi hẹn trước) giúp bớt chờ; 'mặc đồ rộng', 'rủ ông xã', 'đến thôn Đông Kết' không liên quan đến thời gian chờ. Người xem có thể thấy hụt. (3) Nỗi lo 'chờ lâu' khá nhạt so với mẫu hook neo tuần thai mà playbook ưu tiên.",
+        "formula": "Khớp phần lớn công thức: tổng 40 giây (6+8+8+8+5+5), 6 ý song song mở bằng động từ (gọi/mang/nhớ/mặc/rủ/đến), mỗi cảnh 2 ý, có chốt trấn an rồi đến CTA, chữ trên màn hình theo hộp xanh #0B4EC6 và số nhấn #FCB318. Điểm trừ: ý 6 'đến thôn Đông Kết, cạnh trường mầm non' thực chất là thông tin địa chỉ/quảng cáo, không phải mẹo chuẩn bị, nên làm gãy tính song song của danh sách. Cảnh 2 dồn 4 dòng chữ trong 8 giây và có số hotline dài, nhịp đọc dày hơn chuẩn ~2 giây/dòng. Câu chốt 'Gần nhà thôi...' không mang ý 'đồng hành' như guideline. Hook dư 1 từ so với quy định.",
+        "density": "Phần lớn câu mang ý cụ thể, làm được ngay ('mang sổ khám và kết quả lần trước', 'mặc đồ rộng, dễ vén bụng'). Điểm trừ: 'số ở trên màn hình' là câu đệm chiếm thời lượng lời thoại. Ý 3 'nhớ mình đang tuần thai thứ mấy' giá trị thấp và không giải thích vì sao cần nhớ. Ý 6 là địa chỉ, lặp với caption. Không có ý nào giải thích 'vì sao' (ví dụ vì sao cần kết quả cũ), nên giá trị thông tin hơi mỏng.",
+        "tone": "Giọng ấm áp, gần gũi: 'rủ ông xã đi cùng nghe dặn dò', 'mẹ yên tâm đi khám đúng mốc nhé'. Không giật tít, không dọa. Caption xưng 'Phòng khám' và gọi 'chị', đúng DNA. Điểm trừ: 'Gần nhà thôi' chỉ đúng với người xem ở gần, câu nghe hơi xuề xòa và chưa tận dụng thông điệp nền 'Chuyên môn tuyến trung ương — ngay tại quê nhà'. Phần lời thoại thiếu điểm neo chuyên môn khiến video thiên về hành chính, ít yếu tố 'chuyên nghiệp – trấn an'.",
+        "cta": "'Mẹ đang tuần thứ mấy? Bình luận, Phòng khám nhắc mốc tiếp theo nhé.' là câu hỏi mở, cụ thể, lấy từ cta_patterns, không bán hàng, không nói giá. Điểm trừ: câu bị rút gọn hơi cụt ('Bình luận, Phòng khám nhắc...'), thiếu chữ 'để', đọc lên không tự nhiên. CTA cũng không gắn với nội dung video (6 việc chuẩn bị). Một câu như 'Mẹ hay quên việc nào nhất?' sẽ liền mạch hơn.",
+        "feasibility": "Prompt tiếng Anh rõ ràng, lặp nguyên character bible nên nhân vật đồng nhất. Nhân vật mẹ bầu/ông xã được mô tả nhất quán giữa cảnh 3 và 4. Có 'no on-screen text', màn hình siêu âm tắt/mờ, hotline chèn bằng hậu kỳ. Điểm trừ: Veo sinh clip 8 giây nên các cảnh 6s và 5s phải cắt, dễ cắt vào giữa câu. Cảnh 1 có 15 từ tiếng Việt trong 6 giây, cảnh 6 có 13 từ trong 5 giây: quá nhanh so với giọng 'chậm rãi', khó khớp khẩu hình. Cảnh 2 và 4 mỗi cảnh khoảng 18–19 từ kèm số thứ tự, sát giới hạn. Cảnh 4 vừa dolly vừa có cặp đôi đi vào vừa có thoại, dễ lỗi chuyển động.",
+        "safety": "Không phát hiện vi phạm: không chẩn đoán, không gợi ý giới tính (có ghi chú chủ động tránh cặp màu xanh/hồng), không nói giá, không dùng từ cấm, không nêu cơ sở khác. Có công bố video dùng AI, nhân vật được nói rõ là 'hình tượng đại diện', không mạo danh BS Phạm Sơn, có medical_claims để bác sĩ duyệt. Trừ 1 điểm vì rủi ro vận hành: CTA cam kết 'nhắc mốc tiếp theo' trong bình luận, dễ dẫn tới việc trả lời tư vấn y khoa công khai. Kịch bản đã ghi chú cần BS duyệt mẫu trả lời, nhưng chưa có mẫu cụ thể."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Sửa hook để lời hứa khớp với nội dung, ví dụ 'Mẹ bầu Khoái Châu đi siêu âm, nhớ 6 việc này kẻo quên.' (≤14 từ), hoặc chỉ giữ 'khỏi chờ lâu' nếu đa số ý thật sự giúp bớt chờ.",
+        "Thay ý 6 (địa chỉ) bằng một mẹo chuẩn bị thật, như 'ghi sẵn câu muốn hỏi bác sĩ' hoặc 'đến sớm 10 phút', rồi đưa địa chỉ xuống chữ hậu kỳ/caption để giữ tính song song.",
+        "Bỏ câu đệm 'số ở trên màn hình' (hotline đã có trên chữ hậu kỳ). Dùng thời lượng đó để thêm 3–4 chữ giải thích 'vì sao', ví dụ 'mang kết quả cũ để bác sĩ so sánh'.",
+        "Đặt mọi cảnh 8 giây hoặc rút lời thoại cảnh 1 và 6 xuống ≤10–12 từ để Veo đọc kịp với giọng chậm rãi và khớp khẩu hình.",
+        "Thay câu chốt 'Gần nhà thôi...' bằng câu 'đồng hành' gắn thông điệp nền, ví dụ 'Phòng khám luôn đồng hành cùng mẹ ở từng mốc siêu âm.'",
+        "Viết lại CTA cho trôi chảy và gắn với chủ đề: 'Mẹ hay quên việc nào nhất? Bình luận để Phòng khám nhắc nhé.' hoặc giữ CTA tuần thai nhưng thêm chữ 'để'.",
+        "Soạn sẵn mẫu trả lời bình luận theo các mốc trong DNA và trình BS Phạm Sơn duyệt trước khi đăng."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Mẹ bầu 6 tuần lần đầu siêu âm: xem trước 5 bước cho đỡ run",
+        "topic": "Hành trình một buổi siêu âm (giảm lo lắng cho mẹ lần đầu)",
+        "angle": "explore",
+        "hypothesis": "Mẹ bầu lần đầu thường hồi hộp vì không biết sẽ phải làm gì. Hook nói thẳng nỗi lo ('còn run') và neo tuần thai (6 tuần) giúp đúng người xem tự nhận ra mình. 5 bước thực dụng (mang gì, chuẩn bị câu hỏi, có người nhà, được hỏi bác sĩ, hẹn mốc tiếp) dễ được lưu lại và gửi cho chồng. Biến số thử nghiệm: định dạng 'minh hoạ là chính + 1 cảnh bác sĩ nói trước camera' so với bản đối chứng talking head 100% cùng nội dung, để trả lời câu hỏi mở 'talking head hay cảnh minh hoạ giữ người xem tốt hơn'.",
+        "target_audience": "Mẹ bầu lần đầu, 5–13 tuần, khu vực Khoái Châu – Hưng Yên, và ông xã/người nhà đi cùng",
+        "hook": "Mẹ bầu 6 tuần, lần đầu siêu âm còn run? Xem 5 bước này.",
+        "formula_mapping": "Hook mẫu '[N] [điều]' kết hợp neo tuần thai: 14 từ, nói thẳng nỗi lo, không nhắc tên Phòng khám. Phần liệt kê song song gồm 5 ý cùng mẫu 'Bước X: [hành động]', mỗi cảnh 1–2 ý. Có câu chốt trấn an riêng 'đồng hành từ mốc đầu', sau đó là CTA câu hỏi mở có gợi sẵn đáp án. Tổng 37 giây, 5 cảnh, nằm trong khung 30–40 giây. Chữ trên màn hình mỗi dòng ≤7 từ, mỗi dòng 1 ý, đổi dòng khoảng 2–4 giây. Phong cách hình: tông sáng, nền trung tính ở nhà, màu thương hiệu xanh/vàng chỉ đặt ở hậu cảnh phòng khám. Không có cảnh y khoa gây sợ, màn hình siêu âm luôn mờ. Biến số thử nghiệm: minh hoạ là chính, giữ 1 cảnh bác sĩ nói trước camera (bước 4–5).",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 5,
+            "visual_prompt_en": "MOTHER: a gentle Vietnamese pregnant woman in her late 20s with a small early-pregnancy bump, shoulder-length straight black hair, natural light makeup, wearing a loose cream-colored maternity dress and a beige knit cardigan. HUSBAND: a friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt and dark grey trousers. Close-up: the MOTHER sits on a beige sofa in a bright, simple northern Vietnamese home in the morning, her fingers nervously twisting together on her lap; she looks up straight into the camera with a slightly anxious but hopeful expression; the HUSBAND's hand enters the frame and gently covers her hands. Warm soft morning daylight, neutral cream and beige tones, shallow depth of field. No one speaks; ambient room sound only. Close-up, eye-level, slow push-in. Vertical 9:16, photorealistic, cinematic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mẹ bầu 6 tuần, lần đầu siêu âm còn run? Xem 5 bước này.",
+            "on_screen_text_vi": "[0–2,5s] 6 tuần – lần đầu siêu âm?\n[2,5–5s] Xem trước 5 bước",
+            "camera": "Close-up, ngang mắt, push-in chậm; mẹ nhìn thẳng camera"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "MOTHER: a gentle Vietnamese pregnant woman in her late 20s with a small early-pregnancy bump, shoulder-length straight black hair, natural light makeup, wearing a loose cream-colored maternity dress and a beige knit cardigan. HUSBAND: a friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt and dark grey trousers. Single continuous action at a wooden table in the same bright home: the MOTHER places a plain cream-colored closed booklet and a plain white paper folder into a beige canvas tote bag, while the HUSBAND sits beside her writing in a small notebook whose pages are blurred and unreadable; they glance at each other and smile. Soft natural daylight, neutral beige and white tones. No one speaks; ambient sound only. Medium shot, eye-level, static camera. Vertical 9:16, photorealistic. No readable writing on any object, no on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Bước một: mang sổ khám, kết quả lần trước. Bước hai: ghi sẵn câu muốn hỏi bác sĩ.",
+            "on_screen_text_vi": "[0–4s] 1. Mang sổ khám, kết quả cũ\n[4–8s] 2. Ghi sẵn câu muốn hỏi",
+            "camera": "Medium shot, ngang mắt, máy đứng yên"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "MOTHER: a gentle Vietnamese pregnant woman in her late 20s with a small early-pregnancy bump, shoulder-length straight black hair, natural light makeup, wearing a loose cream-colored maternity dress and a beige knit cardigan. HUSBAND: a friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt and dark grey trousers. The MOTHER lies comfortably on a clean white examination bed with a soft white pillow in a bright modern ultrasound room with white walls, soft blue accents and a small yellow flower pot in the background; the HUSBAND sits on a chair right beside the bed holding her hand; both look relaxed and smile softly. An ultrasound machine stands at the edge of frame with its monitor turned away and out of focus, showing no image. Soft natural daylight. No one speaks; ambient sound only. Medium wide shot, slow push-in. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Bước ba: vào phòng siêu âm, mẹ nằm thoải mái, người nhà có thể ngồi cạnh.",
+            "on_screen_text_vi": "[0–4s] 3. Nằm thoải mái\n[4–8s] Người nhà ngồi cạnh",
+            "camera": "Medium wide, push-in chậm; màn hình máy quay đi, mờ"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits beside a modern ultrasound machine whose monitor is heavily blurred and out of focus, showing no recognizable image; he turns to look straight into the camera with a calm, kind smile and an open-palm gesture. The doctor says in Vietnamese: \"Bước bốn: bác sĩ giải thích trực tiếp, chị cứ hỏi. Bước năm: hẹn mốc tiếp theo.\" Medium close-up, eye-level, static camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Bước bốn: bác sĩ giải thích trực tiếp, chị cứ hỏi. Bước năm: hẹn mốc tiếp theo.",
+            "on_screen_text_vi": "[0–4s] 4. Bác sĩ giải thích trực tiếp\n[4–8s] 5. Hẹn mốc siêu âm tiếp theo",
+            "camera": "Medium close-up, ngang mắt; bác sĩ nhìn thẳng camera, màn hình máy mờ"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "MOTHER: a gentle Vietnamese pregnant woman in her late 20s with a small early-pregnancy bump, shoulder-length straight black hair, natural light makeup, wearing a loose cream-colored maternity dress and a beige knit cardigan. HUSBAND: a friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt and dark grey trousers. The MOTHER and HUSBAND sit together on a beige sofa with cream and white cushions in their bright home in the afternoon; she rests one hand on her belly, he puts an arm around her shoulders; both look into the camera with relieved, warm smiles. Warm afternoon light, neutral cream and beige tones only. No one speaks; ambient sound only. Medium close-up, eye-level, very slow push-in. Vertical 9:16, photorealistic, cinematic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Phòng khám đồng hành cùng mẹ từ mốc đầu. Mẹ lo nhất điều gì: đau không, lâu không, hay chờ kết quả?",
+            "on_screen_text_vi": "[0–3s] Đồng hành từ mốc đầu tiên\n[3–8s] Mẹ lo nhất điều gì? 👇",
+            "camera": "Medium close-up, ngang mắt, push-in rất chậm"
+          }
+        ],
+        "cta": "Mẹ lo nhất điều gì: đau không, lâu không, hay chờ kết quả? Bình luận để Phòng khám giải đáp nhé.",
+        "caption": "Mẹ bầu 6 tuần, lần đầu siêu âm còn run? Xem trước 5 bước này nhé: mang sổ khám và kết quả lần trước, ghi sẵn câu muốn hỏi, nằm thoải mái có người nhà ngồi cạnh, bác sĩ giải thích trực tiếp, rồi hẹn mốc tiếp theo.\nLần đầu đi siêu âm, chị lo nhất điều gì: đau không, lâu không, hay chờ kết quả? Chị bình luận, Phòng khám giải đáp ạ.\nPhòng khám Bác sĩ Phạm Sơn – Thôn Đông Kết, xã Khoái Châu, Hưng Yên (cạnh Trường Mầm non Đông Kết). ☎ 0986 442 313 – 0357 808 668\n(Video có sử dụng AI để minh hoạ, nhân vật không phải người thật.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#mebaulandau"
+        ],
+        "medical_claims": [
+          "Hook 'Mẹ bầu 6 tuần… lần đầu siêu âm' ngầm hiểu khoảng 6 tuần (thuộc mốc 5–8 tuần) là thời điểm siêu âm lần đầu. Cần bác sĩ xác nhận cách nói này phù hợp.",
+          "Khi đi siêu âm nên mang theo sổ khám thai và kết quả siêu âm/xét nghiệm lần trước.",
+          "Mẹ nên ghi sẵn câu muốn hỏi để hỏi bác sĩ trong buổi siêu âm.",
+          "Khi siêu âm mẹ nằm thoải mái, người nhà có thể ngồi cạnh trong phòng siêu âm. Cần xác nhận đúng quy định của Phòng khám.",
+          "Bác sĩ giải thích trực tiếp cho mẹ sau khi siêu âm, mẹ được hỏi trực tiếp bác sĩ.",
+          "Sau buổi siêu âm, mẹ được hẹn mốc siêu âm tiếp theo theo các mốc khuyến nghị."
+        ],
+        "production_notes": "Tổng 37 giây, 5 cảnh (5 + 8 + 8 + 8 + 8). Cảnh 1 tạo clip 8 giây trên Veo rồi cắt lấy 5 giây đầu.\n\nGiọng: thu VO riêng toàn bài bằng 1 giọng nam trầm ấm, chậm rãi, để giọng đồng nhất. Cảnh 4 dựng Veo có thoại để khẩu hình khớp, sau đó lồng lại bằng cùng giọng VO, giữ đúng độ dài câu. Không dùng giọng giả lập của người thật. Nhạc nền nhẹ, nhỏ.\n\nNhân vật: dán nguyên văn khối MOTHER/HUSBAND ở đầu mọi prompt có hai nhân vật này. Cảnh 4 dùng nguyên văn character bible của bác sĩ.\n\nChống lỗi chữ: không có thẻ hẹn hay giấy tờ có chữ. Sổ khám là cuốn sổ trơn màu kem, sổ tay có trang mờ. Nếu Veo vẫn sinh chữ thì tạo lại.\n\nAn toàn: không dựng cảnh lễ tân hay nhân viên giống người thật. Màn hình siêu âm quay đi hoặc mờ, không có hình thai nhi. Không có cảnh đầu dò chạm bụng. Ở nhà chỉ dùng màu trung tính (kem, be, trắng), không đồ vật hay màu xanh/hồng gợi ý giới tính. Màu thương hiệu #0B4EC6 và #FCB318 chỉ đặt ở hậu cảnh phòng khám và hộp phụ đề (chữ trắng trên hộp xanh).\n\nThử nghiệm: làm thêm 1 bản đối chứng cùng lời thoại, trong đó bác sĩ nói trước camera 100%. Đăng hai bản cách nhau vài ngày, cùng khung giờ, rồi so retention 3 giây, thời lượng xem trung bình và số bình luận.\n\nCaption chỉ đăng sau khi Bác sĩ Phạm Sơn duyệt các medical_claims. Bật nhãn 'Thông tin do AI tạo' khi đăng."
+      },
+      "scores": {
+        "hook": 16,
+        "formula": 16,
+        "density": 11,
+        "tone": 13,
+        "cta": 9,
+        "feasibility": 8,
+        "safety": 10
+      },
+      "notes": {
+        "hook": "Câu 'Mẹ bầu 6 tuần, lần đầu siêu âm còn run? Xem 5 bước này.' dài khoảng 13 từ, không chào hỏi. Câu này neo đúng tuần thai, gọi thẳng cảm xúc 'còn run' và hứa một danh sách, tức là ghép mẫu hook tuần thai với mẫu [N] [điều]. Trừ điểm vì vế sau 'Xem 5 bước này' khá chung chung, chưa có chi tiết gây tò mò như 'bước 4 nhiều mẹ bỏ qua'. Hook cũng chỉ là VO trên cảnh mẹ im lặng, không có người nói nhìn thẳng camera như playbook hướng dẫn, nên sức chặn lướt có thể yếu hơn.",
+        "formula": "Kịch bản khớp khung chính: hook, rồi 5 ý cùng mẫu 'Bước X: …' (mỗi cảnh 1–2 ý), rồi câu chốt 'đồng hành từ mốc đầu', rồi CTA câu hỏi mở. Tổng 37 giây, 5 cảnh, nằm trong khoảng 30–40 giây. Các điểm lệch so với playbook: (1) chữ trên màn hình đổi dòng mỗi 4 giây, chậm gấp đôi mức khoảng 2 giây; (2) phần chốt trấn an và CTA bị gộp vào cùng một cảnh 8 giây thay vì tách 32–36s và 36–40s; (3) phong cách hình rời khỏi talking head, màu thương hiệu chỉ có ở cảnh 3–4. Phần lớn các lệch này là chủ ý để thử nghiệm và đã ghi rõ giả thuyết, nhưng vẫn là lệch công thức.",
+        "density": "Bước 1 ('mang sổ khám, kết quả lần trước') và bước 2 ('ghi sẵn câu muốn hỏi') có ích thực tế. Bước 3 ('mẹ nằm thoải mái') gần như là câu đệm, không cho thêm thông tin mới. Bước 4 ('bác sĩ giải thích trực tiếp, chị cứ hỏi') trùng ý với bước 2 vì đều xoay quanh việc hỏi bác sĩ. Bước 5 ('hẹn mốc tiếp theo') bỏ lỡ cơ hội nêu mốc cụ thể có sẵn trong DNA (9–11 tuần, hoặc 11 tuần 6 ngày–13 tuần 6 ngày đo độ mờ da gáy), trong khi đây là thông tin đáng lưu nhất cho mẹ 6 tuần. Tổng thể nội dung còn mỏng so với chủ đề.",
+        "tone": "Giọng ấm áp, trấn an, không giật tít, không dọa. Caption xưng 'Phòng khám', gọi 'chị' đúng DNA. Lời bác sĩ ở cảnh 4 ('chị cứ hỏi') gần gũi. Trừ điểm vì VO nam đọc xuyên suốt các cảnh của mẹ và chồng mà không rõ ai là người nói. Đến cảnh 5, giọng đó lại nói 'Phòng khám đồng hành cùng mẹ', khiến vai người nói bị lẫn giữa người dẫn, phòng khám và bác sĩ. Ngoài ra, phần chuyên môn của Bác sĩ Phạm Sơn (thông điệp 'Chuyên môn tuyến trung ương') gần như vắng mặt.",
+        "cta": "CTA 'Mẹ lo nhất điều gì: đau không, lâu không, hay chờ kết quả?' là câu hỏi mở và gợi sẵn ba đáp án nên người xem dễ bình luận. CTA không bán hàng, không nói giá, khớp chủ đề lo lắng. Trừ 1 điểm vì vế 'Bình luận để Phòng khám giải đáp' chỉ có trong trường cta và caption, không được nói hay hiện trên màn hình (cảnh 5 chỉ có 'Mẹ lo nhất điều gì? 👇').",
+        "feasibility": "Mọi cảnh đều ≤ 8 giây. Prompt tiếng Anh rõ ràng, khối mô tả MOTHER/HUSBAND/bác sĩ được lặp nguyên văn, đã chặn chữ do AI vẽ (sổ trơn, trang mờ) và màn hình siêu âm luôn mờ. Các rủi ro: lời cảnh 5 khoảng 22 từ, lời cảnh 2 khoảng 19 từ trong 8 giây, đọc chậm sẽ sát giờ. Cảnh 4 dựng khẩu hình theo thoại Veo rồi lồng lại giọng khác dễ lệch khẩu hình. Cuốn sổ tay đang viết dở có thể bị Veo sinh chữ giả. Chi tiết 'small early-pregnancy bump' ở tuần 6 không thực tế, có thể bị người xem bắt lỗi.",
+        "safety": "Kịch bản không có từ cấm, không nói giá, không gợi ý giới tính thai. Đồ vật trong nhà dùng màu trung tính kem/be/trắng, có ghi chú rõ việc tránh xanh/hồng. Không có hình thai nhi hay cảnh gây sợ, không có chẩn đoán hay hứa hẹn kết quả. Caption ghi rõ video dùng AI và nhân vật không phải người thật, có nhắc bật nhãn 'Thông tin do AI tạo'. Các câu y khoa, kể cả câu 'người nhà có thể ngồi cạnh' và cách nói 'lần đầu siêu âm ở 6 tuần', đều đã đưa vào medical_claims để Bác sĩ Phạm Sơn duyệt. Không thấy vi phạm ranh giới DNA."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Thay bước 3 ('nằm thoải mái') bằng một ý có giá trị thật, ví dụ 'mặc đồ rộng, dễ vén' hoặc 'đi sớm tránh giờ đông'. Câu y khoa mới vẫn phải đưa vào medical_claims.",
+        "Làm cụ thể bước 5 bằng mốc trong DNA: 'Bước năm: hẹn mốc tiếp theo, 11 tuần 6 ngày đến 13 tuần 6 ngày, đo độ mờ da gáy'. Đây là thông tin đáng lưu và chia sẻ nhất.",
+        "Tách bước 4 khỏi ý 'hỏi bác sĩ' để không trùng bước 2, ví dụ 'bác sĩ giải thích bằng lời dễ hiểu ngay sau khi siêu âm'.",
+        "Rút ngắn chữ trên màn hình thành các dòng khoảng 2 giây, đúng playbook. Ví dụ: '1. Mang sổ khám' rồi 'kết quả cũ'.",
+        "Tách cảnh 5 thành phần chốt trấn an khoảng 3–4 giây và CTA khoảng 4 giây. Cho bác sĩ nói câu CTA nhìn thẳng camera, kèm 'Bình luận để Phòng khám giải đáp'.",
+        "Làm sắc hook hơn bằng chi tiết gây tò mò, ví dụ 'Mẹ bầu 6 tuần sắp siêu âm lần đầu? Bước 2 nhiều mẹ quên.'",
+        "Xác định rõ ai đọc VO, bác sĩ hay người dẫn, để xưng hô nhất quán. Nếu bác sĩ đọc thì có thể chen 1 câu ngắn về kinh nghiệm hơn 10 năm ở Bệnh viện Nhi Trung ương ở cảnh 4 để tăng độ tin cậy.",
+        "Bỏ chi tiết 'early-pregnancy bump' ở tuần 6 vì không thực tế, thay bằng dáng người bình thường với tay đặt nhẹ lên bụng."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Siêu âm một lần là thấy hết? Không hẳn đâu ạ",
+        "topic": "Kỳ vọng đúng về siêu âm (sàng lọc, không phải thấy hết) — 3 lý do và các mốc nên đi",
+        "angle": "exploit",
+        "hypothesis": "Hook myth-busting có chi tiết neo ('một lần') chạm đúng suy nghĩ phổ biến của mẹ bầu, giữ người xem; 3 lý do cùng mẫu 'Một/Hai/Ba' dễ xem hết; các mốc tuần cụ thể khiến video đáng lưu và chia sẻ cho chồng; CTA hỏi tuần thai kèm lời hứa nhắc mốc tạo nhiều bình luận.",
+        "target_audience": "Mẹ bầu 18–45 tuổi khu vực Khoái Châu – Hưng Yên ở mọi tuần thai, và ông xã/người nhà cùng quyết định việc đi khám",
+        "hook": "Siêu âm một lần là thấy hết mọi thứ? Không hẳn đâu ạ.",
+        "formula_mapping": "Đúng structure_template của playbook, tổng 40 giây (5 cảnh × 8 giây, nằm trong sweet spot 30–40 giây). Hook 0–3s theo mẫu '[Niềm tin phổ biến]? Không hẳn đâu ạ.', có chi tiết neo 'một lần'. Liệt kê song song 3–32s: 3 lý do cùng mẫu câu 'Một/Hai/Ba…', sau đó nêu các mốc tuần lấy nguyên từ DNA (11 tuần 6 ngày–13 tuần 6 ngày, 22 tuần, tim thai chi tiết 22–28 tuần). Câu chốt trấn an 'đồng hành, theo dõi sát' không hứa kết quả. CTA theo cta_patterns: hỏi tuần thai và hẹn Phòng khám nhắc mốc. Visual_style: bác sĩ nói trước camera, xen 1 cảnh mẹ bầu và ông xã đời thường. Chữ trên màn hình ≤7 từ/dòng, giữ nguyên số tuần.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He stands still, looks directly into the camera with a kind, honest smile and raises one hand slightly in a calm, gentle gesture while speaking. The doctor says in Vietnamese: \"Siêu âm một lần là thấy hết mọi thứ? Không hẳn đâu ạ. Bác sĩ nói 3 lý do nhé.\" Medium close-up, eye-level, slow gentle push-in. Soft blue and warm yellow color palette, bright and clean. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Siêu âm một lần là thấy hết mọi thứ? Không hẳn đâu ạ. Bác sĩ nói 3 lý do nhé.",
+            "on_screen_text_vi": "Siêu âm 1 lần là thấy hết?\nKhông hẳn đâu ạ!",
+            "camera": "Medium close-up, eye-level, push-in chậm; đầu giữ yên khi nói để khẩu hình ổn định"
+          },
+          {
+            "idx": 2,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He sits beside an ultrasound machine whose monitor is completely out of focus showing no recognizable image, faces the camera and counts on his fingers, one then two, explaining sincerely. The doctor says in Vietnamese: \"Một, siêu âm là sàng lọc, hỗ trợ phát hiện sớm. Hai, tư thế của bé đôi khi che khuất.\" Medium shot, slight side angle, eye-level. Soft blue and warm yellow tones. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Một, siêu âm là sàng lọc, hỗ trợ phát hiện sớm. Hai, tư thế của bé đôi khi che khuất.",
+            "on_screen_text_vi": "① Siêu âm là sàng lọc\n② Tư thế bé có thể che khuất",
+            "camera": "Medium shot, góc nghiêng nhẹ, màn hình siêu âm mờ hoàn toàn"
+          },
+          {
+            "idx": 3,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He holds up three fingers, then rests his hand and leans slightly forward, speaking warmly and clearly to the camera. The doctor says in Vietnamese: \"Ba, có điều phải đúng tuần thai mới quan sát rõ, như tim thai chi tiết 22 đến 28 tuần.\" Medium close-up, eye-level. Soft blue and warm yellow tones. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Ba, có điều phải đúng tuần thai mới quan sát rõ, như tim thai chi tiết 22 đến 28 tuần.",
+            "on_screen_text_vi": "③ Đúng tuần mới quan sát rõ\nTim thai chi tiết: 22–28 tuần",
+            "camera": "Medium close-up, eye-level, nhìn thẳng camera"
+          },
+          {
+            "idx": 4,
+            "seconds": 8,
+            "visual_prompt_en": "A young Vietnamese pregnant woman in her late 20s, wearing a loose light blue maternity dress, walks calmly with her husband, a Vietnamese man around 30 in a neat white shirt, into a bright modern clinic waiting area with white walls, soft blue accents and a small yellow flower pot. He gently holds her hand, they look at each other with relaxed, reassured smiles and sit down together. They do not speak. A calm, warm male Vietnamese voice-over says: \"Nên anh chị đi đủ mốc: 11 tuần 6 ngày đến 13 tuần 6 ngày, rồi 22 tuần.\" Medium wide shot, slow tracking, soft natural daylight, warm and peaceful mood. Vertical 9:16, photorealistic. No ultrasound images, no on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Nên anh chị đi đủ mốc: 11 tuần 6 ngày đến 13 tuần 6 ngày, rồi 22 tuần.",
+            "on_screen_text_vi": "Mốc 11 tuần 6 ngày – 13 tuần 6 ngày\nMốc 22 tuần",
+            "camera": "Medium wide, tracking chậm theo hai vợ chồng; lời bác sĩ dạng voice-over"
+          },
+          {
+            "idx": 5,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles reassuringly, gives a small nod, then opens his palm toward the camera in a friendly inviting gesture. The doctor says in Vietnamese: \"Bác sĩ luôn đồng hành, theo dõi sát. Mẹ đang tuần mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp nhé.\" Medium close-up, eye-level, looking directly into the camera. Soft blue and warm yellow tones. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Bác sĩ luôn đồng hành, theo dõi sát. Mẹ đang tuần mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp nhé.",
+            "on_screen_text_vi": "Đồng hành – theo dõi sát\nMẹ đang tuần mấy rồi ạ? 👇",
+            "camera": "Medium close-up, eye-level, nhìn thẳng camera"
+          }
+        ],
+        "cta": "Mẹ đang tuần mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp nhé.",
+        "caption": "Siêu âm một lần là thấy hết mọi thứ? Không hẳn đâu ạ.\nSiêu âm là sàng lọc, hỗ trợ phát hiện sớm. Có những điều phải đúng tuần thai mới quan sát rõ, nên Phòng khám khuyên anh chị đi đủ các mốc: 11 tuần 6 ngày – 13 tuần 6 ngày, 22 tuần, tim thai chi tiết 22–28 tuần.\nChị đang ở tuần thứ mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.\n(Video có sử dụng AI để minh hoạ.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#hieulammebau"
+        ],
+        "medical_claims": [
+          "Siêu âm là sàng lọc, hỗ trợ phát hiện sớm, không phải siêu âm một lần là thấy hết mọi thứ.",
+          "Tư thế của thai nhi đôi khi che khuất, làm hạn chế việc quan sát khi siêu âm.",
+          "Có những điều phải đến đúng tuần thai mới quan sát rõ.",
+          "Siêu âm tim thai chi tiết vào khoảng 22 đến 28 tuần.",
+          "Các mốc siêu âm nên đi: 11 tuần 6 ngày đến 13 tuần 6 ngày (đo độ mờ da gáy) và 22 tuần.",
+          "Đi đủ các mốc siêu âm giúp bác sĩ theo dõi sát thai kỳ."
+        ],
+        "production_notes": "Tổng 40 giây, 5 cảnh × 8 giây, đúng bằng độ dài clip Veo nên không phải cắt giữa động tác hay khẩu hình. Cảnh 1: bác sĩ đứng yên khi nói, không lắc đầu, để khẩu hình ổn định. Cảnh 4: hai vợ chồng không nói, lời bác sĩ là voice-over (có thể lồng lại giọng bác sĩ ở hậu kỳ nếu Veo tạo giọng không khớp). Màn hình siêu âm luôn mờ, không có hình thai nhi. Không nhắc ca bệnh, không nói 'bị sót' hay dị tật cụ thể, không gợi ý giới tính (trang phục mẹ bầu màu xanh dương nhạt theo màu thương hiệu, không dùng màu hồng). Phụ đề: chữ trắng trên hộp xanh #0B4EC6, nhấn số tuần bằng vàng cam #FCB318, ≤7 từ/dòng, đổi dòng khoảng 2 giây. Toàn bộ câu y khoa phải được Bác sĩ Phạm Sơn duyệt trước khi đăng. Bật nhãn 'Thông tin do AI tạo' khi đăng."
+      },
+      "scores": {
+        "hook": 17,
+        "formula": 16,
+        "density": 12,
+        "tone": 14,
+        "cta": 9,
+        "feasibility": 8,
+        "safety": 9
+      },
+      "notes": {
+        "hook": "Câu mở 'Siêu âm một lần là thấy hết mọi thứ? Không hẳn đâu ạ.' đi đúng mẫu '[Niềm tin phổ biến]? Không hẳn đâu ạ.' của playbook. Câu vào thẳng vấn đề, không chào hỏi, dài 12 từ, có chi tiết neo là 'một lần'. Bị trừ điểm vì chưa có tuần thai hay tình huống cụ thể để mẹ bầu thấy ngay là đang nói về mình, trong khi playbook yêu cầu hook 'có con số/tuần thai'. Câu nối 'Bác sĩ nói 3 lý do nhé' giữ được tò mò nhưng làm phần hook kéo quá 3 giây.",
+        "formula": "Khớp khung thời lượng 40 giây (5 cảnh × 8 giây): hook, liệt kê, chốt trấn an rồi CTA. Hình ảnh chủ yếu là bác sĩ nói trước camera, xen một cảnh hai vợ chồng, tông xanh–vàng, màn hình siêu âm để mờ. Bị trừ vì: (1) mẫu câu song song 'Một/Hai/Ba' chỉ có 3 ý, sau đó chuyển sang phần mốc tuần theo mẫu khác, chưa đạt 5–8 ý cùng một mẫu câu; (2) phụ đề 'Mốc 11 tuần 6 ngày – 13 tuần 6 ngày' có 9 từ, vượt giới hạn ≤7 từ/dòng; (3) phần chốt trấn an và CTA bị dồn chung vào cảnh 5 nên chưa có nhịp riêng.",
+        "density": "Phần lớn các câu đều có ý cụ thể, như 'Tư thế của bé đôi khi che khuất' và 'tim thai chi tiết 22 đến 28 tuần'. Bị trừ vì: lý do 1 'siêu âm là sàng lọc' chỉ nói lại luận điểm chứ chưa giải thích vì sao siêu âm không thấy hết, nên lập luận hơi vòng; 'Bác sĩ nói 3 lý do nhé' là câu dẫn, gần như câu đệm; câu 'Nên anh chị đi đủ mốc' chỉ kể 2 trong 8 mốc của DNA, nên chữ 'đủ' dễ làm người xem hiểu sai là chỉ cần 2 mốc.",
+        "tone": "Giọng ấm áp và nhẹ nhàng ('Không hẳn đâu ạ', 'Bác sĩ luôn đồng hành, theo dõi sát'), không dọa dị tật, không giật tít. Xưng hô đúng DNA: lời bác sĩ xưng 'bác sĩ', gọi 'mẹ' và 'anh chị'; caption xưng 'Phòng khám', gọi 'chị'. Trừ nhẹ vì chữ 'luôn' trong 'luôn đồng hành' hơi mang sắc thái hứa hẹn tuyệt đối.",
+        "cta": "'Mẹ đang tuần mấy rồi ạ? Bình luận để Phòng khám nhắc mốc tiếp nhé.' là câu hỏi mở, cụ thể, dễ trả lời, đi đúng mẫu cta_patterns và không bán hàng hay nói giá. Trừ 1 điểm vì CTA bị nói gộp sau câu trấn an trong cùng 8 giây nên dễ bị đọc vội.",
+        "feasibility": "Mỗi cảnh dài 8 giây. Prompt tiếng Anh rõ ràng, mở đầu bằng nguyên văn character bible và kết thúc bằng 'no on-screen text', màn hình siêu âm để mờ. Bị trừ vì: lời thoại cảnh 3 và cảnh 4 khi đọc thành chữ ('mười một tuần sáu ngày đến mười ba tuần sáu ngày, rồi hai mươi hai tuần') dài khoảng 25 âm tiết nên 8 giây khá chật, và Veo dễ đọc sai số tiếng Việt; cảnh 2 đổi từ tư thế đứng sang ngồi cạnh máy nên có rủi ro nhân vật thiếu đồng nhất; khẩu hình tiếng Việt của Veo vẫn khó khớp.",
+        "safety": "Không có từ cấm. Kịch bản nói rõ siêu âm là 'sàng lọc, hỗ trợ phát hiện sớm', không hứa thấy hết. Không chẩn đoán, không nói giá, không có ca bệnh thật hay hình thai nhi, caption ghi rõ video có dùng AI, và các câu y khoa đã được liệt kê trong medical_claims để bác sĩ duyệt. Chưa thấy vi phạm. Trừ 1 điểm vì một rủi ro nhỏ: mẹ bầu mặc váy xanh dương nhạt. Đây là màu thương hiệu, nhưng DNA cấm cả ẩn ý xanh/hồng nên vẫn có thể bị hiểu nhầm; nên chọn trang phục màu trung tính như kem hoặc be."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Gắn số hoặc tuần thai vào hook, ví dụ: 'Siêu âm 1 lần ở tuần 12 là thấy hết? Không hẳn đâu ạ.'",
+        "Viết lại lý do 1 thành một lý do thật, ví dụ 'Một, có những điều siêu âm chỉ hỗ trợ phát hiện, không thể thấy hết', để không chỉ nói lại luận điểm.",
+        "Đổi 'đi đủ mốc' thành 'đừng bỏ các mốc quan trọng như…' hoặc thêm câu 'còn nhiều mốc khác, Phòng khám nhắc trong bình luận', để người xem không hiểu nhầm là chỉ cần 2 mốc.",
+        "Tách phụ đề mốc tuần thành 2 dòng, mỗi dòng ≤7 từ: 'Mốc 11 tuần 6 ngày' / 'đến 13 tuần 6 ngày'.",
+        "Rút ngắn lời thoại cảnh 3 và 4 (khoảng ≤20 âm tiết khi đọc thành chữ), hoặc lồng giọng bác sĩ thật ở hậu kỳ để đọc số chuẩn.",
+        "Cho bác sĩ giữ cùng một tư thế (đứng) ở mọi cảnh để nhân vật đồng nhất hơn.",
+        "Đổi váy mẹ bầu sang màu trung tính (kem/be) để tránh mọi ẩn ý xanh/hồng.",
+        "Bỏ chữ 'luôn' trong 'Bác sĩ luôn đồng hành', thay bằng 'Phòng khám đồng hành cùng mẹ'."
+      ]
+    },
+    {
+      "draft": {
+        "title": "Siêu âm 22 tuần mà phải đi xa cả buổi? Các mốc quan trọng ngay tại Đông Kết",
+        "topic": "Câu chuyện thương hiệu: chuyên môn tuyến trung ương ngay tại quê nhà, kèm các mốc siêu âm quan trọng",
+        "angle": "explore",
+        "hypothesis": "Thử chủ đề câu chuyện thương hiệu (niềm tự hào địa phương, đỡ vất vả đi xa) nhưng đặt trong công thức đã thắng: hook có tuần thai cụ thể, nhìn thẳng camera, rồi liệt kê song song các mốc siêu âm và năng lực chuyên môn. Mẹ bầu Khoái Châu vừa có thông tin dùng được (mốc 11 tuần 6 ngày–13 tuần 6 ngày, 22 tuần, 22–28 tuần) vừa biết các mốc này làm được gần nhà. Khi đó mẹ dễ lưu video, chia sẻ và bình luận tuần thai để được nhắc mốc tiếp theo.",
+        "target_audience": "Mẹ bầu 18–45 tuổi và chồng/người nhà ở Khoái Châu – Hưng Yên và lân cận, đặc biệt người đang chuẩn bị các mốc siêu âm 12–13 tuần và 22–28 tuần.",
+        "hook": "Siêu âm 22 tuần mà phải đi xa cả buổi?",
+        "formula_mapping": "Hook 0–4s theo mẫu đã thắng: 10 từ, neo '22 tuần', nỗi lo cụ thể (đi xa), nhân vật bác sĩ nhìn thẳng camera ở cảnh trung. Liệt kê song song 4–22s gồm 4 ý cùng nhịp 'mốc/điểm + thông tin', mỗi cảnh 1–2 ý: mốc đo độ mờ da gáy, mốc 22 tuần và tim thai chi tiết 22–28 tuần, kinh nghiệm bác sĩ, toàn thời gian và 600 ca/tháng. Chốt trấn an bằng thông điệp nền 'Chuyên môn tuyến trung ương – ngay tại quê nhà'. CTA lấy theo mẫu playbook (mẹ đang tuần thứ mấy, Phòng khám nhắc mốc). Tổng 38 giây, nằm trong mức 30–40 giây. Bác sĩ nói trước camera ở 3 cảnh (1, 3, 6), xen cảnh vợ chồng đời thường. Tông xanh dương – vàng ấm, giọng nam trầm. Chữ trên màn hình ≤7 từ/dòng, đổi dòng khoảng 2 giây, giữ nguyên số tuần.",
+        "scenes": [
+          {
+            "idx": 1,
+            "seconds": 4,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks straight into the camera with a gentle, slightly concerned expression and raises one hand in a calm questioning gesture. The doctor says in Vietnamese: \"Siêu âm 22 tuần mà phải đi xa cả buổi?\" Medium close-up, eye-level, static camera. Color palette white, brand blue and warm yellow accents. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Siêu âm 22 tuần mà phải đi xa cả buổi?",
+            "on_screen_text_vi": "Siêu âm 22 tuần, phải đi xa?",
+            "camera": "Medium close-up, eye-level, tĩnh, nhìn thẳng camera"
+          },
+          {
+            "idx": 2,
+            "seconds": 6,
+            "visual_prompt_en": "Inside a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. A gentle Vietnamese pregnant woman in her late 20s, visibly pregnant, shoulder-length black hair, wearing a loose cream-colored maternity dress, reclines comfortably on an examination bed, smiling calmly; her husband, a friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt, sits beside her holding her hand. A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, sits at an ultrasound machine; the monitor is angled away from the camera and completely out of focus, showing no recognizable image. Relaxed, reassuring mood. Medium shot from the foot of the bed, slow gentle push-in. Vertical 9:16, photorealistic. No dialogue, no voice-over, soft ambient room sound only. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Đo độ mờ da gáy: 11 tuần 6 ngày đến 13 tuần 6 ngày.",
+            "on_screen_text_vi": "Đo độ mờ da gáy / 11 tuần 6 ngày → / 13 tuần 6 ngày",
+            "camera": "Medium shot từ cuối giường, push-in chậm; lời dẫn thu riêng khi hậu kỳ"
+          },
+          {
+            "idx": 3,
+            "seconds": 7,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He looks straight into the camera and explains calmly, counting two points on his fingers with a reassuring smile. The doctor says in Vietnamese: \"Mốc 22 tuần, rồi tim thai chi tiết từ 22 đến 28 tuần.\" Medium close-up, eye-level, very slow push-in. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Mốc 22 tuần, rồi tim thai chi tiết từ 22 đến 28 tuần.",
+            "on_screen_text_vi": "Mốc 22 tuần / Tim thai chi tiết: 22–28 tuần",
+            "camera": "Medium close-up, eye-level, push-in rất chậm, nhìn thẳng camera"
+          },
+          {
+            "idx": 4,
+            "seconds": 7,
+            "visual_prompt_en": "FALLBACK ONLY (preferred: real consented footage of the actual doctor). An empty, bright modern ultrasound room with white walls, soft blue accents and a small yellow flower pot, soft natural daylight through a window, a neatly made examination bed and a modern ultrasound machine with its screen dark and out of focus. No people in the room. Single continuous shot, slow smooth dolly-in toward the machine and the yellow flower pot. Calm, clean, trustworthy atmosphere. Vertical 9:16, photorealistic. No dialogue, no voice-over, soft ambient sound only. No on-screen text, no readable text, no certificates, no subtitles, no watermark.",
+            "dialogue_vi": "Bác sĩ Phạm Sơn: 15 năm kinh nghiệm, hơn 10 năm ở Bệnh viện Nhi Trung ương.",
+            "on_screen_text_vi": "BS CKI Phạm Sơn / 15 năm kinh nghiệm / >10 năm BV Nhi Trung ương",
+            "camera": "Ưu tiên clip thật của BS Phạm Sơn (có đồng ý bằng văn bản); dự phòng: phòng siêu âm trống, dolly-in chậm, không người"
+          },
+          {
+            "idx": 5,
+            "seconds": 6,
+            "visual_prompt_en": "A bright, calm clinic waiting area with white walls, soft blue accents and a small yellow flower pot, warm natural daylight. A gentle Vietnamese pregnant woman in her late 20s, visibly pregnant, shoulder-length black hair, wearing a loose cream-colored maternity dress, sits on a bench next to her husband, a friendly Vietnamese man around 30 with short black hair, wearing a plain white polo shirt; they smile at each other, relaxed. In the soft-focus background, a few other pregnant women with family members wait peacefully, faces generic and not identifiable. Single continuous shot, medium shot, slow lateral slide. Vertical 9:16, photorealistic. No dialogue, no voice-over, soft ambient sound only. No on-screen text, no signs with readable text, no subtitles, no watermark.",
+            "dialogue_vi": "Toàn thời gian tại phòng khám, hơn 600 ca siêu âm thai mỗi tháng.",
+            "on_screen_text_vi": "Toàn thời gian tại phòng khám / Hơn 600 ca siêu âm thai/tháng",
+            "camera": "Medium shot, slide ngang chậm; lời dẫn thu riêng khi hậu kỳ"
+          },
+          {
+            "idx": 6,
+            "seconds": 8,
+            "visual_prompt_en": "A warm, trustworthy Vietnamese male doctor in his early 40s, short neat black hair, clean-shaven, wearing a crisp white doctor's coat over a light blue shirt, in a bright modern ultrasound clinic with white walls, soft blue accents and a small yellow flower pot, soft natural daylight. He smiles warmly, places a hand gently over his chest, then opens his palm invitingly toward the camera. The doctor says in Vietnamese: \"Chuyên môn tuyến trung ương, ngay tại quê nhà. Mẹ đang tuần mấy? Bình luận để Phòng khám nhắc mốc nhé.\" Medium close-up, eye-level, static camera. Vertical 9:16, photorealistic. No on-screen text, no subtitles, no watermark.",
+            "dialogue_vi": "Chuyên môn tuyến trung ương, ngay tại quê nhà. Mẹ đang tuần mấy? Bình luận để Phòng khám nhắc mốc nhé.",
+            "on_screen_text_vi": "Chuyên môn tuyến trung ương / Ngay tại quê nhà / Mẹ đang tuần thứ mấy? 👇",
+            "camera": "Medium close-up, eye-level, tĩnh, nhìn thẳng camera"
+          }
+        ],
+        "cta": "Mẹ đang tuần mấy? Bình luận để Phòng khám nhắc mốc nhé.",
+        "caption": "Siêu âm 22 tuần mà phải đi xa cả buổi? Các mốc siêu âm quan trọng, chị có thể làm ngay tại Đông Kết – Khoái Châu:\n✔ 11 tuần 6 ngày – 13 tuần 6 ngày: đo độ mờ da gáy\n✔ 22 tuần\n✔ 22–28 tuần: tim thai chi tiết\nBác sĩ Phạm Sơn (BS CKI Chẩn đoán hình ảnh, 15 năm kinh nghiệm, hơn 10 năm tại Bệnh viện Nhi Trung ương) làm toàn thời gian tại Phòng khám. Chuyên môn tuyến trung ương — ngay tại quê nhà.\nChị đang ở tuần thứ mấy? Bình luận để Phòng khám nhắc mốc tiếp theo nhé.\n📍 Thôn Đông Kết, xã Khoái Châu (cạnh Trường Mầm non Đông Kết)\n(Video có sử dụng AI để minh hoạ; nhân vật bác sĩ trong video là hình tượng AI.)",
+        "hashtags": [
+          "#mebau",
+          "#sieuamthai",
+          "#khoaichau",
+          "#hungyen"
+        ],
+        "medical_claims": [
+          "Mốc đo độ mờ da gáy: 11 tuần 6 ngày đến 13 tuần 6 ngày.",
+          "Mốc siêu âm 22 tuần.",
+          "Siêu âm tim thai chi tiết từ 22 đến 28 tuần.",
+          "Bác sĩ Phạm Sơn: BS CKI Chẩn đoán hình ảnh, 15 năm kinh nghiệm, hơn 10 năm ở Bệnh viện Nhi Trung ương.",
+          "Bác sĩ làm toàn thời gian tại phòng khám; phòng khám có hơn 600 ca siêu âm thai mỗi tháng.",
+          "Thông điệp 'Chuyên môn tuyến trung ương, ngay tại quê nhà' (cần duyệt cách diễn đạt).",
+          "CTA: Phòng khám nhắc mốc siêu âm tiếp theo theo tuần thai mẹ bình luận (bác sĩ duyệt nội dung trả lời bình luận)."
+        ],
+        "production_notes": "Tổng 38 giây, 6 cảnh, mỗi cảnh ≤ 8 giây.\n(1) ÂM THANH: Toàn bộ lời thoại được thu lại một lần bằng CÙNG MỘT giọng nam trầm ấm (giọng đọc cố định của kênh) trong hậu kỳ. Ở cảnh 1, 3, 6, tiếng Veo chỉ dùng để có khẩu hình, sau đó thay bằng bản thu chung, chỉnh khớp môi. Cảnh 2, 4, 5 không có lời trong prompt (no dialogue), lời dẫn ghép khi hậu kỳ. Lời đọc các số tuần (11, 13, 22, 28, 15, 10, 600) phải kiểm tra lại khi thu, không lấy cách đọc số do Veo tạo.\n(2) CHỐNG MẠO DANH: Nhân vật bác sĩ AI (cảnh 1, 2, 3, 6) chỉ là hình tượng đại diện. Nhân vật này không xưng tên, không xưng 'tôi là bác sĩ Phạm Sơn', và chèn nhãn nhỏ 'Nhân vật minh hoạ AI' ở các cảnh đó. Cảnh 4 nêu tên BS Phạm Sơn: ưu tiên dùng clip/ảnh thật của BS Phạm Sơn (đã có đồng ý bằng văn bản). Nếu chưa có, dùng prompt dự phòng là phòng siêu âm trống, không người, không tay bác sĩ AI.\n(3) KHÔNG dựng mặt tiền phòng khám hay trường mầm non bằng AI. Nếu muốn có hình mặt tiền, chỉ dùng ảnh/clip thật.\n(4) ĐỒNG NHẤT NHÂN VẬT: Cặp vợ chồng dùng nguyên văn cùng một mô tả ở cảnh 2 và 5 (vợ: váy bầu màu kem, tóc ngang vai; chồng: áo polo trắng trơn). Bác sĩ AI dùng nguyên văn character bible.\n(5) Mỗi cảnh là 1 shot liên tục. Màn hình siêu âm luôn mờ, quay đi, không có hình thai nhi.\n(6) Phụ đề: chữ trắng trên hộp xanh #0B4EC6, nhấn số tuần bằng vàng cam #FCB318, ≤7 từ/dòng, dấu '/' là chỗ đổi dòng (~2 giây/dòng).\n(7) Không nói giá, không có từ cấm, không nhắc hay so sánh cơ sở khác. Bật nhãn 'Thông tin do AI tạo' khi đăng. Toàn bộ medical_claims cần BS Phạm Sơn duyệt trước khi đăng."
+      },
+      "scores": {
+        "hook": 15,
+        "formula": 14,
+        "density": 11,
+        "tone": 12,
+        "cta": 8,
+        "feasibility": 8,
+        "safety": 9
+      },
+      "notes": {
+        "hook": "'Siêu âm 22 tuần mà phải đi xa cả buổi?' vào thẳng vấn đề, không chào hỏi, 10 từ, có neo '22 tuần' và nói đúng nỗi vất vả của mẹ bầu vùng quê. Điểm trừ: (1) đây là nỗi lo về việc đi lại chứ không phải nỗi lo/tò mò về thai, nên lực giữ chân yếu hơn mẫu 'Mẹ bầu [tuần X] mà chưa [việc]…' trong playbook; (2) hook hứa về 22 tuần nhưng ý đầu tiên ngay sau đó lại là mốc 11 tuần 6 ngày–13 tuần 6 ngày, người xem đang ở tuần 22 dễ thấy lệch; (3) câu hỏi tu từ do bác sĩ AI nói ra hơi giống quảng cáo hơn là chia sẻ nỗi lo của khán giả.",
+        "formula": "Độ dài 38 giây khớp mức 30–40 giây. Có xen kẽ bác sĩ nói trước camera và cảnh vợ chồng, có quy định phụ đề hộp xanh, ≤7 từ/dòng, giữ nguyên số. Nhưng phần liệt kê chỉ có 4 ý, dưới mức 5–8 ý của playbook, và các ý không cùng một mẫu câu: 2 ý là mốc siêu âm ('Đo độ mờ da gáy: …', 'Mốc 22 tuần, rồi tim thai…'), 2 ý là năng lực ('Bác sĩ Phạm Sơn: 15 năm…', 'Toàn thời gian…600 ca'), nên mất nhịp song song. Phần chốt trấn an và CTA bị gộp vào một cảnh 8 giây, không tách riêng thành 32–36s và 36–40s. Phần formula_mapping ghi 'liệt kê 4–22s' trong khi thực tế là 4–30s, nghĩa là tự mô tả sai cấu trúc.",
+        "density": "Mỗi câu mang một ý, không có câu đệm. Tuy vậy: 'độ mờ da gáy' và 'tim thai chi tiết' không được giải thích bằng lời dễ hiểu, trong khi DNA yêu cầu giải thích thuật ngữ, nên mẹ bầu chỉ nhận được mốc tuần mà không biết vì sao mốc đó quan trọng. '22 tuần' lặp lại ở hook, cảnh 3 và cảnh tim thai 22–28 tuần. Một nửa thời lượng liệt kê (cảnh 4–5) là thông tin giới thiệu năng lực phòng khám chứ không phải thông tin mẹ bầu dùng được. Các mốc 5–8, 15–18, 30–32 tuần… bị bỏ qua, nên video chưa đủ 'tra cứu' để người xem lưu lại.",
+        "tone": "Xưng hô đúng DNA: caption xưng 'Phòng khám', gọi 'chị'; lời thoại gọi 'Mẹ'. Không giật tít, không dọa. Câu 'Chuyên môn tuyến trung ương, ngay tại quê nhà' đúng thông điệp nền. Điểm trừ: giọng thiên về liệt kê hồ sơ năng lực ('15 năm kinh nghiệm', 'hơn 600 ca siêu âm thai mỗi tháng'), nghe giống quảng cáo hơn là trấn an. Video thiếu một câu cảm xúc kiểu 'đồng hành', 'theo dõi sát' dành cho mẹ.",
+        "cta": "'Mẹ đang tuần mấy? Bình luận để Phòng khám nhắc mốc nhé.' dùng đúng mẫu CTA của playbook, là câu hỏi mở cụ thể, không nói giá, không chốt sale. Điểm trừ: CTA bị dồn chung với slogan trong cùng một cảnh 8 giây (khoảng 21 từ), dễ bị đọc vội. Ngoài ra lời hứa 'nhắc mốc' đòi hỏi phải có quy trình trả lời bình luận đã được bác sĩ duyệt.",
+        "feasibility": "Mọi cảnh ≤8 giây. Prompt tiếng Anh rõ ràng, dùng nguyên văn character bible, có 'no on-screen text', màn hình siêu âm mờ và quay đi. Mô tả cặp vợ chồng được lặp nguyên văn để giữ đồng nhất. Rủi ro: cảnh 6 có khoảng 21 từ tiếng Việt trong 8 giây, vượt hướng dẫn ≤20 từ. Kế hoạch thay giọng và chỉnh khớp môi ở hậu kỳ cho cảnh 1, 3, 6 tốn công và dễ lệch khẩu hình. Bản dự phòng của cảnh 4 (phòng trống trong 7 giây) yếu về hình ảnh, dễ làm người xem rời đi. Veo cũng không đảm bảo cặp vợ chồng đồng nhất giữa cảnh 2 và cảnh 5.",
+        "safety": "Không thấy vi phạm cứng: không có từ cấm, không gợi ý giới tính thai, không nói giá, không nhắc cơ sở khác, mốc siêu âm và thông tin bác sĩ lấy đúng từ DNA, toàn bộ nội dung y khoa nằm trong medical_claims, caption ghi rõ có dùng AI, màn hình siêu âm mờ. Trừ 1 điểm vì còn rủi ro mạo danh ngầm: cùng một giọng nam đọc cả lời của bác sĩ AI (cảnh 1, 3, 6) và câu 'Bác sĩ Phạm Sơn: 15 năm kinh nghiệm…' (cảnh 4). Trong một phòng khám chỉ có một bác sĩ, người xem rất dễ hiểu bác sĩ AI chính là BS Phạm Sơn. Nhãn 'Nhân vật minh hoạ AI' giảm bớt nhưng chưa loại hẳn được rủi ro này."
+      },
+      "revision": 1,
+      "suggestions": [
+        "Cho hook và nội dung khớp nhau. Cách 1: giữ hook 22 tuần thì chỉ nói các mốc 22–28 tuần. Cách 2: đổi hook theo mẫu playbook, ví dụ 'Mẹ bầu ở Khoái Châu, đây là 5 mốc siêu âm không nên bỏ lỡ.'",
+        "Tăng lên 5–6 ý theo cùng một mẫu câu '[Tuần X] – [việc làm] – [vì sao, nói bằng lời dễ hiểu]', ví dụ thêm 15–18 tuần và 30–32 tuần. Phần năng lực bác sĩ gộp thành 1 câu ở đoạn chốt thay vì chiếm 2 cảnh liệt kê.",
+        "Giải thích ngắn gọn 'độ mờ da gáy' và 'tim thai chi tiết' (ví dụ: 'bác sĩ xem kỹ cấu trúc tim của bé'). Không đưa số đo hay kết luận, và đưa các câu này vào medical_claims để bác sĩ duyệt.",
+        "Tách cảnh 6 thành hai phần: chốt trấn an kiểu 'Phòng khám đồng hành, theo dõi sát cùng mẹ từng mốc' và CTA riêng. Giữ mỗi câu ≤20 từ cho mỗi 8 giây.",
+        "Giảm rủi ro mạo danh: dùng giọng khác (hoặc giọng thật của BS Phạm Sơn đã có đồng ý) cho câu giới thiệu BS Phạm Sơn, hoặc chỉ để chữ trên màn hình. Tốt nhất là dùng clip thật của bác sĩ ở cảnh 4 thay cho cảnh phòng trống.",
+        "Nếu muốn nhấn vào chuyện 'đi xa', thay bằng hình ảnh tích cực về sự gần nhà, ví dụ vợ chồng đi xe máy vài phút là tới (không dựng mặt tiền bằng AI), để tăng cảm xúc địa phương mà không ngầm so sánh với cơ sở khác."
+      ]
+    }
+  ]
+}
