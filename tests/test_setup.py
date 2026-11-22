@@ -41,3 +41,28 @@ def test_auto_mode_never_prompts(monkeypatch):
     monkeypatch.setattr("builtins.input", lambda *a: (_ for _ in ()).throw(AssertionError("không được hỏi")))
     monkeypatch.setattr(sw, "AUTO", True)
     assert sw._yes("x") is True and sw._yes("y", False) is False and sw._ask("z", "d") == "d"
+
+
+def test_export_then_import_roundtrip(ctx, tmp_path):
+    from conftest import make_draft
+    from flow_agent.llm import FakeLLM
+    from flow_agent.models import CriterionScore, ScriptBatch, ScriptScore
+    from flow_agent.planner import run_daily_planning
+    from flow_agent.seeding import export_scripts, import_scripts
+    from datetime import date
+
+    full = {"hook": 20, "formula": 20, "density": 15, "tone": 15, "cta": 10, "feasibility": 10, "safety": 10}
+
+    def handler(schema, system, content):
+        if schema is ScriptBatch:
+            return ScriptBatch(scripts=[make_draft(i) for i in range(4)])
+        return ScriptScore(criteria=[CriterionScore(key=k, score=v, reason="lý do " + k) for k, v in full.items()],
+                           safety_violations=[], predicted_performance="cao", improvement_suggestions=["gợi ý"])
+
+    ctx.llm = ctx.judge = FakeLLM(handler)
+    run_daily_planning(ctx)
+    out = export_scripts(ctx, date.today().isoformat(), tmp_path / "x.json", "test")
+    ctx.db.execute("DELETE FROM scripts")
+    res = import_scripts(ctx, out)
+    assert len(res["imported"]) == 4 and len(res["selected"]) == 3
+    assert all(t == 100 for _, t, _ in res["imported"])

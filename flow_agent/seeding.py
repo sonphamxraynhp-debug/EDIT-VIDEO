@@ -101,3 +101,20 @@ def render_scripts_markdown(path: Path, threshold: float = 95, k: int = 3) -> st
             out += ["", f"⛔ **Cổng an toàn chặn:** {'; '.join(hits)}"]
         out += ["", "**Cần Bác sĩ Phạm Sơn duyệt:**", *[f"- [ ] {c}" for c in d.medical_claims]]
     return "\n".join(out) + "\n"
+
+
+def export_scripts(ctx: Ctx, run_date: str, out_path: Path, scored_by: str) -> Path:
+    """Xuất kịch bản một ngày (kèm điểm giám khảo) ra file JSON để máy khác `import-scripts` lại."""
+    rows = ctx.db.all("SELECT * FROM scripts WHERE run_date=? ORDER BY id", (run_date,))
+    items = []
+    for r in rows:
+        score = json.loads(r["score_json"] or "{}")
+        raw = score.get("raw") or {}
+        notes = {c["key"]: c["reason"] for c in raw.get("criteria", [])}
+        if score.get("violations"):
+            notes["safety"] = "; ".join(score["violations"])
+        items.append({"draft": json.loads(r["draft_json"]), "scores": score.get("per_criterion", {}), "notes": notes,
+                      "revision": r["revision"], "suggestions": raw.get("improvement_suggestions", [])})
+    Path(out_path).write_text(json.dumps({"run_date": run_date, "scored_by": scored_by, "scripts": items},
+                                         ensure_ascii=False, indent=2), encoding="utf-8")
+    return Path(out_path)
