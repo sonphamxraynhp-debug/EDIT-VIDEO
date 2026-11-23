@@ -4,6 +4,7 @@ from __future__ import annotations
 import contextlib
 import json
 import logging
+import re
 from pathlib import Path
 
 from .browser import persistent_context
@@ -19,12 +20,21 @@ AI_DISCLOSURE = "Video có sử dụng công nghệ AI (Google Flow) để minh 
 REVIEWED_NOTE = "Nội dung chuyên môn đã được Bác sĩ Phạm Sơn duyệt."
 
 
+_SAY_AS = re.compile(r"(\S+)\s*\(\s*(?:đọc|doc|read)\s*:\s*([^)]+)\)", re.IGNORECASE)
+
+
+def spoken(text: str) -> str:
+    """'NIPT (đọc: níp-ti)' -> 'níp-ti': ghi chú cách đọc thay cho chữ viết, không bị đọc to cả ngoặc."""
+    return _SAY_AS.sub(lambda m: m.group(2).strip(), text).strip()
+
+
 def build_scene_prompt(scene: Scene, character_bible: str, aspect: str) -> str:
     prompt = scene.visual_prompt_en.strip()
     if character_bible and character_bible[:40].lower() not in prompt.lower():
         prompt = f"{character_bible.strip()} {prompt}"
-    if scene.dialogue_vi.strip() and scene.dialogue_vi.strip()[:15] not in prompt:
-        prompt += f' The character speaks in Vietnamese, warm and calm voice: "{scene.dialogue_vi.strip()}"'
+    line = spoken(scene.dialogue_vi)
+    if line and line[:15] not in prompt:
+        prompt += f' The character speaks in Vietnamese, warm and calm voice: "{line}"'
     orientation = "Vertical 9:16 portrait framing." if aspect == "9:16" else f"Aspect ratio {aspect}."
     prompt += (f" {orientation} Camera: {scene.camera}. Clean, bright, trustworthy medical clinic look in neutral cream, "
                "beige and white tones (no pink or blue baby colours). No on-screen text, no captions, no subtitles, no logos, no watermark.")

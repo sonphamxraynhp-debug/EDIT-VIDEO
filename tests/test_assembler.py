@@ -43,3 +43,16 @@ def test_scene_prompt_has_bible_dialogue_and_no_text():
     p = build_scene_prompt(d.scenes[0], "A friendly Vietnamese doctor in a white coat.", "9:16")
     assert p.startswith("A friendly Vietnamese doctor") and "Vertical 9:16" in p
     assert d.scenes[0].dialogue_vi in p and "No on-screen text" in p
+
+
+def test_timed_subtitles_and_spoken_notes():
+    from flow_agent.producer.assembler import parse_timed
+    from flow_agent.production import spoken
+
+    segs = parse_timed("0–3s: 22 tuần: 5 điều mẹ hay nhầm | 3–5,5s: 1. Xong mốc? | 5,5–8s: ✕ Sai – còn 3 mốc 🤍", 8.0)
+    assert [(a, b) for a, b, _ in segs] == [(0, 3), (3, 5.5), (5.5, 8)] and segs[0][2] == "22 tuần: 5 điều mẹ hay nhầm"
+    assert parse_timed("0–2s: A | 2–4s: B", 8.0)[1][:2] == (4.0, 8.0)  # co giãn theo clip thật
+    assert parse_timed("Mẹ bầu 12 tuần", 8.0) is None
+    ass = build_ass([(8.0, "0–3s: Câu một | 3–8s: Câu hai 🤍")], 1080, 1920, "DejaVu Sans")
+    assert "Câu một" in ass and "0–3s" not in ass and "🤍" not in ass and "0:00:03.00,0:00:07.95" in ass
+    assert spoken("NIPT (đọc: níp-ti) thay siêu âm?") == "níp-ti thay siêu âm?"

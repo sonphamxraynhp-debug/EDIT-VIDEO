@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import re
 import subprocess
 import textwrap
 from pathlib import Path
@@ -19,8 +20,14 @@ def _ass_time(t: float) -> str:
 
 
 def _ass_escape(text: str, width: int = 24) -> str:
-    text = text.replace("\\", "/").replace("{", "(").replace("}", ")").strip()
-    return r"\N".join(textwrap.wrap(text, width=width)) if text else ""
+    text = text.replace("\\", "/").replace("{", "(").replace("}", ")")
+    text = "".join(ch for ch in text if ord(ch) <= 0xFFFF and ch != "\ufe0f").strip()  # bỏ emoji (font không có)
+    if not text:
+        return ""
+    lines = textwrap.wrap(text, width=width)
+    if len(lines) > 1:  # cân dòng: tránh dòng cuối chỉ còn 1 chữ
+        lines = textwrap.wrap(text, width=max(8, -(-len(text) // len(lines)) + 3))
+    return r"\N".join(lines)
 
 
 def chunk_text(text: str, max_words: int = 7) -> list[str]:
@@ -37,6 +44,27 @@ def chunk_text(text: str, max_words: int = 7) -> list[str]:
     if cur:
         chunks.append(" ".join(cur))
     return chunks
+
+
+_TIMED = re.compile(r"^\s*(\d+(?:[.,]\d+)?)\s*[–—-]\s*(\d+(?:[.,]\d+)?)\s*s\s*:\s*(.+?)\s*$")
+
+
+def parse_timed(text: str, dur: float) -> list[tuple[float, float, str]] | None:
+    """Phụ đề dạng '0–3s: câu A | 3–5,5s: câu B' -> [(0,3,'câu A'), (3,5.5,'câu B')]; None nếu không có mốc giờ.
+    Mốc giờ được co giãn theo độ dài thật của clip."""
+    parts = [x for x in re.split(r"\s*\|\s*|\n+", text) if x.strip()]
+    segs = []
+    for part in parts:
+        m = _TIMED.match(part)
+        if not m:
+            return None
+        a, b = (float(m.group(i).replace(",", ".")) for i in (1, 2))
+        segs.append((a, b, m.group(3)))
+    if not segs:
+        return None
+    total = max(b for _, b, _ in segs) or dur
+    k = dur / total if total > 0 else 1.0
+    return [(a * k, b * k, t) for a, b, t in segs]
 
 
 def build_ass(scenes: list[tuple[float, str]], width: int, height: int, font: str) -> str:
@@ -58,6 +86,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     events, t0 = [], 0.0
     for dur, text in scenes:
+        timed = parse_timed(text, dur)
+        if timed:
+            for a, b, c in timed:
+                events.append(f"Dialogue: 0,{_ass_time(t0 + a)},{_ass_time(t0 + b - 0.05)},Sub,,0,0,0,,{_ass_escape(c)}")
+            t0 += dur
+            continue
         chunks = chunk_text(text)
         if chunks:
             step = dur / len(chunks)
