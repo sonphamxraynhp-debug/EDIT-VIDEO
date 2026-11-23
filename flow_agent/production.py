@@ -14,7 +14,9 @@ from .producer.assembler import assemble
 
 log = logging.getLogger(__name__)
 
-AI_DISCLOSURE = "Video có sử dụng công nghệ AI (Google Flow) để minh hoạ. Nội dung chuyên môn đã được Bác sĩ Phạm Sơn duyệt."
+AI_DISCLOSURE = "Video có sử dụng công nghệ AI (Google Flow) để minh hoạ."
+# Chỉ thêm SAU KHI bác sĩ đã duyệt thật (xem PHIEU_DUYET.md) — không tự ghi lúc đăng "Chỉ mình tôi"
+REVIEWED_NOTE = "Nội dung chuyên môn đã được Bác sĩ Phạm Sơn duyệt."
 
 
 def build_scene_prompt(scene: Scene, character_bible: str, aspect: str) -> str:
@@ -24,8 +26,8 @@ def build_scene_prompt(scene: Scene, character_bible: str, aspect: str) -> str:
     if scene.dialogue_vi.strip() and scene.dialogue_vi.strip()[:15] not in prompt:
         prompt += f' The character speaks in Vietnamese, warm and calm voice: "{scene.dialogue_vi.strip()}"'
     orientation = "Vertical 9:16 portrait framing." if aspect == "9:16" else f"Aspect ratio {aspect}."
-    prompt += (f" {orientation} Camera: {scene.camera}. Clean, bright, trustworthy medical clinic look with blue and "
-               "warm yellow accents. No on-screen text, no captions, no subtitles, no logos, no watermark.")
+    prompt += (f" {orientation} Camera: {scene.camera}. Clean, bright, trustworthy medical clinic look in neutral cream, "
+               "beige and white tones (no pink or blue baby colours). No on-screen text, no captions, no subtitles, no logos, no watermark.")
     return prompt
 
 
@@ -188,6 +190,7 @@ def write_review_sheet(ctx: Ctx, production_id: int) -> Path:
         "- [ ] Không có từ cấm, không hứa hẹn kết quả, không báo giá",
         "- [ ] Hình ảnh AI không giống bệnh nhân/người thật cụ thể, không cảnh y khoa gây sợ",
         "- [ ] Bật nhãn 'Thông tin do AI tạo' khi chuyển sang Công khai",
+        f"- [ ] Sau khi bác sĩ duyệt: thêm vào caption dòng \"{REVIEWED_NOTE}\"",
         "",
         "## Lời thoại & phụ đề",
         *[f"{s.idx}. ({s.seconds}s) {s.dialogue_vi}  \n   _Chữ:_ {s.on_screen_text_vi}" for s in draft.scenes],

@@ -231,6 +231,25 @@ def register_autostart() -> None:
         print(f"  ! Không tạo được lịch tự khởi động: {(res.stderr or res.stdout).strip()[:200]}")
 
 
+def ensure_logins(cfg, need_facebook: bool = True) -> None:  # noqa: ANN001
+    """Nếu hồ sơ trình duyệt chưa đăng nhập: mở cửa sổ để chủ tài khoản tự đăng nhập (chỉ lần đầu)."""
+    from .browser import persistent_context
+
+    targets = []
+    if need_facebook:
+        targets.append(("Facebook", "facebook.browser_profile_dir", "https://www.facebook.com/"))
+    if cfg.get_path("video.backend", "flow") == "flow":
+        targets.append(("Google Flow", "video.flow.browser_profile_dir", cfg.get_path("video.flow.url")))
+    for target, key, url in targets:
+        if _profile_used(cfg.path(key)):
+            continue
+        print(f"• Lần đầu: mở trình duyệt để bạn đăng nhập {target}…")
+        with persistent_context(cfg.path(key), headless=False) as b:
+            page = b.new_page()
+            page.goto(url)
+            input(f"  Đăng nhập {target} xong trong cửa sổ trình duyệt rồi nhấn Enter tại đây… ")
+
+
 def run_setup(config_path: str | None = None, auto: bool = False) -> int:
     global AUTO
     AUTO = auto

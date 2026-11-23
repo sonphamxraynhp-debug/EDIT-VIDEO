@@ -69,6 +69,14 @@ Trình cài đặt tự cài thư viện, cấu hình và **Claude Code**, rồi
 quy trình hôm nay (10 kịch bản → chấm → ≤3 video → đăng Chỉ mình tôi) và hỏi bạn có bật chế độ tự chạy không.
 Kiểm tra máy bất cứ lúc nào: `python -m flow_agent doctor`.
 
+## Làm 1 video ngay (không chờ lịch)
+
+Windows: bấm đúp `LAM_VIDEO.bat` (hoặc `python -m flow_agent make-video`). Agent lấy kịch bản **điểm cao nhất chưa làm**
+(không vi phạm an toàn) trong file kịch bản mới nhất, tạo từng cảnh trên Google Flow, ghép video 9:16 có phụ đề,
+đăng lên trang cá nhân ở chế độ **Chỉ mình tôi** (không xác nhận được quyền riêng tư thì dừng, nhờ bạn chọn tay),
+rồi mở thư mục chứa video + `PHIEU_DUYET.md` cho Bác sĩ Phạm Sơn duyệt. Chọn kịch bản khác: `--script-id <id>`.
+Đây là lệnh thủ công của chủ kênh — lịch tự chạy hằng ngày vẫn chỉ làm bản > 95 điểm.
+
 ## Cài đặt thủ công
 
 Cần Python ≥ 3.10, ffmpeg, Google Chrome.

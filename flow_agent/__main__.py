@@ -11,6 +11,16 @@ def _print(obj) -> None:  # noqa: ANN001
     print(json.dumps(obj, ensure_ascii=False, indent=2, default=str))
 
 
+def _open_folder(path: str) -> None:
+    import os
+    from pathlib import Path
+    try:
+        if os.name == "nt":
+            os.startfile(Path(path).parent)  # type: ignore[attr-defined]  # noqa: S606
+    except Exception:  # noqa: BLE001
+        pass
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="flowagent", description="Agent làm video Google Flow tự học theo view thật")
     ap.add_argument("--config", help="đường dẫn config.yaml (mặc định config/config.yaml)")
@@ -43,6 +53,10 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("approve", help="ghi nhận video đã được duyệt & chuyển Công khai → bắt đầu tính vào vòng học")
     p.add_argument("production_id", type=int)
     p.add_argument("--url")
+    p = sub.add_parser("make-video", help="làm video NGAY từ kịch bản điểm cao nhất (hoặc --script-id) "
+                       "rồi đăng Chỉ mình tôi")
+    p.add_argument("--script-id", type=int)
+    p.add_argument("--no-upload", action="store_true")
     p = sub.add_parser("daily", help="chạy trọn quy trình 1 ngày")
     p.add_argument("--no-upload", action="store_true")
 
@@ -120,6 +134,15 @@ def main(argv: list[str] | None = None) -> int:
         from .production import approve
         approve(ctx, args.production_id, args.url)
         print("Đã ghi nhận. Video sẽ được tính vào vòng tự học.")
+    elif args.cmd == "make-video":
+        from .pipeline import make_video_now
+        from .setup_wizard import ensure_logins
+        ensure_logins(ctx.cfg, need_facebook=not args.no_upload)
+        out = make_video_now(ctx, args.script_id, do_upload=not args.no_upload)
+        _print(out)
+        print(f"\n[XONG] Video: {out['video']}\n   Phiếu duyệt cho Bác sĩ Phạm Sơn: {out['review_sheet']}"
+              + ("\n   Đã đăng Facebook ở chế độ CHỈ MÌNH TÔI." if not args.no_upload else ""))
+        _open_folder(out["review_sheet"])
     elif args.cmd == "daily":
         from .pipeline import run_daily
         _print(run_daily(ctx, do_upload=not args.no_upload))

@@ -66,3 +66,29 @@ def test_export_then_import_roundtrip(ctx, tmp_path):
     res = import_scripts(ctx, out)
     assert len(res["imported"]) == 4 and len(res["selected"]) == 3
     assert all(t == 100 for _, t, _ in res["imported"])
+
+
+def test_make_video_now_picks_best_unblocked_from_latest_seed(ctx, monkeypatch, tmp_path):
+    import flow_agent.pipeline as pl
+
+    made, uploaded = [], []
+
+    def fake_produce(c, sid):
+        made.append(sid)
+        out = tmp_path / "prod" / "final.mp4"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_bytes(b"x")
+        pid = c.db.execute("INSERT INTO productions(script_id, created_at, status, video_path) VALUES (?,?,?,?)",
+                           (sid, "t", "produced", str(out))).lastrowid
+        c.db.execute("UPDATE scripts SET status='produced' WHERE id=?", (sid,))
+        return pid
+
+    monkeypatch.setattr(pl, "produce", fake_produce)
+    monkeypatch.setattr(pl, "upload", lambda c, pid: uploaded.append(pid) or "https://www.facebook.com/reel/1")
+    out = pl.make_video_now(ctx)
+    row = ctx.db.one("SELECT * FROM scripts WHERE id=?", (out["script_id"],))
+    assert row["run_date"] == "2026-11-22" and row["total_score"] == 87 and not row["blocked"]
+    assert uploaded == [out["production_id"]] and out["privacy"] == "Chỉ mình tôi"
+    assert "dưới ngưỡng" in ctx.db.one("SELECT * FROM events WHERE kind='manual_video'")["message"]
+    # lần sau lấy bản kế tiếp, không làm lại bản đã làm
+    assert pl.make_video_now(ctx, do_upload=False)["script_id"] != out["script_id"]

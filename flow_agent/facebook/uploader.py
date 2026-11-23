@@ -27,6 +27,16 @@ class UploadError(RuntimeError):
     pass
 
 
+def _only_me_shown(page) -> bool:  # noqa: ANN001
+    """Sau khi đóng hộp thoại đối tượng, nút đối tượng phải hiện 'Chỉ mình tôi' và không còn hiện 'Công khai'."""
+    try:
+        only = sum(page.get_by_text(t, exact=False).locator("visible=true").count() for t in ONLY_ME)
+        public = sum(page.get_by_role("button", name=t).locator("visible=true").count() for t in ("Công khai", "Public"))
+        return only > 0 and public == 0
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def upload_profile_reel(page, video_path: Path, caption: str, debug_dir: Path, headless: bool) -> str | None:
     """Đăng Reel lên trang cá nhân với quyền 'Chỉ mình tôi'. Trả về URL video nếu tìm được."""
     page.goto("https://www.facebook.com/reels/create/", wait_until="domcontentloaded")
@@ -56,13 +66,15 @@ def upload_profile_reel(page, video_path: Path, caption: str, debug_dir: Path, h
         if click_any(page, ONLY_ME, timeout_ms=8000):
             page.wait_for_timeout(800)
             click_any(page, DONE, timeout_ms=4000)
-            privacy_ok = True
+            page.wait_for_timeout(1200)
+            privacy_ok = _only_me_shown(page)  # hộp thoại đã đóng mà vẫn thấy "Chỉ mình tôi" = đã chọn đúng
 
     if not privacy_ok:
         shot = debug_shot(page, debug_dir, "upload-privacy")
         if headless:
             raise UploadError(f"Không đặt được quyền 'Chỉ mình tôi' — đã dừng, KHÔNG đăng. Ảnh lỗi: {shot}")
-        if not wait_for_user(page, "Hãy tự chọn đối tượng 'Chỉ mình tôi' rồi bấm Đăng trong cửa sổ trình duyệt.",
+        if not wait_for_user(page, "Agent chưa xác nhận được quyền riêng tư. Hãy tự chọn đối tượng 'Chỉ mình tôi' "
+                             "rồi bấm Đăng trong cửa sổ trình duyệt (KHÔNG chọn Công khai).",
                              timeout_s=600, done_check=lambda: "reels/create" not in page.url):
             raise UploadError("Người dùng không hoàn tất bước chọn quyền riêng tư.")
     else:

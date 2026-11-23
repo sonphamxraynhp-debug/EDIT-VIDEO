@@ -43,3 +43,14 @@ def test_collect_and_click(page):
     assert click_any(page, ["Only me", "Chỉ mình tôi"], timeout_ms=3000)
     assert page.evaluate("document.body.dataset.privacy") == "only_me"
     assert not click_any(page, ["Nút không tồn tại"], timeout_ms=800)
+
+
+def test_only_me_check_requires_only_me_and_no_public_button(page):
+    from flow_agent.facebook.uploader import _only_me_shown
+
+    page.set_content('<button aria-label="Đối tượng">🔒 Chỉ mình tôi</button><span>Đăng</span>')
+    assert _only_me_shown(page)
+    page.set_content('<button>🌐 Công khai</button><div>Chỉ mình tôi</div>')  # hộp thoại còn mở, vẫn đang Công khai
+    assert not _only_me_shown(page)
+    page.set_content('<button>👥 Bạn bè</button>')
+    assert not _only_me_shown(page)

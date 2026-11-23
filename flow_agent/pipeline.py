@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import logging
 from datetime import date
+from pathlib import Path
 
 from .context import Ctx
 from .planner import run_daily_planning
@@ -71,3 +72,40 @@ def write_daily_report(ctx: Ctx, day: str | None = None):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
+
+
+def make_video_now(ctx: Ctx, script_id: int | None = None, do_upload: bool = True) -> dict:
+    """Chủ kênh yêu cầu làm video NGAY: lấy kịch bản chỉ định (hoặc bản điểm cao nhất, không bị chặn an toàn)
+    -> Google Flow -> ghép -> đăng 'Chỉ mình tôi' -> phiếu duyệt.
+    Đây là lệnh thủ công của chủ kênh; lịch tự động hằng ngày VẪN chỉ làm bản > ngưỡng (95)."""
+    from .config import ROOT
+    from .seeding import import_scripts, seed_playbook
+
+    seed_playbook(ctx)
+    seeds = sorted((ROOT / "seed").glob("kich-ban-*.json"))
+    if seeds:
+        import_scripts(ctx, seeds[-1], rejudge=False)  # điểm giám khảo độc lập đã có trong file
+    threshold = float(ctx.cfg.get_path("daily.score_threshold", 95))
+    if script_id is None:
+        row = ctx.db.one(
+            "SELECT * FROM scripts WHERE blocked=0 AND status NOT IN ('produced','uploaded','approved') "
+            "ORDER BY run_date DESC, total_score DESC, id LIMIT 1")
+        if not row:
+            raise ValueError("Không còn kịch bản nào chưa làm video (và không vi phạm an toàn).")
+        script_id = int(row["id"])
+    row = ctx.db.one("SELECT * FROM scripts WHERE id=?", (script_id,))
+    if not row:
+        raise ValueError(f"Không có kịch bản #{script_id}")
+    if row["blocked"]:
+        raise ValueError("Kịch bản vi phạm an toàn nội dung — không được làm video.")
+    note = "" if row["total_score"] > threshold else f" (dưới ngưỡng {threshold:g} — chủ kênh yêu cầu làm thủ công)"
+    ctx.db.log("manual_video", f"Làm video từ kịch bản #{script_id} '{row['title']}' {row['total_score']:.0f} điểm{note}")
+    log.info("Làm video từ kịch bản #%d '%s' — %.0f điểm%s", script_id, row["title"], row["total_score"], note)
+    pid = produce(ctx, script_id)
+    prod = ctx.db.one("SELECT * FROM productions WHERE id=?", (pid,))
+    out = {"script_id": script_id, "title": row["title"], "score": row["total_score"], "production_id": pid,
+           "video": prod["video_path"], "review_sheet": str(Path(prod["video_path"]).parent / "PHIEU_DUYET.md")}
+    if do_upload:
+        out["facebook_url"] = upload(ctx, pid)
+        out["privacy"] = "Chỉ mình tôi"
+    return out
