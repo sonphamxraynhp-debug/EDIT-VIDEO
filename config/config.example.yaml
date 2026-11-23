@@ -73,10 +73,13 @@ video:
     browser_profile_dir: data/browser/google
     headless: false
     generation_timeout_sec: 900
+    manual_wait_sec: 900         # bước nào agent không tự làm được: chờ bạn thao tác tay tối đa 15 phút
     # Bộ chọn giao diện — Flow thay đổi giao diện thường xuyên, sửa ở đây nếu cần
     selectors:
       new_project: ["New project", "Dự án mới"]
-      prompt_box: "textarea"
+      prompt_box: ["textarea", "[contenteditable='true']", "[role='textbox']"]
+      settings: ["Settings", "Cài đặt", "Tùy chọn"]
+      aspect_portrait: ["9:16", "Portrait", "Dọc"]
       generate: ["Create", "Generate", "Tạo"]
       download: ["Download", "Tải xuống"]
       download_quality: ["Original size", "Kích thước gốc", "720p", "1080p"]

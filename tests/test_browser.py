@@ -54,3 +54,63 @@ def test_only_me_check_requires_only_me_and_no_public_button(page):
     assert not _only_me_shown(page)
     page.set_content('<button>👥 Bạn bè</button>')
     assert not _only_me_shown(page)
+
+
+FAKE_FLOW = """<html><body>
+<button id="np" onclick="document.getElementById('ed').style.display='block';this.remove()">New project</button>
+<div id="ed" style="display:none">
+  <button onclick="document.getElementById('opt').style.display='block'">Settings</button>
+  <div id="opt" style="display:none"><button onclick="document.body.dataset.aspect='9:16'">Portrait 9:16</button></div>
+  <div id="box" contenteditable="true" role="textbox" style="width:400px;height:60px;border:1px solid"></div>
+  <button onclick="gen()">Create</button><div id="out"></div>
+</div>
+<script>
+let n = 0;
+async function gen() {
+  document.body.dataset.prompt = document.getElementById('box').innerText;
+  n += 1;
+  await new Promise(r => setTimeout(r, 1200));
+  const v = document.createElement('video');
+  if (n === 1) { v.src = '/clip.mp4'; }
+  else { const b = await (await fetch('/clip.mp4')).blob(); v.src = URL.createObjectURL(b); }
+  document.getElementById('out').appendChild(v);
+}
+</script></body></html>"""
+
+
+def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
+    import functools
+    import http.server
+    import subprocess
+    import threading
+
+    if not shutil.which("ffmpeg"):
+        pytest.skip("cần ffmpeg")
+    if CHROME:
+        os.environ.setdefault("FLOWAGENT_BROWSER_PATH", CHROME)
+    site = tmp_path / "site"
+    site.mkdir()
+    (site / "flow.html").write_text(FAKE_FLOW, encoding="utf-8")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc=size=320x180:rate=24:duration=1",
+                    "-pix_fmt", "yuv420p", str(site / "clip.mp4")], check=True)
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(site))
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+
+    from flow_agent.config import load_config
+    from flow_agent.producer.flow_browser import FlowBrowser
+
+    cfg = load_config(tmp_path / "missing.yaml")
+    cfg["data_dir"] = str(tmp_path / "data")
+    cfg["video"]["flow"].update({"url": f"http://127.0.0.1:{srv.server_port}/flow.html", "headless": True,
+                                 "generation_timeout_sec": 20, "browser_profile_dir": str(tmp_path / "prof")})
+    try:
+        with FlowBrowser(cfg, tmp_path / "debug") as fb:
+            assert fb.page.evaluate("document.body.dataset.aspect") == "9:16"
+            a = fb.generate_clip("Doctor says hello", tmp_path / "a.mp4")      # src http
+            b = fb.generate_clip("Doctor waves goodbye", tmp_path / "b.mp4")   # src blob:
+            assert fb.page.evaluate("document.body.dataset.prompt") == "Doctor waves goodbye"
+    finally:
+        srv.shutdown()
+    clip = (site / "clip.mp4").read_bytes()
+    assert a.read_bytes() == clip and b.read_bytes() == clip

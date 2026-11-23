@@ -103,16 +103,21 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 def normalize_clip(src: Path, dst: Path, width: int, height: int, fps: int = 30) -> Path:
+    """Đưa clip về đúng khung (vd 1080x1920). Clip lệch khung (Flow trả 16:9) được đặt giữa trên nền
+    chính nó phóng to + làm mờ — kiểu Reels quen thuộc — thay vì viền trắng."""
     dur = probe_duration(src) or 8.0
-    vf = (f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
-          f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:color=white,fps={fps},format=yuv420p,setsar=1")
+    fc = (f"[0:v]split=2[a][b];"
+          f"[a]scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height},boxblur=30:3,"
+          f"eq=brightness=0.04[bg];"
+          f"[b]scale={width}:{height}:force_original_aspect_ratio=decrease[fg];"
+          f"[bg][fg]overlay=(W-w)/2:(H-h)/2,fps={fps},format=yuv420p,setsar=1[v]")
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src)]
     if not has_audio(src):
-        cmd += ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=48000"]
-        cmd += ["-map", "0:v:0", "-map", "1:a:0"]
+        cmd += ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=48000", "-filter_complex", fc,
+                "-map", "[v]", "-map", "1:a:0"]
     else:
-        cmd += ["-map", "0:v:0", "-map", "0:a:0"]
-    cmd += ["-vf", vf, "-t", f"{dur:.3f}", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+        cmd += ["-filter_complex", fc, "-map", "[v]", "-map", "0:a:0"]
+    cmd += ["-t", f"{dur:.3f}", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
             "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", str(dst)]
     run(cmd)
     return dst
