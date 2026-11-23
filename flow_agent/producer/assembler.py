@@ -102,10 +102,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     return header + "\n".join(events) + "\n"
 
 
-def normalize_clip(src: Path, dst: Path, width: int, height: int, fps: int = 30) -> Path:
+def normalize_clip(src: Path, dst: Path, width: int, height: int, fps: int = 30,
+                   max_seconds: float | None = None) -> Path:
     """Đưa clip về đúng khung (vd 1080x1920). Clip lệch khung (Flow trả 16:9) được đặt giữa trên nền
     chính nó phóng to + làm mờ — kiểu Reels quen thuộc — thay vì viền trắng."""
     dur = probe_duration(src) or 8.0
+    if max_seconds and 0 < max_seconds < dur:  # Veo luôn trả 8s; cảnh kịch bản ngắn hơn thì cắt đúng nhịp
+        dur = float(max_seconds)
     fc = (f"[0:v]split=2[a][b];"
           f"[a]scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height},boxblur=30:3,"
           f"eq=brightness=0.04[bg];"
@@ -124,10 +127,13 @@ def normalize_clip(src: Path, dst: Path, width: int, height: int, fps: int = 30)
 
 
 def assemble(clips: list[Path], subtitles: list[str], out_path: Path, width: int = 1080, height: int = 1920,
-             font: str = "DejaVu Sans", burn_subtitles: bool = True) -> Path:
+             font: str = "DejaVu Sans", burn_subtitles: bool = True,
+             scene_seconds: list[float] | None = None) -> Path:
     work = out_path.parent / f"{out_path.stem}_work"
     work.mkdir(parents=True, exist_ok=True)
-    norm = [normalize_clip(c, work / f"n{i:02d}.mp4", width, height) for i, c in enumerate(clips)]
+    limits = scene_seconds or [None] * len(clips)
+    norm = [normalize_clip(c, work / f"n{i:02d}.mp4", width, height, max_seconds=lim)
+            for i, (c, lim) in enumerate(zip(clips, limits))]
     (work / "list.txt").write_text("".join(f"file '{p.name}'\n" for p in norm), encoding="utf-8")
     joined = work / "joined.mp4"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", "list.txt",

@@ -36,6 +36,8 @@ def test_assemble_end_to_end(tmp_path):
     w_h = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
                           "-of", "csv=p=0", str(out)], capture_output=True, text=True).stdout.strip()
     assert w_h == "1080,1920"
+    cut = assemble(clips, ["A", "B"], tmp_path / "cut.mp4", scene_seconds=[1.5, 8])  # cảnh 1 cắt còn 1,5s
+    assert abs(probe_duration(cut) - 3.5) < 0.4
 
 
 def test_scene_prompt_has_bible_dialogue_and_no_text():

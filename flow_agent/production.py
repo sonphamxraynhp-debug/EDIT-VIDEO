@@ -94,6 +94,7 @@ def produce(ctx: Ctx, script_id: int, retries: int = 2) -> int:
             width=int(ctx.cfg.get_path("video.width", 1080)), height=int(ctx.cfg.get_path("video.height", 1920)),
             font=ctx.cfg.get_path("video.font", "DejaVu Sans"),
             burn_subtitles=bool(ctx.cfg.get_path("video.burn_subtitles", True)),
+            scene_seconds=[s.seconds for s in sorted(draft.scenes, key=lambda s: s.idx)],
         )
         ctx.db.execute("UPDATE productions SET status='produced', video_path=?, clips_json=? WHERE id=?",
                        (str(video), json.dumps([str(c) for c in clips]), pid))
