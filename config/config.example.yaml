@@ -79,6 +79,9 @@ video:
       new_project: ["New project", "Dự án mới"]
       prompt_box: ["textarea", "[contenteditable='true']", "[role='textbox']"]
       settings: ["Settings", "Cài đặt", "Tùy chọn"]
+      video_mode: ["Text to Video", "Văn bản thành video"]          # Flow 2026 mặc định tạo ẢNH — phải chọn chế độ video
+      mode_menu: ["Text to Image", "Create Image", "Frames to Video", "Ingredients to Video"]
+      outputs_per_prompt: ["Outputs per prompt", "Số kết quả"]    # đặt = 1 để không tốn credit
       aspect_portrait: ["9:16", "Portrait", "Dọc"]
       generate: ["Create", "Generate", "Tạo"]
       download: ["Download", "Tải xuống"]

@@ -27,6 +27,10 @@ _BLOB_JS = """async (src) => {
 PROMPT_BOX_DEFAULT = ["textarea", "[contenteditable='true']", "[role='textbox']", "input[type='text']"]
 SETTINGS_DEFAULT = ["Settings", "Cài đặt", "Tùy chọn", "Options", "tune"]
 PORTRAIT_DEFAULT = ["9:16", "Portrait", "Dọc", "Khung dọc"]
+# Từ 2026 Flow ưu tiên tạo ẢNH; phải chuyển sang chế độ tạo video từ chữ trước khi gõ prompt
+VIDEO_MODE_DEFAULT = ["Text to Video", "Văn bản thành video", "Văn bản sang video"]
+MODE_MENU_DEFAULT = ["Text to Image", "Create Image", "Văn bản thành hình ảnh", "Frames to Video", "Ingredients to Video"]
+OUTPUTS_DEFAULT = ["Outputs per prompt", "Số kết quả", "Số đầu ra"]
 # Flow có thêm trang "New tool" (tạo công cụ) cũng có ô nhập — không được gõ prompt video vào đó
 _TOOL_BUILDER_URL = re.compile(r"/create-tools?(?:/|$)", re.IGNORECASE)
 _TOOL_BUILDER_HINT = re.compile(r"\b(app|tool|công cụ|ứng dụng)\b", re.IGNORECASE)
@@ -141,7 +145,43 @@ class FlowBrowser:
                           "hoặc dấu +), vào phần tạo VIDEO (không phải 'New tool') — agent sẽ tự làm tiếp.",
                     timeout_s=self.manual_wait, done_check=lambda: self._find_prompt_box() is not None):
                 raise FlowError(f"Không thấy ô nhập prompt trên Flow (ảnh lỗi: {shot})")
+        self._try_video_mode()
         self._try_portrait()
+        self._try_single_output()
+
+    def _try_video_mode(self) -> None:
+        """Chọn chế độ 'Text to Video'. Không thấy thì làm tiếp — _wait_new_video chỉ nhận <video>, không nhận ảnh."""
+        page = self.page
+        video = _as_list(self.sel.get("video_mode"), VIDEO_MODE_DEFAULT)
+        ok = click_any(page, video, timeout_ms=1500)
+        if not ok and click_any(page, _as_list(self.sel.get("mode_menu"), MODE_MENU_DEFAULT), timeout_ms=2000):
+            page.wait_for_timeout(600)
+            ok = click_any(page, video, timeout_ms=3000)
+            if not ok:
+                page.keyboard.press("Escape")
+        log.info("Flow: %s chế độ Text to Video", "đã chọn" if ok else "không thấy nút chọn")
+
+    def _try_single_output(self) -> None:
+        """Mỗi prompt chỉ tạo 1 clip (Flow mặc định có thể tạo 2–4 clip, tốn credit gấp nhiều lần)."""
+        page = self.page
+        if not click_any(page, _as_list(self.sel.get("outputs_per_prompt"), OUTPUTS_DEFAULT), timeout_ms=1500):
+            if not click_any(page, _as_list(self.sel.get("settings"), SETTINGS_DEFAULT), timeout_ms=2000):
+                return
+            page.wait_for_timeout(600)
+            click_any(page, _as_list(self.sel.get("outputs_per_prompt"), OUTPUTS_DEFAULT), timeout_ms=2000)
+        page.wait_for_timeout(500)
+        ok = False
+        for role in ("option", "menuitemradio", "menuitem", "radio", "button"):
+            loc = page.get_by_role(role, name="1", exact=True)
+            try:
+                if loc.count() and loc.first.is_visible():
+                    loc.first.click()
+                    ok = True
+                    break
+            except Exception:  # noqa: BLE001
+                continue
+        page.keyboard.press("Escape")
+        log.info("Flow: %s 1 kết quả mỗi prompt", "đã đặt" if ok else "không đặt được")
 
     def _try_portrait(self) -> None:
         """Cố chọn khung dọc 9:16 (nếu Flow có). Không được thì vẫn làm tiếp — bước ghép sẽ lót nền mờ."""

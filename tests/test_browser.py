@@ -59,8 +59,13 @@ def test_only_me_check_requires_only_me_and_no_public_button(page):
 FAKE_FLOW = """<html><body>
 <button id="np" onclick="document.getElementById('ed').style.display='block';this.remove()">New project</button>
 <div id="ed" style="display:none">
+  <button onclick="document.getElementById('modes').style.display='block'">Text to Image</button>
+  <div id="modes" style="display:none"><button onclick="document.body.dataset.mode='video'">Text to Video</button></div>
   <button onclick="document.getElementById('opt').style.display='block'">Settings</button>
-  <div id="opt" style="display:none"><button onclick="document.body.dataset.aspect='9:16'">Portrait 9:16</button></div>
+  <div id="opt" style="display:none"><button onclick="document.body.dataset.aspect='9:16'">Portrait 9:16</button>
+    <button onclick="document.getElementById('outs').style.display='block'">Outputs per prompt</button>
+    <div id="outs" style="display:none" role="listbox"><div role="option" onclick="document.body.dataset.outputs='1'">1</div>
+      <div role="option" onclick="document.body.dataset.outputs='2'">2</div></div></div>
   <div id="box" contenteditable="true" role="textbox" style="width:400px;height:60px;border:1px solid"></div>
   <button onclick="gen()">Create</button><div id="out"></div>
 </div>
@@ -113,6 +118,8 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
         with FlowBrowser(cfg, tmp_path / "debug") as fb:
             assert fb.page.url.rstrip("/").endswith("/project/p1")  # đã rời trang "New tool"
             assert fb.page.evaluate("document.body.dataset.aspect") == "9:16"
+            assert fb.page.evaluate("document.body.dataset.mode") == "video"     # đã chuyển từ tạo ảnh sang video
+            assert fb.page.evaluate("document.body.dataset.outputs") == "1"      # 1 clip mỗi prompt
             a = fb.generate_clip("Doctor says hello", tmp_path / "a.mp4")      # src http
             b = fb.generate_clip("Doctor waves goodbye", tmp_path / "b.mp4")   # src blob:
             assert fb.page.evaluate("document.body.dataset.prompt") == "Doctor waves goodbye"
