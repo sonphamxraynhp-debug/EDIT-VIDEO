@@ -52,6 +52,31 @@ def _near(a: dict, b: dict | None, margin: float = 220) -> bool:
     return a["y"] - margin <= cy <= a["y"] + a["height"] + margin
 
 
+_IMG_EXT = {".jpg", ".jpeg", ".png", ".webp"}
+INGREDIENTS_MODE_DEFAULT = ["Ingredients to Video", "Thành phần thành video", "Nguyên liệu thành video"]
+ADD_REF_DEFAULT = ["add_photo_alternate", "Add image", "Add ingredient", "Upload", "Thêm ảnh", "Tải ảnh lên", "add"]
+REF_CONFIRM_DEFAULT = ["Crop and save", "Save", "Done", "Cắt và lưu", "Lưu", "Xong"]
+REF_PROMPT_PREFIX = ("The doctor in this video is the real person shown in the reference image(s): keep his face, "
+                     "hairstyle and build exactly the same in every shot. ")
+_IMG_BOXES_JS = """() => Array.from(document.querySelectorAll('img')).filter(i => i.offsetParent !== null)
+  .map(i => i.getBoundingClientRect()).filter(r => r.width > 8 && r.width < 260)
+  .map(r => ({x: r.x, y: r.y, width: r.width, height: r.height}))"""
+
+
+def reference_images(cfg) -> list[Path]:  # noqa: ANN001
+    """Ảnh tham chiếu nhân vật: video.flow.reference_images trong config, hoặc mọi ảnh trong thư mục anh_tham_chieu/."""
+    from ..config import ROOT
+
+    listed = cfg.get_path("video.flow.reference_images", None)
+    if listed:
+        paths = [Path(p) if Path(p).is_absolute() else ROOT / p for p in ([listed] if isinstance(listed, str) else listed)]
+    else:
+        folder = Path(cfg.get_path("video.flow.reference_dir", "anh_tham_chieu"))
+        folder = folder if folder.is_absolute() else ROOT / folder
+        paths = sorted(folder.glob("*")) if folder.is_dir() else []
+    return [p for p in paths if p.is_file() and p.suffix.lower() in _IMG_EXT][:3]
+
+
 class FlowError(RuntimeError):
     pass
 
@@ -72,6 +97,7 @@ class FlowBrowser:
         self.manual_wait = int(cfg.get_path("video.flow.manual_wait_sec", 900))
         self.aspect = cfg.get_path("video.aspect_ratio", "9:16")
         self.debug_dir = debug_dir
+        self.refs = reference_images(cfg)
         self._cm = None
         self.page = None
 
@@ -170,7 +196,7 @@ class FlowBrowser:
                 raise FlowError(f"Không thấy ô nhập prompt trên Flow (ảnh lỗi: {shot})")
         box = self._find_prompt_box(5000)
         if box is not None:
-            self._try_video_mode(box)
+            self._try_video_mode(box, ingredients=bool(self.refs))
             self._try_bar_settings(box)
         self._dump_ui("flow-ready")
 
@@ -220,10 +246,12 @@ class FlowBrowser:
             return False
         return click_any(page, labels, timeout_ms=2500, roles=("option", "menuitemradio", "menuitem", "radio", "button"))
 
-    def _try_video_mode(self, box) -> None:  # noqa: ANN001
-        """Flow 2026 ưu tiên tạo ẢNH: mở nút chế độ trong thanh prompt rồi chọn 'Text to Video'."""
+    def _try_video_mode(self, box, ingredients: bool = False) -> None:  # noqa: ANN001
+        """Flow 2026 ưu tiên tạo ẢNH: mở nút chế độ trong thanh prompt rồi chọn 'Text to Video'
+        (hoặc 'Ingredients to Video' khi có ảnh tham chiếu nhân vật)."""
         page = self.page
-        video = _as_list(self.sel.get("video_mode"), VIDEO_MODE_DEFAULT)
+        video = (_as_list(self.sel.get("ingredients_mode"), INGREDIENTS_MODE_DEFAULT) if ingredients
+                 else _as_list(self.sel.get("video_mode"), VIDEO_MODE_DEFAULT))
         ok = False
         opened = self._bar_click(box, _as_list(self.sel.get("mode_menu"), MODE_MENU_DEFAULT) + video, exclude=None)
         if opened:
@@ -231,7 +259,8 @@ class FlowBrowser:
             ok = self._pick_option(video)
             if not ok:
                 page.keyboard.press("Escape")
-        log.info("Flow: %s chế độ Text to Video (nút chế độ: %s)", "đã chọn" if ok else "không chọn được", opened)
+        log.info("Flow: %s chế độ %s (nút chế độ: %s)", "đã chọn" if ok else "không chọn được",
+                 "Ingredients to Video" if ingredients else "Text to Video", opened)
 
     def _try_bar_settings(self, box) -> None:  # noqa: ANN001
         """Mở cài đặt CỦA THANH PROMPT (biểu tượng 'tune') — không phải bánh răng tài khoản — chọn 9:16 và 1 kết quả."""
@@ -257,6 +286,51 @@ class FlowBrowser:
         else:
             log.info("Flow: không thấy nút cài đặt trong thanh prompt; khung dọc 9:16 %s", "✓" if ok_aspect else "✗")
 
+    # ------------------------------------------------------------------ ảnh tham chiếu nhân vật
+    def _refs_attached(self, box) -> int:  # noqa: ANN001
+        """Đếm ảnh nhỏ (thumbnail) đang gắn trong thanh prompt."""
+        try:
+            bb = box.bounding_box()
+            boxes = self.page.evaluate(_IMG_BOXES_JS)
+        except Exception:  # noqa: BLE001
+            return 0
+        return sum(1 for b in boxes if bb and _near(bb, b))
+
+    def _ensure_refs(self, box) -> None:  # noqa: ANN001
+        if self._refs_attached(box):
+            return
+        page = self.page
+        files = [str(p) for p in self.refs]
+        ok = False
+        inputs = page.locator("input[type='file']")
+        try:
+            if inputs.count():
+                inp = inputs.first
+                inp.set_input_files(files if inp.get_attribute("multiple") is not None else files[:1])
+                ok = True
+        except Exception as exc:  # noqa: BLE001
+            log.warning("Gắn ảnh tham chiếu qua ô chọn file lỗi: %s", exc)
+        if not ok:
+            try:
+                with page.expect_file_chooser(timeout=6000) as fc:
+                    if not self._bar_click(box, _as_list(self.sel.get("add_reference"), ADD_REF_DEFAULT), exclude=None):
+                        raise FlowError("không thấy nút thêm ảnh")
+                chooser = fc.value
+                chooser.set_files(files if chooser.is_multiple() else files[:1])
+                ok = True
+            except Exception as exc:  # noqa: BLE001
+                log.warning("Không tự gắn được ảnh tham chiếu: %s", exc)
+        if ok:
+            page.wait_for_timeout(2500)
+            click_any(page, _as_list(self.sel.get("reference_confirm"), REF_CONFIRM_DEFAULT), timeout_ms=3000)
+            page.wait_for_timeout(1500)
+        n = self._refs_attached(box)
+        log.info("Flow: ảnh tham chiếu trong thanh prompt: %d", n)
+        if not n and not ok and not self.headless:
+            wait_for_user(page, "Agent chưa gắn được ảnh tham chiếu. Hãy bấm nút thêm ảnh (+) trong thanh prompt của Flow và "
+                                f"chọn ảnh trong thư mục {self.refs[0].parent} — agent sẽ tự làm tiếp.",
+                          timeout_s=self.manual_wait, done_check=lambda: self._refs_attached(box) > 0)
+
     def _dump_ui(self, name: str) -> None:
         """Lưu ảnh chụp + danh sách nút đang hiện để chẩn đoán khi Flow đổi giao diện (data/debug)."""
         try:
@@ -277,6 +351,9 @@ class FlowBrowser:
         box = self._find_prompt_box(15000)
         if box is None:
             raise FlowError(f"Mất ô nhập prompt (ảnh lỗi: {debug_shot(page, self.debug_dir, 'flow-prompt')})")
+        if self.refs:
+            self._ensure_refs(box)
+            prompt = REF_PROMPT_PREFIX + prompt
         self._fill_prompt(box, prompt)
         page.wait_for_timeout(500)
         if not self._click_generate(box):

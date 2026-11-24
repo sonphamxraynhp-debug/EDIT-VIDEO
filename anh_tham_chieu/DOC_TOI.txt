@@ -1,0 +1,6 @@
+BỎ ẢNH THAM CHIẾU CỦA BÁC SĨ VÀO THƯ MỤC NÀY (1–3 ảnh .jpg/.png/.webp)
+
+- Ảnh chân dung rõ mặt, chính diện, ánh sáng tốt; nên 1 ảnh mặc áo blouse trắng.
+- Chỉ dùng ảnh của chính bác sĩ (người đã đồng ý). Không dùng ảnh bệnh nhân hay người khác.
+- Có ảnh ở đây, agent tự chuyển Google Flow sang chế độ "Ingredients to Video" và gắn ảnh vào
+  mỗi cảnh để bác sĩ trong video giống ảnh. Không có ảnh thì agent dùng "Text to Video" như cũ.

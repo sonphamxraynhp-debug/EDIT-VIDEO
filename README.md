@@ -182,3 +182,11 @@ pip install pytest && python -m pytest -q
 
 Test chạy offline với LLM giả: phân tích số liệu FB tiếng Việt, cổng an toàn, chọn top 3, vòng sửa, vòng tự học,
 ghép video ffmpeg thật, bộ thu thập link trên trang HTML giả lập.
+
+
+## Dùng ảnh thật của bác sĩ làm nhân vật (ảnh tham chiếu)
+
+Bỏ 1–3 ảnh chân dung rõ mặt của bác sĩ (nên có 1 ảnh mặc áo blouse) vào thư mục `anh_tham_chieu/` rồi chạy lại
+`LAM_VIDEO.bat`. Agent tự chuyển Google Flow sang chế độ **Ingredients to Video**, gắn ảnh vào thanh prompt cho mỗi
+cảnh và bỏ phần mô tả nhân vật tưởng tượng. Không có ảnh thì dùng **Text to Video** như cũ.
+Ảnh trong thư mục này không bao giờ được đưa lên GitHub (.gitignore). Chỉ dùng ảnh của chính bác sĩ.

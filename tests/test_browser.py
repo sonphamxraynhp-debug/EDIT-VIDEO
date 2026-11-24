@@ -65,11 +65,15 @@ FAKE_FLOW = """<html><body>
     <div id="box" contenteditable="true" role="textbox" style="width:400px;height:60px;border:1px solid"></div>
     <button onclick="document.getElementById('modes').style.display='block'">Create Image</button>
     <button onclick="document.getElementById('opt').style.display='block'"><i>tune</i></button>
+    <button onclick="document.getElementById('f').click()"><i>add_photo_alternate</i></button>
+    <input id="f" type="file" accept="image/*" style="display:none" onchange="addRef(this)">
+    <span id="thumbs"></span>
     <button aria-label="Close">x</button><button onclick="gen()"><i>arrow_forward</i></button>
   </div>
   <div id="modes" style="display:none" role="menu">
     <div role="menuitem" onclick="document.body.dataset.mode='image'">Create Image</div>
-    <div role="menuitem" onclick="document.body.dataset.mode='video'">Text to Video</div></div>
+    <div role="menuitem" onclick="document.body.dataset.mode='video'">Text to Video</div>
+    <div role="menuitem" onclick="document.body.dataset.mode='ingredients'">Ingredients to Video</div></div>
   <div id="opt" style="display:none">
     <button role="combobox" onclick="document.getElementById('ar').style.display='block'">Aspect Ratio Landscape (16:9)</button>
     <div id="ar" style="display:none" role="listbox"><div role="option" onclick="document.body.dataset.aspect='16:9'">Landscape (16:9)</div>
@@ -81,6 +85,12 @@ FAKE_FLOW = """<html><body>
 </div>
 <script>
 let n = 0;
+function addRef(inp) {
+  document.body.dataset.uploads = String(Number(document.body.dataset.uploads || 0) + 1);
+  const im = document.createElement('img');
+  im.src = '/clip.png'; im.width = 40; im.height = 40;
+  document.getElementById('thumbs').appendChild(im);
+}
 async function gen() {
   document.body.dataset.prompt = document.getElementById('box').innerText;
   n += 1;
@@ -139,3 +149,60 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
         srv.shutdown()
     clip = (site / "clip.mp4").read_bytes()
     assert a.read_bytes() == clip and b.read_bytes() == clip
+
+
+def test_flow_browser_uses_reference_images(tmp_path):
+    """Có ảnh tham chiếu -> chọn 'Ingredients to Video', gắn ảnh 1 lần vào thanh prompt, prompt nhắc giữ đúng mặt."""
+    import functools
+    import http.server
+    import threading
+
+    if CHROME:
+        os.environ.setdefault("FLOWAGENT_BROWSER_PATH", CHROME)
+    site = tmp_path / "site"
+    site.mkdir()
+    (site / "flow.html").write_text(FAKE_FLOW, encoding="utf-8")
+    (site / "clip.mp4").write_bytes(b"0" * 5000)
+    png = (b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4"
+           b"\x89\x00\x00\x00\rIDATx\x9cc\xf8\xff\xff?\x00\x05\xfe\x02\xfe\xa7\x35\x81\x84\x00\x00\x00\x00IEND\xaeB`\x82")
+    (site / "clip.png").write_bytes(png)
+    ref = tmp_path / "bac-si.png"
+    ref.write_bytes(png)
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(site))
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+
+    from flow_agent.config import load_config
+    from flow_agent.producer.flow_browser import FlowBrowser
+
+    cfg = load_config(tmp_path / "missing.yaml")
+    cfg["data_dir"] = str(tmp_path / "data")
+    cfg["video"]["flow"].update({"url": f"http://127.0.0.1:{srv.server_port}/flow.html", "headless": True,
+                                 "generation_timeout_sec": 20, "browser_profile_dir": str(tmp_path / "prof"),
+                                 "reference_images": [str(ref)]})
+    try:
+        with FlowBrowser(cfg, tmp_path / "debug") as fb:
+            assert fb.refs == [ref]
+            assert fb.page.evaluate("document.body.dataset.mode") == "ingredients"
+            fb.generate_clip("Doctor says hello", tmp_path / "a.mp4")
+            fb.generate_clip("Doctor waves", tmp_path / "b.mp4")
+            assert fb.page.evaluate("document.body.dataset.uploads") == "1"   # ảnh còn trong thanh -> không gắn lại
+            assert fb.page.evaluate("document.body.dataset.prompt").startswith("The doctor in this video is the real person")
+    finally:
+        srv.shutdown()
+
+
+def test_reference_images_from_folder(tmp_path, monkeypatch):
+    from flow_agent.config import load_config
+    from flow_agent.producer.flow_browser import reference_images
+
+    cfg = load_config(tmp_path / "missing.yaml")
+    folder = tmp_path / "anh"
+    folder.mkdir()
+    for name in ("b.jpg", "a.PNG", "DOC_TOI.txt", "c.webp", "d.jpeg"):
+        (folder / name).write_bytes(b"x")
+    cfg["video"]["flow"]["reference_dir"] = str(folder)
+    cfg["video"]["flow"].pop("reference_images", None)
+    assert [p.name for p in reference_images(cfg)] == ["a.PNG", "b.jpg", "c.webp"]   # tối đa 3 ảnh, bỏ file chữ
+    cfg["video"]["flow"]["reference_dir"] = str(tmp_path / "khong-co")
+    assert reference_images(cfg) == []
