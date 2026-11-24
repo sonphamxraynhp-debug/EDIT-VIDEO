@@ -17,7 +17,12 @@ from ..browser import click_any, debug_shot, persistent_context, wait_for_user
 
 log = logging.getLogger(__name__)
 
-_VIDEO_SRCS_JS = "() => Array.from(document.querySelectorAll('video')).map(v => v.currentSrc || v.src).filter(Boolean)"
+_VIDEO_SRCS_JS = ("() => Array.from(document.querySelectorAll('video, video source'))"
+                  ".map(v => v.currentSrc || v.src).filter(Boolean)")
+_BUTTONS_JS = """() => Array.from(document.querySelectorAll('button,[role=button],[role=combobox],[role=tab],a'))
+  .filter(e => e.offsetParent !== null)
+  .map(e => (e.getAttribute('aria-label') || e.innerText || e.title || '').replace(/\\s+/g, ' ').trim())
+  .filter(Boolean)"""
 _BLOB_JS = """async (src) => {
   const buf = await (await fetch(src)).arrayBuffer();
   let s = ''; const b = new Uint8Array(buf);
@@ -25,17 +30,26 @@ _BLOB_JS = """async (src) => {
   return btoa(s);
 }"""
 PROMPT_BOX_DEFAULT = ["textarea", "[contenteditable='true']", "[role='textbox']", "input[type='text']"]
-SETTINGS_DEFAULT = ["Settings", "Cài đặt", "Tùy chọn", "Options", "tune"]
+SETTINGS_DEFAULT = ["tune", "Settings", "Cài đặt", "Tùy chọn", "Options"]
+ASPECT_MENU_DEFAULT = ["Aspect Ratio", "Aspect ratio", "Tỉ lệ khung hình", "Tỷ lệ khung hình", "Landscape", "16:9"]
 PORTRAIT_DEFAULT = ["9:16", "Portrait", "Dọc", "Khung dọc"]
 # Từ 2026 Flow ưu tiên tạo ẢNH; phải chuyển sang chế độ tạo video từ chữ trước khi gõ prompt
 VIDEO_MODE_DEFAULT = ["Text to Video", "Văn bản thành video", "Văn bản sang video"]
 MODE_MENU_DEFAULT = ["Text to Image", "Create Image", "Văn bản thành hình ảnh", "Frames to Video", "Ingredients to Video"]
 GENERATE_DEFAULT = ["arrow_forward", "arrow_upward", "send", "Generate", "Create", "Submit", "Tạo", "Gửi"]
-_NOT_GENERATE = re.compile(r"tool|công cụ|collection|bộ sưu tập|character|nhân vật|scene|library|thư viện", re.IGNORECASE)
+_NOT_GENERATE = re.compile(r"tool|công cụ|collection|bộ sưu tập|character|nhân vật|scene|library|thư viện|image|hình ảnh|close|đóng", re.IGNORECASE)
 OUTPUTS_DEFAULT = ["Outputs per prompt", "Số kết quả", "Số đầu ra"]
 # Flow có thêm trang "New tool" (tạo công cụ) cũng có ô nhập — không được gõ prompt video vào đó
 _TOOL_BUILDER_URL = re.compile(r"/create-tools?(?:/|$)", re.IGNORECASE)
 _TOOL_BUILDER_HINT = re.compile(r"\b(app|tool|công cụ|ứng dụng)\b", re.IGNORECASE)
+
+
+def _near(a: dict, b: dict | None, margin: float = 220) -> bool:
+    """Nút b có nằm trong dải dọc quanh ô prompt a không (thanh prompt của Flow cao vài trăm px)."""
+    if not b:
+        return False
+    cy = b["y"] + b["height"] / 2
+    return a["y"] - margin <= cy <= a["y"] + a["height"] + margin
 
 
 class FlowError(RuntimeError):
@@ -43,9 +57,9 @@ class FlowError(RuntimeError):
 
 
 def _as_list(v, default: list[str]) -> list[str]:  # noqa: ANN001
-    if not v:
-        return default
-    return [v] if isinstance(v, str) else list(v)
+    """Nhãn trong config được thử TRƯỚC, sau đó vẫn thử nhãn mặc định (config cũ không làm mất nhãn mới)."""
+    own = [] if not v else ([v] if isinstance(v, str) else list(v))
+    return list(dict.fromkeys(own + list(default)))
 
 
 class FlowBrowser:
@@ -119,30 +133,11 @@ class FlowBrowser:
             page.wait_for_timeout(3000)
 
     def _click_generate(self, box) -> bool:  # noqa: ANN001
-        """Bấm nút gửi NẰM CẠNH ô prompt (mũi tên/Create). Không bấm nhầm 'Create tool', 'Library +' ở thanh bên."""
-        labels = _as_list(self.sel.get("generate"), GENERATE_DEFAULT)
-        rx = re.compile("|".join(re.escape(x) for x in labels), re.IGNORECASE)
-        container = box
-        for _ in range(6):  # đi ngược lên tối đa 6 tầng tìm khung chứa nút gửi
-            container = container.locator("xpath=..")
-            buttons = container.locator("button, [role='button']")
-            try:
-                n = buttons.count()
-            except Exception:  # noqa: BLE001
-                return False
-            for i in reversed(range(n)):  # nút gửi thường nằm cuối khung prompt
-                b = buttons.nth(i)
-                try:
-                    if not (b.is_visible() and b.is_enabled()):
-                        continue
-                    name = " ".join(filter(None, [b.get_attribute("aria-label"), b.inner_text(), b.get_attribute("title")]))
-                    if rx.search(name) and not _NOT_GENERATE.search(name):
-                        b.click()
-                        log.info("Flow: đã bấm nút tạo '%s'", name.strip()[:40])
-                        return True
-                except Exception:  # noqa: BLE001
-                    continue
-        return False
+        """Bấm nút gửi NẰM TRONG thanh prompt (mũi tên/Create) — không bấm nhầm 'Create tool', 'Library +'."""
+        name = self._bar_click(box, _as_list(self.sel.get("generate"), GENERATE_DEFAULT), exclude=_NOT_GENERATE)
+        if name:
+            log.info("Flow: đã bấm nút tạo '%s'", name[:40])
+        return bool(name)
 
     def _fill_prompt(self, box, prompt: str) -> None:  # noqa: ANN001
         tag = (box.evaluate("e => e.tagName") or "").lower()
@@ -173,56 +168,104 @@ class FlowBrowser:
                           "hoặc dấu +), vào phần tạo VIDEO (không phải 'New tool') — agent sẽ tự làm tiếp.",
                     timeout_s=self.manual_wait, done_check=lambda: self._find_prompt_box() is not None):
                 raise FlowError(f"Không thấy ô nhập prompt trên Flow (ảnh lỗi: {shot})")
-        self._try_video_mode()
-        self._try_portrait()
-        self._try_single_output()
+        box = self._find_prompt_box(5000)
+        if box is not None:
+            self._try_video_mode(box)
+            self._try_bar_settings(box)
+        self._dump_ui("flow-ready")
 
-    def _try_video_mode(self) -> None:
-        """Chọn chế độ 'Text to Video'. Không thấy thì làm tiếp — _wait_new_video chỉ nhận <video>, không nhận ảnh."""
+    # ------------------------------------------------------------------ thanh prompt (chế độ, khung hình, số kết quả)
+    def _bar_click(self, box, labels: list[str], exclude: re.Pattern | None = _NOT_GENERATE) -> str | None:  # noqa: ANN001
+        """Bấm nút khớp nhãn NẰM TRONG khung ô prompt (đi ngược lên tối đa 6 tầng). Trả về tên nút đã bấm."""
+        rx = re.compile("|".join(re.escape(x) for x in labels), re.IGNORECASE)
+        try:
+            bb = box.bounding_box()
+        except Exception:  # noqa: BLE001
+            bb = None
+        container = box
+        for _ in range(6):
+            container = container.locator("xpath=..")
+            buttons = container.locator("button, [role='button'], [role='combobox']")
+            try:
+                n = buttons.count()
+            except Exception:  # noqa: BLE001
+                return None
+            for i in reversed(range(n)):
+                b = buttons.nth(i)
+                try:
+                    if not (b.is_visible() and b.is_enabled()):
+                        continue
+                    if bb and not _near(bb, b.bounding_box()):
+                        continue  # nút ở xa ô prompt (thanh bên, bánh răng tài khoản…) — bỏ qua
+                    name = " ".join(filter(None, [b.get_attribute("aria-label"), b.inner_text(), b.get_attribute("title")]))
+                    if rx.search(name) and not (exclude and exclude.search(name)):
+                        b.click()
+                        return name.strip()
+                except Exception:  # noqa: BLE001
+                    continue
+        return None
+
+    def _pick_option(self, labels: list[str], exact: str | None = None) -> bool:
+        """Chọn 1 mục trong menu/danh sách vừa mở (menu thường nằm ngoài khung prompt)."""
+        page = self.page
+        if exact is not None:
+            for role in ("option", "menuitemradio", "menuitem", "radio", "button"):
+                loc = page.get_by_role(role, name=exact, exact=True)
+                try:
+                    if loc.count() and loc.first.is_visible():
+                        loc.first.click()
+                        return True
+                except Exception:  # noqa: BLE001
+                    continue
+            return False
+        return click_any(page, labels, timeout_ms=2500, roles=("option", "menuitemradio", "menuitem", "radio", "button"))
+
+    def _try_video_mode(self, box) -> None:  # noqa: ANN001
+        """Flow 2026 ưu tiên tạo ẢNH: mở nút chế độ trong thanh prompt rồi chọn 'Text to Video'."""
         page = self.page
         video = _as_list(self.sel.get("video_mode"), VIDEO_MODE_DEFAULT)
-        ok = click_any(page, video, timeout_ms=1500)
-        if not ok and click_any(page, _as_list(self.sel.get("mode_menu"), MODE_MENU_DEFAULT), timeout_ms=2000):
-            page.wait_for_timeout(600)
-            ok = click_any(page, video, timeout_ms=3000)
+        ok = False
+        opened = self._bar_click(box, _as_list(self.sel.get("mode_menu"), MODE_MENU_DEFAULT) + video, exclude=None)
+        if opened:
+            page.wait_for_timeout(700)
+            ok = self._pick_option(video)
             if not ok:
                 page.keyboard.press("Escape")
-        log.info("Flow: %s chế độ Text to Video", "đã chọn" if ok else "không thấy nút chọn")
+        log.info("Flow: %s chế độ Text to Video (nút chế độ: %s)", "đã chọn" if ok else "không chọn được", opened)
 
-    def _try_single_output(self) -> None:
-        """Mỗi prompt chỉ tạo 1 clip (Flow mặc định có thể tạo 2–4 clip, tốn credit gấp nhiều lần)."""
-        page = self.page
-        if not click_any(page, _as_list(self.sel.get("outputs_per_prompt"), OUTPUTS_DEFAULT), timeout_ms=1500):
-            if not click_any(page, _as_list(self.sel.get("settings"), SETTINGS_DEFAULT), timeout_ms=2000):
-                return
-            page.wait_for_timeout(600)
-            click_any(page, _as_list(self.sel.get("outputs_per_prompt"), OUTPUTS_DEFAULT), timeout_ms=2000)
-        page.wait_for_timeout(500)
-        ok = False
-        for role in ("option", "menuitemradio", "menuitem", "radio", "button"):
-            loc = page.get_by_role(role, name="1", exact=True)
-            try:
-                if loc.count() and loc.first.is_visible():
-                    loc.first.click()
-                    ok = True
-                    break
-            except Exception:  # noqa: BLE001
-                continue
-        page.keyboard.press("Escape")
-        log.info("Flow: %s 1 kết quả mỗi prompt", "đã đặt" if ok else "không đặt được")
-
-    def _try_portrait(self) -> None:
-        """Cố chọn khung dọc 9:16 (nếu Flow có). Không được thì vẫn làm tiếp — bước ghép sẽ lót nền mờ."""
-        if self.aspect != "9:16":
-            return
+    def _try_bar_settings(self, box) -> None:  # noqa: ANN001
+        """Mở cài đặt CỦA THANH PROMPT (biểu tượng 'tune') — không phải bánh răng tài khoản — chọn 9:16 và 1 kết quả."""
         page = self.page
         portrait = _as_list(self.sel.get("aspect_portrait"), PORTRAIT_DEFAULT)
-        ok = click_any(page, portrait, timeout_ms=1500)
-        if not ok and click_any(page, _as_list(self.sel.get("settings"), SETTINGS_DEFAULT), timeout_ms=3000):
-            page.wait_for_timeout(800)
-            ok = click_any(page, portrait, timeout_ms=3000)
+        ok_aspect = self.aspect != "9:16"
+        if not ok_aspect and self._bar_click(box, portrait, exclude=None):
+            ok_aspect = True
+        opened = self._bar_click(box, _as_list(self.sel.get("settings"), SETTINGS_DEFAULT), exclude=None)
+        if opened:
+            page.wait_for_timeout(700)
+            if not ok_aspect:
+                ok_aspect = self._pick_option(portrait)
+                if not ok_aspect and click_any(page, _as_list(self.sel.get("aspect_menu"), ASPECT_MENU_DEFAULT), timeout_ms=2000):
+                    page.wait_for_timeout(600)
+                    ok_aspect = self._pick_option(portrait)
+            ok_out = False
+            if click_any(page, _as_list(self.sel.get("outputs_per_prompt"), OUTPUTS_DEFAULT), timeout_ms=2000):
+                page.wait_for_timeout(600)
+                ok_out = self._pick_option([], exact="1")
             page.keyboard.press("Escape")
-        log.info("Flow: %s khung dọc 9:16", "đã chọn" if ok else "không tìm thấy tuỳ chọn")
+            log.info("Flow: khung dọc 9:16 %s; 1 kết quả mỗi prompt %s", "✓" if ok_aspect else "✗", "✓" if ok_out else "✗")
+        else:
+            log.info("Flow: không thấy nút cài đặt trong thanh prompt; khung dọc 9:16 %s", "✓" if ok_aspect else "✗")
+
+    def _dump_ui(self, name: str) -> None:
+        """Lưu ảnh chụp + danh sách nút đang hiện để chẩn đoán khi Flow đổi giao diện (data/debug)."""
+        try:
+            names = self.page.evaluate(_BUTTONS_JS)
+            self.debug_dir.mkdir(parents=True, exist_ok=True)
+            (self.debug_dir / f"{name}-buttons.txt").write_text(f"URL: {self.page.url}\n" + "\n".join(names), encoding="utf-8")
+            debug_shot(self.page, self.debug_dir, name)
+        except Exception as exc:  # noqa: BLE001
+            log.debug("Không lưu được ảnh chẩn đoán: %s", exc)
 
     # ------------------------------------------------------------------ tạo 1 clip
     def _new_srcs(self, before: set[str]) -> list[str]:

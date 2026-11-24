@@ -57,18 +57,27 @@ def test_only_me_check_requires_only_me_and_no_public_button(page):
 
 
 FAKE_FLOW = """<html><body>
-<nav><a href="create-tool/" onclick="document.body.dataset.wrong='1'">Create tool</a></nav>
+<nav style="height:400px"><a href="create-tool/" onclick="document.body.dataset.wrong='tool'">Create tool</a>
+  <button aria-label="Settings" onclick="document.body.dataset.wrong='gear'">⚙</button></nav>
 <button id="np" onclick="document.getElementById('ed').style.display='block';this.remove()">New project</button>
 <div id="ed" style="display:none">
-  <button onclick="document.getElementById('modes').style.display='block'">Text to Image</button>
-  <div id="modes" style="display:none"><button onclick="document.body.dataset.mode='video'">Text to Video</button></div>
-  <button onclick="document.getElementById('opt').style.display='block'">Settings</button>
-  <div id="opt" style="display:none"><button onclick="document.body.dataset.aspect='9:16'">Portrait 9:16</button>
-    <button onclick="document.getElementById('outs').style.display='block'">Outputs per prompt</button>
+  <div class="bar">
+    <div id="box" contenteditable="true" role="textbox" style="width:400px;height:60px;border:1px solid"></div>
+    <button onclick="document.getElementById('modes').style.display='block'">Create Image</button>
+    <button onclick="document.getElementById('opt').style.display='block'"><i>tune</i></button>
+    <button aria-label="Close">x</button><button onclick="gen()"><i>arrow_forward</i></button>
+  </div>
+  <div id="modes" style="display:none" role="menu">
+    <div role="menuitem" onclick="document.body.dataset.mode='image'">Create Image</div>
+    <div role="menuitem" onclick="document.body.dataset.mode='video'">Text to Video</div></div>
+  <div id="opt" style="display:none">
+    <button role="combobox" onclick="document.getElementById('ar').style.display='block'">Aspect Ratio Landscape (16:9)</button>
+    <div id="ar" style="display:none" role="listbox"><div role="option" onclick="document.body.dataset.aspect='16:9'">Landscape (16:9)</div>
+      <div role="option" onclick="document.body.dataset.aspect='9:16'">Portrait (9:16)</div></div>
+    <button role="combobox" onclick="document.getElementById('outs').style.display='block'">Outputs per prompt 2</button>
     <div id="outs" style="display:none" role="listbox"><div role="option" onclick="document.body.dataset.outputs='1'">1</div>
       <div role="option" onclick="document.body.dataset.outputs='2'">2</div></div></div>
-  <div class="bar"><div id="box" contenteditable="true" role="textbox" style="width:400px;height:60px;border:1px solid"></div>
-  <button aria-label="Close">x</button><button onclick="gen()"><i>arrow_forward</i></button></div><div id="out"></div>
+  <div id="out"></div>
 </div>
 <script>
 let n = 0;
@@ -124,7 +133,8 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
             a = fb.generate_clip("Doctor says hello", tmp_path / "a.mp4")      # src http
             b = fb.generate_clip("Doctor waves goodbye", tmp_path / "b.mp4")   # src blob:
             assert fb.page.evaluate("document.body.dataset.prompt") == "Doctor waves goodbye"
-            assert not fb.page.evaluate("document.body.dataset.wrong")  # không bấm nhầm 'Create tool'
+            assert not fb.page.evaluate("document.body.dataset.wrong")  # không bấm nhầm 'Create tool' hay bánh răng tài khoản
+        assert (tmp_path / "debug" / "flow-ready-buttons.txt").exists()   # có file chẩn đoán giao diện
     finally:
         srv.shutdown()
     clip = (site / "clip.mp4").read_bytes()
