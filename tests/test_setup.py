@@ -98,3 +98,22 @@ def test_make_video_now_picks_best_unblocked_from_latest_seed(ctx, monkeypatch, 
     assert "dưới ngưỡng" in ctx.db.one("SELECT * FROM events WHERE kind='manual_video'")["message"]
     # lần sau lấy bản kế tiếp, không làm lại bản đã làm
     assert pl.make_video_now(ctx, do_upload=False)["script_id"] != out["script_id"]
+
+
+def test_wait_logged_in_detects_cookie_without_enter():
+    from flow_agent.setup_wizard import _wait_logged_in
+
+    class B:
+        calls = 0
+
+        def cookies(self, url):
+            B.calls += 1
+            return [{"name": "c_user"}] if B.calls >= 3 else [{"name": "datr"}]
+
+    class P:
+        def wait_for_timeout(self, ms):
+            pass
+
+    assert _wait_logged_in(B(), P(), "Facebook", timeout_s=60, poll_ms=1) is True
+    B.calls = -10**9  # không bao giờ đăng nhập -> hết giờ thì trả False, không treo
+    assert _wait_logged_in(B(), P(), "Google Flow", timeout_s=0, poll_ms=1) is False

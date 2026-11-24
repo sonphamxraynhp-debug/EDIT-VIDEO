@@ -11,6 +11,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from dataclasses import dataclass
 from getpass import getpass
 from pathlib import Path
@@ -247,7 +248,35 @@ def ensure_logins(cfg, need_facebook: bool = True) -> None:  # noqa: ANN001
         with persistent_context(cfg.path(key), headless=False) as b:
             page = b.new_page()
             page.goto(url)
-            input(f"  Đăng nhập {target} xong trong cửa sổ trình duyệt rồi nhấn Enter tại đây… ")
+            # Tự nhận ra khi đã đăng nhập (không cần nhấn Enter — chạy được cả khi Claude tự điều khiển)
+            ok = _wait_logged_in(b, page, target, timeout_s=int(cfg.get_path("video.flow.manual_wait_sec", 900)))
+            print(f"  {target}: {'đã đăng nhập ✓' if ok else 'chưa thấy đăng nhập — agent vẫn chạy tiếp, sẽ chờ ở bước sau'}")
+
+
+_LOGIN_COOKIES = {
+    "Facebook": ("https://www.facebook.com", {"c_user"}),
+    "Google Flow": ("https://accounts.google.com", {"SID", "__Secure-1PSID", "__Secure-3PSID"}),
+}
+
+
+def _logged_in(b, target: str) -> bool:  # noqa: ANN001
+    url, names = _LOGIN_COOKIES[target]
+    try:
+        return any(c.get("name") in names for c in b.cookies(url))
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _wait_logged_in(b, page, target: str, timeout_s: int = 900, poll_ms: int = 2000) -> bool:  # noqa: ANN001
+    print(f"  Hãy đăng nhập {target} trong cửa sổ trình duyệt — agent tự nhận ra khi xong (tối đa {timeout_s // 60} phút).")
+    end = time.time() + timeout_s
+    while True:
+        if _logged_in(b, target):
+            page.wait_for_timeout(3000)  # để trang lưu phiên đăng nhập
+            return True
+        if time.time() >= end:
+            return False
+        page.wait_for_timeout(poll_ms)
 
 
 def run_setup(config_path: str | None = None, auto: bool = False) -> int:
