@@ -1,0 +1,96 @@
+# ===================== FLOW VIDEO AGENT — CẤU HÌNH =====================
+# Sao chép file này thành config/config.yaml rồi sửa theo nhu cầu.
+
+# Kênh mẫu cần học công thức thành công
+reference_channel: "https://www.facebook.com/profile.php?id=61594456071180"
+
+# Kênh của bạn — nơi đăng video và đo view thật
+own_channel: "https://www.facebook.com/bsphamson.cdha"
+# profile = trang cá nhân (đăng bằng trình duyệt, quyền "Chỉ mình tôi")
+# page    = fanpage (đăng bằng Graph API, published=false — chỉ quản trị viên thấy)
+own_channel_type: profile
+
+data_dir: data
+brand_file: config/brand.md
+# Skill công thức sẽ được tự sinh/tự cập nhật vào đây (Claude Code tự nhận)
+skill_dir: .claude/skills/cong-thuc-kenh-mau
+
+llm:
+  # auto        = dùng Claude Code (gói Claude Pro/Max, KHÔNG tốn tiền API) nếu máy có lệnh `claude`
+  # claude_code = luôn dùng Claude Code      ·  api = Claude API trả phí theo token (cần ANTHROPIC_API_KEY)
+  backend: auto
+  claude_code_model: ""           # để trống = mô hình mặc định của Claude Code; hoặc ghi "opus"
+  model: claude-opus-5-5          # (chỉ dùng với backend api) tạo kịch bản, phân tích, tự học
+  judge_model: claude-opus-5-5    # chấm điểm (gọi tách riêng để tránh tự chấm dễ dãi)
+  effort: high
+  refusal_fallbacks: true
+
+facebook:
+  browser_profile_dir: data/browser/facebook   # đăng nhập 1 lần bằng `flowagent login facebook`
+  headless: false
+  locale: vi-VN
+  scroll_rounds: 40              # số lần cuộn khi quét danh sách video
+  upload_privacy: only_me        # only_me = "Chỉ mình tôi"
+  graph:                         # chỉ dùng khi own_channel_type = page
+    page_id: ""
+    access_token_env: FB_PAGE_TOKEN
+    api_version: v21.0
+
+analysis:
+  max_videos: 60                 # số video tối đa phân tích ở kênh mẫu
+  download: true                 # tải video về (yt-dlp, dùng cookie đăng nhập)
+  transcribe: true               # cần cài faster-whisper
+  whisper_model: small
+  frames_per_video: 6
+
+daily:
+  num_scripts: 10                # mỗi ngày đề xuất 10 kịch bản
+  score_threshold: 95            # chỉ kịch bản > 95 điểm mới được làm video
+  max_videos: 3                  # lấy tối đa 3 kịch bản hay nhất
+  revision_rounds: 2             # số vòng sửa kịch bản chưa đạt trước khi loại (skill gốc cho tối đa 3)
+  polish_top: 3                  # nếu chưa đủ 3 bản đạt: lấy các bản gần đạt nhất…
+  polish_rounds: 2               # …và sửa thêm tối đa 2 vòng (luôn giữ bản điểm cao nhất)
+  confirm_pass: true             # bản vượt ngưỡng được chấm lại độc lập lần 2, lấy điểm thấp hơn
+  explore_ratio: 0.3             # 30% kịch bản thử hướng mới, 70% bám công thức đã thắng
+
+schedule:
+  timezone: Asia/Ho_Chi_Minh
+  track_every_hours: 2           # 2 tiếng quét view 1 lần
+  daily_time: "05:30"            # giờ chạy pipeline tạo video mỗi ngày
+  learn_time: "22:30"            # giờ chạy vòng tự học mỗi ngày
+  rescan_reference_day: sun      # quét lại kênh mẫu hàng tuần
+
+video:
+  backend: flow                  # flow = Google Flow (trình duyệt) | veo_api = Gemini API
+  aspect_ratio: "9:16"
+  width: 1080
+  height: 1920
+  burn_subtitles: true
+  font: "DejaVu Sans"            # nên cài "Be Vietnam Pro" rồi đổi tên ở đây
+  ai_disclosure: true            # thêm dòng ghi chú video có dùng AI vào caption
+  flow:
+    url: "https://flow.google.com/"   # địa chỉ mới của Google Flow (trước là labs.google/fx/tools/flow)
+    browser_profile_dir: data/browser/google
+    headless: false
+    generation_timeout_sec: 900
+    reference_assets: ["Me"]       # tên Avatar/Character của bác sĩ đã tạo sẵn trong thư viện Flow (nút + ở thanh prompt)
+    reference_dir: anh_tham_chieu  # bỏ 1–3 ảnh chân dung bác sĩ vào đây -> Flow dùng chế độ Ingredients to Video
+    # reference_images: ["D:/anh/bac-si-son.jpg"]   # hoặc chỉ định ảnh cụ thể
+    auto_reference_from_facebook: true   # thư mục trống -> tự lấy ảnh đại diện Facebook của kênh làm ảnh tham chiếu
+    manual_wait_sec: 900         # bước nào agent không tự làm được: chờ bạn thao tác tay tối đa 15 phút
+    # Bộ chọn giao diện — Flow thay đổi giao diện thường xuyên, sửa ở đây nếu cần
+    selectors:
+      new_project: ["New project", "Dự án mới"]
+      prompt_box: ["textarea", "[contenteditable='true']", "[role='textbox']"]
+      settings: ["tune", "Settings", "Cài đặt", "Tùy chọn"]   # nút cài đặt TRONG thanh prompt, không phải bánh răng tài khoản
+      video_mode: ["Text to Video", "Văn bản thành video"]          # Flow 2026 mặc định tạo ẢNH — phải chọn chế độ video
+      mode_menu: ["Text to Image", "Create Image", "Frames to Video", "Ingredients to Video"]
+      outputs_per_prompt: ["Outputs per prompt", "Số kết quả"]    # đặt = 1 để không tốn credit
+      aspect_portrait: ["9:16", "Portrait", "Dọc"]
+      generate: ["arrow_forward", "arrow_upward", "send", "Generate", "Create", "Submit", "Tạo", "Gửi"]   # chỉ tìm trong khung ô prompt
+      download: ["Download", "Tải xuống"]
+      download_quality: ["Original size", "Kích thước gốc", "720p", "1080p"]
+  veo_api:
+    model: veo-3.1-generate-preview
+    api_key_env: GEMINI_API_KEY
+    resolution: 720p

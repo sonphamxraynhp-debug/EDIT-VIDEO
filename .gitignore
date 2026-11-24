@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+data/
+config/config.yaml
+.pytest_cache/
+
+# ảnh chân dung riêng tư của bác sĩ — không đưa lên GitHub
+anh_tham_chieu/*
+!anh_tham_chieu/DOC_TOI.txt
