@@ -88,6 +88,9 @@ def test_make_video_now_picks_best_unblocked_from_latest_seed(ctx, monkeypatch, 
         return pid
 
     monkeypatch.setattr(pl, "produce", fake_produce)
+    refs = []
+    monkeypatch.setattr("flow_agent.facebook.avatar.fetch_own_avatar", lambda cfg, d: refs.append(d) or None)
+    ctx.cfg["video"]["flow"]["reference_dir"] = str(tmp_path / "anh-trong")
     monkeypatch.setattr(pl, "upload", lambda c, pid: uploaded.append(pid) or "https://www.facebook.com/reel/1")
     out = pl.make_video_now(ctx)
     row = ctx.db.one("SELECT * FROM scripts WHERE id=?", (out["script_id"],))
@@ -95,6 +98,7 @@ def test_make_video_now_picks_best_unblocked_from_latest_seed(ctx, monkeypatch, 
     best = max(sum(x["scores"].values()) for x in latest["scripts"])
     assert row["run_date"] == latest["run_date"] and row["total_score"] == best and not row["blocked"]
     assert uploaded == [out["production_id"]] and out["privacy"] == "Chỉ mình tôi"
+    assert refs == [tmp_path / "anh-trong"]   # thư mục ảnh trống -> thử lấy ảnh đại diện Facebook
     assert "dưới ngưỡng" in ctx.db.one("SELECT * FROM events WHERE kind='manual_video'")["message"]
     # lần sau lấy bản kế tiếp, không làm lại bản đã làm
     assert pl.make_video_now(ctx, do_upload=False)["script_id"] != out["script_id"]

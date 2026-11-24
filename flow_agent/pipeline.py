@@ -74,6 +74,24 @@ def write_daily_report(ctx: Ctx, day: str | None = None):
     return path
 
 
+def _ensure_reference_images(ctx: Ctx) -> None:
+    """Chưa có ảnh tham chiếu bác sĩ -> tự lấy ảnh đại diện Facebook của chủ kênh (chỉ lưu trên máy)."""
+    from .config import ROOT
+    from .producer.flow_browser import reference_images
+
+    cfg = ctx.cfg
+    if (cfg.get_path("video.backend", "flow") != "flow" or reference_images(cfg)
+            or not cfg.get_path("video.flow.auto_reference_from_facebook", True)
+            or cfg.get("own_channel_type", "profile") != "profile"):
+        return
+    from .facebook.avatar import fetch_own_avatar
+
+    folder = Path(cfg.get_path("video.flow.reference_dir", "anh_tham_chieu"))
+    path = fetch_own_avatar(cfg, folder if folder.is_absolute() else ROOT / folder)
+    ctx.db.log("reference_image", f"Ảnh tham chiếu từ ảnh đại diện Facebook: {path}" if path
+               else "Không lấy được ảnh đại diện Facebook — dùng Text to Video")
+
+
 def make_video_now(ctx: Ctx, script_id: int | None = None, do_upload: bool = True) -> dict:
     """Chủ kênh yêu cầu làm video NGAY: lấy kịch bản chỉ định (hoặc bản điểm cao nhất, không bị chặn an toàn)
     -> Google Flow -> ghép -> đăng 'Chỉ mình tôi' -> phiếu duyệt.
@@ -101,6 +119,7 @@ def make_video_now(ctx: Ctx, script_id: int | None = None, do_upload: bool = Tru
     note = "" if row["total_score"] > threshold else f" (dưới ngưỡng {threshold:g} — chủ kênh yêu cầu làm thủ công)"
     ctx.db.log("manual_video", f"Làm video từ kịch bản #{script_id} '{row['title']}' {row['total_score']:.0f} điểm{note}")
     log.info("Làm video từ kịch bản #%d '%s' — %.0f điểm%s", script_id, row["title"], row["total_score"], note)
+    _ensure_reference_images(ctx)
     pid = produce(ctx, script_id)
     prod = ctx.db.one("SELECT * FROM productions WHERE id=?", (pid,))
     out = {"script_id": script_id, "title": row["title"], "score": row["total_score"], "production_id": pid,

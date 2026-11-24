@@ -5,6 +5,7 @@ playwright>=1.48
 yt-dlp>=2025.1.1
 apscheduler>=3.10,<4
 requests>=2.31
+pillow>=10.0            # làm sạch ảnh tham chiếu bác sĩ
 # Tuỳ chọn:
 # faster-whisper>=1.0      # bóc lời thoại video kênh mẫu (khuyên dùng)
 # google-genai>=1.0        # backend Veo API (dự phòng cho Google Flow)

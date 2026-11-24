@@ -189,4 +189,7 @@ ghép video ffmpeg thật, bộ thu thập link trên trang HTML giả lập.
 Bỏ 1–3 ảnh chân dung rõ mặt của bác sĩ (nên có 1 ảnh mặc áo blouse) vào thư mục `anh_tham_chieu/` rồi chạy lại
 `LAM_VIDEO.bat`. Agent tự chuyển Google Flow sang chế độ **Ingredients to Video**, gắn ảnh vào thanh prompt cho mỗi
 cảnh và bỏ phần mô tả nhân vật tưởng tượng. Không có ảnh thì dùng **Text to Video** như cũ.
+Nếu thư mục còn trống, `make-video` **tự lấy ảnh đại diện Facebook** của kênh (đã đăng nhập), phủ viền tròn,
+cắt bỏ dải chữ và logo, lưu thành `anh_tham_chieu/0-anh-dai-dien-facebook.jpg` (tắt bằng
+`video.flow.auto_reference_from_facebook: false`).
 Ảnh trong thư mục này không bao giờ được đưa lên GitHub (.gitignore). Chỉ dùng ảnh của chính bác sĩ.

@@ -132,6 +132,7 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
 
     cfg = load_config(tmp_path / "missing.yaml")
     cfg["data_dir"] = str(tmp_path / "data")
+    cfg["video"]["flow"]["reference_dir"] = str(tmp_path / "khong-co-anh")   # không có ảnh -> Text to Video
     cfg["video"]["flow"].update({"url": f"http://127.0.0.1:{srv.server_port}/project/p1/create-tool/", "headless": True,
                                  "generation_timeout_sec": 20, "browser_profile_dir": str(tmp_path / "prof")})
     try:
@@ -206,3 +207,58 @@ def test_reference_images_from_folder(tmp_path, monkeypatch):
     assert [p.name for p in reference_images(cfg)] == ["a.PNG", "b.jpg", "c.webp"]   # tối đa 3 ảnh, bỏ file chữ
     cfg["video"]["flow"]["reference_dir"] = str(tmp_path / "khong-co")
     assert reference_images(cfg) == []
+
+
+def _noise_png(path, w=400, h=400):
+    import random
+
+    from PIL import Image
+
+    im = Image.new("RGB", (w, h))
+    im.putdata([(random.randrange(256), random.randrange(256), random.randrange(256)) for _ in range(w * h)])
+    im.save(path)
+    return path
+
+
+def test_clean_avatar_crops_face_area():
+    import io
+
+    from PIL import Image
+
+    from flow_agent.facebook.avatar import clean_avatar
+
+    buf = io.BytesIO()
+    Image.new("RGB", (300, 300), (4, 45, 97)).save(buf, "PNG")
+    out = clean_avatar(buf.getvalue())
+    assert out.width == 512 and out.height > out.width   # nửa trên ở giữa, phóng to cho Flow
+
+
+def test_fetch_own_avatar_from_profile_page(tmp_path):
+    import functools
+    import http.server
+    import threading
+
+    from flow_agent.config import load_config
+    from flow_agent.facebook.avatar import AVATAR_NAME, fetch_own_avatar
+
+    if CHROME:
+        os.environ.setdefault("FLOWAGENT_BROWSER_PATH", CHROME)
+    site = tmp_path / "site"
+    site.mkdir()
+    _noise_png(site / "avatar.png")
+    _noise_png(site / "cover.png", 900, 300)
+    (site / "profile.html").write_text(
+        '<img src="/cover.png" width="900" height="300">'
+        '<a aria-label="Ảnh đại diện của Bác sĩ"><svg width="170" height="170"><image href="/avatar.png" '
+        'width="170" height="170"/></svg></a>', encoding="utf-8")
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(site))
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    cfg = load_config(tmp_path / "missing.yaml")
+    cfg["own_channel"] = f"http://127.0.0.1:{srv.server_port}/profile.html"
+    cfg["facebook"].update({"headless": True, "browser_profile_dir": str(tmp_path / "fb")})
+    try:
+        path = fetch_own_avatar(cfg, tmp_path / "anh")
+    finally:
+        srv.shutdown()
+    assert path == tmp_path / "anh" / AVATAR_NAME and path.stat().st_size > 3000
