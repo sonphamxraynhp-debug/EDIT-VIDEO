@@ -83,7 +83,7 @@ video:
       mode_menu: ["Text to Image", "Create Image", "Frames to Video", "Ingredients to Video"]
       outputs_per_prompt: ["Outputs per prompt", "Số kết quả"]    # đặt = 1 để không tốn credit
       aspect_portrait: ["9:16", "Portrait", "Dọc"]
-      generate: ["Create", "Generate", "Tạo"]
+      generate: ["arrow_forward", "arrow_upward", "send", "Generate", "Create", "Submit", "Tạo", "Gửi"]   # chỉ tìm trong khung ô prompt
       download: ["Download", "Tải xuống"]
       download_quality: ["Original size", "Kích thước gốc", "720p", "1080p"]
   veo_api:

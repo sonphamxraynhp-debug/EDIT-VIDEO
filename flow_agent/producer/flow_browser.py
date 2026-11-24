@@ -30,6 +30,8 @@ PORTRAIT_DEFAULT = ["9:16", "Portrait", "Dọc", "Khung dọc"]
 # Từ 2026 Flow ưu tiên tạo ẢNH; phải chuyển sang chế độ tạo video từ chữ trước khi gõ prompt
 VIDEO_MODE_DEFAULT = ["Text to Video", "Văn bản thành video", "Văn bản sang video"]
 MODE_MENU_DEFAULT = ["Text to Image", "Create Image", "Văn bản thành hình ảnh", "Frames to Video", "Ingredients to Video"]
+GENERATE_DEFAULT = ["arrow_forward", "arrow_upward", "send", "Generate", "Create", "Submit", "Tạo", "Gửi"]
+_NOT_GENERATE = re.compile(r"tool|công cụ|collection|bộ sưu tập|character|nhân vật|scene|library|thư viện", re.IGNORECASE)
 OUTPUTS_DEFAULT = ["Outputs per prompt", "Số kết quả", "Số đầu ra"]
 # Flow có thêm trang "New tool" (tạo công cụ) cũng có ô nhập — không được gõ prompt video vào đó
 _TOOL_BUILDER_URL = re.compile(r"/create-tools?(?:/|$)", re.IGNORECASE)
@@ -115,6 +117,32 @@ class FlowBrowser:
         if self._on_tool_builder():
             page.goto(self.url, wait_until="domcontentloaded")
             page.wait_for_timeout(3000)
+
+    def _click_generate(self, box) -> bool:  # noqa: ANN001
+        """Bấm nút gửi NẰM CẠNH ô prompt (mũi tên/Create). Không bấm nhầm 'Create tool', 'Library +' ở thanh bên."""
+        labels = _as_list(self.sel.get("generate"), GENERATE_DEFAULT)
+        rx = re.compile("|".join(re.escape(x) for x in labels), re.IGNORECASE)
+        container = box
+        for _ in range(6):  # đi ngược lên tối đa 6 tầng tìm khung chứa nút gửi
+            container = container.locator("xpath=..")
+            buttons = container.locator("button, [role='button']")
+            try:
+                n = buttons.count()
+            except Exception:  # noqa: BLE001
+                return False
+            for i in reversed(range(n)):  # nút gửi thường nằm cuối khung prompt
+                b = buttons.nth(i)
+                try:
+                    if not (b.is_visible() and b.is_enabled()):
+                        continue
+                    name = " ".join(filter(None, [b.get_attribute("aria-label"), b.inner_text(), b.get_attribute("title")]))
+                    if rx.search(name) and not _NOT_GENERATE.search(name):
+                        b.click()
+                        log.info("Flow: đã bấm nút tạo '%s'", name.strip()[:40])
+                        return True
+                except Exception:  # noqa: BLE001
+                    continue
+        return False
 
     def _fill_prompt(self, box, prompt: str) -> None:  # noqa: ANN001
         tag = (box.evaluate("e => e.tagName") or "").lower()
@@ -208,7 +236,7 @@ class FlowBrowser:
             raise FlowError(f"Mất ô nhập prompt (ảnh lỗi: {debug_shot(page, self.debug_dir, 'flow-prompt')})")
         self._fill_prompt(box, prompt)
         page.wait_for_timeout(500)
-        if not click_any(page, _as_list(self.sel.get("generate"), ["Create", "Generate", "Tạo"]), timeout_ms=6000):
+        if not self._click_generate(box):
             box.press("Enter")
 
         new_src = self._wait_new_video(before, self.timeout)

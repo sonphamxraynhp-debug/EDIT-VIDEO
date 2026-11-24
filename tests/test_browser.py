@@ -57,6 +57,7 @@ def test_only_me_check_requires_only_me_and_no_public_button(page):
 
 
 FAKE_FLOW = """<html><body>
+<nav><a href="create-tool/" onclick="document.body.dataset.wrong='1'">Create tool</a></nav>
 <button id="np" onclick="document.getElementById('ed').style.display='block';this.remove()">New project</button>
 <div id="ed" style="display:none">
   <button onclick="document.getElementById('modes').style.display='block'">Text to Image</button>
@@ -66,8 +67,8 @@ FAKE_FLOW = """<html><body>
     <button onclick="document.getElementById('outs').style.display='block'">Outputs per prompt</button>
     <div id="outs" style="display:none" role="listbox"><div role="option" onclick="document.body.dataset.outputs='1'">1</div>
       <div role="option" onclick="document.body.dataset.outputs='2'">2</div></div></div>
-  <div id="box" contenteditable="true" role="textbox" style="width:400px;height:60px;border:1px solid"></div>
-  <button onclick="gen()">Create</button><div id="out"></div>
+  <div class="bar"><div id="box" contenteditable="true" role="textbox" style="width:400px;height:60px;border:1px solid"></div>
+  <button aria-label="Close">x</button><button onclick="gen()"><i>arrow_forward</i></button></div><div id="out"></div>
 </div>
 <script>
 let n = 0;
@@ -123,6 +124,7 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
             a = fb.generate_clip("Doctor says hello", tmp_path / "a.mp4")      # src http
             b = fb.generate_clip("Doctor waves goodbye", tmp_path / "b.mp4")   # src blob:
             assert fb.page.evaluate("document.body.dataset.prompt") == "Doctor waves goodbye"
+            assert not fb.page.evaluate("document.body.dataset.wrong")  # không bấm nhầm 'Create tool'
     finally:
         srv.shutdown()
     clip = (site / "clip.mp4").read_bytes()
