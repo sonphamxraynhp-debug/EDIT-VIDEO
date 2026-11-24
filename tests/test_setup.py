@@ -1,4 +1,8 @@
+import json
+from pathlib import Path
 from flow_agent.setup_wizard import print_checks, run_checks
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_doctor_reports_missing_items(ctx, monkeypatch, capsys):
@@ -87,7 +91,9 @@ def test_make_video_now_picks_best_unblocked_from_latest_seed(ctx, monkeypatch, 
     monkeypatch.setattr(pl, "upload", lambda c, pid: uploaded.append(pid) or "https://www.facebook.com/reel/1")
     out = pl.make_video_now(ctx)
     row = ctx.db.one("SELECT * FROM scripts WHERE id=?", (out["script_id"],))
-    assert row["run_date"] == "2026-11-22" and row["total_score"] == 87 and not row["blocked"]
+    latest = json.loads(sorted((ROOT / "seed").glob("kich-ban-*.json"))[-1].read_text(encoding="utf-8"))
+    best = max(sum(x["scores"].values()) for x in latest["scripts"])
+    assert row["run_date"] == latest["run_date"] and row["total_score"] == best and not row["blocked"]
     assert uploaded == [out["production_id"]] and out["privacy"] == "Chỉ mình tôi"
     assert "dưới ngưỡng" in ctx.db.one("SELECT * FROM events WHERE kind='manual_video'")["message"]
     # lần sau lấy bản kế tiếp, không làm lại bản đã làm
