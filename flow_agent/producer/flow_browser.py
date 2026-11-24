@@ -35,7 +35,7 @@ ASPECT_MENU_DEFAULT = ["Aspect Ratio", "Aspect ratio", "Tỉ lệ khung hình", 
 PORTRAIT_DEFAULT = ["9:16", "Portrait", "Dọc", "Khung dọc"]
 # Từ 2026 Flow ưu tiên tạo ẢNH; phải chuyển sang chế độ tạo video từ chữ trước khi gõ prompt
 VIDEO_MODE_DEFAULT = ["Text to Video", "Văn bản thành video", "Văn bản sang video"]
-MODE_MENU_DEFAULT = ["Text to Image", "Create Image", "Văn bản thành hình ảnh", "Frames to Video", "Ingredients to Video"]
+MODE_MENU_DEFAULT = ["Text to Image", "Create Image", "Image", "Hình ảnh", "Video", "Văn bản thành hình ảnh", "Frames to Video", "Ingredients to Video"]
 GENERATE_DEFAULT = ["arrow_forward", "arrow_upward", "send", "Generate", "Create", "Submit", "Tạo", "Gửi"]
 _NOT_GENERATE = re.compile(r"tool|công cụ|collection|bộ sưu tập|character|nhân vật|scene|library|thư viện|image|hình ảnh|close|đóng", re.IGNORECASE)
 OUTPUTS_DEFAULT = ["Outputs per prompt", "Số kết quả", "Số đầu ra"]
@@ -58,9 +58,45 @@ ADD_REF_DEFAULT = ["add_photo_alternate", "Add image", "Add ingredient", "Upload
 REF_CONFIRM_DEFAULT = ["Crop and save", "Save", "Done", "Cắt và lưu", "Lưu", "Xong"]
 REF_PROMPT_PREFIX = ("The doctor in this video is the real person shown in the reference image(s): keep his face, "
                      "hairstyle and build exactly the same in every shot. ")
-_IMG_BOXES_JS = """() => Array.from(document.querySelectorAll('img')).filter(i => i.offsetParent !== null)
-  .map(i => i.getBoundingClientRect()).filter(r => r.width > 8 && r.width < 260)
-  .map(r => ({x: r.x, y: r.y, width: r.width, height: r.height}))"""
+DOCTOR_FALLBACK = ("A friendly Vietnamese male doctor in his late 30s with short spiky black hair and thin rimless "
+                   "rectangular glasses, wearing a white doctor's coat over navy-blue scrubs. ")
+REF_CONFIRM_EXACT = ["Add", "Insert", "Select", "Use", "Done", "Thêm", "Chèn", "Chọn", "Dùng", "Xong"]
+CLINIC_SETTING = "Setting: a bright, modern ultrasound clinic with clean white walls and soft natural light. "
+UPLOAD_MENU_DEFAULT = ["Upload image", "Upload from computer", "Upload", "From computer", "Tải ảnh lên", "Tải lên",
+                       "Từ máy tính"]
+_BAR_IMGS_JS = """(box) => {
+  let c = box;
+  for (let i = 0; i < 6 && c.parentElement; i++) {
+    const p = c.parentElement;
+    if (p.getBoundingClientRect().height > 420) break;
+    c = p;
+  }
+  return Array.from(c.querySelectorAll('img')).filter(i => {
+    const r = i.getBoundingClientRect();
+    return i.offsetParent !== null && r.width > 8 && r.width < 260;
+  }).length;
+}"""
+_BAR_BUTTONS_JS = """(box) => {
+  let c = box;
+  for (let i = 0; i < 6 && c.parentElement; i++) {
+    const p = c.parentElement;
+    if (p.getBoundingClientRect().height > 420) break;
+    c = p;
+  }
+  return Array.from(c.querySelectorAll('button,[role=button],[role=combobox]')).filter(e => e.offsetParent !== null)
+    .map(e => (e.getAttribute('aria-label') || e.innerText || e.title || '?').replace(/\\s+/g, ' ').trim());
+}"""
+_DROP_JS = """(box, files) => {
+  const dt = new DataTransfer();
+  for (const f of files) {
+    const bin = atob(f.b64); const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    dt.items.add(new File([arr], f.name, {type: f.type}));
+  }
+  for (const type of ['dragenter', 'dragover', 'drop']) {
+    box.dispatchEvent(new DragEvent(type, {bubbles: true, cancelable: true, dataTransfer: dt}));
+  }
+}"""
 
 
 def reference_images(cfg) -> list[Path]:  # noqa: ANN001
@@ -98,8 +134,15 @@ class FlowBrowser:
         self.aspect = cfg.get_path("video.aspect_ratio", "9:16")
         self.debug_dir = debug_dir
         self.refs = reference_images(cfg)
+        assets = cfg.get_path("video.flow.reference_assets", ["Me"])
+        self.ref_assets = [assets] if isinstance(assets, str) else list(assets or [])
+        self._refs_failed = False
         self._cm = None
         self.page = None
+
+    @property
+    def use_refs(self) -> bool:
+        return bool(self.refs or self.ref_assets)
 
     # ------------------------------------------------------------------ vòng đời
     def __enter__(self) -> "FlowBrowser":
@@ -196,7 +239,11 @@ class FlowBrowser:
                 raise FlowError(f"Không thấy ô nhập prompt trên Flow (ảnh lỗi: {shot})")
         box = self._find_prompt_box(5000)
         if box is not None:
-            self._try_video_mode(box, ingredients=bool(self.refs))
+            try:  # in ra để chẩn đoán khi Flow đổi giao diện
+                log.info("Flow: các nút trong thanh prompt: %s", " | ".join(box.evaluate(_BAR_BUTTONS_JS)))
+            except Exception:  # noqa: BLE001
+                pass
+            self._try_video_mode(box, ingredients=self.use_refs)
             self._try_bar_settings(box)
         self._dump_ui("flow-ready")
 
@@ -282,54 +329,138 @@ class FlowBrowser:
                 page.wait_for_timeout(600)
                 ok_out = self._pick_option([], exact="1")
             page.keyboard.press("Escape")
-            log.info("Flow: khung dọc 9:16 %s; 1 kết quả mỗi prompt %s", "✓" if ok_aspect else "✗", "✓" if ok_out else "✗")
+            log.info("Flow: khung dọc 9:16 %s; 1 kết quả mỗi prompt %s", "OK" if ok_aspect else "KHÔNG", "OK" if ok_out else "KHÔNG")
         else:
-            log.info("Flow: không thấy nút cài đặt trong thanh prompt; khung dọc 9:16 %s", "✓" if ok_aspect else "✗")
+            log.info("Flow: không thấy nút cài đặt trong thanh prompt; khung dọc 9:16 %s", "OK" if ok_aspect else "KHÔNG")
 
     # ------------------------------------------------------------------ ảnh tham chiếu nhân vật
     def _refs_attached(self, box) -> int:  # noqa: ANN001
-        """Đếm ảnh nhỏ (thumbnail) đang gắn trong thanh prompt."""
+        """Đếm ảnh nhỏ (thumbnail) đang gắn TRONG khung thanh prompt (không tính lưới video phía trên)."""
         try:
-            bb = box.bounding_box()
-            boxes = self.page.evaluate(_IMG_BOXES_JS)
+            return int(box.evaluate(_BAR_IMGS_JS))
         except Exception:  # noqa: BLE001
             return 0
-        return sum(1 for b in boxes if bb and _near(bb, b))
 
-    def _ensure_refs(self, box) -> None:  # noqa: ANN001
+    def _open_asset_picker(self, box) -> bool:  # noqa: ANN001
+        name = self._bar_click(box, _as_list(self.sel.get("add_reference"), ADD_REF_DEFAULT), exclude=None)
+        if name:
+            log.info("Flow: đã bấm nút thêm '%s'", name[:40])
+            self.page.wait_for_timeout(1500)
+        return bool(name)
+
+    def _attach_asset(self, box) -> bool:  # noqa: ANN001
+        """Flow 2026: nút + mở thư viện tài sản (All/Images/Characters/Avatars/Uploads). Chọn avatar/nhân vật có sẵn
+        của bác sĩ (mặc định tên 'Me') — giữ mặt (và giọng nếu có) tốt hơn ảnh tải lên."""
+        page = self.page
+        if not self.ref_assets or not self._open_asset_picker(box):
+            return False
+        for asset in self.ref_assets:
+            loc = page.get_by_text(asset, exact=True)
+            try:
+                for i in range(loc.count()):
+                    el = loc.nth(i)
+                    if el.is_visible():
+                        el.click()
+                        page.wait_for_timeout(1500)
+                        for label in REF_CONFIRM_EXACT:
+                            btn = page.get_by_role("button", name=label, exact=True)
+                            if btn.count() and btn.first.is_visible():
+                                btn.first.click()
+                                page.wait_for_timeout(1000)
+                                break
+                        log.info("Flow: đã chọn tài sản '%s' trong thư viện Flow", asset)
+                        return True
+            except Exception as exc:  # noqa: BLE001
+                log.debug("Chọn tài sản %s lỗi: %s", asset, exc)
+        page.keyboard.press("Escape")
+        return False
+
+    def _attach_by_chooser(self, box, files: list[str]) -> bool:  # noqa: ANN001
+        """Bấm nút thêm ảnh trong thanh prompt; nếu nút mở menu thì bấm tiếp 'Upload…' để hiện hộp chọn file."""
+        page = self.page
+        upload = _as_list(self.sel.get("upload_menu"), UPLOAD_MENU_DEFAULT)
+        rx = re.compile("|".join(re.escape(x) for x in upload), re.IGNORECASE)
+        try:
+            with page.expect_file_chooser(timeout=10000) as fc:
+                if not self._open_asset_picker(box):
+                    raise FlowError("không thấy nút thêm ảnh trong thanh prompt")
+                tab = page.get_by_text(re.compile(r"^(Uploads|Tải lên)$", re.IGNORECASE))
+                if tab.count() and tab.first.is_visible():
+                    tab.first.click()
+                    page.wait_for_timeout(1200)
+                clicked = False
+                for role in ("button", "menuitem", "link", "option"):
+                    loc = page.get_by_role(role, name=rx)
+                    for i in range(loc.count()):
+                        el = loc.nth(i)
+                        nm = (el.get_attribute("aria-label") or el.inner_text() or "").strip()
+                        if el.is_visible() and not re.fullmatch(r"(?i)uploads|tải lên", nm):
+                            el.click()
+                            clicked = True
+                            break
+                    if clicked:
+                        break
+                if not clicked:
+                    raise FlowError("không thấy nút tải ảnh lên")
+            chooser = fc.value
+            chooser.set_files(files if chooser.is_multiple() else files[:1])
+            return True
+        except Exception as exc:  # noqa: BLE001
+            page.keyboard.press("Escape")
+            log.warning("Không gắn được ảnh qua nút thêm ảnh: %s", str(exc).splitlines()[0])
+            return False
+
+    def _attach_by_drop(self, box, files: list[str]) -> bool:  # noqa: ANN001
+        """Kéo-thả ảnh vào ô prompt (giả lập sự kiện drop với File thật)."""
+        payload = [{"name": Path(f).name, "type": "image/png" if f.lower().endswith(".png") else "image/jpeg",
+                    "b64": base64.b64encode(Path(f).read_bytes()).decode()} for f in files]
+        try:
+            box.evaluate(_DROP_JS, payload)
+            return True
+        except Exception as exc:  # noqa: BLE001
+            log.warning("Kéo-thả ảnh vào Flow lỗi: %s", exc)
+            return False
+
+    def _ensure_refs(self, box) -> bool:  # noqa: ANN001
+        """Gắn ảnh tham chiếu vào thanh prompt. Trả về True nếu ảnh đang nằm trong thanh prompt."""
         if self._refs_attached(box):
-            return
+            return True
+        if self._refs_failed:
+            return False
         page = self.page
         files = [str(p) for p in self.refs]
-        ok = False
         inputs = page.locator("input[type='file']")
+        attempts = [("tài sản có sẵn trong Flow", lambda: self._attach_asset(box))]
         try:
-            if inputs.count():
-                inp = inputs.first
-                inp.set_input_files(files if inp.get_attribute("multiple") is not None else files[:1])
-                ok = True
-        except Exception as exc:  # noqa: BLE001
-            log.warning("Gắn ảnh tham chiếu qua ô chọn file lỗi: %s", exc)
-        if not ok:
+            if files and inputs.count():
+                attempts.append(("ô chọn file", lambda: (inputs.first.set_input_files(
+                    files if inputs.first.get_attribute("multiple") is not None else files[:1]), True)[1]))
+        except Exception:  # noqa: BLE001
+            pass
+        if files:
+            attempts += [("nút thêm ảnh", lambda: self._attach_by_chooser(box, files)),
+                         ("kéo-thả", lambda: self._attach_by_drop(box, files))]
+        for how, fn in attempts:
             try:
-                with page.expect_file_chooser(timeout=6000) as fc:
-                    if not self._bar_click(box, _as_list(self.sel.get("add_reference"), ADD_REF_DEFAULT), exclude=None):
-                        raise FlowError("không thấy nút thêm ảnh")
-                chooser = fc.value
-                chooser.set_files(files if chooser.is_multiple() else files[:1])
-                ok = True
+                if not fn():
+                    continue
             except Exception as exc:  # noqa: BLE001
-                log.warning("Không tự gắn được ảnh tham chiếu: %s", exc)
-        if ok:
+                log.warning("Gắn ảnh qua %s lỗi: %s", how, str(exc).splitlines()[0])
+                continue
             page.wait_for_timeout(2500)
             click_any(page, _as_list(self.sel.get("reference_confirm"), REF_CONFIRM_DEFAULT), timeout_ms=3000)
             page.wait_for_timeout(1500)
-        n = self._refs_attached(box)
-        log.info("Flow: ảnh tham chiếu trong thanh prompt: %d", n)
-        if not n and not ok and not self.headless:
-            wait_for_user(page, "Agent chưa gắn được ảnh tham chiếu. Hãy bấm nút thêm ảnh (+) trong thanh prompt của Flow và "
-                                f"chọn ảnh trong thư mục {self.refs[0].parent} — agent sẽ tự làm tiếp.",
-                          timeout_s=self.manual_wait, done_check=lambda: self._refs_attached(box) > 0)
+            if self._refs_attached(box):
+                log.info("Flow: đã gắn %d ảnh tham chiếu (cách: %s)", self._refs_attached(box), how)
+                return True
+        if files and not self.headless and wait_for_user(
+                page, "Agent chưa tự gắn được ảnh tham chiếu. Hãy bấm nút thêm ảnh (+) trong thanh prompt của Flow và "
+                      f"chọn avatar 'Me' (hoặc ảnh trong thư mục {self.refs[0].parent}) — agent sẽ tự làm tiếp.",
+                timeout_s=self.manual_wait, done_check=lambda: self._refs_attached(box) > 0):
+            return True
+        self._refs_failed = True  # không chờ lại ở các cảnh sau: làm tiếp bằng mô tả chữ
+        log.warning("Flow: không gắn được ảnh tham chiếu — các cảnh dùng mô tả bằng chữ")
+        return False
 
     def _dump_ui(self, name: str) -> None:
         """Lưu ảnh chụp + danh sách nút đang hiện để chẩn đoán khi Flow đổi giao diện (data/debug)."""
@@ -351,9 +482,8 @@ class FlowBrowser:
         box = self._find_prompt_box(15000)
         if box is None:
             raise FlowError(f"Mất ô nhập prompt (ảnh lỗi: {debug_shot(page, self.debug_dir, 'flow-prompt')})")
-        if self.refs:
-            self._ensure_refs(box)
-            prompt = REF_PROMPT_PREFIX + prompt
+        attached = self.use_refs and self._ensure_refs(box)
+        prompt = (REF_PROMPT_PREFIX if attached else DOCTOR_FALLBACK) + CLINIC_SETTING + prompt
         self._fill_prompt(box, prompt)
         page.wait_for_timeout(500)
         if not self._click_generate(box):

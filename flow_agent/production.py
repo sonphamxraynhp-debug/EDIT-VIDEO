@@ -69,10 +69,9 @@ def produce(ctx: Ctx, script_id: int, retries: int = 2) -> int:
     aspect = ctx.cfg.get_path("video.aspect_ratio", "9:16")
     backend_name = ctx.cfg.get_path("video.backend", "flow")
     if backend_name == "flow":
-        from .producer.flow_browser import reference_images
-
-        if reference_images(ctx.cfg):  # có ảnh thật của bác sĩ -> bỏ mô tả nhân vật tưởng tượng để không mâu thuẫn
-            bible = ""
+        # FlowBrowser tự lo nhân vật: avatar 'Me'/ảnh thật của bác sĩ, hoặc mô tả đúng ngoại hình bác sĩ —
+        # bỏ mô tả nhân vật tưởng tượng trong playbook để không mâu thuẫn
+        bible = ""
     cur = ctx.db.execute("INSERT INTO productions(script_id, created_at, backend, status) VALUES (?,?,?,?)",
                          (script_id, now_iso(), backend_name, "producing"))
     pid = int(cur.lastrowid)

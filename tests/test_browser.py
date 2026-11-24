@@ -132,7 +132,8 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
 
     cfg = load_config(tmp_path / "missing.yaml")
     cfg["data_dir"] = str(tmp_path / "data")
-    cfg["video"]["flow"]["reference_dir"] = str(tmp_path / "khong-co-anh")   # không có ảnh -> Text to Video
+    cfg["video"]["flow"]["reference_dir"] = str(tmp_path / "khong-co-anh")   # không có ảnh/avatar -> Text to Video
+    cfg["video"]["flow"]["reference_assets"] = []
     cfg["video"]["flow"].update({"url": f"http://127.0.0.1:{srv.server_port}/project/p1/create-tool/", "headless": True,
                                  "generation_timeout_sec": 20, "browser_profile_dir": str(tmp_path / "prof")})
     try:
@@ -143,7 +144,8 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
             assert fb.page.evaluate("document.body.dataset.outputs") == "1"      # 1 clip mỗi prompt
             a = fb.generate_clip("Doctor says hello", tmp_path / "a.mp4")      # src http
             b = fb.generate_clip("Doctor waves goodbye", tmp_path / "b.mp4")   # src blob:
-            assert fb.page.evaluate("document.body.dataset.prompt") == "Doctor waves goodbye"
+            sent = fb.page.evaluate("document.body.dataset.prompt")
+            assert sent.endswith("Doctor waves goodbye") and "rimless" in sent   # mô tả đúng ngoại hình bác sĩ
             assert not fb.page.evaluate("document.body.dataset.wrong")  # không bấm nhầm 'Create tool' hay bánh răng tài khoản
         assert (tmp_path / "debug" / "flow-ready-buttons.txt").exists()   # có file chẩn đoán giao diện
     finally:
@@ -180,7 +182,7 @@ def test_flow_browser_uses_reference_images(tmp_path):
     cfg["data_dir"] = str(tmp_path / "data")
     cfg["video"]["flow"].update({"url": f"http://127.0.0.1:{srv.server_port}/flow.html", "headless": True,
                                  "generation_timeout_sec": 20, "browser_profile_dir": str(tmp_path / "prof"),
-                                 "reference_images": [str(ref)]})
+                                 "reference_images": [str(ref)], "reference_assets": []})
     try:
         with FlowBrowser(cfg, tmp_path / "debug") as fb:
             assert fb.refs == [ref]
@@ -262,3 +264,63 @@ def test_fetch_own_avatar_from_profile_page(tmp_path):
     finally:
         srv.shutdown()
     assert path == tmp_path / "anh" / AVATAR_NAME and path.stat().st_size > 3000
+
+
+def test_reference_image_drop_fallback_and_no_repeat_wait(tmp_path):
+    """Không có ô chọn file/nút thêm ảnh: agent kéo-thả ảnh vào ô prompt. Thất bại hẳn thì không chờ lại ở cảnh sau."""
+    from playwright.sync_api import sync_playwright
+
+    from flow_agent.config import load_config
+    from flow_agent.producer.flow_browser import DOCTOR_FALLBACK, FlowBrowser
+
+    ref = _noise_png(tmp_path / "bs.png", 60, 60)
+    cfg = load_config(tmp_path / "missing.yaml")
+    cfg["video"]["flow"].update({"reference_images": [str(ref)], "headless": True, "reference_assets": []})
+    fb = FlowBrowser(cfg, tmp_path / "debug")
+    page_html = """<div style="height:300px"></div><div id="bar">
+      <textarea id="box"></textarea><span id="th"></span><button>arrow_forward</button></div>
+      <script>document.getElementById('bar').addEventListener('drop', e => { e.preventDefault();
+        for (const f of e.dataTransfer.files) { const im = document.createElement('img');
+          im.width = 40; im.height = 40; im.src = URL.createObjectURL(f); document.getElementById('th').appendChild(im); }
+        document.body.dataset.dropped = e.dataTransfer.files[0].name; });</script>"""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
+        fb.page = browser.new_page()
+        fb.page.set_content(page_html)
+        box = fb._find_prompt_box(2000)
+        assert fb._ensure_refs(box) is True
+        assert fb.page.evaluate("document.body.dataset.dropped") == "bs.png"
+        fb.page.set_content("<textarea></textarea><button>arrow_forward</button>")   # Flow không nhận ảnh
+        box = fb._find_prompt_box(2000)
+        assert fb._ensure_refs(box) is False and fb._refs_failed
+        assert fb._ensure_refs(box) is False   # lần sau trả về ngay, không thử/chờ lại
+        browser.close()
+    assert "glasses" in DOCTOR_FALLBACK
+
+
+def test_picks_existing_flow_avatar_me(tmp_path):
+    """Flow 2026: nút + trong thanh prompt mở thư viện tài sản; agent chọn avatar 'Me' có sẵn của bác sĩ."""
+    from playwright.sync_api import sync_playwright
+
+    from flow_agent.config import load_config
+    from flow_agent.producer.flow_browser import FlowBrowser
+
+    cfg = load_config(tmp_path / "missing.yaml")
+    cfg["video"]["flow"].update({"reference_dir": str(tmp_path / "trong"), "headless": True})
+    fb = FlowBrowser(cfg, tmp_path / "debug")
+    assert fb.refs == [] and fb.ref_assets == ["Me"] and fb.use_refs
+    html = """<div style="height:300px"><div id="panel" style="display:none">
+        <div>Uploads</div><div>Avatars</div>
+        <div onclick="const im=document.createElement('img');im.width=36;im.height=36;
+          document.getElementById('th').appendChild(im);document.getElementById('panel').style.display='none'">
+          <span>Me</span><span>Avatar</span></div></div></div>
+      <div id="bar"><textarea></textarea><span id="th"></span>
+        <button onclick="document.getElementById('panel').style.display='block'"><i>add</i></button>
+        <button>arrow_forward</button></div>"""
+    with sync_playwright() as p:
+        browser = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
+        fb.page = browser.new_page()
+        fb.page.set_content(html)
+        box = fb._find_prompt_box(2000)
+        assert fb._ensure_refs(box) is True and fb._refs_attached(box) == 1
+        browser.close()

@@ -73,6 +73,7 @@ video:
     browser_profile_dir: data/browser/google
     headless: false
     generation_timeout_sec: 900
+    reference_assets: ["Me"]       # tên Avatar/Character của bác sĩ đã tạo sẵn trong thư viện Flow (nút + ở thanh prompt)
     reference_dir: anh_tham_chieu  # bỏ 1–3 ảnh chân dung bác sĩ vào đây -> Flow dùng chế độ Ingredients to Video
     # reference_images: ["D:/anh/bac-si-son.jpg"]   # hoặc chỉ định ảnh cụ thể
     auto_reference_from_facebook: true   # thư mục trống -> tự lấy ảnh đại diện Facebook của kênh làm ảnh tham chiếu

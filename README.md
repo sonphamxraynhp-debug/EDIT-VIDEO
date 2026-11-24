@@ -186,6 +186,11 @@ ghép video ffmpeg thật, bộ thu thập link trên trang HTML giả lập.
 
 ## Dùng ảnh thật của bác sĩ làm nhân vật (ảnh tham chiếu)
 
+**Ưu tiên 1 — Avatar có sẵn trong Flow:** nếu thư viện Flow (nút + ở thanh prompt → Avatars/Characters) có
+tài sản tên **Me** (đổi trong `video.flow.reference_assets`), agent tự chọn nó cho mỗi cảnh.
+
+**Ưu tiên 2 — ảnh trên máy:**
+
 Bỏ 1–3 ảnh chân dung rõ mặt của bác sĩ (nên có 1 ảnh mặc áo blouse) vào thư mục `anh_tham_chieu/` rồi chạy lại
 `LAM_VIDEO.bat`. Agent tự chuyển Google Flow sang chế độ **Ingredients to Video**, gắn ảnh vào thanh prompt cho mỗi
 cảnh và bỏ phần mô tả nhân vật tưởng tượng. Không có ảnh thì dùng **Text to Video** như cũ.
