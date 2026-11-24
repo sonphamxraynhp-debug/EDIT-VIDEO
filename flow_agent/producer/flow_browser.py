@@ -1,4 +1,4 @@
-"""Tạo clip trên Google Flow (labs.google/fx/tools/flow) bằng trình duyệt đã đăng nhập tài khoản Google.
+"""Tạo clip trên Google Flow (flow.google.com, trước là labs.google/fx/tools/flow) bằng trình duyệt đã đăng nhập tài khoản Google.
 
 Google Flow không có API công khai nên agent điều khiển giao diện web. Giao diện có thể thay đổi:
 mọi nhãn nút đều chỉnh được trong config (video.flow.selectors). Ở chế độ có giao diện (mặc định), bước nào
@@ -8,8 +8,10 @@ from __future__ import annotations
 
 import base64
 import logging
+import re
 import time
 from pathlib import Path
+from urllib.parse import urlparse, urlunparse
 
 from ..browser import click_any, debug_shot, persistent_context, wait_for_user
 
@@ -25,6 +27,9 @@ _BLOB_JS = """async (src) => {
 PROMPT_BOX_DEFAULT = ["textarea", "[contenteditable='true']", "[role='textbox']", "input[type='text']"]
 SETTINGS_DEFAULT = ["Settings", "Cài đặt", "Tùy chọn", "Options", "tune"]
 PORTRAIT_DEFAULT = ["9:16", "Portrait", "Dọc", "Khung dọc"]
+# Flow có thêm trang "New tool" (tạo công cụ) cũng có ô nhập — không được gõ prompt video vào đó
+_TOOL_BUILDER_URL = re.compile(r"/create-tools?(?:/|$)", re.IGNORECASE)
+_TOOL_BUILDER_HINT = re.compile(r"\b(app|tool|công cụ|ứng dụng)\b", re.IGNORECASE)
 
 
 class FlowError(RuntimeError):
@@ -72,13 +77,40 @@ class FlowBrowser:
                 try:
                     for i in range(loc.count()):
                         el = loc.nth(i)
-                        if el.is_visible() and el.is_editable():
+                        if el.is_visible() and el.is_editable() and not self._is_tool_box(el):
                             return el
                 except Exception:  # noqa: BLE001
                     continue
             if time.time() >= deadline:
                 return None
             self.page.wait_for_timeout(500)
+
+    def _on_tool_builder(self) -> bool:
+        path = urlparse(self.page.url).path
+        return bool(_TOOL_BUILDER_URL.search(path))
+
+    def _is_tool_box(self, el) -> bool:  # noqa: ANN001
+        if self._on_tool_builder():
+            return True
+        try:
+            hint = " ".join(filter(None, [el.get_attribute("placeholder"), el.get_attribute("aria-label")]))
+        except Exception:  # noqa: BLE001
+            return False
+        return bool(_TOOL_BUILDER_HINT.search(hint))
+
+    def _leave_tool_builder(self) -> None:
+        """Lỡ vào trang 'New tool' (…/create-tool) thì quay về trang dự án/trang chủ Flow."""
+        page = self.page
+        if not self._on_tool_builder():
+            return
+        u = urlparse(page.url)
+        target = urlunparse(u._replace(path=_TOOL_BUILDER_URL.split(u.path)[0], query="", fragment=""))
+        log.info("Flow: đang ở trang tạo công cụ, chuyển về %s", target)
+        page.goto(target or self.url, wait_until="domcontentloaded")
+        page.wait_for_timeout(3000)
+        if self._on_tool_builder():
+            page.goto(self.url, wait_until="domcontentloaded")
+            page.wait_for_timeout(3000)
 
     def _fill_prompt(self, box, prompt: str) -> None:  # noqa: ANN001
         tag = (box.evaluate("e => e.tagName") or "").lower()
@@ -98,14 +130,15 @@ class FlowBrowser:
             if self.headless:
                 raise FlowError("Chưa đăng nhập Google. Chạy `python -m flow_agent login flow` trước.")
             wait_for_user(page, "Hãy đăng nhập tài khoản Google (có gói dùng Flow) trong cửa sổ trình duyệt.",
-                          timeout_s=self.manual_wait, done_check=lambda: "labs.google" in page.url)
+                          timeout_s=self.manual_wait, done_check=lambda: "accounts.google.com" not in page.url)
+        self._leave_tool_builder()
         if not self._find_prompt_box():
             click_any(page, _as_list(self.sel.get("new_project"), ["New project", "Dự án mới"]), timeout_ms=10000)
         if not self._find_prompt_box(30000):
             shot = debug_shot(page, self.debug_dir, "flow-open")
             if self.headless or not wait_for_user(
-                    page, "Agent chưa thấy ô nhập prompt. Hãy tự mở một dự án mới trên Flow (bấm 'New project') "
-                          "để hiện ô nhập prompt — agent sẽ tự làm tiếp.",
+                    page, "Agent chưa thấy ô nhập prompt làm video. Hãy tự mở một dự án mới trên Flow (bấm 'New project' "
+                          "hoặc dấu +), vào phần tạo VIDEO (không phải 'New tool') — agent sẽ tự làm tiếp.",
                     timeout_s=self.manual_wait, done_check=lambda: self._find_prompt_box() is not None):
                 raise FlowError(f"Không thấy ô nhập prompt trên Flow (ảnh lỗi: {shot})")
         self._try_portrait()

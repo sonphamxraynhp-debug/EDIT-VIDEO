@@ -91,6 +91,11 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
     site = tmp_path / "site"
     site.mkdir()
     (site / "flow.html").write_text(FAKE_FLOW, encoding="utf-8")
+    # Flow thật (flow.google.com) có trang "New tool" cũng có ô nhập: agent phải rời trang đó, không gõ vào
+    (site / "project" / "p1" / "create-tool").mkdir(parents=True)
+    (site / "project" / "p1" / "index.html").write_text(FAKE_FLOW, encoding="utf-8")
+    (site / "project" / "p1" / "create-tool" / "index.html").write_text(
+        '<textarea placeholder="Build a retro pixel effect app with a large upload drop zone"></textarea>', encoding="utf-8")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "testsrc=size=320x180:rate=24:duration=1",
                     "-pix_fmt", "yuv420p", str(site / "clip.mp4")], check=True)
     handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(site))
@@ -102,10 +107,11 @@ def test_flow_browser_end_to_end_on_fake_flow(tmp_path):
 
     cfg = load_config(tmp_path / "missing.yaml")
     cfg["data_dir"] = str(tmp_path / "data")
-    cfg["video"]["flow"].update({"url": f"http://127.0.0.1:{srv.server_port}/flow.html", "headless": True,
+    cfg["video"]["flow"].update({"url": f"http://127.0.0.1:{srv.server_port}/project/p1/create-tool/", "headless": True,
                                  "generation_timeout_sec": 20, "browser_profile_dir": str(tmp_path / "prof")})
     try:
         with FlowBrowser(cfg, tmp_path / "debug") as fb:
+            assert fb.page.url.rstrip("/").endswith("/project/p1")  # đã rời trang "New tool"
             assert fb.page.evaluate("document.body.dataset.aspect") == "9:16"
             a = fb.generate_clip("Doctor says hello", tmp_path / "a.mp4")      # src http
             b = fb.generate_clip("Doctor waves goodbye", tmp_path / "b.mp4")   # src blob:

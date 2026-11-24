@@ -69,7 +69,7 @@ video:
   font: "DejaVu Sans"            # nên cài "Be Vietnam Pro" rồi đổi tên ở đây
   ai_disclosure: true            # thêm dòng ghi chú video có dùng AI vào caption
   flow:
-    url: "https://labs.google/fx/tools/flow"
+    url: "https://flow.google.com/"   # địa chỉ mới của Google Flow (trước là labs.google/fx/tools/flow)
     browser_profile_dir: data/browser/google
     headless: false
     generation_timeout_sec: 900
